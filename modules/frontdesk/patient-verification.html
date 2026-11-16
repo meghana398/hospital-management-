@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patient verification · Frontdesk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#f4f6fa]">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-14 px-4 sm:px-5 py-2">
+
+      <a href="patient-verification.html" class="flex items-center gap-3">
+        <span class="w-10 h-10 grid place-items-center rounded-lg bg-brand text-white" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+        </span>
+        <span class="leading-tight">
+          <span class="block text-[13px] font-semibold text-ink">[Hospital name]</span>
+          <span class="block text-xs text-subtle">[Branch, City]</span>
+        </span>
+      </a>
+
+      <nav aria-label="Frontdesk" class="flex flex-wrap items-center gap-2">
+        <a href="surgery-desk.html"
+           class="inline-flex items-center gap-2 h-7 pl-3 pr-1 rounded-full border border-[#9fc0dc] bg-white text-xs font-medium text-brand hover:bg-brand-soft">
+          Surgery desk
+          <span class="min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-brand-soft text-[11px] font-semibold">1</span>
+        </a>
+
+        <span class="inline-flex items-center h-7 px-3 rounded-full border border-[#f3c9a4] bg-[#fdf1e6] text-xs font-medium text-[#c45a17]">
+          Session expires in 18:20
+        </span>
+
+        <a href="#" aria-label="Notifications, 3 unread"
+           class="relative w-8 h-8 grid place-items-center rounded-md border border-line bg-white text-ink hover:bg-page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1.5 -right-1.5 min-w-4 h-4 px-1 grid place-items-center rounded-full bg-[#e5484d] text-[10px] font-semibold text-white">3</span>
+        </a>
+
+        <a href="opd-desk.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="7" r="3"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/>
+            <circle cx="17" cy="9" r="2.5"/><path d="M17 14a4 4 0 0 1 4 4v1"/>
+          </svg>
+          OPD desk
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          End session
+        </a>
+
+        <a href="my-profile.html" aria-label="My profile"
+           class="w-8 h-8 grid place-items-center rounded-full bg-[#d6efe3] text-xs font-semibold text-[#2c6e52] hover:ring-2 hover:ring-[#b2d5c8]">RS</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== Main ==================== -->
+  <main class="flex-1 w-full max-w-[1024px] mx-auto px-4 sm:px-6 pt-6 pb-8">
+
+    <div class="grid grid-cols-1 lg:grid-cols-[5fr_7fr] bg-white rounded-lg overflow-hidden
+                shadow-[0_8px_24px_rgba(30,60,90,0.08),0_0_0_1px_rgba(20,40,60,0.04)]">
+
+      <!-- Left: photo panel -->
+      <aside aria-label="About patient identification"
+             class="verify-hero-bg flex flex-col justify-between gap-10 p-6 sm:p-7 lg:min-h-[585px] text-white">
+
+        <div class="flex items-center justify-between gap-3">
+          <span class="inline-flex items-center gap-1.5 h-[22px] px-2.5 rounded-full bg-black/25 border border-white/15 text-[11px] font-medium">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#5fd39a]" aria-hidden="true"></span>
+            EHR Triage Gateway v4.2
+          </span>
+          <span class="text-[11px] tracking-wide text-[#9cc3e6]">PORTAL ID: 9942-REG</span>
+        </div>
+
+        <div>
+          <span class="block w-10 h-[3px] rounded-full bg-[#7ee0b0]" aria-hidden="true"></span>
+          <h2 class="mt-4 text-[13px] font-semibold">High-Acuity Patient Identification</h2>
+          <p class="mt-3 text-[15px] leading-6 text-white/80">
+            Fast, secure records retrieval across hospital networks and ABDM registries.
+            Synchronized for OPD, ER, and diagnostic admissions.
+          </p>
+
+          <div class="mt-5 flex items-center gap-3 p-3 rounded-md bg-white/10 border border-white/15">
+            <svg class="flex-none text-[#7ee0b0]" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>
+            </svg>
+            <div class="flex-1 leading-tight">
+              <p class="text-[15px] font-medium">ABHA / NDHM Verified</p>
+              <p class="mt-0.5 text-[13px] text-white/75">UIDAI OTP Authentication</p>
+            </div>
+            <span class="px-1.5 py-0.5 rounded bg-white/15 text-[10px] font-semibold tracking-wider text-white/80">ONLINE</span>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-[14px] text-[#9cc3e6]">
+          <span class="inline-flex items-center gap-1.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+            </svg>
+            256-Bit Cryptographic Tunnel
+          </span>
+          <span>NABH Certified</span>
+        </div>
+      </aside>
+
+      <!-- Right: verification form -->
+      <section aria-labelledby="verify-title" class="px-5 py-7 sm:px-10 sm:pt-10 sm:pb-9">
+
+        <h1 id="verify-title" class="flex items-center gap-2 text-sm font-semibold tracking-[0.06em] text-brand">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="6" width="18" height="14" rx="2"/><path d="M9 6V4h6v2"/><circle cx="9" cy="13" r="2"/><path d="M14 12h4M14 15h3"/>
+          </svg>
+          PATIENT VERIFICATION
+        </h1>
+        <h2 class="mt-2 text-sm font-medium text-ink">Find patient record</h2>
+        <p class="mt-1 text-[15px] leading-6 text-body">
+          Enter the Aadhaar number or UHID. An OTP goes to the mobile number on the record.
+        </p>
+
+        <!-- Not-found message -->
+        <div role="alert" class="mt-5 flex items-start gap-2 px-3 py-2.5 rounded-md bg-[#fde3e4] border border-[#f6c4c6] text-[13px] leading-5 text-[#c4262e]">
+          <svg class="flex-none mt-0.5" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 5a1 1 0 0 1 1 1v5a1 1 0 0 1-2 0V8a1 1 0 0 1 1-1zm0 9.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+          </svg>
+          No patient found with this Aadhaar number. Register as a new patient below, or search again.
+        </div>
+
+        <!-- Search by -->
+        <fieldset class="mt-6">
+          <div class="flex items-center justify-between">
+            <legend class="text-[15px] text-ink">Search by</legend>
+            <a href="#" class="link-brand inline-flex items-center gap-1 text-sm">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>
+              </svg>
+              What is UHID?
+            </a>
+          </div>
+
+          <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <label class="flex items-start gap-3 p-3 rounded-md cursor-pointer has-[:checked]:bg-brand-soft hover:bg-brand-soft/60">
+              <input type="radio" name="searchBy" value="aadhaar" checked class="mt-1 w-4 h-4 accent-brand">
+              <span class="leading-tight">
+                <span class="block text-[13px] font-medium text-ink">Aadhaar number</span>
+                <span class="block mt-1 text-sm text-subtle">12-digit national ID</span>
+              </span>
+            </label>
+            <label class="flex items-start gap-3 p-3 rounded-md cursor-pointer has-[:checked]:bg-brand-soft hover:bg-brand-soft/60">
+              <input type="radio" name="searchBy" value="uhid" class="mt-1 w-4 h-4 accent-brand">
+              <span class="leading-tight">
+                <span class="block text-[13px] font-medium text-ink">UHID</span>
+                <span class="block mt-1 text-sm text-subtle">Hospital MRN identifier</span>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- ID number -->
+        <div class="mt-6">
+          <div class="flex items-center justify-between">
+            <label for="patient-id" class="text-[15px] text-ink">Aadhaar Number</label>
+            <span class="inline-flex items-center gap-1 text-sm text-subtle">
+              <svg class="text-[#2f9e6b]" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/>
+              </svg>
+              Linked Mobile SMS
+            </span>
+          </div>
+
+          <div class="mt-2 flex items-center gap-3 h-[42px] pl-3 pr-1.5 rounded-md bg-brand-soft
+                      focus-within:ring-2 focus-within:ring-brand/30">
+            <svg class="flex-none text-subtle" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/>
+            </svg>
+            <input id="patient-id" name="patientId" type="text" inputmode="numeric" value="XXXX XXXX 4821"
+                   class="flex-1 min-w-0 bg-transparent text-[15px] tracking-[0.12em] text-ink placeholder:text-placeholder focus:outline-none">
+            <button type="button" id="clear-patient-id"
+                    class="h-[30px] px-3 rounded bg-brand-muted text-xs font-semibold tracking-[0.12em] text-subtle hover:text-ink">
+              CLEAR
+            </button>
+          </div>
+
+          <p class="mt-2 text-sm text-body">A 6-digit one-time password will be dispatched to the Aadhaar-linked phone.</p>
+        </div>
+
+        <!-- Actions -->
+        <div class="mt-7 flex flex-col sm:flex-row gap-2">
+          <a href="verify-otp.html" class="btn-brand sm:flex-1">
+            Send OTP
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a href="patient-registration.html" class="btn-brand-soft">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="8" r="4"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><path d="M19 8v6M16 11h6"/>
+            </svg>
+            New Patient
+          </a>
+        </div>
+
+        <div class="mt-7 flex flex-wrap items-center justify-between gap-3 text-sm">
+          <p class="text-body">
+            <span class="inline-block w-1.5 h-1.5 mr-1.5 mb-0.5 rounded-full bg-[#2f9e6b] align-middle" aria-hidden="true"></span>
+            Need offline override?
+            <a href="#" class="link-brand">Manual Admission Slip</a>
+          </p>
+          <a href="#" class="inline-flex items-center gap-1.5 text-body hover:underline">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <rect x="4" y="4" width="16" height="16" rx="2"/><path d="M10 9.5a2 2 0 1 1 2.5 1.9c-.3.1-.5.4-.5.7V13M12 16h.01"/>
+            </svg>
+            Triage FAQ
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <!-- Page footer -->
+    <footer class="mt-6 text-sm text-subtle">
+      <p>Clinical Record Management System • Secure Node ID #BLR-402 • HIPAA &amp; DISHA Guideline Compliant</p>
+      <nav aria-label="Footer" class="mt-2 flex flex-wrap gap-x-5 gap-y-1">
+        <a href="#" class="hover:underline">Terms of Medical Care</a>
+        <a href="#" class="hover:underline">Emergency Protocol</a>
+        <a href="#" class="hover:underline">Staff Directory</a>
+      </nav>
+    </footer>
+  </main>
+
+  <script src="../../js/modules/frontdesk.js"></script>
+</body>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dispense and bill · Pharmacy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#f7f9fb]">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-[72px] px-4 sm:px-7 py-3">
+
+      <a href="pharmacy-dashboard.html" class="flex items-center gap-3">
+        <span class="w-10 h-10 grid place-items-center rounded-lg bg-[#2a7a66] text-white" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+        </span>
+        <span class="leading-tight">
+          <span class="block text-[15px] font-semibold text-ink">[Hospital name]</span>
+          <span class="block text-[13px] text-subtle">Main pharmacy</span>
+        </span>
+      </a>
+
+      <div class="flex items-center gap-4 sm:gap-5">
+        <a href="notifications.html" aria-label="Notifications, 4 unread" class="relative w-8 h-8 grid place-items-center text-ink hover:text-accent">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">4</span>
+        </a>
+
+        <span class="hidden sm:block w-px h-8 bg-line" aria-hidden="true"></span>
+
+        <a href="my-profile.html" class="flex items-center gap-2.5">
+          <span class="sr-only">My profile:</span>
+          <span class="w-8 h-8 grid place-items-center rounded-full bg-[#d6efe3] text-xs font-semibold text-accent" aria-hidden="true">AV</span>
+          <span class="hidden sm:block leading-tight">
+            <span class="block text-sm font-semibold text-ink">Anil Verma</span>
+            <span class="block text-xs text-subtle">Pharmacist in charge</span>
+          </span>
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          Sign out
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex-1 flex flex-col lg:flex-row">
+
+    <!-- ==================== Sidebar ==================== -->
+    <aside class="lg:flex-none lg:w-[270px] flex flex-col bg-white border-b lg:border-b-0 lg:border-r border-line px-3 lg:px-4 py-3 lg:py-5">
+      <nav aria-label="Pharmacy" class="flex lg:flex-col gap-1 overflow-x-auto text-[15px]">
+        <a href="pharmacy-dashboard.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="prescriptions.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>
+          </svg>
+          Prescriptions
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-white text-[11px] font-semibold">3</span>
+        </a>
+        <a href="dispense-bill.html" aria-current="page"
+           class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg bg-accent-soft font-semibold text-accent whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10.5 20.5a5 5 0 0 1-7-7l7-7a5 5 0 0 1 7 7z"/><path d="M8.5 8.5l7 7"/>
+          </svg>
+          Dispense and bill
+        </a>
+        <a href="diagnostics-requests.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/>
+          </svg>
+          Diagnostics requests
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-white text-[11px] font-semibold">1</span>
+        </a>
+        <a href="inventory.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>
+          </svg>
+          Inventory
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fde3e1] text-[#b42318] text-[11px] font-semibold">7</span>
+        </a>
+        <a href="stock-in-out.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 20V4M3 8l4-4 4 4M17 4v16M13 16l4 4 4-4"/>
+          </svg>
+          Stock in and out
+        </a>
+        <a href="purchase-requests.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 12h11.5l2-8H6"/>
+          </svg>
+          Purchase requests
+        </a>
+        <a href="bills-collections.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/>
+          </svg>
+          Bills and collections
+        </a>
+        <a href="accounts.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/>
+          </svg>
+          Accounts
+        </a>
+      </nav>
+
+      <div class="hidden lg:block mt-auto pt-10">
+        <div class="p-4 rounded-xl border border-[#cfe8dc] bg-[#eef7f2]">
+          <p class="text-sm font-semibold text-accent">Main pharmacy</p>
+          <p class="mt-0.5 text-[13px] text-subtle">Ground floor, Block A · open 24 hours</p>
+          <p class="mt-3 text-sm font-semibold text-accent">Counters</p>
+          <p class="mt-0.5 text-[13px] text-subtle">1 · OPD prescriptions</p>
+          <p class="text-[13px] text-subtle">2 · Bills and returns</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== Main ==================== -->
+    <main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-9 pt-8 pb-14">
+
+      <h1 class="text-2xl font-bold text-ink">Dispense and bill</h1>
+      <p class="mt-1 text-[15px] text-subtle">Find the patient from the prescriptions the front desk sent, add the medicines to the cart and check out.</p>
+      <a href="prescriptions.html" class="inline-flex items-center gap-2 mt-3 text-[15px] font-medium text-accent hover:underline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        Back to prescriptions
+      </a>
+
+      <!-- Find patient -->
+      <section aria-label="Find patient" class="mt-5 p-5 sm:p-6 rounded-xl border border-[#e3eaef] bg-white">
+        <label for="patient-search" class="block text-[15px] text-ink">Find patient <span class="text-placeholder">· from the list sent by the front desk</span></label>
+        <div class="relative mt-3">
+          <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 text-placeholder pointer-events-none" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+          </svg>
+          <input id="patient-search" type="search" placeholder="Type patient name, UHID or prescription ID" class="form-input h-11 pl-10">
+        </div>
+      </section>
+
+      <!-- Patient -->
+      <section aria-labelledby="patient-name" class="mt-5 p-5 sm:p-6 rounded-xl border border-[#e3eaef] bg-white">
+        <div class="flex flex-wrap items-center justify-between gap-x-8 gap-y-4 pb-5 border-b border-[#edf1f4]">
+          <div class="flex items-center gap-4">
+            <span class="flex-none w-14 h-14 grid place-items-center rounded-full bg-[#d5ecef] text-lg font-semibold text-[#1f5f73]" aria-hidden="true">MI</span>
+            <div>
+              <p id="patient-name" class="text-lg font-semibold text-ink">Mohammed Irfan</p>
+              <p class="text-sm text-subtle">UHID HSP1.0000120318</p>
+            </div>
+          </div>
+          <dl class="flex flex-wrap gap-x-8 gap-y-2 text-[15px]">
+            <div class="flex items-baseline gap-2"><dt class="text-subtle">Age / gender</dt><dd class="font-semibold text-ink">61 y · Male</dd></div>
+            <div class="flex items-baseline gap-2"><dt class="text-subtle">Mobile</dt><dd class="font-semibold text-ink">******7745</dd></div>
+            <div class="flex items-baseline gap-2"><dt class="text-subtle">Payer</dt><dd class="font-semibold text-ink">Self-pay</dd></div>
+            <div class="flex items-baseline gap-2"><dt class="text-subtle">OP</dt><dd class="font-semibold text-ink">VIS-26-0929</dd></div>
+          </dl>
+        </div>
+        <div class="flex flex-wrap items-center justify-between gap-4 pt-4">
+          <dl class="flex flex-wrap gap-x-8 gap-y-2 text-[15px]">
+            <div class="flex items-baseline gap-2"><dt class="text-subtle">Prescription</dt><dd class="font-semibold text-ink"><span class="font-mono text-[13px] font-medium">RX-26-07815</span></dd></div>
+            <div class="flex items-baseline gap-2"><dt class="text-subtle">Doctor</dt><dd class="font-semibold text-ink">Dr Farah Khan</dd></div>
+            <div class="flex items-baseline gap-2"><dt class="text-subtle">Sent by front desk</dt><dd class="font-semibold text-ink">Today, 10:06 AM</dd></div>
+          </dl>
+          <button type="button" data-toggle-prescription aria-expanded="false" aria-controls="dispense-work"
+                  class="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-md border border-accent bg-accent text-[15px] font-semibold text-white hover:bg-accent-hover
+                         aria-expanded:border-line aria-expanded:bg-white aria-expanded:text-ink aria-expanded:hover:bg-page">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>
+            </svg>
+            <span data-toggle-label>View prescription</span>
+          </button>
+        </div>
+      </section>
+
+      <p class="flex items-center gap-3 mt-5 px-5 py-4 rounded-xl border border-[#cfe8dc] bg-[#eef7f2] text-[15px] text-accent">
+        <svg class="flex-none" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3L2 21h20z"/><path d="M12 10v5M12 18h.01"/>
+        </svg>
+        No known allergies recorded in the OP.
+      </p>
+
+      <!-- ========== Shown after "View prescription" ========== -->
+      <div id="dispense-work" hidden>
+
+        <ol aria-label="Progress" class="mt-6 flex flex-wrap gap-2">
+          <li class="inline-flex items-center gap-1.5 h-9 px-4 rounded-full bg-accent-soft text-[15px] font-semibold text-accent"><span aria-hidden="true">✓</span> View prescription</li>
+          <li class="inline-flex items-center gap-1.5 h-9 px-4 rounded-full bg-accent-soft text-[15px] font-semibold text-accent"><span aria-hidden="true">✓</span> Search and add to cart</li>
+          <li aria-current="step" class="inline-flex items-center h-9 px-4 rounded-full bg-accent text-[15px] font-semibold text-white">3. Check out</li>
+          <li class="inline-flex items-center h-9 px-4 rounded-full bg-slate-100 text-[15px] text-subtle">4. Hand over</li>
+        </ol>
+
+        <div class="mt-5 grid grid-cols-1 xl:grid-cols-[3fr_2fr] gap-6 items-start">
+
+          <div class="space-y-6 min-w-0">
+
+            <!-- Prescription -->
+            <section aria-labelledby="presc-title" class="p-5 sm:p-6 rounded-xl border-2 border-[#4a7fa0] bg-white">
+              <h2 id="presc-title" class="text-lg font-semibold text-ink">Prescription RX-26-07815 · Dr Farah Khan</h2>
+              <p class="mt-1 text-[15px] text-subtle">Sent by the front desk from the completed OP, section 7 · Prescription</p>
+              <div class="relative mt-4 overflow-x-auto rounded-lg border border-[#e3eaef]">
+                <table class="w-full min-w-[560px] text-left text-[15px]">
+                  <thead class="bg-[#f4f7f9] text-[#1f5f8b]">
+                    <tr>
+                      <th scope="col" class="px-4 py-3 font-semibold">Medicine and strength</th>
+                      <th scope="col" class="px-4 py-3 font-semibold">Dose</th>
+                      <th scope="col" class="px-4 py-3 font-semibold">Duration</th>
+                      <th scope="col" class="px-4 py-3 font-semibold">Timing</th>
+                      <th scope="col" class="px-4 py-3 font-semibold">Instruction</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-[#edf1f4]">
+                    <tr>
+                      <td class="px-4 py-3.5"><span class="block font-semibold text-ink">Ursodeoxycholic acid 300 mg</span><span class="block text-sm text-subtle">Tablet</span></td>
+                      <td class="px-4 py-3.5 text-ink">1 tablet</td>
+                      <td class="px-4 py-3.5 text-ink">15 days</td>
+                      <td class="px-4 py-3.5 text-ink">After food</td>
+                      <td class="px-4 py-3.5 text-ink">For the liver</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3.5"><span class="block font-semibold text-ink">Pantoprazole 40 mg</span><span class="block text-sm text-subtle">Tablet</span></td>
+                      <td class="px-4 py-3.5 text-ink">1 tablet</td>
+                      <td class="px-4 py-3.5 text-ink">15 days</td>
+                      <td class="px-4 py-3.5 text-ink">Before food</td>
+                      <td class="px-4 py-3.5 text-ink">For acidity</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <!-- Search medicines -->
+            <section aria-labelledby="search-title" class="p-5 sm:p-6 rounded-xl border border-[#e3eaef] bg-white">
+              <h2 id="search-title" class="text-lg font-semibold text-ink">Search medicines</h2>
+              <p class="mt-1 text-[15px] text-subtle">Search for the prescribed medicines and use Add to cart beside the medicine. The cart opens with what you add.</p>
+              <div class="relative mt-4">
+                <label for="medicine-search" class="sr-only">Search medicines</label>
+                <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 text-placeholder pointer-events-none" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+                </svg>
+                <input id="medicine-search" type="search" value="Ursodeoxycholic acid 300 mg" class="form-input h-11 pl-10">
+              </div>
+              <p role="status" class="mt-4 px-4 py-3 rounded-lg border border-[#cfe8dc] bg-[#eef7f2] text-[15px] text-accent">Ursodeoxycholic acid 300 mg added to the cart.</p>
+              <div class="mt-4 flex flex-wrap items-center justify-between gap-4 p-4 sm:px-5 rounded-xl border border-[#e3eaef]">
+                <div>
+                  <p class="text-[15px] font-semibold text-ink">Ursodeoxycholic acid 300 mg</p>
+                  <p class="text-sm text-subtle">Tablet · batch UD7710 · exp 06/2027</p>
+                  <p class="mt-2 flex items-center gap-3">
+                    <span class="px-2.5 py-0.5 rounded-full border border-[#c5dceb] bg-[#e7f0f6] text-[13px] font-medium text-[#245d85]">In prescription</span>
+                    <span class="text-[15px] font-semibold text-ink">90 tabs</span>
+                  </p>
+                </div>
+                <div class="flex flex-col items-end gap-3">
+                  <span class="inline-flex items-center gap-2 h-10 px-4 rounded-md border border-[#cfe8dc] bg-[#eef7f2] text-[15px] font-semibold text-accent">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 12h11.5l2-8H6"/>
+                    </svg>
+                    In cart ✓
+                  </span>
+                  <span class="text-[15px] font-semibold text-ink">₹19.50</span>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- Cart -->
+          <section aria-labelledby="cart-title" class="p-5 sm:p-6 rounded-xl border-2 border-accent bg-white">
+            <div class="flex items-center justify-between gap-3 pb-4 border-b border-[#edf1f4]">
+              <h2 id="cart-title" class="flex items-center gap-2 text-lg font-semibold text-ink">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 12h11.5l2-8H6"/>
+                </svg>
+                Cart
+              </h2>
+              <span class="px-3 py-0.5 rounded-full bg-accent text-[13px] font-semibold text-white">1 item</span>
+            </div>
+
+            <div class="py-4 border-b border-[#edf1f4]">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <p class="text-[15px] font-semibold text-ink">Ursodeoxycholic acid 300 mg</p>
+                  <p class="text-sm text-subtle">Batch UD7710 · exp 06/2027</p>
+                </div>
+                <button type="button" aria-label="Remove Ursodeoxycholic acid 300 mg" class="w-7 h-7 grid place-items-center rounded border border-line text-subtle hover:bg-page">×</button>
+              </div>
+              <div class="mt-3 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <label for="cart-qty" class="text-[15px] text-body">Qty</label>
+                  <input id="cart-qty" name="quantity" type="number" value="30" class="form-input w-24 text-center">
+                  <span class="text-sm text-subtle">× ₹19.50</span>
+                </div>
+                <span class="text-[15px] font-semibold text-ink">₹585.00</span>
+              </div>
+            </div>
+
+            <dl class="py-4 border-b border-[#edf1f4] space-y-4 text-[15px]">
+              <div class="flex justify-between gap-4"><dt class="text-body">Subtotal</dt><dd class="font-semibold text-ink">₹585.00</dd></div>
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <dt class="text-body" id="discount-label">Discount</dt>
+                <dd role="radiogroup" aria-labelledby="discount-label" class="flex flex-wrap gap-2">
+                  <label class="inline-flex items-center h-9 px-3 rounded-md border border-line bg-white text-sm text-ink cursor-pointer
+                                has-[:checked]:border-2 has-[:checked]:border-accent has-[:checked]:bg-accent-soft has-[:checked]:text-accent has-[:checked]:font-semibold
+                                has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent/30">
+                    <input type="radio" name="discount" value="NONE" checked class="sr-only">
+                    None
+                  </label>
+                  <label class="inline-flex items-center h-9 px-3 rounded-md border border-line bg-white text-sm text-ink cursor-pointer
+                                has-[:checked]:border-2 has-[:checked]:border-accent has-[:checked]:bg-accent-soft has-[:checked]:text-accent has-[:checked]:font-semibold
+                                has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent/30">
+                    <input type="radio" name="discount" value="SENIOR" class="sr-only">
+                    Senior citizen 5%
+                  </label>
+                  <label class="inline-flex items-center h-9 px-3 rounded-md border border-line bg-white text-sm text-ink cursor-pointer
+                                has-[:checked]:border-2 has-[:checked]:border-accent has-[:checked]:bg-accent-soft has-[:checked]:text-accent has-[:checked]:font-semibold
+                                has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent/30">
+                    <input type="radio" name="discount" value="STAFF" class="sr-only">
+                    Staff 10%
+                  </label>
+                </dd>
+              </div>
+            </dl>
+
+            <div class="pt-4">
+              <div class="flex items-baseline justify-between gap-4">
+                <p class="text-lg font-semibold text-ink">Pharmacy total</p>
+                <p class="text-2xl font-bold text-ink">₹585.00</p>
+              </div>
+              <div class="mt-1 flex justify-between gap-4 text-sm text-subtle">
+                <span>GST 5% on medicines</span><span>₹29.25</span>
+              </div>
+            </div>
+
+            <fieldset class="mt-5">
+              <legend class="text-[15px] font-semibold text-ink">How will this be paid?</legend>
+              <div class="mt-3 space-y-3">
+                <label class="flex items-start gap-3 p-4 rounded-xl border border-line bg-white cursor-pointer
+                              has-[:checked]:border-2 has-[:checked]:border-accent has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent/30">
+                  <input type="radio" name="paymentRoute" value="FRONT_DESK" checked class="mt-0.5 w-[18px] h-[18px] accent-accent cursor-pointer">
+                  <span>
+                    <span class="block text-[15px] font-semibold text-ink">Send bill to front desk</span>
+                    <span class="block mt-0.5 text-sm text-subtle">Added to the patient's final bill. GST is added there.</span>
+                  </span>
+                </label>
+                <label class="flex items-start gap-3 p-4 rounded-xl border border-line bg-white cursor-pointer
+                              has-[:checked]:border-2 has-[:checked]:border-accent has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent/30">
+                  <input type="radio" name="paymentRoute" value="COUNTER" class="mt-0.5 w-[18px] h-[18px] accent-accent cursor-pointer">
+                  <span>
+                    <span class="block text-[15px] font-semibold text-ink">Collect now at the counter</span>
+                    <span class="block mt-0.5 text-sm text-subtle">UPI, card or cash. The front desk sees it as paid.</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <button type="button" class="mt-5 w-full h-12 rounded-md bg-accent text-[15px] font-semibold text-white hover:bg-accent-hover">Bill ₹585.00 and send to front desk</button>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/modules/pharmacy.js"></script>
+</body>
+</html>

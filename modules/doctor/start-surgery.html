@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Start surgery · Doctor</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#f7f9fb]">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-[72px] px-4 sm:px-7 py-3">
+
+      <a href="doctor-dashboard.html" class="flex items-center gap-3">
+        <span class="w-10 h-10 grid place-items-center rounded-lg bg-[#2b7489] text-white" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+        </span>
+        <span class="leading-tight">
+          <span class="block text-[15px] font-semibold text-ink">[Hospital name]</span>
+          <span class="block text-[13px] text-subtle">[Branch, City]</span>
+        </span>
+      </a>
+
+      <div class="flex items-center gap-4 sm:gap-5">
+        <p class="hidden md:block text-[15px] text-subtle">Tue, 3 Nov 2026</p>
+
+        <a href="notifications.html" aria-label="Notifications, 3 unread" class="relative w-8 h-8 grid place-items-center text-ink hover:text-[#2b7489]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">3</span>
+        </a>
+
+        <a href="my-profile.html" class="flex items-center gap-2.5">
+          <span class="sr-only">My profile:</span>
+          <span class="w-8 h-8 grid place-items-center rounded-full bg-[#dcf3e5] text-xs font-semibold text-[#1f7a46]" aria-hidden="true">FK</span>
+          <span class="hidden sm:block leading-tight">
+            <span class="block text-sm font-semibold text-ink">Dr Farah Khan</span>
+            <span class="block text-xs text-subtle">General medicine</span>
+          </span>
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          Sign out
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex-1 flex flex-col lg:flex-row">
+
+    <!-- ==================== Sidebar ==================== -->
+    <aside class="lg:flex-none lg:w-[250px] bg-white border-b lg:border-b-0 lg:border-r border-line px-3 lg:px-4 py-3 lg:py-5">
+      <nav aria-label="Doctor" class="flex lg:flex-col gap-1 overflow-x-auto text-[15px]">
+        <a href="doctor-dashboard.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="notifications.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          Notifications
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">3</span>
+        </a>
+        <a href="todays-opd.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="7" r="3"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14a4 4 0 0 1 4 4v1"/>
+          </svg>
+          Today's OPD
+        </a>
+        <a href="surgeries.html" aria-current="page"
+           class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg bg-[#e3f1f6] text-[#1f5f73] whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 21l6.5-6.5"/><path d="M9.5 14.5L19 5a2.12 2.12 0 0 1 3 3l-8.5 8.5z"/><path d="M11.5 12.5l2 2"/>
+          </svg>
+          Surgeries
+        </a>
+        <a href="appointments.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M8 10v11"/>
+          </svg>
+          Appointments
+        </a>
+        <a href="my-patients.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="15" rx="2"/><circle cx="9" cy="12" r="2.5"/><path d="M5.5 17a3.5 3.5 0 0 1 7 0M15 10h3M15 14h3"/>
+          </svg>
+          My patients
+        </a>
+        <a href="reports-to-review.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13l6 6M9 17h3"/>
+          </svg>
+          Reports to review
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fdecc8] text-[11px] font-semibold text-[#9a5b00]">3</span>
+        </a>
+        <a href="my-schedule.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+          </svg>
+          My schedule
+        </a>
+        <a href="apply-leave.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M9 15h6"/>
+          </svg>
+          Apply for leave
+        </a>
+      </nav>
+
+      <div class="hidden lg:block mt-40 p-4 rounded-xl border border-[#cfe9df] bg-[#effaf5]">
+        <p class="text-sm font-semibold text-[#1f6b52]">OPD today</p>
+        <p class="mt-1.5 text-[13px] text-ink">9:00 AM – 1:00 PM</p>
+        <p class="mt-0.5 text-[13px] text-subtle">Block A, ground floor, Room 012</p>
+      </div>
+    </aside>
+
+    <!-- ==================== Main ==================== -->
+    <main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-10 pt-6 pb-14">
+
+      <a href="surgeries.html" class="inline-flex items-center gap-1.5 text-[15px] font-medium text-[#24606f] hover:underline">
+        <span aria-hidden="true">&larr;</span> Back to surgeries
+      </a>
+
+      <!-- Patient and surgery -->
+      <section aria-labelledby="patient-name" class="mt-5 overflow-hidden rounded-xl border border-[#e3eaef] bg-white">
+        <div class="h-1 bg-gradient-to-r from-[#6b2fa0] to-[#2b2a6b]" aria-hidden="true"></div>
+        <div class="flex flex-col sm:flex-row gap-4 p-5 sm:p-6">
+          <span class="flex-none w-14 h-14 grid place-items-center rounded-full bg-[#e3eef6] text-lg font-semibold text-[#2f5f86]" aria-hidden="true">MI</span>
+          <div class="flex-1 min-w-0">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <p class="text-[15px] text-subtle"><span id="patient-name" class="text-xl font-bold text-ink">Mohammed Irfan</span> · 61 y · Male · UHID&nbsp; HSP1.0000120318</p>
+                <p class="mt-1 text-[15px] text-subtle">Laparoscopic cholecystectomy · general anaesthesia · no known allergies · COPD, stable</p>
+              </div>
+              <span class="px-4 py-1 rounded-full border border-[#dccbef] bg-[#f4edfb] text-[15px] font-semibold text-[#4a2575]">Patient in OT 2 · ready to start</span>
+            </div>
+            <dl class="mt-5 pt-4 border-t border-[#edf1f4] flex flex-wrap gap-x-10 gap-y-4">
+                <div><dt class="text-sm text-placeholder">Surgery ID</dt><dd class="mt-0.5 text-[15px] font-semibold text-ink">SUR-26-0418</dd></div>
+                <div><dt class="text-sm text-placeholder">Theatre</dt><dd class="mt-0.5 text-[15px] font-semibold text-ink">OT 2 · 2:30 PM</dd></div>
+                <div><dt class="text-sm text-placeholder">Room</dt><dd class="mt-0.5 text-[15px] font-semibold text-ink">Semi-private SP-09</dd></div>
+                <div><dt class="text-sm text-placeholder">Operating surgeon</dt><dd class="mt-0.5 text-[15px] font-semibold text-ink">Dr Farah Khan</dd></div>
+                <div><dt class="text-sm text-placeholder">Assisting surgeon</dt><dd class="mt-0.5 text-[15px] font-semibold text-ink">Dr Arjun Rao</dd></div>
+                <div><dt class="text-sm text-placeholder">Anaesthetist</dt><dd class="mt-0.5 text-[15px] font-semibold text-ink">Dr Neel Basu</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- Steps -->
+      <nav aria-label="Surgery steps" class="mt-5">
+        <ol class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          <li>
+            <a href="#sign-in" aria-current="step" class="flex items-center gap-3 h-full px-4 py-3 rounded-xl border-2 border-[#3b2a6b]/40 bg-white">
+              <span class="flex-none w-8 h-8 grid place-items-center rounded-full bg-[#3b2a6b] text-white font-semibold text-sm" aria-hidden="true">1</span>
+              <span class="leading-tight">
+                <span class="block text-[15px] font-semibold text-ink">Sign in</span>
+                <span class="block text-sm text-placeholder">Before anaesthesia</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="#time-out" class="flex items-center gap-3 h-full px-4 py-3 rounded-xl border border-[#e3eaef] bg-white hover:bg-slate-50">
+              <span class="flex-none w-8 h-8 grid place-items-center rounded-full bg-slate-100 text-subtle text-sm" aria-hidden="true">2</span>
+              <span class="leading-tight">
+                <span class="block text-[15px] font-semibold text-ink">Time out</span>
+                <span class="block text-sm text-placeholder">Before cutting</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="#operation" class="flex items-center gap-3 h-full px-4 py-3 rounded-xl border border-[#e3eaef] bg-white hover:bg-slate-50">
+              <span class="flex-none w-8 h-8 grid place-items-center rounded-full bg-slate-100 text-subtle text-sm" aria-hidden="true">3</span>
+              <span class="leading-tight">
+                <span class="block text-[15px] font-semibold text-ink">Operation</span>
+                <span class="block text-sm text-placeholder">Notes</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="#sign-out" class="flex items-center gap-3 h-full px-4 py-3 rounded-xl border border-[#e3eaef] bg-white hover:bg-slate-50">
+              <span class="flex-none w-8 h-8 grid place-items-center rounded-full bg-slate-100 text-subtle text-sm" aria-hidden="true">4</span>
+              <span class="leading-tight">
+                <span class="block text-[15px] font-semibold text-ink">Sign out</span>
+                <span class="block text-sm text-placeholder">Before leaving the OT</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="#orders" class="flex items-center gap-3 h-full px-4 py-3 rounded-xl border border-[#e3eaef] bg-white hover:bg-slate-50">
+              <span class="flex-none w-8 h-8 grid place-items-center rounded-full bg-slate-100 text-subtle text-sm" aria-hidden="true">5</span>
+              <span class="leading-tight">
+                <span class="block text-[15px] font-semibold text-ink">Orders</span>
+                <span class="block text-sm text-placeholder">After surgery</span>
+              </span>
+            </a>
+          </li>
+        </ol>
+      </nav>
+
+      <div class="mt-5 space-y-5">
+
+        <section id="sign-in" aria-labelledby="sign-in-title" class="scroll-mt-6 p-5 sm:p-6 rounded-xl border border-[#e3eaef] bg-white">
+          <div class="flex items-center justify-between gap-3 pb-4 border-b border-[#edf1f4]">
+            <h2 id="sign-in-title" class="flex items-center gap-3 text-[17px] font-semibold text-ink">
+              <span class="flex-none w-6 h-6 grid place-items-center rounded-full bg-[#3b2a6b] text-white text-xs font-semibold" aria-hidden="true">1</span>
+              Before anaesthesia · sign in
+            </h2>
+            <span class="px-3 py-0.5 rounded-full bg-[#3b2a6b] text-xs font-semibold text-white">Now</span>
+          </div>
+          <div class="mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            <label class="flex items-center gap-4 min-h-[64px] px-4 py-3 rounded-lg border border-[#e3eaef] bg-white text-[15px] text-ink cursor-pointer">
+              <input type="checkbox" name="signIn" value="IDENTITY" class="form-checkbox flex-none"> Patient name, UHID and procedure checked with the patient
+            </label>
+            <label class="flex items-center gap-4 min-h-[64px] px-4 py-3 rounded-lg border border-[#e3eaef] bg-white text-[15px] text-ink cursor-pointer">
+              <input type="checkbox" name="signIn" value="CONSENT" class="form-checkbox flex-none"> Consent form signed and in the file
+            </label>
+            <label class="flex items-center gap-4 min-h-[64px] px-4 py-3 rounded-lg border border-[#e3eaef] bg-white text-[15px] text-ink cursor-pointer">
+              <input type="checkbox" name="signIn" value="NIL_BY_MOUTH" class="form-checkbox flex-none"> Nil by mouth since 6 AM
+            </label>
+            <label class="flex items-center gap-4 min-h-[64px] px-4 py-3 rounded-lg border border-[#e3eaef] bg-white text-[15px] text-ink cursor-pointer">
+              <input type="checkbox" name="signIn" value="ALLERGIES" class="form-checkbox flex-none"> No known allergies confirmed
+            </label>
+            <label class="flex items-center gap-4 min-h-[64px] px-4 py-3 rounded-lg border border-[#e3eaef] bg-white text-[15px] text-ink cursor-pointer">
+              <input type="checkbox" name="signIn" value="ANAESTHESIA_CHECK" class="form-checkbox flex-none"> Anaesthesia machine and medicines checked
+            </label>
+            <label class="flex items-center gap-4 min-h-[64px] px-4 py-3 rounded-lg border border-[#e3eaef] bg-white text-[15px] text-ink cursor-pointer">
+              <input type="checkbox" name="signIn" value="BREATHING_RISK" class="form-checkbox flex-none"> Breathing risk noted: COPD, inhaler given before
+            </label>
+          </div>
+
+          <div class="mt-5 flex justify-end">
+            <button type="button" class="inline-flex items-center justify-center h-10 px-6 rounded-md bg-[#3b2a6b] text-[15px] font-medium text-white hover:bg-[#2f2156]">Sign in done · start anaesthesia</button>
+          </div>
+        </section>
+
+        <section id="time-out" aria-labelledby="time-out-title" class="scroll-mt-6 p-5 sm:p-6 rounded-xl border border-[#e3eaef] bg-white">
+          <div class="flex items-center justify-between gap-3 pb-4 border-b border-[#edf1f4]">
+            <h2 id="time-out-title" class="flex items-center gap-3 text-[17px] font-semibold text-ink">
+              <span class="flex-none w-6 h-6 grid place-items-center rounded-full bg-slate-100 text-ink text-xs font-semibold" aria-hidden="true">2</span>
+              Before cutting · time out
+            </h2>
+            <span class="px-2.5 py-0.5 rounded bg-slate-100 text-xs text-subtle">Next</span>
+          </div>
+          <div class="mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            <label class="flex items-center gap-4 min-h-[64px] px-4 py-3 rounded-lg border border-[#e3eaef] bg-white text-[15px] text-ink cursor-pointer">
+              <input type="checkbox" name="timeOut" value="TEAM_INTRODUCED" class="form-checkbox flex-none"> Whole team introduced by name and role
+            </label>
+            <label class="flex items-center gap-4 min-h-[64px] px-4 py-3 rounded-lg border border-[#e3eaef] bg-white text-[15px] text-ink cursor-pointer">
+              <input type="checkbox" name="timeOut" value="ANTIBIOTIC" class="form-checkbox flex-none"> Antibiotic given within the last hour (Inj. cefazolin 2 g, 2:35 PM)
+            </label>
+            <label class="flex items-center gap-4 min-h-[64px] px-4 py-3 rounded-lg border border-[#e3eaef] bg-white text-[15px] text-ink cursor-pointer">
+              <input type="checkbox" name="timeOut" value="IMAGING" class="form-checkbox flex-none"> Ultrasound report on the screen
+            </label>
+            <label class="flex items-center gap-4 min-h-[64px] px-4 py-3 rounded-lg border border-[#e3eaef] bg-white text-[15px] text-ink cursor-pointer">
+              <input type="checkbox" name="timeOut" value="EQUIPMENT" class="form-checkbox flex-none"> Laparoscopy set and energy device checked
+            </label>
+            <label class="flex items-center gap-4 min-h-[64px] px-4 py-3 rounded-lg border border-[#e3eaef] bg-white text-[15px] text-ink cursor-pointer">
+              <input type="checkbox" name="timeOut" value="BLOOD" class="form-checkbox flex-none"> Blood group and cross-match on file
+            </label>
+          </div>
+        </section>
+
+        <section id="operation" aria-labelledby="operation-title" class="scroll-mt-6 p-5 sm:p-6 rounded-xl border border-[#e3eaef] bg-white">
+          <div class="flex items-center justify-between gap-3 pb-4 border-b border-[#edf1f4]">
+            <h2 id="operation-title" class="flex items-center gap-3 text-[17px] font-semibold text-ink">
+              <span class="flex-none w-6 h-6 grid place-items-center rounded-full bg-slate-100 text-ink text-xs font-semibold" aria-hidden="true">3</span>
+              Operation notes
+            </h2>
+            <span class="px-2.5 py-0.5 rounded bg-slate-100 text-xs text-subtle">Next</span>
+          </div>
+
+          <label for="procedure-done" class="form-label text-[15px] font-normal mt-5 mb-2">Procedure done</label>
+          <input id="procedure-done" name="procedureDone" type="text" value="Laparoscopic cholecystectomy, 4 ports" class="form-input">
+
+          <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+            <div>
+              <label for="incision-time" class="form-label text-[15px] font-normal mb-2">Incision time</label>
+              <input id="incision-time" name="incisionTime" type="time" value="14:46" class="form-input">
+            </div>
+            <div>
+              <label for="closure-time" class="form-label text-[15px] font-normal mb-2">Closure time</label>
+              <input id="closure-time" name="closureTime" type="time" value="15:52" class="form-input">
+            </div>
+            <div>
+              <label for="op-anaesthesia" class="form-label text-[15px] font-normal mb-2">Anaesthesia</label>
+              <select id="op-anaesthesia" name="anaesthesia" class="form-select-field">
+                <option selected>General anaesthesia</option>
+                <option>Spinal anaesthesia</option>
+                <option>Local anaesthesia</option>
+                <option>Sedation</option>
+              </select>
+            </div>
+            <div>
+              <label for="converted-open" class="form-label text-[15px] font-normal mb-2">Converted to open surgery</label>
+              <select id="converted-open" name="convertedToOpen" class="form-select-field">
+                <option selected>No</option>
+                <option>Yes</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="findings" class="form-label text-[15px] font-normal mt-5 mb-2">Findings</label>
+          <textarea id="findings" name="findings" rows="2" class="form-input h-auto py-2.5 resize-y">Gallbladder thick-walled and mildly inflamed, many stones, largest about 14 mm. Bile duct not dilated. Calot's triangle cleared, critical view of safety seen. Cystic duct and artery clipped and cut.</textarea>
+
+          <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+            <div>
+              <label for="blood-loss" class="form-label text-[15px] font-normal mb-2">Blood loss (mL)</label>
+              <input id="blood-loss" name="bloodLoss" type="number" value="40" class="form-input">
+            </div>
+            <div>
+              <label for="drain" class="form-label text-[15px] font-normal mb-2">Drain</label>
+              <select id="drain" name="drain" class="form-select-field">
+                <option selected>None</option>
+                <option>Subhepatic drain</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="clips" class="form-label text-[15px] font-normal mb-2">Clips and implants</label>
+              <select id="clips" name="clipsAndImplants" class="form-select-field">
+                <option>None</option>
+                <option>Polymer clips × 2</option>
+                <option selected>Polymer clips × 4</option>
+                <option>Titanium clips × 4</option>
+              </select>
+            </div>
+            <div>
+              <label for="complications" class="form-label text-[15px] font-normal mb-2">Complications</label>
+              <select id="complications" name="complications" class="form-select-field">
+                <option selected>None</option>
+                <option>Bleeding</option>
+                <option>Bile leak</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="specimen" class="form-label text-[15px] font-normal mt-5 mb-2">Specimen</label>
+          <select id="specimen" name="specimen" class="form-select-field">
+            <option selected>Gallbladder with stones · send to pathology for histopathology</option>
+            <option>Gallbladder with stones · no pathology needed</option>
+            <option>No specimen</option>
+          </select>
+        </section>
+
+        <section id="sign-out" aria-labelledby="sign-out-title" class="scroll-mt-6 p-5 sm:p-6 rounded-xl border border-[#e3eaef] bg-white">
+          <div class="flex items-center justify-between gap-3 pb-4 border-b border-[#edf1f4]">
+            <h2 id="sign-out-title" class="flex items-center gap-3 text-[17px] font-semibold text-ink">
+              <span class="flex-none w-6 h-6 grid place-items-center rounded-full bg-slate-100 text-ink text-xs font-semibold" aria-hidden="true">4</span>
+              Before leaving the OT · sign out
+            </h2>
+            <span class="px-2.5 py-0.5 rounded bg-slate-100 text-xs text-subtle">Next</span>
+          </div>
+          <div class="mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            <label class="flex items-center gap-4 min-h-[64px] px-4 py-3 rounded-lg border border-[#e3eaef] bg-white text-[15px] text-ink cursor-pointer">
+              <input type="checkbox" name="signOut" value="COUNTS" class="form-checkbox flex-none"> Swab, needle and instrument counts correct
+            </label>
+            <label class="flex items-center gap-4 min-h-[64px] px-4 py-3 rounded-lg border border-[#e3eaef] bg-white text-[15px] text-ink cursor-pointer">
+              <input type="checkbox" name="signOut" value="SPECIMEN_LABELLED" class="form-checkbox flex-none"> Specimen labelled with name and UHID
+            </label>
+            <label class="flex items-center gap-4 min-h-[64px] px-4 py-3 rounded-lg border border-[#e3eaef] bg-white text-[15px] text-ink cursor-pointer">
+              <input type="checkbox" name="signOut" value="EQUIPMENT_PROBLEMS" class="form-checkbox flex-none"> Any equipment problem noted (none)
+            </label>
+            <label class="flex items-center gap-4 min-h-[64px] px-4 py-3 rounded-lg border border-[#e3eaef] bg-white text-[15px] text-ink cursor-pointer">
+              <input type="checkbox" name="signOut" value="HANDOVER" class="form-checkbox flex-none"> Handover to the recovery nurse done
+            </label>
+          </div>
+        </section>
+
+        <section id="orders" aria-labelledby="orders-title" class="scroll-mt-6 p-5 sm:p-6 rounded-xl border border-[#e3eaef] bg-white">
+          <div class="flex items-center justify-between gap-3 pb-4 border-b border-[#edf1f4]">
+            <h2 id="orders-title" class="flex items-center gap-3 text-[17px] font-semibold text-ink">
+              <span class="flex-none w-6 h-6 grid place-items-center rounded-full bg-slate-100 text-ink text-xs font-semibold" aria-hidden="true">5</span>
+              After surgery orders
+            </h2>
+            <span class="px-2.5 py-0.5 rounded bg-slate-100 text-xs text-subtle">Next</span>
+          </div>
+
+          <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div>
+              <label for="move-to" class="form-label text-[15px] font-normal mb-2">Move to</label>
+              <select id="move-to" name="moveTo" class="form-select-field">
+                <option selected>Recovery room, then semi-private ward</option>
+                <option>Recovery room, then ICU</option>
+                <option>Recovery room, then home (day care)</option>
+              </select>
+            </div>
+            <div>
+              <label for="food" class="form-label text-[15px] font-normal mb-2">Food</label>
+              <select id="food" name="food" class="form-select-field">
+                <option selected>Nothing for 6 hours, then clear liquids</option>
+                <option>Nothing by mouth until reviewed</option>
+                <option>Normal diet</option>
+              </select>
+            </div>
+            <div>
+              <label for="expected-discharge" class="form-label text-[15px] font-normal mb-2">Expected discharge</label>
+              <input id="expected-discharge" name="expectedDischarge" type="date" value="2026-11-05" class="form-input">
+            </div>
+          </div>
+
+          <label for="post-op-medicines" class="form-label text-[15px] font-normal mt-5 mb-2">Medicines</label>
+          <textarea id="post-op-medicines" name="postOpMedicines" rows="2" class="form-input h-auto py-2.5 resize-y">IV fluids 1 L over 8 hours. Inj. paracetamol 1 g every 8 hours. Inj. ceftriaxone 1 g once a day for 2 days. Inj. pantoprazole 40 mg once a day. Continue the tiotropium inhaler.</textarea>
+
+          <label for="watch-for" class="form-label text-[15px] font-normal mt-5 mb-2">Watch for</label>
+          <textarea id="watch-for" name="watchFor" rows="2" class="form-input h-auto py-2.5 resize-y">Pulse, BP and SpO₂ every hour for 6 hours. Call the surgeon if pain is severe, SpO₂ under 92% or the wounds bleed.</textarea>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/modules/doctor.js"></script>
+</body>
+</html>

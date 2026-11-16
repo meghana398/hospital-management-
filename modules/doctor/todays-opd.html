@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Today's OPD · Doctor</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#f7f9fb]">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-[72px] px-4 sm:px-7 py-3">
+
+      <a href="doctor-dashboard.html" class="flex items-center gap-3">
+        <span class="w-10 h-10 grid place-items-center rounded-lg bg-[#2b7489] text-white" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+        </span>
+        <span class="leading-tight">
+          <span class="block text-[15px] font-semibold text-ink">[Hospital name]</span>
+          <span class="block text-[13px] text-subtle">[Branch, City]</span>
+        </span>
+      </a>
+
+      <div class="flex items-center gap-4 sm:gap-5">
+        <a href="notifications.html" aria-label="Notifications, 3 unread" class="relative w-8 h-8 grid place-items-center text-ink hover:text-[#2b7489]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">3</span>
+        </a>
+
+        <a href="my-profile.html" class="flex items-center gap-2.5">
+          <span class="sr-only">My profile:</span>
+          <span class="w-8 h-8 grid place-items-center rounded-full bg-[#dcf3e5] text-xs font-semibold text-[#1f7a46]" aria-hidden="true">FK</span>
+          <span class="hidden sm:block leading-tight">
+            <span class="block text-sm font-semibold text-ink">Dr Farah Khan</span>
+            <span class="block text-xs text-subtle">General medicine</span>
+          </span>
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          Sign out
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex-1 flex flex-col lg:flex-row">
+
+    <!-- ==================== Sidebar ==================== -->
+    <aside class="lg:flex-none lg:w-[250px] bg-white border-b lg:border-b-0 lg:border-r border-line px-3 lg:px-4 py-3 lg:py-5">
+      <nav aria-label="Doctor" class="flex lg:flex-col gap-1 overflow-x-auto text-[15px]">
+        <a href="doctor-dashboard.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="notifications.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          Notifications
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">3</span>
+        </a>
+        <a href="todays-opd.html" aria-current="page"
+           class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg bg-[#e3f1f6] text-[#1f5f73] whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="7" r="3"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14a4 4 0 0 1 4 4v1"/>
+          </svg>
+          Today's OPD
+        </a>
+        <a href="appointments.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M8 10v11"/>
+          </svg>
+          Appointments
+        </a>
+        <a href="my-patients.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="15" rx="2"/><circle cx="9" cy="12" r="2.5"/><path d="M5.5 17a3.5 3.5 0 0 1 7 0M15 10h3M15 14h3"/>
+          </svg>
+          My patients
+        </a>
+        <a href="reports-to-review.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13l6 6M9 17h3"/>
+          </svg>
+          Reports to review
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fdecc8] text-[11px] font-semibold text-[#9a5b00]">3</span>
+        </a>
+        <a href="my-schedule.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+          </svg>
+          My schedule
+        </a>
+      </nav>
+
+      <div class="hidden lg:block mt-40 p-4 rounded-xl border border-[#cfe9df] bg-[#effaf5]">
+        <p class="text-sm font-semibold text-[#1f6b52]">OPD today</p>
+        <p class="mt-1.5 text-[13px] text-ink">9:00 AM – 1:00 PM</p>
+        <p class="mt-0.5 text-[13px] text-subtle">Block A, ground floor, Room 012</p>
+      </div>
+    </aside>
+
+    <!-- ==================== Main ==================== -->
+    <main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-9 pt-8 pb-14">
+
+      <h1 class="text-2xl font-bold text-ink">Today's OPD</h1>
+      <p class="mt-1 text-[15px] text-subtle">Patients appear here once the front desk checks them in.</p>
+
+      <!-- Session -->
+      <section aria-label="OPD session" class="mt-6 p-5 sm:p-6 rounded-xl border border-[#e3eaef] bg-white">
+        <dl class="flex flex-wrap gap-x-12 gap-y-4">
+          <div>
+            <dt class="text-sm text-placeholder">Location</dt>
+            <dd class="mt-1 text-[15px] font-semibold text-ink">Block A, ground floor, Room 012</dd>
+          </div>
+          <div>
+            <dt class="text-sm text-placeholder">Session</dt>
+            <dd class="mt-1 text-[15px] font-semibold text-ink">9:00 AM – 1:00 PM</dd>
+          </div>
+          <div>
+            <dt class="text-sm text-placeholder">Slots</dt>
+            <dd class="mt-1 text-[15px] font-semibold text-ink">8 · 30 minutes each</dd>
+          </div>
+          <div>
+            <dt class="text-sm text-placeholder">Status</dt>
+            <dd class="mt-1"><span class="inline-block px-3 py-0.5 rounded-full bg-[#e3f5ea] text-[15px] text-[#1f7a46]">Running · since 9:02 AM</span></dd>
+          </div>
+        </dl>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <button type="button" class="btn-outline px-5">Pause OPD</button>
+          <button type="button" class="btn-outline px-5">End session</button>
+        </div>
+      </section>
+
+      <!-- Up next -->
+      <section aria-labelledby="up-next-title" class="mt-5 p-5 sm:p-6 rounded-xl border border-[#a8d8d0] bg-white">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <h2 id="up-next-title" class="text-base font-semibold text-ink">Up next · Token T-04</h2>
+          <span class="px-3 py-1 rounded-full bg-[#fdf3d1] text-sm text-[#b45309]">Waiting since 10:18 AM</span>
+        </div>
+
+        <div class="mt-4 flex items-center gap-4">
+          <span class="flex-none w-12 h-12 grid place-items-center rounded-full bg-[#e0eef8] text-base font-semibold text-[#245d85]" aria-hidden="true">SP</span>
+          <div>
+            <p class="text-xl font-semibold text-ink">Suresh Patil</p>
+            <p class="text-[15px] text-subtle">45 y · Male · Follow-up · 10:30 AM slot · CGHS beneficiary · UHID HSP1.0000124078</p>
+          </div>
+        </div>
+
+        <dl class="mt-5 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3">
+          <div class="p-3 rounded-lg border border-[#edf1f4] bg-[#f8fafc]">
+            <dt class="text-xs font-medium tracking-wide uppercase text-placeholder">BP</dt>
+            <dd class="mt-1 text-base font-semibold text-ink">132/84 mmHg</dd>
+          </div>
+          <div class="p-3 rounded-lg border border-[#edf1f4] bg-[#f8fafc]">
+            <dt class="text-xs font-medium tracking-wide uppercase text-placeholder">Pulse</dt>
+            <dd class="mt-1 text-base font-semibold text-ink">78 bpm</dd>
+          </div>
+          <div class="p-3 rounded-lg border border-[#edf1f4] bg-[#f8fafc]">
+            <dt class="text-xs font-medium tracking-wide uppercase text-placeholder">Temperature</dt>
+            <dd class="mt-1 text-base font-semibold text-ink">98.2 °F</dd>
+          </div>
+          <div class="p-3 rounded-lg border border-[#edf1f4] bg-[#f8fafc]">
+            <dt class="text-xs font-medium tracking-wide uppercase text-placeholder">SpO<sub>2</sub></dt>
+            <dd class="mt-1 text-base font-semibold text-ink">98 %</dd>
+          </div>
+          <div class="p-3 rounded-lg border border-[#edf1f4] bg-[#f8fafc]">
+            <dt class="text-xs font-medium tracking-wide uppercase text-placeholder">Weight</dt>
+            <dd class="mt-1 text-base font-semibold text-ink">81 kg</dd>
+          </div>
+          <div class="p-3 rounded-lg border border-[#f6caca] bg-[#fdf0f0]">
+            <dt class="text-xs font-medium tracking-wide uppercase text-[#c0392b]">Allergy</dt>
+            <dd class="mt-1 text-base font-semibold text-[#b42318]">Sulfa drugs</dd>
+          </div>
+        </dl>
+
+        <p class="mt-4 text-sm text-subtle">Last visit 15 Oct 2026 with you · Gastro-oesophageal reflux disease · Pantoprazole 40 mg for 14 days</p>
+
+        <div class="mt-5 flex flex-wrap items-center gap-4">
+          <button type="button" class="btn-outline px-5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>
+            Call patient
+          </button>
+          <a href="consultation.html" class="btn-accent">Start consultation</a>
+          <button type="button" class="text-[15px] text-ink underline underline-offset-4 hover:text-[#24606f]">Mark as no-show</button>
+        </div>
+      </section>
+
+      <!-- Queue -->
+      <div class="mt-5 grid grid-cols-1 lg:grid-cols-3 gap-5 items-start">
+        <section aria-labelledby="waiting-title" class="p-5 rounded-xl border border-[#e3eaef] bg-white">
+          <h2 id="waiting-title" class="flex items-center gap-2 text-base font-semibold text-ink">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#e07b1a]" aria-hidden="true"></span>
+            Waiting
+            <span class="min-w-6 h-6 px-1.5 grid place-items-center rounded-full text-xs font-semibold bg-[#fdf3d1] text-[#8a5a00]">2</span>
+          </h2>
+          <ul class="mt-4 space-y-3">
+            <li class="p-4 rounded-lg border border-[#e3eaef] bg-white">
+              <div class="flex items-start justify-between gap-3">
+                <p class="text-base font-semibold text-ink">T-04 · Suresh Patil</p>
+                <span class="text-sm text-subtle whitespace-nowrap">10:30 AM</span>
+              </div>
+              <p class="mt-1.5 text-sm text-subtle">45 M · Follow-up · CGHS</p>
+              <span class="inline-block mt-3 px-2.5 py-1 rounded-md text-sm bg-[#e7f6ee] text-[#1f7a46]">OP received · 10:24 AM</span>
+            </li>
+            <li class="p-4 rounded-lg border border-[#e3eaef] bg-white">
+              <div class="flex items-start justify-between gap-3">
+                <p class="text-base font-semibold text-ink">T-05 · Kavita Rao</p>
+                <span class="text-sm text-subtle whitespace-nowrap">11:00 AM</span>
+              </div>
+              <p class="mt-1.5 text-sm text-subtle">52 F · New consultation · Insurance</p>
+              <span class="inline-block mt-3 px-2.5 py-1 rounded-md text-sm bg-[#fdf1e4] text-[#b45309]">OP not sent yet by front desk</span>
+            </li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="not-arrived-title" class="p-5 rounded-xl border border-[#e3eaef] bg-white">
+          <h2 id="not-arrived-title" class="flex items-center gap-2 text-base font-semibold text-ink">
+            <span class="w-2.5 h-2.5 rounded-full bg-slate-400" aria-hidden="true"></span>
+            Not arrived
+            <span class="min-w-6 h-6 px-1.5 grid place-items-center rounded-full text-xs font-semibold bg-slate-100 text-slate-600">2</span>
+          </h2>
+          <ul class="mt-4 space-y-3">
+            <li class="p-4 rounded-lg border border-dashed border-[#cfd8e0] bg-white">
+              <div class="flex items-start justify-between gap-3">
+                <p class="text-base font-medium text-ink">Free slot</p>
+                <span class="text-sm text-subtle whitespace-nowrap">11:30 AM</span>
+              </div>
+              <p class="mt-1.5 text-sm text-subtle">Open for a walk-in. The front desk can book it.</p>
+            </li>
+            <li class="p-4 rounded-lg border border-[#e3eaef] bg-white">
+              <div class="flex items-start justify-between gap-3">
+                <p class="text-base font-semibold text-ink">T-07 · Arjun Bose</p>
+                <span class="text-sm text-subtle whitespace-nowrap">12:00 PM</span>
+              </div>
+              <p class="mt-1.5 text-sm text-subtle">39 M · New consultation · Self-pay</p>
+            </li>
+            <li class="p-4 rounded-lg border border-[#e3eaef] bg-white">
+              <div class="flex items-start justify-between gap-3">
+                <p class="text-base font-semibold text-ink">T-08 · Lakshmi Iyer</p>
+                <span class="text-sm text-subtle whitespace-nowrap">12:30 PM</span>
+              </div>
+              <p class="mt-1.5 text-sm text-subtle">67 F · Follow-up · Self-pay</p>
+              <span class="inline-block mt-3 px-2.5 py-1 rounded-md text-sm bg-[#e8f1fd] text-[#2456b3]">New booking</span>
+            </li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="completed-title" class="p-5 rounded-xl border border-[#e3eaef] bg-white">
+          <h2 id="completed-title" class="flex items-center gap-2 text-base font-semibold text-ink">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#1f8a4c]" aria-hidden="true"></span>
+            Completed
+            <span class="min-w-6 h-6 px-1.5 grid place-items-center rounded-full text-xs font-semibold bg-[#e7f6ee] text-[#1f7a46]">3</span>
+          </h2>
+          <ul class="mt-4 space-y-3">
+            <li class="p-4 rounded-lg border border-[#e3eaef] bg-white">
+              <div class="flex items-start justify-between gap-3">
+                <p class="text-base font-semibold text-ink">T-03 · Priya Nair</p>
+                <span class="text-sm text-subtle whitespace-nowrap">10:24 AM</span>
+              </div>
+              <p class="mt-1.5 text-sm text-subtle">OP sent to front desk · 3 tests advised</p>
+            </li>
+            <li class="p-4 rounded-lg border border-[#e3eaef] bg-white">
+              <div class="flex items-start justify-between gap-3">
+                <p class="text-base font-semibold text-ink">T-02 · Mohammed Irfan</p>
+                <span class="text-sm text-subtle whitespace-nowrap">9:58 AM</span>
+              </div>
+              <p class="mt-1.5 text-sm text-subtle">OP sent to front desk · follow-up in 1 month</p>
+            </li>
+            <li class="p-4 rounded-lg border border-[#e3eaef] bg-white">
+              <div class="flex items-start justify-between gap-3">
+                <p class="text-base font-semibold text-ink">T-01 · Anita Desai</p>
+                <span class="text-sm text-subtle whitespace-nowrap">9:26 AM</span>
+              </div>
+              <p class="mt-1.5 text-sm text-subtle">OP sent to front desk · thyroid profile advised</p>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/modules/doctor.js"></script>
+</body>
+</html>

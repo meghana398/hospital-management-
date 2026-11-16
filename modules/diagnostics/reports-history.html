@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reports and history · Diagnostics</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col lg:flex-row bg-[#f7f9fb]">
+
+  <!-- ==================== Sidebar ==================== -->
+  <aside class="lg:flex-none lg:w-[250px] lg:sticky lg:top-0 lg:h-screen flex flex-col bg-white border-b lg:border-b-0 lg:border-r border-line">
+    <a href="diagnostics-dashboard.html" class="flex items-center gap-3 px-4 lg:px-5 py-4 lg:py-5">
+      <span class="w-10 h-10 grid place-items-center rounded-lg bg-[#2b7489] text-white" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+      </span>
+      <span class="leading-tight">
+        <span class="block text-[15px] font-semibold text-ink">[Hospital name]</span>
+        <span class="block text-[13px] text-subtle">Diagnostics centre</span>
+      </span>
+    </a>
+
+    <nav aria-label="Diagnostics" class="flex lg:flex-col gap-1 overflow-x-auto px-3 lg:px-4 pb-3 lg:py-3 text-[15px]">
+      <a href="diagnostics-dashboard.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+        </svg>
+        Dashboard
+      </a>
+      <a href="test-requests.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13l6 6M9 17h3"/>
+        </svg>
+        Test requests
+        <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-white text-[11px] font-semibold">2</span>
+      </a>
+      <a href="sample-collection.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/>
+        </svg>
+        Sample collection
+        <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fdecc8] text-[#9a5b00] text-[11px] font-semibold">2</span>
+      </a>
+      <a href="worklist.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+        </svg>
+        Worklist
+        <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#e1eff7] text-[#2a6f93] text-[11px] font-semibold">10</span>
+      </a>
+      <a href="result-entry.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h3"/>
+        </svg>
+        Result entry
+      </a>
+      <a href="reports-history.html" aria-current="page"
+         class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg bg-[#e3f1f6] text-[#1f5f73] whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/><path d="M12 3v9l6.5 6"/>
+        </svg>
+        Reports and history
+      </a>
+      <a href="test-catalogue.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="4" y="10" width="16" height="10" rx="2"/><path d="M7 10V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4M4 14h16"/>
+        </svg>
+        Test catalogue
+      </a>
+      <a href="billing.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/>
+        </svg>
+        Billing
+      </a>
+      <a href="accounts.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/>
+        </svg>
+        Accounts
+      </a>
+      <a href="inventory.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>
+        </svg>
+        Inventory
+        <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fde3e1] text-[#b42318] text-[11px] font-semibold">5</span>
+      </a>
+      <a href="pharmacy-requests.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3L2 21h20z"/><path d="M12 10v5M12 18h.01"/>
+        </svg>
+        Pharmacy requests
+      </a>
+    </nav>
+
+    <div class="hidden lg:block mt-auto mx-3 mb-4 p-4 rounded-xl border border-[#d5e6ec] bg-[#eef5f8]">
+      <p class="text-sm font-semibold text-[#1f5f73]">Central lab</p>
+      <p class="mt-0.5 text-[13px] text-subtle">1st floor · open 24 hours</p>
+      <p class="mt-3 text-sm font-semibold text-[#1f5f73]">Radiology and cardiology</p>
+      <p class="mt-0.5 text-[13px] text-subtle">Ground floor · 8 AM – 8 PM</p>
+    </div>
+  </aside>
+
+  <div class="flex-1 min-w-0 flex flex-col">
+
+    <!-- ==================== Top bar ==================== -->
+    <header class="bg-white border-b border-line">
+      <div class="flex flex-wrap items-center justify-end gap-x-5 gap-y-2 min-h-[72px] px-4 sm:px-7 py-3">
+        <a href="notifications.html" aria-label="Notifications, 2 unread" class="relative w-8 h-8 grid place-items-center text-ink hover:text-[#2b7489]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">2</span>
+        </a>
+
+        <a href="my-profile.html" class="flex items-center gap-2.5">
+          <span class="sr-only">My profile:</span>
+          <span class="w-8 h-8 grid place-items-center rounded-full bg-[#d6efe3] text-xs font-semibold text-accent" aria-hidden="true">RD</span>
+          <span class="hidden sm:block leading-tight">
+            <span class="block text-sm font-semibold text-ink">Rina Das</span>
+            <span class="block text-xs text-subtle">Central lab and imaging</span>
+          </span>
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          Sign out
+        </a>
+      </div>
+    </header>
+
+    <!-- ==================== Main ==================== -->
+    <main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-12 pt-8 pb-14">
+
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-[#111827]">Reports and history</h1>
+          <p class="mt-1 text-[15px] text-subtle">Every test this centre has handled: requested, in progress, delivered or cancelled.</p>
+        </div>
+        <button type="button" class="btn-outline px-5">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 4v11M7 10l5 5 5-5M4 19h16"/>
+          </svg>
+          Download list
+        </button>
+      </div>
+
+      <!-- Totals -->
+      <dl class="mt-6 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
+        <div class="p-5 rounded-xl border border-[#e3eaef] bg-white">
+          <dt class="text-[15px] text-subtle">Tests this week</dt>
+          <dd class="mt-1 text-[28px] leading-9 font-bold text-ink">214</dd>
+          <dd class="mt-1 text-sm text-placeholder">Lab 162 · imaging 38 · cardiology 14</dd>
+        </div>
+        <div class="p-5 rounded-xl border border-[#bfe6cb] bg-[#effaf5]">
+          <dt class="text-[15px] text-[#1f6b52]">Delivered</dt>
+          <dd class="mt-1 text-[28px] leading-9 font-bold text-[#1f6b52]">196</dd>
+          <dd class="mt-1 text-sm text-[#1f7a46]">92% within target time</dd>
+        </div>
+        <div class="p-5 rounded-xl border border-[#bcdcf0] bg-[#eef6fc]">
+          <dt class="text-[15px] text-[#1f5f99]">In progress</dt>
+          <dd class="mt-1 text-[28px] leading-9 font-bold text-[#1f5f99]">10</dd>
+          <dd class="mt-1 text-sm text-[#1f5f99]">1 overdue</dd>
+        </div>
+        <div class="p-5 rounded-xl border border-[#e3eaef] bg-white">
+          <dt class="text-[15px] text-subtle">Requested, not started</dt>
+          <dd class="mt-1 text-[28px] leading-9 font-bold text-ink">6</dd>
+          <dd class="mt-1 text-sm text-placeholder">3 scheduled for tomorrow</dd>
+        </div>
+        <div class="p-5 rounded-xl border border-[#e3eaef] bg-white">
+          <dt class="text-[15px] text-subtle">Cancelled</dt>
+          <dd class="mt-1 text-[28px] leading-9 font-bold text-[#c8102e]">2</dd>
+          <dd class="mt-1 text-sm text-placeholder">Both cancelled by the doctor</dd>
+        </div>
+      </dl>
+
+      <!-- List -->
+      <section aria-label="Tests" data-history class="mt-6 rounded-xl border border-[#e3eaef] bg-white">
+        <div role="group" aria-label="Status" class="flex flex-wrap gap-x-8 px-5 border-b border-[#e3eaef] overflow-x-auto">
+          <button type="button" data-history-tab="ALL" aria-pressed="true"
+                  class="group inline-flex items-center gap-2 h-12 -mb-px border-b-2 border-transparent text-[15px] text-body
+                       aria-pressed:border-[#1f7ab8] aria-pressed:text-[#1f7ab8] aria-pressed:font-semibold">
+            All
+            <span class="px-1.5 rounded-full bg-slate-100 text-xs text-subtle group-aria-pressed:bg-[#e1eff7] group-aria-pressed:text-[#1f7ab8]">14</span>
+          </button>
+          <button type="button" data-history-tab="REQUESTED" aria-pressed="false"
+                  class="group inline-flex items-center gap-2 h-12 -mb-px border-b-2 border-transparent text-[15px] text-body
+                       aria-pressed:border-[#1f7ab8] aria-pressed:text-[#1f7ab8] aria-pressed:font-semibold">
+            Requested
+            <span class="px-1.5 rounded-full bg-slate-100 text-xs text-subtle group-aria-pressed:bg-[#e1eff7] group-aria-pressed:text-[#1f7ab8]">2</span>
+          </button>
+          <button type="button" data-history-tab="IN_PROGRESS" aria-pressed="false"
+                  class="group inline-flex items-center gap-2 h-12 -mb-px border-b-2 border-transparent text-[15px] text-body
+                       aria-pressed:border-[#1f7ab8] aria-pressed:text-[#1f7ab8] aria-pressed:font-semibold">
+            In progress
+            <span class="px-1.5 rounded-full bg-slate-100 text-xs text-subtle group-aria-pressed:bg-[#e1eff7] group-aria-pressed:text-[#1f7ab8]">3</span>
+          </button>
+          <button type="button" data-history-tab="DELIVERED" aria-pressed="false"
+                  class="group inline-flex items-center gap-2 h-12 -mb-px border-b-2 border-transparent text-[15px] text-body
+                       aria-pressed:border-[#1f7ab8] aria-pressed:text-[#1f7ab8] aria-pressed:font-semibold">
+            Delivered
+            <span class="px-1.5 rounded-full bg-slate-100 text-xs text-subtle group-aria-pressed:bg-[#e1eff7] group-aria-pressed:text-[#1f7ab8]">8</span>
+          </button>
+          <button type="button" data-history-tab="CANCELLED" aria-pressed="false"
+                  class="group inline-flex items-center gap-2 h-12 -mb-px border-b-2 border-transparent text-[15px] text-body
+                       aria-pressed:border-[#1f7ab8] aria-pressed:text-[#1f7ab8] aria-pressed:font-semibold">
+            Cancelled
+            <span class="px-1.5 rounded-full bg-slate-100 text-xs text-subtle group-aria-pressed:bg-[#e1eff7] group-aria-pressed:text-[#1f7ab8]">1</span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-4 p-5">
+          <div>
+            <label for="history-search" class="form-label text-sm font-normal mb-2">Search</label>
+            <input id="history-search" type="search" data-history-search placeholder="Patient name, UHID, order or sample ID" class="form-input">
+          </div>
+          <div>
+            <label for="history-department" class="form-label text-sm font-normal mb-2">Department</label>
+            <select id="history-department" data-history-department class="form-select-field">
+              <option value="" selected>All departments</option>
+              <option value="LAB">Lab</option>
+              <option value="RADIOLOGY">Radiology</option>
+              <option value="CARDIOLOGY">Cardiology</option>
+            </select>
+          </div>
+          <div>
+            <label for="history-period" class="form-label text-sm font-normal mb-2">Period</label>
+            <select id="history-period" name="period" class="form-select-field">
+              <option selected>Last 7 days · 23 – 29 Oct</option>
+              <option>Today</option>
+              <option>Last 30 days</option>
+              <option>This year</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="relative overflow-x-auto">
+          <table class="w-full min-w-[1100px] text-left text-[15px] whitespace-nowrap">
+            <thead class="border-y border-[#e3eaef] bg-[#f8fafc] text-sm text-subtle">
+              <tr>
+                <th scope="col" class="px-5 py-3 font-normal">Date</th>
+                <th scope="col" class="px-4 py-3 font-normal">Order / sample</th>
+                <th scope="col" class="px-4 py-3 font-normal">Patient</th>
+                <th scope="col" class="px-4 py-3 font-normal">Test</th>
+                <th scope="col" class="px-4 py-3 font-normal">Department</th>
+                <th scope="col" class="px-4 py-3 font-normal">Referred by</th>
+                <th scope="col" class="px-4 py-3 font-normal">Status</th>
+                <th scope="col" class="px-5 py-3 font-normal text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#edf1f4]">
+              <tr data-history-row data-status="DELIVERED" data-department="LAB" data-search="Priya Nair HSP1.0000124402 DX-26-0912 SMP-26-30418">
+                <td class="px-5 py-3"><span class="block text-ink">29 Oct</span><span class="block text-sm text-placeholder">12:08 PM</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">DX-26-0912</span><span class="block font-mono text-[13px] text-placeholder">SMP-26-30418</span></td>
+                <td class="px-4 py-3"><span class="block font-semibold text-ink">Priya Nair</span><span class="block font-mono text-[13px] text-placeholder">HSP1.0000124402</span></td>
+                <td class="px-4 py-3 text-ink">Complete blood count</td>
+                <td class="px-4 py-3"><span class="pill border border-[#c9ecd6] bg-[#effaf3] text-[#1f7a46]">Lab</span></td>
+                <td class="px-4 py-3 text-ink">Dr Farah Khan</td>
+                <td class="px-4 py-3"><span class="pill border border-[#bfe6cb] bg-[#e7f6ee] text-[#1f7a46]">Delivered</span></td>
+                <td class="px-5 py-3 text-right"><a href="result-entry.html" class="font-medium text-[#1f7ab8] hover:underline">Report</a></td>
+              </tr>
+              <tr data-history-row data-status="DELIVERED" data-department="LAB" data-search="Ramesh Sharma HSP1.0000123456 DX-26-0874 SMP-26-30344">
+                <td class="px-5 py-3"><span class="block text-ink">29 Oct</span><span class="block text-sm text-placeholder">9:15 AM</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">DX-26-0874</span><span class="block font-mono text-[13px] text-placeholder">SMP-26-30344</span></td>
+                <td class="px-4 py-3"><span class="block font-semibold text-ink">Ramesh Sharma</span><span class="block font-mono text-[13px] text-placeholder">HSP1.0000123456</span></td>
+                <td class="px-4 py-3 text-ink">Serum creatinine</td>
+                <td class="px-4 py-3"><span class="pill border border-[#c9ecd6] bg-[#effaf3] text-[#1f7a46]">Lab</span></td>
+                <td class="px-4 py-3 text-ink">Dr Farah Khan</td>
+                <td class="px-4 py-3"><span class="pill border border-[#bfe6cb] bg-[#e7f6ee] text-[#1f7a46]">Delivered</span></td>
+                <td class="px-5 py-3 text-right"><a href="result-entry.html" class="font-medium text-[#1f7ab8] hover:underline">Report</a></td>
+              </tr>
+              <tr data-history-row data-status="DELIVERED" data-department="CARDIOLOGY" data-search="Meena Joshi HSP1.0000118804 DX-26-0890 ECG-26-00412">
+                <td class="px-5 py-3"><span class="block text-ink">29 Oct</span><span class="block text-sm text-placeholder">9:40 AM</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">DX-26-0890</span><span class="block font-mono text-[13px] text-placeholder">ECG-26-00412</span></td>
+                <td class="px-4 py-3"><span class="block font-semibold text-ink">Meena Joshi</span><span class="block font-mono text-[13px] text-placeholder">HSP1.0000118804</span></td>
+                <td class="px-4 py-3 text-ink">ECG</td>
+                <td class="px-4 py-3"><span class="pill border border-[#e4d3f3] bg-[#f7f0fc] text-[#7a3fb0]">Cardiology</span></td>
+                <td class="px-4 py-3 text-ink">Dr Meera Iyer</td>
+                <td class="px-4 py-3"><span class="pill border border-[#bfe6cb] bg-[#e7f6ee] text-[#1f7a46]">Delivered</span></td>
+                <td class="px-5 py-3 text-right"><a href="result-entry.html" class="font-medium text-[#1f7ab8] hover:underline">Report</a></td>
+              </tr>
+              <tr data-history-row data-status="IN_PROGRESS" data-department="RADIOLOGY" data-search="Imran Qureshi HSP1.0000121937 DX-26-0893 IMG-26-01177">
+                <td class="px-5 py-3"><span class="block text-ink">29 Oct</span><span class="block text-sm text-placeholder">10:20 AM</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">DX-26-0893</span><span class="block font-mono text-[13px] text-placeholder">IMG-26-01177</span></td>
+                <td class="px-4 py-3"><span class="block font-semibold text-ink">Imran Qureshi</span><span class="block font-mono text-[13px] text-placeholder">HSP1.0000121937</span></td>
+                <td class="px-4 py-3 text-ink">Chest X-ray PA</td>
+                <td class="px-4 py-3"><span class="pill border border-[#c9dff0] bg-[#eef5fb] text-[#245d85]">Radiology</span></td>
+                <td class="px-4 py-3 text-ink">Dr Vikram Sen</td>
+                <td class="px-4 py-3"><span class="pill border border-[#a9d0ec] bg-[#eaf4fb] text-[#1f6fa8]">In progress</span></td>
+                <td class="px-5 py-3 text-right"><a href="worklist.html" class="font-medium text-[#1f7ab8] hover:underline">Track</a></td>
+              </tr>
+              <tr data-history-row data-status="IN_PROGRESS" data-department="LAB" data-search="Priya Nair HSP1.0000124402 DX-26-0912 SMP-26-30419">
+                <td class="px-5 py-3"><span class="block text-ink">29 Oct</span><span class="block text-sm text-placeholder">11:22 AM</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">DX-26-0912</span><span class="block font-mono text-[13px] text-placeholder">SMP-26-30419</span></td>
+                <td class="px-4 py-3"><span class="block font-semibold text-ink">Priya Nair</span><span class="block font-mono text-[13px] text-placeholder">HSP1.0000124402</span></td>
+                <td class="px-4 py-3 text-ink">Serum ferritin</td>
+                <td class="px-4 py-3"><span class="pill border border-[#c9ecd6] bg-[#effaf3] text-[#1f7a46]">Lab</span></td>
+                <td class="px-4 py-3 text-ink">Dr Farah Khan</td>
+                <td class="px-4 py-3"><span class="pill border border-[#a9d0ec] bg-[#eaf4fb] text-[#1f6fa8]">In progress</span></td>
+                <td class="px-5 py-3 text-right"><a href="worklist.html" class="font-medium text-[#1f7ab8] hover:underline">Track</a></td>
+              </tr>
+              <tr data-history-row data-status="IN_PROGRESS" data-department="LAB" data-search="Harish Menon HSP1.0000120754 DX-26-0905 SMP-26-30420">
+                <td class="px-5 py-3"><span class="block text-ink">29 Oct</span><span class="block text-sm text-placeholder">11:05 AM</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">DX-26-0905</span><span class="block font-mono text-[13px] text-placeholder">SMP-26-30420</span></td>
+                <td class="px-4 py-3"><span class="block font-semibold text-ink">Harish Menon</span><span class="block font-mono text-[13px] text-placeholder">HSP1.0000120754</span></td>
+                <td class="px-4 py-3 text-ink">Creatinine and electrolytes</td>
+                <td class="px-4 py-3"><span class="pill border border-[#c9ecd6] bg-[#effaf3] text-[#1f7a46]">Lab</span></td>
+                <td class="px-4 py-3 text-ink">Dr Vikram Sen</td>
+                <td class="px-4 py-3"><span class="pill border border-[#a9d0ec] bg-[#eaf4fb] text-[#1f6fa8]">In progress</span></td>
+                <td class="px-5 py-3 text-right"><a href="worklist.html" class="font-medium text-[#1f7ab8] hover:underline">Track</a></td>
+              </tr>
+              <tr data-history-row data-status="REQUESTED" data-department="LAB" data-search="Suresh Patil HSP1.0000122580 DX-26-0911 ">
+                <td class="px-5 py-3"><span class="block text-ink">29 Oct</span><span class="block text-sm text-placeholder">11:40 AM</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">DX-26-0911</span><span class="block text-placeholder" aria-label="No sample yet">—</span></td>
+                <td class="px-4 py-3"><span class="block font-semibold text-ink">Suresh Patil</span><span class="block font-mono text-[13px] text-placeholder">HSP1.0000122580</span></td>
+                <td class="px-4 py-3 text-ink">H. pylori stool antigen</td>
+                <td class="px-4 py-3"><span class="pill border border-[#c9ecd6] bg-[#effaf3] text-[#1f7a46]">Lab</span></td>
+                <td class="px-4 py-3 text-ink">Dr Farah Khan</td>
+                <td class="px-4 py-3"><span class="pill border border-slate-200 bg-slate-100 text-subtle">Requested</span></td>
+                <td class="px-5 py-3 text-right"><a href="test-requests.html" class="font-medium text-[#1f7ab8] hover:underline">Track</a></td>
+              </tr>
+              <tr data-history-row data-status="REQUESTED" data-department="RADIOLOGY" data-search="Priya Nair HSP1.0000124402 DX-26-0912 ">
+                <td class="px-5 py-3"><span class="block text-ink">30 Oct</span><span class="block text-sm text-placeholder">9:30 AM</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">DX-26-0912</span><span class="block text-placeholder" aria-label="No sample yet">—</span></td>
+                <td class="px-4 py-3"><span class="block font-semibold text-ink">Priya Nair</span><span class="block font-mono text-[13px] text-placeholder">HSP1.0000124402</span></td>
+                <td class="px-4 py-3 text-ink">Ultrasound abdomen</td>
+                <td class="px-4 py-3"><span class="pill border border-[#c9dff0] bg-[#eef5fb] text-[#245d85]">Radiology</span></td>
+                <td class="px-4 py-3 text-ink">Dr Farah Khan</td>
+                <td class="px-4 py-3"><span class="pill border border-slate-200 bg-slate-100 text-subtle">Requested</span></td>
+                <td class="px-5 py-3 text-right"><a href="test-requests.html" class="font-medium text-[#1f7ab8] hover:underline">Track</a></td>
+              </tr>
+              <tr data-history-row data-status="DELIVERED" data-department="LAB" data-search="Anita Desai HSP1.0000119977 DX-26-0861 SMP-26-30290">
+                <td class="px-5 py-3"><span class="block text-ink">28 Oct</span><span class="block text-sm text-placeholder">4:10 PM</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">DX-26-0861</span><span class="block font-mono text-[13px] text-placeholder">SMP-26-30290</span></td>
+                <td class="px-4 py-3"><span class="block font-semibold text-ink">Anita Desai</span><span class="block font-mono text-[13px] text-placeholder">HSP1.0000119977</span></td>
+                <td class="px-4 py-3 text-ink">TSH</td>
+                <td class="px-4 py-3"><span class="pill border border-[#c9ecd6] bg-[#effaf3] text-[#1f7a46]">Lab</span></td>
+                <td class="px-4 py-3 text-ink">Dr Farah Khan</td>
+                <td class="px-4 py-3"><span class="pill border border-[#bfe6cb] bg-[#e7f6ee] text-[#1f7a46]">Delivered</span></td>
+                <td class="px-5 py-3 text-right"><a href="result-entry.html" class="font-medium text-[#1f7ab8] hover:underline">Report</a></td>
+              </tr>
+              <tr data-history-row data-status="DELIVERED" data-department="RADIOLOGY" data-search="Mohammed Irfan HSP1.0000120318 DX-26-0857 IMG-26-01152">
+                <td class="px-5 py-3"><span class="block text-ink">28 Oct</span><span class="block text-sm text-placeholder">2:35 PM</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">DX-26-0857</span><span class="block font-mono text-[13px] text-placeholder">IMG-26-01152</span></td>
+                <td class="px-4 py-3"><span class="block font-semibold text-ink">Mohammed Irfan</span><span class="block font-mono text-[13px] text-placeholder">HSP1.0000120318</span></td>
+                <td class="px-4 py-3 text-ink">Chest X-ray PA</td>
+                <td class="px-4 py-3"><span class="pill border border-[#c9dff0] bg-[#eef5fb] text-[#245d85]">Radiology</span></td>
+                <td class="px-4 py-3 text-ink">Dr Farah Khan</td>
+                <td class="px-4 py-3"><span class="pill border border-[#bfe6cb] bg-[#e7f6ee] text-[#1f7a46]">Delivered</span></td>
+                <td class="px-5 py-3 text-right"><a href="result-entry.html" class="font-medium text-[#1f7ab8] hover:underline">Report</a></td>
+              </tr>
+              <tr data-history-row data-status="DELIVERED" data-department="LAB" data-search="Ramesh Sharma HSP1.0000123456 DX-26-0838 SMP-26-30211">
+                <td class="px-5 py-3"><span class="block text-ink">26 Oct</span><span class="block text-sm text-placeholder">1:20 PM</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">DX-26-0838</span><span class="block font-mono text-[13px] text-placeholder">SMP-26-30211</span></td>
+                <td class="px-4 py-3"><span class="block font-semibold text-ink">Ramesh Sharma</span><span class="block font-mono text-[13px] text-placeholder">HSP1.0000123456</span></td>
+                <td class="px-4 py-3 text-ink">HbA1c</td>
+                <td class="px-4 py-3"><span class="pill border border-[#c9ecd6] bg-[#effaf3] text-[#1f7a46]">Lab</span></td>
+                <td class="px-4 py-3 text-ink">Dr Farah Khan</td>
+                <td class="px-4 py-3"><span class="pill border border-[#bfe6cb] bg-[#e7f6ee] text-[#1f7a46]">Delivered</span></td>
+                <td class="px-5 py-3 text-right"><a href="result-entry.html" class="font-medium text-[#1f7ab8] hover:underline">Report</a></td>
+              </tr>
+              <tr data-history-row data-status="DELIVERED" data-department="LAB" data-search="Ramesh Sharma HSP1.0000123456 DX-26-0838 SMP-26-30212">
+                <td class="px-5 py-3"><span class="block text-ink">26 Oct</span><span class="block text-sm text-placeholder">1:20 PM</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">DX-26-0838</span><span class="block font-mono text-[13px] text-placeholder">SMP-26-30212</span></td>
+                <td class="px-4 py-3"><span class="block font-semibold text-ink">Ramesh Sharma</span><span class="block font-mono text-[13px] text-placeholder">HSP1.0000123456</span></td>
+                <td class="px-4 py-3 text-ink">Lipid profile</td>
+                <td class="px-4 py-3"><span class="pill border border-[#c9ecd6] bg-[#effaf3] text-[#1f7a46]">Lab</span></td>
+                <td class="px-4 py-3 text-ink">Dr Farah Khan</td>
+                <td class="px-4 py-3"><span class="pill border border-[#bfe6cb] bg-[#e7f6ee] text-[#1f7a46]">Delivered</span></td>
+                <td class="px-5 py-3 text-right"><a href="result-entry.html" class="font-medium text-[#1f7ab8] hover:underline">Report</a></td>
+              </tr>
+              <tr data-history-row data-status="CANCELLED" data-department="RADIOLOGY" data-search="Kiran Shah HSP1.0000116420 DX-26-0822 ">
+                <td class="px-5 py-3"><span class="block text-ink">25 Oct</span><span class="block text-sm text-placeholder">11:00 AM</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">DX-26-0822</span><span class="block text-placeholder" aria-label="No sample yet">—</span></td>
+                <td class="px-4 py-3"><span class="block font-semibold text-ink">Kiran Shah</span><span class="block font-mono text-[13px] text-placeholder">HSP1.0000116420</span></td>
+                <td class="px-4 py-3 text-ink">CT brain plain</td>
+                <td class="px-4 py-3"><span class="pill border border-[#c9dff0] bg-[#eef5fb] text-[#245d85]">Radiology</span></td>
+                <td class="px-4 py-3 text-ink">Dr Arjun Rao</td>
+                <td class="px-4 py-3"><span class="pill border border-[#f6caca] bg-[#fdecec] text-[#c8102e]">Cancelled</span></td>
+                <td class="px-5 py-3 text-right"><a href="test-requests.html" class="font-medium text-[#1f7ab8] hover:underline">Track</a></td>
+              </tr>
+              <tr data-history-row data-status="DELIVERED" data-department="CARDIOLOGY" data-search="Gopal Das HSP1.0000117642 DX-26-0815 ECG-26-00398">
+                <td class="px-5 py-3"><span class="block text-ink">24 Oct</span><span class="block text-sm text-placeholder">3:30 PM</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">DX-26-0815</span><span class="block font-mono text-[13px] text-placeholder">ECG-26-00398</span></td>
+                <td class="px-4 py-3"><span class="block font-semibold text-ink">Gopal Das</span><span class="block font-mono text-[13px] text-placeholder">HSP1.0000117642</span></td>
+                <td class="px-4 py-3 text-ink">2D Echo (previous)</td>
+                <td class="px-4 py-3"><span class="pill border border-[#e4d3f3] bg-[#f7f0fc] text-[#7a3fb0]">Cardiology</span></td>
+                <td class="px-4 py-3 text-ink">Dr Meera Iyer</td>
+                <td class="px-4 py-3"><span class="pill border border-[#bfe6cb] bg-[#e7f6ee] text-[#1f7a46]">Delivered</span></td>
+                <td class="px-5 py-3 text-right"><a href="result-entry.html" class="font-medium text-[#1f7ab8] hover:underline">Report</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="px-5 py-4 border-t border-[#e3eaef] text-[15px] text-subtle">Showing <span data-history-count>14</span> of 214 tests in this period</p>
+      </section>
+
+      <!-- Selected test -->
+      <section aria-labelledby="selected-title" class="mt-6 grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+        <div>
+          <h2 id="selected-title" class="text-xl font-bold text-ink">Complete blood count · Priya Nair</h2>
+          <p class="mt-1 text-[15px] text-subtle">DX-26-0912 · SMP-26-30418 · referred by Dr Farah Khan</p>
+          <p class="mt-4 text-[15px] text-subtle">Result summary <strong class="font-semibold text-ink">Hb 10.2 low, MCV 72 low · iron deficiency picture</strong></p>
+
+          <ul aria-label="Sent to" class="mt-5 flex flex-wrap gap-2">
+            <li class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#bfe6cb] bg-[#effaf3] text-[15px] text-[#1f7a46]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>
+              Dr Farah Khan (to verify)
+            </li>
+            <li class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#bfe6cb] bg-[#effaf3] text-[15px] text-[#1f7a46]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>
+              Patient copy by SMS
+            </li>
+            <li class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#bfe6cb] bg-[#effaf3] text-[15px] text-[#1f7a46]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>
+              Patient record
+            </li>
+            <li class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#bfe6cb] bg-[#effaf3] text-[15px] text-[#1f7a46]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>
+              Front desk notified
+            </li>
+          </ul>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="result-entry.html" class="inline-flex items-center justify-center h-10 px-5 rounded-md bg-[#1f7ab8] text-[15px] font-semibold text-white hover:bg-[#1a679b]">View report</a>
+            <button type="button" class="btn-outline px-5">Reprint</button>
+            <button type="button" class="btn-outline px-5">Send again to doctor</button>
+          </div>
+        </div>
+
+        <ol aria-label="Timeline">
+            <li class="relative pl-7 pb-6 last:pb-0 before:absolute before:left-[5px] before:top-4 before:bottom-0 before:w-px before:bg-[#d7e3ea] last:before:hidden">
+              <span class="absolute left-0 top-1.5 w-[11px] h-[11px] rounded-full bg-[#1f8a5b]" aria-hidden="true"></span>
+              <p class="text-[15px] font-semibold text-ink">Advised by Dr Farah Khan in the consultation</p>
+              <p class="mt-0.5 text-sm text-placeholder">29 Oct · consultation</p>
+            </li>
+            <li class="relative pl-7 pb-6 last:pb-0 before:absolute before:left-[5px] before:top-4 before:bottom-0 before:w-px before:bg-[#d7e3ea] last:before:hidden">
+              <span class="absolute left-0 top-1.5 w-[11px] h-[11px] rounded-full bg-[#1f8a5b]" aria-hidden="true"></span>
+              <p class="text-[15px] font-semibold text-ink">Request raised by the front desk</p>
+              <p class="mt-0.5 text-sm text-placeholder">29 Oct · front desk</p>
+            </li>
+            <li class="relative pl-7 pb-6 last:pb-0 before:absolute before:left-[5px] before:top-4 before:bottom-0 before:w-px before:bg-[#d7e3ea] last:before:hidden">
+              <span class="absolute left-0 top-1.5 w-[11px] h-[11px] rounded-full bg-[#1f8a5b]" aria-hidden="true"></span>
+              <p class="text-[15px] font-semibold text-ink">Sample collected / scan done</p>
+              <p class="mt-0.5 text-sm text-placeholder">29 Oct · 12:08 PM</p>
+            </li>
+            <li class="relative pl-7 pb-6 last:pb-0 before:absolute before:left-[5px] before:top-4 before:bottom-0 before:w-px before:bg-[#d7e3ea] last:before:hidden">
+              <span class="absolute left-0 top-1.5 w-[11px] h-[11px] rounded-full bg-[#1f8a5b]" aria-hidden="true"></span>
+              <p class="text-[15px] font-semibold text-ink">Results entered</p>
+              <p class="mt-0.5 text-sm text-placeholder">29 Oct · Rina Das, lab technician</p>
+            </li>
+            <li class="relative pl-7 pb-6 last:pb-0 before:absolute before:left-[5px] before:top-4 before:bottom-0 before:w-px before:bg-[#d7e3ea] last:before:hidden">
+              <span class="absolute left-0 top-1.5 w-[11px] h-[11px] rounded-full bg-[#1f8a5b]" aria-hidden="true"></span>
+              <p class="text-[15px] font-semibold text-ink">Report sent to doctor and patient</p>
+              <p class="mt-0.5 text-sm text-placeholder">29 Oct · 12:08 PM</p>
+            </li>
+        </ol>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../js/modules/diagnostics.js"></script>
+</body>
+</html>

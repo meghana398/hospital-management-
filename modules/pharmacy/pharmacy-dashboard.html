@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard · Pharmacy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#f7f9fb]">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-[72px] px-4 sm:px-7 py-3">
+
+      <a href="pharmacy-dashboard.html" class="flex items-center gap-3">
+        <span class="w-10 h-10 grid place-items-center rounded-lg bg-[#2a7a66] text-white" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+        </span>
+        <span class="leading-tight">
+          <span class="block text-[15px] font-semibold text-ink">[Hospital name]</span>
+          <span class="block text-[13px] text-subtle">Main pharmacy</span>
+        </span>
+      </a>
+
+      <div class="flex items-center gap-4 sm:gap-5">
+        <a href="notifications.html" aria-label="Notifications, 4 unread" class="relative w-8 h-8 grid place-items-center text-ink hover:text-accent">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">4</span>
+        </a>
+
+        <span class="hidden sm:block w-px h-8 bg-line" aria-hidden="true"></span>
+
+        <a href="my-profile.html" class="flex items-center gap-2.5">
+          <span class="sr-only">My profile:</span>
+          <span class="w-8 h-8 grid place-items-center rounded-full bg-[#d6efe3] text-xs font-semibold text-accent" aria-hidden="true">AV</span>
+          <span class="hidden sm:block leading-tight">
+            <span class="block text-sm font-semibold text-ink">Anil Verma</span>
+            <span class="block text-xs text-subtle">Pharmacist in charge</span>
+          </span>
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          Sign out
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex-1 flex flex-col lg:flex-row">
+
+    <!-- ==================== Sidebar ==================== -->
+    <aside class="lg:flex-none lg:w-[270px] flex flex-col bg-white border-b lg:border-b-0 lg:border-r border-line px-3 lg:px-4 py-3 lg:py-5">
+      <nav aria-label="Pharmacy" class="flex lg:flex-col gap-1 overflow-x-auto text-[15px]">
+        <a href="pharmacy-dashboard.html" aria-current="page"
+           class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg bg-accent-soft font-semibold text-accent whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="prescriptions.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>
+          </svg>
+          Prescriptions
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-white text-[11px] font-semibold">3</span>
+        </a>
+        <a href="dispense-bill.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10.5 20.5a5 5 0 0 1-7-7l7-7a5 5 0 0 1 7 7z"/><path d="M8.5 8.5l7 7"/>
+          </svg>
+          Dispense and bill
+        </a>
+        <a href="diagnostics-requests.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/>
+          </svg>
+          Diagnostics requests
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-white text-[11px] font-semibold">1</span>
+        </a>
+        <a href="inventory.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>
+          </svg>
+          Inventory
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fde3e1] text-[#b42318] text-[11px] font-semibold">7</span>
+        </a>
+        <a href="stock-in-out.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 20V4M3 8l4-4 4 4M17 4v16M13 16l4 4 4-4"/>
+          </svg>
+          Stock in and out
+        </a>
+        <a href="purchase-requests.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 12h11.5l2-8H6"/>
+          </svg>
+          Purchase requests
+        </a>
+        <a href="bills-collections.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/>
+          </svg>
+          Bills and collections
+        </a>
+        <a href="accounts.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/>
+          </svg>
+          Accounts
+        </a>
+      </nav>
+
+      <div class="hidden lg:block mt-auto pt-10">
+        <div class="p-4 rounded-xl border border-[#cfe8dc] bg-[#eef7f2]">
+          <p class="text-sm font-semibold text-accent">Main pharmacy</p>
+          <p class="mt-0.5 text-[13px] text-subtle">Ground floor, Block A · open 24 hours</p>
+          <p class="mt-3 text-sm font-semibold text-accent">Counters</p>
+          <p class="mt-0.5 text-[13px] text-subtle">1 · OPD prescriptions</p>
+          <p class="text-[13px] text-subtle">2 · Bills and returns</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== Main ==================== -->
+    <main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-9 pt-8 pb-14">
+
+      <h1 class="text-2xl font-bold text-ink">Good morning, Anil</h1>
+      <p class="mt-1 text-[15px] text-subtle">Friday, 30 Oct 2026 · prescriptions from the front desk, requests from diagnostics and stock that needs attention.</p>
+
+      <!-- Today at a glance -->
+      <dl class="mt-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 xl:gap-5">
+        <div class="p-5 rounded-xl border border-[#e3eaef] border-l-4 border-l-accent bg-white">
+          <dt class="text-[15px] text-subtle">Prescriptions today</dt>
+          <dd class="mt-2 text-[32px] leading-10 font-bold text-ink">16</dd>
+          <dd class="mt-2 text-sm text-placeholder">13 done · 3 waiting</dd>
+        </div>
+        <div class="p-5 rounded-xl border border-[#e3eaef] border-l-4 border-l-accent bg-white">
+          <dt class="text-[15px] text-subtle">Diagnostics requests</dt>
+          <dd class="mt-2 text-[32px] leading-10 font-bold text-ink">1 <span class="text-2xl font-medium">new</span></dd>
+          <dd class="mt-2 text-sm text-placeholder">PR-26-0447 · urgent · 5 items</dd>
+        </div>
+        <div class="p-5 rounded-xl border border-[#e3eaef] border-l-4 border-l-[#c0392b] bg-white">
+          <dt class="text-[15px] text-subtle">Stock alerts</dt>
+          <dd class="mt-2 text-[32px] leading-10 font-bold text-[#c0392b]">7</dd>
+          <dd class="mt-2 text-sm text-placeholder">4 low · 2 expiring · 1 expired</dd>
+        </div>
+        <div class="p-5 rounded-xl border border-[#e3eaef] border-l-4 border-l-accent bg-white">
+          <dt class="text-[15px] text-subtle">Billed today</dt>
+          <dd class="mt-2 text-[32px] leading-10 font-bold text-ink">₹12,975.50</dd>
+          <dd class="mt-2 text-sm text-placeholder">₹6,840 collected · ₹4,215.50 to front desk · ₹1,920 to schemes</dd>
+        </div>
+      </dl>
+
+      <div class="mt-6 grid grid-cols-1 xl:grid-cols-[2fr_3fr] gap-6 items-start">
+
+        <!-- Prescriptions per day -->
+        <section aria-labelledby="chart-title" class="p-5 sm:p-6 rounded-xl border border-[#e3eaef] bg-white">
+          <div class="flex flex-wrap items-start justify-between gap-3">
+            <h2 id="chart-title" class="text-base font-semibold text-ink">Prescriptions per day</h2>
+            <ul class="flex flex-wrap gap-x-4 gap-y-1 text-[13px] text-subtle" aria-hidden="true">
+              <li class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-[#4aa58c]"></span>Full day</li>
+              <li class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm border-2 border-[#4aa58c] bg-[#d6efe6]"></span>Today so far</li>
+              <li class="flex items-center gap-1.5"><span class="w-4 border-t-2 border-dashed border-[#d08a2e]"></span>Average</li>
+            </ul>
+          </div>
+
+          <div role="img" aria-label="Prescriptions per day: Sat 24 38, Sun 25 12, Mon 26 42, Tue 27 39, Wed 28 45, Thu 29 41, Fri 30 16 so far. Average 36." class="mt-5 p-3 sm:p-4 rounded-lg border border-[#edf1f4] bg-[#fbfcfd]">
+            <div class="flex gap-2">
+              <div class="flex flex-col justify-between h-[200px] pb-0 text-[11px] text-placeholder text-right w-5" aria-hidden="true">
+                <span>50</span><span>40</span><span>30</span><span>20</span><span>10</span><span>0</span>
+              </div>
+              <div class="relative flex-1 h-[200px] border-b border-line">
+                <span class="absolute inset-x-0 border-t border-dashed border-[#d08a2e]" style="bottom: 72%" aria-hidden="true"></span>
+                <span class="absolute right-0 px-1.5 rounded border border-[#f3d48a] bg-[#fdf6e3] text-[11px] font-semibold text-[#9a5b00]" style="bottom: calc(72% + 2px)" aria-hidden="true">Avg 36</span>
+                <div class="relative flex items-end gap-1.5 sm:gap-2.5 h-full px-1" aria-hidden="true">
+                  <div class="flex-1 flex flex-col items-center justify-end h-full">
+                    <span class="mb-1 text-[11px] text-body">38</span>
+                    <span class="w-full max-w-10 rounded-t bg-[#4aa58c]" style="height: 76%"></span>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center justify-end h-full">
+                    <span class="mb-1 text-[11px] text-body">12</span>
+                    <span class="w-full max-w-10 rounded-t bg-[#9fd3c3]" style="height: 24%"></span>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center justify-end h-full">
+                    <span class="mb-1 text-[11px] text-body">42</span>
+                    <span class="w-full max-w-10 rounded-t bg-[#4aa58c]" style="height: 84%"></span>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center justify-end h-full">
+                    <span class="mb-1 text-[11px] text-body">39</span>
+                    <span class="w-full max-w-10 rounded-t bg-[#4aa58c]" style="height: 78%"></span>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center justify-end h-full">
+                    <span class="mb-1 text-[11px] text-body">45</span>
+                    <span class="w-full max-w-10 rounded-t bg-[#2c7a64]" style="height: 90%"></span>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center justify-end h-full">
+                    <span class="mb-1 text-[11px] text-body">41</span>
+                    <span class="w-full max-w-10 rounded-t bg-[#4aa58c]" style="height: 82%"></span>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center justify-end h-full">
+                    <span class="mb-1 text-[11px] font-semibold text-accent whitespace-nowrap">16 so far</span>
+                    <span class="w-full max-w-10 rounded-t border-2 border-[#4aa58c] bg-[repeating-linear-gradient(135deg,#d6efe6_0_4px,#ffffff_4px_8px)]" style="height: 32%"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-1.5 sm:gap-2.5 mt-2 pl-7 pr-1" aria-hidden="true">
+              <span class="flex-1 text-center text-[11px] whitespace-nowrap text-subtle">Sat 24</span>
+              <span class="flex-1 text-center text-[11px] whitespace-nowrap text-subtle">Sun 25</span>
+              <span class="flex-1 text-center text-[11px] whitespace-nowrap text-subtle">Mon 26</span>
+              <span class="flex-1 text-center text-[11px] whitespace-nowrap text-subtle">Tue 27</span>
+              <span class="flex-1 text-center text-[11px] whitespace-nowrap text-subtle">Wed 28</span>
+              <span class="flex-1 text-center text-[11px] whitespace-nowrap text-subtle">Thu 29</span>
+              <span class="flex-1 text-center text-[11px] whitespace-nowrap font-semibold text-ink">Fri 30</span>
+            </div>
+          </div>
+
+          <p class="mt-4 text-sm text-subtle">Average 36 a day over the last 6 full days. Busiest day was Wed 28 Oct with 45. Today counts prescriptions received so far.</p>
+        </section>
+
+        <!-- Waiting for you -->
+        <section aria-labelledby="waiting-title" class="p-5 sm:p-6 rounded-xl border border-[#e3eaef] bg-white">
+          <div class="flex items-center justify-between gap-4">
+            <h2 id="waiting-title" class="text-base font-semibold text-ink">Waiting for you</h2>
+            <p class="text-sm text-placeholder">Oldest first</p>
+          </div>
+          <ul class="mt-4 space-y-3">
+            <li class="flex flex-wrap items-center justify-between gap-3 p-4 rounded-lg border border-[#e3eaef]">
+              <div class="flex-1 min-w-[16rem]">
+                <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                  <span class="px-2 py-0.5 rounded text-[13px] font-medium border border-[#cfe8dc] bg-[#eef7f2] text-accent">Front desk</span>
+                  <p class="text-[15px] font-semibold text-ink">Mohammed Irfan</p>
+                  <span class="font-mono text-[13px] text-placeholder">RX-26-07815</span>
+                </div>
+                <p class="mt-1.5 text-sm text-subtle">61 M · Dr Farah Khan · 2 medicines · Self-pay</p>
+              </div>
+              <div class="flex-none flex items-center gap-4">
+                <span class="text-sm text-body whitespace-nowrap">10:06 AM</span>
+                <a href="dispense-bill.html" class="btn-outline h-9 px-4 font-semibold">Dispense</a>
+              </div>
+            </li>
+            <li class="flex flex-wrap items-center justify-between gap-3 p-4 rounded-lg border border-[#e3eaef]">
+              <div class="flex-1 min-w-[16rem]">
+                <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                  <span class="px-2 py-0.5 rounded text-[13px] font-medium border border-[#cfe8dc] bg-[#eef7f2] text-accent">Front desk</span>
+                  <p class="text-[15px] font-semibold text-ink">Priya Nair</p>
+                  <span class="font-mono text-[13px] text-placeholder">RX-26-07818</span>
+                </div>
+                <p class="mt-1.5 text-sm text-subtle">28 F · Dr Farah Khan · 2 medicines · Self-pay</p>
+              </div>
+              <div class="flex-none flex items-center gap-4">
+                <span class="text-sm text-body whitespace-nowrap">10:34 AM</span>
+                <a href="dispense-bill.html" class="btn-outline h-9 px-4 font-semibold">Dispense</a>
+              </div>
+            </li>
+            <li class="flex flex-wrap items-center justify-between gap-3 p-4 rounded-lg border border-[#e3eaef]">
+              <div class="flex-1 min-w-[16rem]">
+                <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                  <span class="px-2 py-0.5 rounded text-[13px] font-medium border border-[#cfe8dc] bg-[#eef7f2] text-accent">Front desk</span>
+                  <p class="text-[15px] font-semibold text-ink">Suresh Patil</p>
+                  <span class="font-mono text-[13px] text-placeholder">RX-26-07820</span>
+                </div>
+                <p class="mt-1.5 text-sm text-subtle">45 M · Dr Farah Khan · 1 medicine · CGHS · <span class="text-[#c0392b]">allergic to sulfa drugs</span></p>
+              </div>
+              <div class="flex-none flex items-center gap-4">
+                <span class="text-sm text-body whitespace-nowrap">10:55 AM</span>
+                <a href="dispense-bill.html" class="btn-outline h-9 px-4 font-semibold">Dispense</a>
+              </div>
+            </li>
+            <li class="flex flex-wrap items-center justify-between gap-3 p-4 rounded-lg border border-[#e3eaef]">
+              <div class="flex-1 min-w-[16rem]">
+                <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                  <span class="px-2 py-0.5 rounded text-[13px] font-medium border border-[#cfe8dc] bg-[#eef7f2] text-accent">Diagnostics</span>
+                  <p class="text-[15px] font-semibold text-ink">Central lab and imaging</p>
+                  <span class="font-mono text-[13px] text-placeholder">PR-26-0447</span>
+                </div>
+                <p class="mt-1.5 text-sm text-subtle">Rina Das · 5 items · ₹95,280 · urgent, needed before 4:00 PM</p>
+              </div>
+              <div class="flex-none flex items-center gap-4">
+                <span class="text-sm text-body whitespace-nowrap">11:20 AM</span>
+                <a href="diagnostics-requests.html" class="btn-outline h-9 px-4 font-semibold">Review</a>
+              </div>
+            </li>
+            <li class="flex flex-wrap items-center justify-between gap-3 p-4 rounded-lg border border-[#e3eaef]">
+              <div class="flex-1 min-w-[16rem]">
+                <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                  <span class="px-2 py-0.5 rounded text-[13px] font-medium border border-[#f3d48a] bg-[#fdf6e3] text-[#9a5b00]">Balance due</span>
+                  <p class="text-[15px] font-semibold text-ink">Ramesh Sharma</p>
+                  <span class="font-mono text-[13px] text-placeholder">RX-26-07731</span>
+                </div>
+                <p class="mt-1.5 text-sm text-subtle">Metformin 500 mg · 30 of 60 still to give · now in stock</p>
+              </div>
+              <div class="flex-none flex items-center gap-4">
+                <span class="text-sm text-body whitespace-nowrap">26 Oct</span>
+                <a href="prescriptions.html" class="btn-outline h-9 px-4 font-semibold">Open</a>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Stock that needs attention -->
+      <section aria-labelledby="stock-title" class="mt-6 p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+        <div class="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h2 id="stock-title" class="text-lg font-semibold text-ink">Stock that needs attention</h2>
+            <p class="mt-1 text-[15px] text-subtle">From the inventory: at or below the reorder level, expiring within 90 days, or expired.</p>
+          </div>
+          <a href="purchase-requests.html" class="btn-accent font-semibold">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 12h11.5l2-8H6"/>
+            </svg>
+            Raise purchase request
+          </a>
+        </div>
+        <div class="relative mt-5 overflow-x-auto">
+          <table class="w-full min-w-[900px] text-left text-[15px] whitespace-nowrap">
+            <thead class="bg-[#eef7f2] text-ink">
+              <tr>
+                <th scope="col" class="px-4 py-3 font-semibold">Medicine</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Batch · expiry</th>
+                <th scope="col" class="px-4 py-3 font-semibold text-right">In stock</th>
+                <th scope="col" class="px-4 py-3 font-semibold text-right">Reorder at</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Flag</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Purchase request</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#edf1f4]">
+              <tr>
+                <td class="px-4 py-3.5 font-semibold text-ink">Metformin 500 mg tablet</td>
+                <td class="px-4 py-3.5 font-mono text-[13px] text-subtle">MF5527 · 03/2028</td>
+                <td class="px-4 py-3.5 text-right font-semibold text-[#c0392b]">180</td>
+                <td class="px-4 py-3.5 text-right text-body">500</td>
+                <td class="px-4 py-3.5"><span class="px-2 py-0.5 rounded text-[13px] font-medium border border-[#f3cfcb] bg-[#fdf0ef] text-[#c0392b]">Running low</span></td>
+                <td class="px-4 py-3.5 text-body whitespace-normal"><span class="font-mono text-[13px]">PUR-26-0212</span> · ordered, due 31 Oct</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3.5 font-semibold text-ink">Ursodeoxycholic acid 300 mg tablet</td>
+                <td class="px-4 py-3.5 font-mono text-[13px] text-subtle">UD7710 · 06/2027</td>
+                <td class="px-4 py-3.5 text-right font-semibold text-[#c0392b]">90</td>
+                <td class="px-4 py-3.5 text-right text-body">120</td>
+                <td class="px-4 py-3.5"><span class="px-2 py-0.5 rounded text-[13px] font-medium border border-[#f3cfcb] bg-[#fdf0ef] text-[#c0392b]">Running low</span></td>
+                <td class="px-4 py-3.5 text-body whitespace-normal"><span class="font-mono text-[13px]">PUR-26-0212</span> · ordered, due 31 Oct</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3.5 font-semibold text-ink">Insulin glargine 100 IU/mL pen</td>
+                <td class="px-4 py-3.5 font-mono text-[13px] text-subtle">IG0921 · 05/2027</td>
+                <td class="px-4 py-3.5 text-right font-semibold text-[#c0392b]">8</td>
+                <td class="px-4 py-3.5 text-right text-body">10</td>
+                <td class="px-4 py-3.5"><span class="px-2 py-0.5 rounded text-[13px] font-medium border border-[#f3cfcb] bg-[#fdf0ef] text-[#c0392b]">Running low</span></td>
+                <td class="px-4 py-3.5 text-body whitespace-normal"><span class="italic text-placeholder">Not requested yet</span></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3.5 font-semibold text-ink">Azithromycin 500 mg tablet</td>
+                <td class="px-4 py-3.5 font-mono text-[13px] text-subtle">AZ5502 · 06/2027</td>
+                <td class="px-4 py-3.5 text-right font-semibold text-[#c0392b]">72</td>
+                <td class="px-4 py-3.5 text-right text-body">100</td>
+                <td class="px-4 py-3.5"><span class="px-2 py-0.5 rounded text-[13px] font-medium border border-[#f3cfcb] bg-[#fdf0ef] text-[#c0392b]">Running low</span></td>
+                <td class="px-4 py-3.5 text-body whitespace-normal"><span class="italic text-placeholder">Not requested yet</span></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3.5 font-semibold text-ink">Cetirizine 10 mg tablet</td>
+                <td class="px-4 py-3.5 font-mono text-[13px] text-subtle">CT0090 · 11/2026</td>
+                <td class="px-4 py-3.5 text-right font-semibold text-ink">200</td>
+                <td class="px-4 py-3.5 text-right text-body">150</td>
+                <td class="px-4 py-3.5"><span class="px-2 py-0.5 rounded text-[13px] font-medium border border-[#f3d48a] bg-[#fdf6e3] text-[#9a5b00]">Expiring soon</span></td>
+                <td class="px-4 py-3.5 text-body whitespace-normal"><span class="italic text-placeholder">Not requested yet</span></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3.5 font-semibold text-ink">Pantoprazole 40 mg tablet</td>
+                <td class="px-4 py-3.5 font-mono text-[13px] text-subtle">PT2014 · 12/2026</td>
+                <td class="px-4 py-3.5 text-right font-semibold text-ink">45</td>
+                <td class="px-4 py-3.5 text-right text-body">300</td>
+                <td class="px-4 py-3.5"><span class="px-2 py-0.5 rounded text-[13px] font-medium border border-[#f3d48a] bg-[#fdf6e3] text-[#9a5b00]">Expiring soon</span></td>
+                <td class="px-4 py-3.5 text-body whitespace-normal">Given first, other batch PT2290 is newer</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3.5 font-semibold text-ink">Amoxicillin 500 mg capsule</td>
+                <td class="px-4 py-3.5 font-mono text-[13px] text-subtle">AX8841 · 09/2026</td>
+                <td class="px-4 py-3.5 text-right font-semibold text-ink">60</td>
+                <td class="px-4 py-3.5 text-right text-body">100</td>
+                <td class="px-4 py-3.5"><span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#b42318] text-white">Expired</span></td>
+                <td class="px-4 py-3.5 text-body whitespace-normal">Not requested yet · take off the shelf</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Sent from the pharmacy today -->
+      <section aria-labelledby="sent-title" class="mt-6 p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+        <h2 id="sent-title" class="text-lg font-semibold text-ink">Sent from the pharmacy today</h2>
+        <ul class="mt-2 divide-y divide-[#edf1f4]">
+          <li class="flex flex-col sm:flex-row sm:items-start gap-x-6 gap-y-1.5 py-4">
+            <span class="sm:w-20 flex-none text-[15px] text-placeholder">8:50 AM</span>
+            <span class="self-start flex-none px-2 py-0.5 rounded text-[13px] font-semibold border border-[#cfe8dc] bg-[#eef7f2] text-accent">To front desk</span>
+            <p class="flex-1 min-w-0 text-[15px] text-ink">Ramesh Sharma (RX-26-07731): Metformin balance of 30 tablets is now in stock and ready to collect. Please inform the patient.</p>
+          </li>
+          <li class="flex flex-col sm:flex-row sm:items-start gap-x-6 gap-y-1.5 py-4">
+            <span class="sm:w-20 flex-none text-[15px] text-placeholder">9:52 AM</span>
+            <span class="self-start flex-none px-2 py-0.5 rounded text-[13px] font-semibold border border-[#cfe8dc] bg-[#eef7f2] text-accent">To front desk</span>
+            <p class="flex-1 min-w-0 text-[15px] text-ink">Bill PB-26-0591 for Anita Desai (RX-26-07812): Thyroxine 25 mcg × 60, ₹84.00 added to the final bill.</p>
+          </li>
+          <li class="flex flex-col sm:flex-row sm:items-start gap-x-6 gap-y-1.5 py-4">
+            <span class="sm:w-20 flex-none text-[15px] text-placeholder">10:15 AM</span>
+            <span class="self-start flex-none px-2 py-0.5 rounded text-[13px] font-semibold border border-[#cfe8dc] bg-[#eef7f2] text-accent">To diagnostics</span>
+            <p class="flex-1 min-w-0 text-[15px] text-ink">PR-26-0441 dispatched: spirit swabs × 3,000 and urine containers × 500, ₹5,500. Charged to the diagnostics account when they receive it.</p>
+          </li>
+          <li class="flex flex-col sm:flex-row sm:items-start gap-x-6 gap-y-1.5 py-4">
+            <span class="sm:w-20 flex-none text-[15px] text-placeholder">10:40 AM</span>
+            <span class="self-start flex-none px-2 py-0.5 rounded text-[13px] font-semibold border border-[#e8d6f2] bg-[#f7f0fc] text-[#7a3fb0]">To admin</span>
+            <p class="flex-1 min-w-0 text-[15px] text-ink">Reminder on PUR-26-0212 (Metformin and ursodeoxycholic acid). Supplier confirmed delivery on 31 Oct.</p>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../js/modules/pharmacy.js"></script>
+</body>
+</html>

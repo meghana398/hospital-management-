@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Surgery desk · Frontdesk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-slate-50">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-14 px-4 sm:px-5 py-2">
+
+      <div class="flex items-center gap-6 lg:gap-16">
+        <a href="patient-verification.html" class="flex items-center gap-3">
+          <span class="w-10 h-10 grid place-items-center rounded-lg bg-brand text-white" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+          </span>
+          <span class="leading-tight">
+            <span class="block text-[13px] font-semibold text-ink">[Hospital name]</span>
+            <span class="block text-xs text-subtle">[Branch, City]</span>
+          </span>
+        </a>
+        <p class="hidden md:block text-xl font-semibold text-[#2b4b6f]">Surgery desk</p>
+      </div>
+
+      <nav aria-label="Frontdesk" class="flex flex-wrap items-center gap-2">
+        <span class="inline-flex items-center h-7 px-3 rounded-full border border-[#f3c9a4] bg-[#fdf1e6] text-xs font-medium text-[#c45a17]">
+          Session expires in 18:20
+        </span>
+
+        <a href="notifications.html" aria-label="Notifications, 3 unread"
+           class="relative w-8 h-8 grid place-items-center rounded-md border border-line bg-white text-ink hover:bg-page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1.5 -right-1.5 min-w-4 h-4 px-1 grid place-items-center rounded-full bg-[#e5484d] text-[10px] font-semibold text-white">3</span>
+        </a>
+
+        <a href="opd-desk.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="7" r="3"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/>
+            <circle cx="17" cy="9" r="2.5"/><path d="M17 14a4 4 0 0 1 4 4v1"/>
+          </svg>
+          OPD desk
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          End session
+        </a>
+
+        <a href="my-profile.html" aria-label="My profile"
+           class="w-8 h-8 grid place-items-center rounded-full bg-[#d6efe3] text-xs font-semibold text-[#2c6e52] hover:ring-2 hover:ring-[#b2d5c8]">RS</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== Main ==================== -->
+  <main class="flex-1 w-full max-w-[1400px] mx-auto px-4 sm:px-6 pt-6 pb-14">
+
+    <a href="patient-dashboard.html" class="inline-flex items-center gap-1.5 text-[15px] text-slate-700 hover:underline">
+      <span aria-hidden="true">&larr;</span> Back
+    </a>
+
+    <h1 class="mt-5 text-2xl font-bold text-slate-900">Surgery desk</h1>
+    <p class="mt-2 text-[15px] text-slate-500">Surgeries the doctors ask for when they review reports. Raise the request to the OT, then book the date, theatre and bed.</p>
+
+    <!-- Tabs -->
+    <div role="group" aria-label="Surgery lists" class="mt-5 flex flex-wrap gap-2">
+      <span aria-current="true" class="inline-flex items-center gap-2 h-10 pl-4 pr-2 rounded-full bg-[#2a6f9a] text-[15px] font-medium text-white">
+        Requests from doctors
+        <span class="grid place-items-center min-w-6 h-6 px-1.5 rounded-full bg-white text-xs font-semibold text-[#2a6f9a]">1</span>
+      </span>
+      <span class="inline-flex items-center gap-2 h-10 pl-4 pr-2 rounded-full border border-slate-200 bg-white text-[15px] text-slate-700">
+        Booked
+        <span class="grid place-items-center min-w-6 h-6 px-1.5 rounded-full bg-slate-100 text-xs font-semibold text-slate-600">3</span>
+      </span>
+      <span class="inline-flex items-center gap-2 h-10 pl-4 pr-2 rounded-full border border-slate-200 bg-white text-[15px] text-slate-700">
+        Done this week
+        <span class="grid place-items-center min-w-6 h-6 px-1.5 rounded-full bg-slate-100 text-xs font-semibold text-slate-600">2</span>
+      </span>
+    </div>
+
+    <!-- ==================== Request ==================== -->
+    <article aria-labelledby="request-patient" class="mt-5 p-5 sm:p-7 rounded-xl border-2 border-[#d4d2e6] bg-white">
+
+      <!-- Patient -->
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div class="flex items-start gap-4">
+          <span class="flex-none w-12 h-12 grid place-items-center rounded-full border border-slate-200 bg-slate-100 text-sm font-semibold text-slate-700" aria-hidden="true">MI</span>
+          <div>
+            <h2 id="request-patient" class="text-[15px] text-slate-600">
+              <span class="text-xl font-semibold text-slate-900">Mohammed Irfan</span>
+              · 61 y · Male · UHID HSP1.0000120318
+            </h2>
+            <p class="mt-1 text-[15px] text-slate-500">From report review of ultrasound abdomen DX-26-0921 · Dr Farah Khan, General medicine · sent today, 4:48 PM</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2 lg:max-w-[460px]">
+          <span class="pill bg-purple-100 text-purple-700">Surgery required</span>
+          <span class="pill border border-sky-200 bg-sky-50 text-sky-800">Elective · within 2 weeks</span>
+          <span class="pill border border-sky-200 bg-sky-50 text-sky-800">Insurance · cashless</span>
+        </div>
+      </div>
+
+      <!-- Steps -->
+      <ol class="mt-5 flex flex-wrap gap-2 text-sm">
+        <li aria-current="step" class="px-4 py-2 rounded-full bg-[#3b2a6b] font-medium text-white">1. OT request</li>
+        <li class="px-4 py-2 rounded-full bg-slate-100 text-slate-600">2. Insurance pre-authorisation</li>
+        <li class="px-4 py-2 rounded-full bg-slate-100 text-slate-600">3. Date, OT and bed</li>
+        <li class="px-4 py-2 rounded-full bg-slate-100 text-slate-600">4. Pre-op tests</li>
+      </ol>
+
+      <div class="mt-7 grid grid-cols-1 xl:grid-cols-[2fr_1fr] gap-8 items-start">
+
+        <!-- Surgery details -->
+        <div>
+          <h3 class="text-[15px] font-semibold text-slate-900">Surgery, as written in the doctor’s remark</h3>
+          <p class="mt-3 p-4 rounded-lg border border-[#ebe5f6] bg-[#f8f5fd] text-[15px] leading-7 text-slate-800">
+            <strong class="font-semibold">Remark:</strong> Gallstones with an inflamed gallbladder, pain keeps coming back.
+            Needs keyhole removal of the gallbladder. Please book the surgery with me, Dr Arjun Rao to assist.
+          </p>
+
+          <dl class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-5">
+            <div class="sm:col-span-3">
+              <dt class="text-sm text-slate-500">Procedure</dt>
+              <dd class="mt-1 text-base font-semibold text-slate-900">Laparoscopic cholecystectomy (keyhole removal of the gallbladder)</dd>
+            </div>
+            <div class="sm:col-span-3">
+              <dt class="text-sm text-slate-500">Why it is needed</dt>
+              <dd class="mt-1 text-base font-semibold text-slate-900">Gallstones with an inflamed gallbladder on ultrasound (DX-26-0921), pain coming back after meals</dd>
+            </div>
+            <div>
+              <dt class="text-sm text-slate-500">Side</dt>
+              <dd class="mt-1 text-base font-semibold text-slate-900">Not applicable</dd>
+            </div>
+            <div>
+              <dt class="text-sm text-slate-500">Urgency</dt>
+              <dd class="mt-1 text-base font-semibold text-slate-900">Elective · within 2 weeks</dd>
+            </div>
+            <div>
+              <dt class="text-sm text-slate-500">Preferred date</dt>
+              <dd class="mt-1 text-base font-semibold text-slate-900">Tue, 3 Nov 2026</dd>
+            </div>
+            <div>
+              <dt class="text-sm text-slate-500">Expected duration</dt>
+              <dd class="mt-1 text-base font-semibold text-slate-900">1 hour 30 minutes</dd>
+            </div>
+            <div>
+              <dt class="text-sm text-slate-500">Anaesthesia</dt>
+              <dd class="mt-1 text-base font-semibold text-slate-900">General anaesthesia</dd>
+            </div>
+            <div>
+              <dt class="text-sm text-slate-500">Expected hospital stay</dt>
+              <dd class="mt-1 text-base font-semibold text-slate-900">2 days</dd>
+            </div>
+            <div>
+              <dt class="text-sm text-slate-500">Operating surgeon</dt>
+              <dd class="mt-1 text-base font-semibold text-slate-900">Dr Farah Khan</dd>
+            </div>
+            <div class="sm:col-span-2">
+              <dt class="text-sm text-slate-500">Assisting surgeon</dt>
+              <dd class="mt-1 text-base font-semibold text-slate-900">Dr Arjun Rao, General surgery</dd>
+            </div>
+            <div class="sm:col-span-3">
+              <dt class="text-sm text-slate-500">Instructions for the patient</dt>
+              <dd class="mt-1 text-base font-semibold leading-7 text-slate-900">Nothing to eat or drink after 6 AM on the day. Keep using the inhaler, bring it along. Bring all reports and the insurance card.</dd>
+            </div>
+            <div class="sm:col-span-3">
+              <dt class="text-sm text-slate-500">Consent</dt>
+              <dd class="mt-1 text-base font-semibold text-slate-900">Explained by the doctor. Written consent is signed at admission.</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Pre-op tests -->
+        <aside aria-labelledby="preop-title" class="p-6 rounded-xl border border-slate-200 bg-slate-50/60">
+          <h3 id="preop-title" class="text-base font-semibold text-slate-900">Tests needed before surgery</h3>
+          <ul class="mt-4 space-y-3 text-[15px] text-slate-800">
+            <li class="flex items-center justify-between gap-3">Complete blood count <span class="px-2 py-0.5 rounded border border-orange-200 bg-orange-50 text-[13px] font-medium text-orange-800">To book</span></li>
+            <li class="flex items-center justify-between gap-3">Serum creatinine <span class="px-2 py-0.5 rounded border border-orange-200 bg-orange-50 text-[13px] font-medium text-orange-800">To book</span></li>
+            <li class="flex items-center justify-between gap-3">Coagulation profile (PT/INR) <span class="px-2 py-0.5 rounded border border-orange-200 bg-orange-50 text-[13px] font-medium text-orange-800">To book</span></li>
+            <li class="flex items-center justify-between gap-3">Blood group and cross-match <span class="px-2 py-0.5 rounded border border-orange-200 bg-orange-50 text-[13px] font-medium text-orange-800">To book</span></li>
+            <li class="flex items-center justify-between gap-3">ECG <span class="px-2 py-0.5 rounded border border-orange-200 bg-orange-50 text-[13px] font-medium text-orange-800">To book</span></li>
+            <li class="flex items-center justify-between gap-3">Pre-anaesthesia check-up <span class="px-2 py-0.5 rounded border border-orange-200 bg-orange-50 text-[13px] font-medium text-orange-800">To book</span></li>
+          </ul>
+          <a href="diagnostics-orders.html" class="inline-block mt-6 text-[15px] font-medium text-[#2a6f9a] hover:underline">Book them on the diagnostics desk</a>
+        </aside>
+      </div>
+
+      <!-- Actions -->
+      <div class="mt-8 pt-6 border-t border-slate-200 flex flex-col-reverse sm:flex-row sm:justify-end gap-3">
+        <a href="patient-dashboard.html" class="btn-outline h-11">Open patient</a>
+        <a href="book-surgery.html" class="inline-flex items-center justify-center h-11 px-6 rounded-md bg-[#3b2a6b] text-[15px] font-medium text-white hover:bg-[#2f2156]">Raise OT request</a>
+      </div>
+    </article>
+  </main>
+
+  <script src="../../js/modules/frontdesk.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "hospital-management-ui",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tailwindcss -i ./css/global.css -o ./css/app.css --watch",
+    "build": "tailwindcss -i ./css/global.css -o ./css/app.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}

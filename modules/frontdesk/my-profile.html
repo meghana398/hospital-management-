@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My profile · Frontdesk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#f7f9fa]">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-14 px-4 sm:px-5 py-2">
+
+      <div class="flex items-center gap-6 lg:gap-16">
+        <a href="patient-verification.html" class="flex items-center gap-3">
+          <span class="w-10 h-10 grid place-items-center rounded-lg bg-brand text-white" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+          </span>
+          <span class="leading-tight">
+            <span class="block text-[13px] font-semibold text-ink">[Hospital name]</span>
+            <span class="block text-xs text-subtle">[Branch, City]</span>
+          </span>
+        </a>
+        <p class="hidden md:block text-xl font-semibold text-[#2b4b6f]">My profile</p>
+      </div>
+
+      <nav aria-label="Frontdesk" class="flex flex-wrap items-center gap-2">
+        <a href="surgery-desk.html"
+           class="inline-flex items-center gap-2 h-7 pl-3 pr-1 rounded-full border border-[#9fc0dc] bg-white text-xs font-medium text-brand hover:bg-brand-soft">
+          Surgery desk
+          <span class="min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-brand-soft text-[11px] font-semibold">1</span>
+        </a>
+
+        <span class="inline-flex items-center h-7 px-3 rounded-full border border-[#f3c9a4] bg-[#fdf1e6] text-xs font-medium text-[#c45a17]">
+          Session expires in 18:20
+        </span>
+
+        <a href="#" aria-label="Notifications, 3 unread"
+           class="relative w-8 h-8 grid place-items-center rounded-md border border-line bg-white text-ink hover:bg-page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1.5 -right-1.5 min-w-4 h-4 px-1 grid place-items-center rounded-full bg-[#e5484d] text-[10px] font-semibold text-white">3</span>
+        </a>
+
+        <a href="opd-desk.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="7" r="3"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/>
+            <circle cx="17" cy="9" r="2.5"/><path d="M17 14a4 4 0 0 1 4 4v1"/>
+          </svg>
+          OPD desk
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          End session
+        </a>
+
+        <a href="my-profile.html" aria-label="My profile" aria-current="page"
+           class="w-8 h-8 grid place-items-center rounded-full bg-[#d6efe3] text-xs font-semibold text-[#2c6e52] hover:ring-2 hover:ring-[#b2d5c8]">RS</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== Main ==================== -->
+  <main class="flex-1 w-full max-w-[1320px] mx-auto px-4 sm:px-6 pt-4 pb-14">
+
+    <a href="patient-verification.html" class="inline-flex items-center gap-1.5 text-sm text-body hover:underline">
+      <span aria-hidden="true">&larr;</span> Back
+    </a>
+
+    <!-- Page header -->
+    <div class="mt-2 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-bold text-[#111827]">My profile</h1>
+        <p class="mt-2 text-[15px] text-muted">Your details as kept by the hospital. To change anything except your password, ask the administrator.</p>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <a href="apply-leave.html" class="btn-accent">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M8 10v11"/>
+          </svg>
+          Apply for leave
+        </a>
+        <a href="#" class="btn-outline px-5">Change password</a>
+      </div>
+    </div>
+
+    <!-- Summary card -->
+    <section aria-label="Summary" class="mt-6 flex flex-wrap items-center justify-between gap-6 p-6 bg-white border border-[#e5e7eb] rounded-xl">
+      <div class="flex items-center gap-5">
+        <span class="flex-none w-16 h-16 grid place-items-center rounded-full bg-[#cfe4db] border-2 border-[#b2d5c8] text-xl font-bold text-accent" aria-hidden="true">RS</span>
+        <div>
+          <p class="text-xl font-semibold text-[#111827]">Ritu Sen</p>
+          <p class="mt-0.5 text-sm text-subtle">Front desk lead · Front desk</p>
+          <div class="mt-2.5 flex flex-wrap gap-2">
+            <span class="px-2 py-0.5 rounded border border-blue-200 bg-blue-50 text-xs font-semibold text-blue-700">HSP-FD-0142</span>
+            <span class="px-2 py-0.5 rounded-full border border-green-200 bg-green-50 text-xs font-medium text-green-700">On duty today</span>
+            <span class="px-2 py-0.5 rounded-full bg-gray-100 text-xs text-subtle">Morning shift · 7 AM – 3 PM</span>
+          </div>
+        </div>
+      </div>
+      <dl class="flex flex-wrap gap-x-12 gap-y-3">
+        <div>
+          <dt class="text-xs tracking-wide uppercase text-placeholder">Mobile</dt>
+          <dd class="mt-1 text-sm font-semibold text-[#111827]">+91 98310 45216</dd>
+        </div>
+        <div>
+          <dt class="text-xs tracking-wide uppercase text-placeholder">Work email</dt>
+          <dd class="mt-1 text-sm font-semibold text-[#111827]">ritu.sen@hospitalxyz.in</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- Detail cards -->
+    <div class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+      <section aria-labelledby="personal-title" class="p-6 bg-white border border-[#e5e7eb] rounded-xl">
+        <h2 id="personal-title" class="section-title">Personal details</h2>
+        <dl class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
+          <div><dt class="detail-label">Full name</dt><dd class="detail-value">Ritu Sen</dd></div>
+          <div><dt class="detail-label">Employee ID</dt><dd class="detail-value">HSP-FD-0142</dd></div>
+          <div><dt class="detail-label">Date of birth</dt><dd class="detail-value">14/03/1990</dd></div>
+          <div><dt class="detail-label">Age</dt><dd class="detail-value">36 years</dd></div>
+          <div><dt class="detail-label">Gender</dt><dd class="detail-value">Female</dd></div>
+          <div><dt class="detail-label">Blood group</dt><dd class="detail-value">B+</dd></div>
+          <div><dt class="detail-label">Marital status</dt><dd class="detail-value">Married</dd></div>
+          <div><dt class="detail-label">Nationality</dt><dd class="detail-value">Indian</dd></div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="contact-title" class="p-6 bg-white border border-[#e5e7eb] rounded-xl">
+        <h2 id="contact-title" class="section-title">Contact details</h2>
+        <dl class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
+          <div><dt class="detail-label">Mobile</dt><dd class="detail-value">+91 98310 45216</dd></div>
+          <div><dt class="detail-label">Alternate mobile</dt><dd class="detail-value">+91 90510 22874</dd></div>
+          <div><dt class="detail-label">Work email</dt><dd class="detail-value break-all">ritu.sen@hospitalxyz.in</dd></div>
+          <div><dt class="detail-label">Personal email</dt><dd class="detail-value break-all">ritu.sen@example.com</dd></div>
+          <div><dt class="detail-label">Desk extension</dt><dd class="detail-value">Ext. 101</dd></div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="address-title" class="p-6 bg-white border border-[#e5e7eb] rounded-xl">
+        <h2 id="address-title" class="section-title">Address</h2>
+        <dl class="mt-5 grid grid-cols-1 gap-y-5">
+          <div><dt class="detail-label">Current address</dt><dd class="detail-value">Flat 2C, Green Park Apartments, 18 Southern Avenue, Kolkata, West Bengal 700029</dd></div>
+          <div><dt class="detail-label">Permanent address</dt><dd class="detail-value">Same as current address</dd></div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="emergency-title" class="p-6 bg-white border border-[#e5e7eb] rounded-xl">
+        <h2 id="emergency-title" class="section-title">Emergency contact</h2>
+        <dl class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
+          <div><dt class="detail-label">Name</dt><dd class="detail-value">Arjun Sen</dd></div>
+          <div><dt class="detail-label">Relation</dt><dd class="detail-value">Husband</dd></div>
+          <div><dt class="detail-label">Mobile</dt><dd class="detail-value">+91 98300 11872</dd></div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="work-title" class="p-6 bg-white border border-[#e5e7eb] rounded-xl">
+        <h2 id="work-title" class="section-title">Work details</h2>
+        <dl class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
+          <div><dt class="detail-label">Department</dt><dd class="detail-value">Front desk</dd></div>
+          <div><dt class="detail-label">Designation</dt><dd class="detail-value">Front desk lead</dd></div>
+          <div><dt class="detail-label">Reports to</dt><dd class="detail-value">R. Shankar, Hospital administrator</dd></div>
+          <div><dt class="detail-label">Works at</dt><dd class="detail-value">Main desk, ground floor, Block A</dd></div>
+          <div><dt class="detail-label">Shift</dt><dd class="detail-value">Morning, 7 AM – 3 PM</dd></div>
+          <div><dt class="detail-label">Weekly off</dt><dd class="detail-value">Sunday</dd></div>
+          <div><dt class="detail-label">Date of joining</dt><dd class="detail-value">12 Jun 2019</dd></div>
+          <div><dt class="detail-label">Service</dt><dd class="detail-value">7 years 4 months</dd></div>
+          <div><dt class="detail-label">Employment type</dt><dd class="detail-value">Permanent, full time</dd></div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="qualifications-title" class="p-6 bg-white border border-[#e5e7eb] rounded-xl">
+        <h2 id="qualifications-title" class="section-title">Qualifications</h2>
+        <dl class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
+          <div><dt class="detail-label">Education</dt><dd class="detail-value">B.Com, University of Calcutta</dd></div>
+          <div><dt class="detail-label">Training</dt><dd class="detail-value">Diploma in hospital front office management</dd></div>
+          <div><dt class="detail-label">Languages</dt><dd class="detail-value">English, Hindi, Bengali</dd></div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="identity-title" class="p-6 bg-white border border-[#e5e7eb] rounded-xl">
+        <h2 id="identity-title" class="section-title">Identity and bank</h2>
+        <dl class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
+          <div><dt class="detail-label">Aadhaar</dt><dd class="detail-value">XXXX XXXX 7731</dd></div>
+          <div><dt class="detail-label">PAN</dt><dd class="detail-value">XXXXX4321F</dd></div>
+          <div><dt class="detail-label">Salary account</dt><dd class="detail-value">State Bank of India · XXXX XXXX 4417</dd></div>
+          <div><dt class="detail-label">PF number</dt><dd class="detail-value">WB/KOL/0048213/142</dd></div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="access-title" class="p-6 bg-white border border-[#e5e7eb] rounded-xl">
+        <h2 id="access-title" class="section-title">Sign-in and access</h2>
+        <dl class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
+          <div><dt class="detail-label">Username</dt><dd class="detail-value">ritu.sen</dd></div>
+          <div><dt class="detail-label">Portal</dt><dd class="detail-value">Front desk</dd></div>
+          <div><dt class="detail-label">Access</dt><dd class="detail-value">Registration, OPD, diagnostics desk, billing</dd></div>
+          <div><dt class="detail-label">Last sign-in</dt><dd class="detail-value">Today, 6:52 AM</dd></div>
+          <div><dt class="detail-label">Password changed</dt><dd class="detail-value">12 Sep 2026</dd></div>
+          <div><dt class="detail-label">Two-step sign-in</dt><dd class="detail-value">On · OTP to mobile</dd></div>
+        </dl>
+      </section>
+    </div>
+
+    <!-- Leave balance -->
+    <section aria-labelledby="leave-title" class="mt-6 p-6 bg-white border border-[#e5e7eb] rounded-xl">
+      <h2 id="leave-title" class="section-title">Leave balance</h2>
+
+      <ul class="mt-5 space-y-5">
+        <li>
+          <div class="flex flex-wrap items-baseline justify-between gap-2 text-[15px]">
+            <span class="text-ink">Casual leave</span>
+            <span class="text-sm text-subtle"><strong class="font-semibold text-ink">4 left</strong> of 8 · 4 used</span>
+          </div>
+          <div class="mt-2 h-1.5 rounded-full bg-gray-100" role="progressbar" aria-label="Casual leave left" aria-valuemin="0" aria-valuemax="8" aria-valuenow="4">
+            <div class="h-full rounded-full bg-accent" style="width: 50%"></div>
+          </div>
+        </li>
+        <li>
+          <div class="flex flex-wrap items-baseline justify-between gap-2 text-[15px]">
+            <span class="text-ink">Sick leave</span>
+            <span class="text-sm text-subtle"><strong class="font-semibold text-ink">6 left</strong> of 7 · 1 used</span>
+          </div>
+          <div class="mt-2 h-1.5 rounded-full bg-gray-100" role="progressbar" aria-label="Sick leave left" aria-valuemin="0" aria-valuemax="7" aria-valuenow="6">
+            <div class="h-full rounded-full bg-accent" style="width: 86%"></div>
+          </div>
+        </li>
+        <li>
+          <div class="flex flex-wrap items-baseline justify-between gap-2 text-[15px]">
+            <span class="text-ink">Earned leave</span>
+            <span class="text-sm text-subtle"><strong class="font-semibold text-ink">12 left</strong> of 15 · 3 used</span>
+          </div>
+          <div class="mt-2 h-1.5 rounded-full bg-gray-100" role="progressbar" aria-label="Earned leave left" aria-valuemin="0" aria-valuemax="15" aria-valuenow="12">
+            <div class="h-full rounded-full bg-accent" style="width: 80%"></div>
+          </div>
+        </li>
+      </ul>
+
+      <p class="mt-6 pt-4 border-t border-[#e5e7eb] text-[13px] text-placeholder">Permissions this month: 1 of 2 used · leave year Jan – Dec 2026</p>
+    </section>
+  </main>
+
+  <script src="../../js/modules/frontdesk.js"></script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diagnostics requests · Pharmacy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#f7f9fb]">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-[72px] px-4 sm:px-7 py-3">
+
+      <a href="pharmacy-dashboard.html" class="flex items-center gap-3">
+        <span class="w-10 h-10 grid place-items-center rounded-lg bg-[#2a7a66] text-white" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+        </span>
+        <span class="leading-tight">
+          <span class="block text-[15px] font-semibold text-ink">[Hospital name]</span>
+          <span class="block text-[13px] text-subtle">Main pharmacy</span>
+        </span>
+      </a>
+
+      <div class="flex items-center gap-4 sm:gap-5">
+        <a href="notifications.html" aria-label="Notifications, 4 unread" class="relative w-8 h-8 grid place-items-center text-ink hover:text-accent">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">4</span>
+        </a>
+
+        <span class="hidden sm:block w-px h-8 bg-line" aria-hidden="true"></span>
+
+        <a href="my-profile.html" class="flex items-center gap-2.5">
+          <span class="sr-only">My profile:</span>
+          <span class="w-8 h-8 grid place-items-center rounded-full bg-[#d6efe3] text-xs font-semibold text-accent" aria-hidden="true">AV</span>
+          <span class="hidden sm:block leading-tight">
+            <span class="block text-sm font-semibold text-ink">Anil Verma</span>
+            <span class="block text-xs text-subtle">Pharmacist in charge</span>
+          </span>
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          Sign out
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex-1 flex flex-col lg:flex-row">
+
+    <!-- ==================== Sidebar ==================== -->
+    <aside class="lg:flex-none lg:w-[270px] flex flex-col bg-white border-b lg:border-b-0 lg:border-r border-line px-3 lg:px-4 py-3 lg:py-5">
+      <nav aria-label="Pharmacy" class="flex lg:flex-col gap-1 overflow-x-auto text-[15px]">
+        <a href="pharmacy-dashboard.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="prescriptions.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>
+          </svg>
+          Prescriptions
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-white text-[11px] font-semibold">3</span>
+        </a>
+        <a href="dispense-bill.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10.5 20.5a5 5 0 0 1-7-7l7-7a5 5 0 0 1 7 7z"/><path d="M8.5 8.5l7 7"/>
+          </svg>
+          Dispense and bill
+        </a>
+        <a href="diagnostics-requests.html" aria-current="page"
+           class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg bg-accent-soft font-semibold text-accent whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/>
+          </svg>
+          Diagnostics requests
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-white text-[11px] font-semibold">1</span>
+        </a>
+        <a href="inventory.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>
+          </svg>
+          Inventory
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fde3e1] text-[#b42318] text-[11px] font-semibold">7</span>
+        </a>
+        <a href="stock-in-out.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 20V4M3 8l4-4 4 4M17 4v16M13 16l4 4 4-4"/>
+          </svg>
+          Stock in and out
+        </a>
+        <a href="purchase-requests.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 12h11.5l2-8H6"/>
+          </svg>
+          Purchase requests
+        </a>
+        <a href="bills-collections.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/>
+          </svg>
+          Bills and collections
+        </a>
+        <a href="accounts.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/>
+          </svg>
+          Accounts
+        </a>
+      </nav>
+
+      <div class="hidden lg:block mt-auto pt-10">
+        <div class="p-4 rounded-xl border border-[#cfe8dc] bg-[#eef7f2]">
+          <p class="text-sm font-semibold text-accent">Main pharmacy</p>
+          <p class="mt-0.5 text-[13px] text-subtle">Ground floor, Block A · open 24 hours</p>
+          <p class="mt-3 text-sm font-semibold text-accent">Counters</p>
+          <p class="mt-0.5 text-[13px] text-subtle">1 · OPD prescriptions</p>
+          <p class="text-[13px] text-subtle">2 · Bills and returns</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== Main ==================== -->
+    <main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-9 pt-8 pb-14">
+
+      <h1 class="text-2xl font-bold text-ink">Diagnostics requests</h1>
+      <p class="mt-1 text-[15px] text-subtle">Supplies asked for by the diagnostics centre (their Pharmacy requests screen). Approve, pick batches and dispatch. Each dispatch makes an internal bill for the diagnostics account.</p>
+
+      <div class="mt-6 grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-6 items-start">
+
+        <!-- ========== Requests ========== -->
+        <div>
+          <h2 class="text-[15px] font-semibold text-ink">Requests</h2>
+          <ul class="mt-3 space-y-3">
+            <li aria-current="true" class="p-4 sm:px-5 rounded-xl border-2 border-accent bg-[#f3faf7]">
+              <div class="flex flex-wrap items-center gap-2">
+                <p class="text-[15px] font-semibold text-ink">PR-26-0447</p>
+                <span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#fdf0d0] text-[#9a5b00]">Urgent</span> <span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#fdecec] text-[#c0392b]">New</span>
+              </div>
+              <p class="mt-2 text-[15px] text-body">EDTA tubes × 600, CBC reagent pack × 4, HbA1c test kit × 3, Iohexol 350 contrast × 20,…</p>
+              <div class="mt-3 pt-3 border-t border-[#e3eaef] flex items-baseline justify-between gap-3">
+                <span class="text-sm text-placeholder">Today, 11:20 AM</span>
+                <span class="text-[15px] font-semibold text-ink">₹95,280</span>
+              </div>
+            </li>
+            <li class="p-4 sm:px-5 rounded-xl border border-[#e3eaef] bg-white">
+              <div class="flex flex-wrap items-center gap-2">
+                <p class="text-[15px] font-semibold text-ink">PR-26-0438</p>
+                <span class="px-2 py-0.5 rounded text-[13px] font-medium border border-slate-200 bg-slate-50 text-subtle">Routine</span> <span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#fdf0d0] text-[#9a5b00]">Approved</span>
+              </div>
+              <p class="mt-2 text-[15px] text-body">Iohexol 350 contrast × 10</p>
+              <div class="mt-3 pt-3 border-t border-[#e3eaef] flex items-baseline justify-between gap-3">
+                <span class="text-sm text-placeholder">26 Oct, 4:05 PM</span>
+                <span class="text-[15px] font-semibold text-ink">₹9,450</span>
+              </div>
+            </li>
+            <li class="p-4 sm:px-5 rounded-xl border border-[#e3eaef] bg-white">
+              <div class="flex flex-wrap items-center gap-2">
+                <p class="text-[15px] font-semibold text-ink">PR-26-0441</p>
+                <span class="px-2 py-0.5 rounded text-[13px] font-medium border border-slate-200 bg-slate-50 text-subtle">Routine</span> <span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#e1eff7] text-[#1f6fa8]">Dispatched</span>
+              </div>
+              <p class="mt-2 text-[15px] text-body">Spirit swabs × 3,000, Urine containers × 500</p>
+              <div class="mt-3 pt-3 border-t border-[#e3eaef] flex items-baseline justify-between gap-3">
+                <span class="text-sm text-placeholder">27 Oct, 3:40 PM</span>
+                <span class="text-[15px] font-semibold text-ink">₹5,500</span>
+              </div>
+            </li>
+            <li class="p-4 sm:px-5 rounded-xl border border-[#e3eaef] bg-white">
+              <div class="flex flex-wrap items-center gap-2">
+                <p class="text-[15px] font-semibold text-ink">PR-26-0436</p>
+                <span class="px-2 py-0.5 rounded text-[13px] font-medium border border-slate-200 bg-slate-50 text-subtle">Routine</span> <span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#e7f6ee] text-[#1f7a46]">Received</span>
+              </div>
+              <p class="mt-2 text-[15px] text-body">Blood collection needles 21G × 500</p>
+              <div class="mt-3 pt-3 border-t border-[#e3eaef] flex items-baseline justify-between gap-3">
+                <span class="text-sm text-placeholder">25 Oct, 11:30 AM</span>
+                <span class="text-[15px] font-semibold text-ink">₹3,500</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ========== Selected request ========== -->
+        <section aria-labelledby="request-title" class="p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+          <div class="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <h2 id="request-title" class="text-xl font-bold text-ink">PR-26-0447</h2>
+              <p class="mt-1 text-[15px] text-subtle">From Central lab and imaging · Rina Das · sent today, 11:20 AM</p>
+            </div>
+            <ol aria-label="Progress" class="flex flex-wrap gap-1 p-1 rounded-full border border-line">
+              <li aria-current="step" class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-accent text-sm font-medium text-white"><span aria-hidden="true">✓</span> Requested</li>
+              <li class="px-3 py-1 text-sm text-subtle">Approved</li>
+              <li class="px-3 py-1 text-sm text-subtle">Dispatched</li>
+              <li class="px-3 py-1 text-sm text-subtle">Received</li>
+            </ol>
+          </div>
+
+          <div class="mt-5 p-4 sm:px-5 rounded-lg border border-[#e3eaef] bg-[#f8fafc]">
+            <dl class="grid grid-cols-1 sm:grid-cols-3 gap-4 pb-4 border-b border-[#e3eaef]">
+              <div><dt class="text-sm text-placeholder">Priority</dt><dd class="mt-0.5 text-[15px] font-semibold text-ink">Urgent</dd></div>
+              <div><dt class="text-sm text-placeholder">Needed by</dt><dd class="mt-0.5 text-[15px] font-semibold text-ink">Today, before 4:00 PM</dd></div>
+              <div><dt class="text-sm text-placeholder">Deliver to</dt><dd class="mt-0.5 text-[15px] font-semibold text-ink">Central lab, 1st floor</dd></div>
+            </dl>
+            <p class="mt-4 text-sm text-placeholder">Internal bill <span class="ml-2 font-mono text-[15px] font-semibold text-ink">IB-26-0152</span> <span class="text-body">(on dispatch)</span></p>
+            <p class="mt-3 text-[15px] text-subtle">Note from diagnostics</p>
+            <p class="mt-1 text-[15px] text-ink">CBC reagent and HbA1c kit will run out by Saturday. Iohexol needed for CT bookings next week.</p>
+          </div>
+
+          <div class="relative mt-5 overflow-x-auto rounded-lg border border-[#e3eaef]">
+            <table class="w-full min-w-[720px] text-left text-[15px]">
+              <thead class="bg-[#eef7f2] text-ink">
+                <tr>
+                  <th scope="col" class="px-4 py-3 font-semibold">Item</th>
+                  <th scope="col" class="px-4 py-3 font-semibold text-right">Asked</th>
+                  <th scope="col" class="px-4 py-3 font-semibold text-right">Our stock</th>
+                  <th scope="col" class="px-4 py-3 font-semibold text-center">Issue</th>
+                  <th scope="col" class="px-4 py-3 font-semibold">Batch · expiry</th>
+                  <th scope="col" class="px-4 py-3 font-semibold text-right">Rate (₹)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-[#edf1f4]">
+                <tr>
+                  <td class="px-4 py-3 text-ink">EDTA tubes, lavender top, 2 mL</td>
+                  <td class="px-4 py-3 text-right text-body">600 tubes</td>
+                  <td class="px-4 py-3 text-right text-body">2,400 tubes</td>
+                  <td class="px-4 py-3 text-center">
+                    <input type="number" name="issue1" value="600" aria-label="Issue quantity, EDTA tubes, lavender top, 2 mL" class="form-input w-20 h-9 text-center">
+                  </td>
+                  <td class="px-4 py-3 font-mono text-[13px] text-subtle">ED0930 · 06/2027</td>
+                  <td class="px-4 py-3 text-right text-ink">6</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 text-ink">CBC reagent pack, 500 tests</td>
+                  <td class="px-4 py-3 text-right text-body">4 packs</td>
+                  <td class="px-4 py-3 text-right text-body">6 packs</td>
+                  <td class="px-4 py-3 text-center">
+                    <input type="number" name="issue2" value="4" aria-label="Issue quantity, CBC reagent pack, 500 tests" class="form-input w-20 h-9 text-center">
+                  </td>
+                  <td class="px-4 py-3 font-mono text-[13px] text-subtle">CR2207 · 03/2027</td>
+                  <td class="px-4 py-3 text-right text-ink">4,200</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 text-ink">HbA1c test kit, 400 tests</td>
+                  <td class="px-4 py-3 text-right text-body">3 kits</td>
+                  <td class="px-4 py-3 text-right text-body">5 kits</td>
+                  <td class="px-4 py-3 text-center">
+                    <input type="number" name="issue3" value="3" aria-label="Issue quantity, HbA1c test kit, 400 tests" class="form-input w-20 h-9 text-center">
+                  </td>
+                  <td class="px-4 py-3 font-mono text-[13px] text-subtle">HK1004 · 01/2027</td>
+                  <td class="px-4 py-3 text-right text-ink">18,500</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 text-ink">Iohexol 350 contrast, 100 mL</td>
+                  <td class="px-4 py-3 text-right text-body">20 bottles</td>
+                  <td class="px-4 py-3 text-right text-body">34 bottles</td>
+                  <td class="px-4 py-3 text-center">
+                    <input type="number" name="issue4" value="20" aria-label="Issue quantity, Iohexol 350 contrast, 100 mL" class="form-input w-20 h-9 text-center">
+                  </td>
+                  <td class="px-4 py-3 font-mono text-[13px] text-subtle">IH3501 · 09/2027</td>
+                  <td class="px-4 py-3 text-right text-ink">945</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 text-ink">Hydrocortisone 100 mg injection</td>
+                  <td class="px-4 py-3 text-right text-body">10 vials</td>
+                  <td class="px-4 py-3 text-right text-body">40 vials</td>
+                  <td class="px-4 py-3 text-center">
+                    <input type="number" name="issue5" value="10" aria-label="Issue quantity, Hydrocortisone 100 mg injection" class="form-input w-20 h-9 text-center">
+                  </td>
+                  <td class="px-4 py-3 font-mono text-[13px] text-subtle">HC1009 · 08/2027</td>
+                  <td class="px-4 py-3 text-right text-ink">48</td>
+                </tr>
+              </tbody>
+              <tfoot class="border-t border-[#e3eaef] bg-[#f8fafc]">
+                <tr>
+                  <th scope="row" colspan="5" class="px-4 py-3 font-semibold text-ink">Internal bill total</th>
+                  <td class="px-4 py-3 text-right font-bold text-ink">₹95,280</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="mt-6 pt-6 border-t border-[#edf1f4] flex flex-wrap items-center justify-between gap-4">
+            <p class="max-w-md text-sm text-subtle">Change the issue quantity if you can give less. Approving keeps the stock aside for diagnostics.</p>
+            <div class="flex flex-wrap gap-3">
+              <button type="button" class="btn-outline px-5">Send back</button>
+              <button type="button" class="btn-accent font-semibold">Approve and keep aside</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Internal bills -->
+      <section aria-labelledby="ib-title" class="mt-6 p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <h2 id="ib-title" class="text-lg font-semibold text-ink">Internal bills to diagnostics · October</h2>
+          <a href="bills-collections.html" class="text-[15px] font-semibold text-accent hover:underline">All bills</a>
+        </div>
+        <p class="mt-1 text-[15px] text-subtle">Billed separately from patient bills. The amount is charged to the diagnostics account when they mark the delivery received, and shows in their Accounts as a pharmacy purchase.</p>
+        <div class="relative mt-5 overflow-x-auto">
+          <table class="w-full min-w-[860px] text-left text-[15px] whitespace-nowrap">
+            <thead class="bg-[#eef7f2] text-ink">
+              <tr>
+                <th scope="col" class="px-4 py-3 font-semibold">Internal bill</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Request</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Items</th>
+                <th scope="col" class="px-4 py-3 font-semibold text-right">Amount (₹)</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#edf1f4]">
+              <tr>
+                <td class="px-4 py-3 font-mono text-[13px] text-ink">IB-26-0152</td>
+                <td class="px-4 py-3 font-mono text-[13px] text-subtle">PR-26-0447</td>
+                <td class="px-4 py-3 text-ink">EDTA tubes, CBC reagent, HbA1c kit, Iohexol, Hydrocortisone</td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">95,280</td>
+                <td class="px-4 py-3"><span class="pill bg-slate-100 text-subtle">Not raised yet</span></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-mono text-[13px] text-ink">IB-26-0151</td>
+                <td class="px-4 py-3 font-mono text-[13px] text-subtle">PR-26-0438</td>
+                <td class="px-4 py-3 text-ink">Iohexol 350 contrast × 10</td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">9,450</td>
+                <td class="px-4 py-3"><span class="pill bg-slate-100 text-subtle">Not raised yet</span></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-mono text-[13px] text-ink">IB-26-0150</td>
+                <td class="px-4 py-3 font-mono text-[13px] text-subtle">PR-26-0441</td>
+                <td class="px-4 py-3 text-ink">Spirit swabs × 3,000, urine containers × 500</td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">5,500</td>
+                <td class="px-4 py-3"><span class="pill bg-[#e7f6ee] text-[#1f7a46]">Raised · in transit</span></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-mono text-[13px] text-ink">IB-26-0147</td>
+                <td class="px-4 py-3 font-mono text-[13px] text-subtle">PR-26-0436</td>
+                <td class="px-4 py-3 text-ink">Blood collection needles 21G × 500</td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">3,500</td>
+                <td class="px-4 py-3"><span class="pill bg-[#e7f6ee] text-[#1f7a46]">Charged to diagnostics</span></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-mono text-[13px] text-ink">IB-26-0141</td>
+                <td class="px-4 py-3 font-mono text-[13px] text-subtle">PR-26-0430</td>
+                <td class="px-4 py-3 text-ink">Gold-top tubes × 200, lignocaine jelly × 2</td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">1,930</td>
+                <td class="px-4 py-3"><span class="pill bg-[#e7f6ee] text-[#1f7a46]">Charged to diagnostics</span></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-mono text-[13px] text-ink">IB-26-0136</td>
+                <td class="px-4 py-3 font-mono text-[13px] text-subtle">PR-26-0420</td>
+                <td class="px-4 py-3 text-ink">CBC reagent × 6, chemistry kit × 12</td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">1,06,800</td>
+                <td class="px-4 py-3"><span class="pill bg-[#e7f6ee] text-[#1f7a46]">Charged to diagnostics</span></td>
+              </tr>
+            </tbody>
+            <tfoot class="border-t border-[#e3eaef] bg-[#f8fafc]">
+              <tr>
+                <th scope="row" colspan="3" class="px-4 py-3 font-semibold text-ink">October charged so far · 12 requests</th>
+                <td class="px-4 py-3 text-right font-bold text-ink">2,14,600</td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../js/modules/pharmacy.js"></script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OPD desk · Frontdesk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-slate-50">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-14 px-4 sm:px-5 py-2">
+
+      <div class="flex items-center gap-6 lg:gap-16">
+        <a href="patient-verification.html" class="flex items-center gap-3">
+          <span class="w-10 h-10 grid place-items-center rounded-lg bg-brand text-white" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+          </span>
+          <span class="leading-tight">
+            <span class="block text-[13px] font-semibold text-ink">[Hospital name]</span>
+            <span class="block text-xs text-subtle">[Branch, City]</span>
+          </span>
+        </a>
+        <p class="hidden md:block text-xl font-semibold text-[#2b4b6f]">OPD Desk</p>
+      </div>
+
+      <nav aria-label="Frontdesk" class="flex flex-wrap items-center gap-2">
+        <a href="surgery-desk.html"
+           class="inline-flex items-center gap-2 h-7 pl-3 pr-1 rounded-full border border-[#9fc0dc] bg-white text-xs font-medium text-brand hover:bg-brand-soft">
+          Surgery desk
+          <span class="min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-brand-soft text-[11px] font-semibold">1</span>
+        </a>
+
+        <span class="inline-flex items-center h-7 px-3 rounded-full border border-[#f3c9a4] bg-[#fdf1e6] text-xs font-medium text-[#c45a17]">
+          Session expires in 18:20
+        </span>
+
+        <a href="#" aria-label="Notifications, 3 unread"
+           class="relative w-8 h-8 grid place-items-center rounded-md border border-line bg-white text-ink hover:bg-page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1.5 -right-1.5 min-w-4 h-4 px-1 grid place-items-center rounded-full bg-[#e5484d] text-[10px] font-semibold text-white">3</span>
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          End session
+        </a>
+
+        <a href="my-profile.html" aria-label="My profile"
+           class="w-8 h-8 grid place-items-center rounded-full bg-[#d6efe3] text-xs font-semibold text-[#2c6e52] hover:ring-2 hover:ring-[#b2d5c8]">RS</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== Main ==================== -->
+  <main class="flex-1 w-full max-w-[1400px] mx-auto px-4 sm:px-6 pt-6 pb-14">
+
+    <!-- Page header -->
+    <div class="flex flex-wrap items-start justify-between gap-2">
+      <div>
+        <h1 class="text-xl font-bold text-slate-900">Today · Thu, 29 Oct 2026</h1>
+        <p class="mt-1 text-[15px] text-slate-500">Check patients in, fill and send their OP to the doctor, and act on OPs that come back.</p>
+      </div>
+      <p class="text-sm text-slate-400">Last updated 11:08 AM</p>
+    </div>
+
+    <!-- Doctor paused banner -->
+    <div id="opd-banner" role="status" class="mt-5 flex flex-wrap items-center gap-3 px-4 py-3 rounded-lg border border-yellow-300 bg-yellow-100">
+      <span class="flex-none grid place-items-center w-8 h-8 rounded-full border border-amber-700/40 text-amber-800" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/>
+        </svg>
+      </span>
+      <p class="flex-1 min-w-[240px] text-[15px] text-slate-800">
+        <strong class="font-semibold">Dr Farah Khan paused her OPD at 11:05 AM and isn't taking patients right now.</strong>
+        Keep checking patients in, but don't send anyone to Room 012 until she resumes.
+      </p>
+      <button type="button" id="dismiss-opd-banner"
+              class="h-9 px-4 rounded-md border border-amber-300 bg-white text-sm font-medium text-slate-800 hover:bg-amber-50">
+        Got it
+      </button>
+    </div>
+
+    <div class="mt-6 grid grid-cols-1 xl:grid-cols-[2fr_1fr] gap-6 items-start">
+
+      <!-- ==================== Left column ==================== -->
+      <div class="min-w-0">
+        <h2 class="text-base font-semibold text-slate-900">Doctors in OPD today</h2>
+
+        <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="p-4 rounded-lg border-2 border-slate-900 bg-white" aria-current="true">
+            <div class="flex items-start justify-between gap-2">
+              <p class="text-[15px] font-semibold text-slate-900">Dr Farah Khan</p>
+              <span class="px-2 py-0.5 rounded bg-amber-100 text-xs font-medium text-amber-800">Paused</span>
+            </div>
+            <p class="mt-1 text-sm text-slate-500">General medicine · Block A, Room 012</p>
+            <p class="mt-3 pt-3 border-t border-slate-200 text-sm text-slate-800">3 seen · 2 waiting · 2 not arrived</p>
+          </div>
+
+          <div class="p-4 rounded-lg border border-slate-200 bg-white">
+            <div class="flex items-start justify-between gap-2">
+              <p class="text-[15px] font-semibold text-slate-900">Dr Vikram Sen</p>
+              <span class="px-2 py-0.5 rounded border border-emerald-200 bg-emerald-50 text-xs font-medium text-emerald-700">Running</span>
+            </div>
+            <p class="mt-1 text-sm text-slate-500">Nephrology · Block C, Room 305</p>
+            <p class="mt-3 pt-3 border-t border-slate-200 text-sm text-slate-800">0 seen · 1 waiting · 2 not arrived</p>
+          </div>
+
+          <div class="p-4 rounded-lg border border-slate-200 bg-white">
+            <div class="flex items-start justify-between gap-2">
+              <p class="text-[15px] font-semibold text-slate-900">Dr Arjun Mehta</p>
+              <span class="px-2 py-0.5 rounded border border-blue-200 bg-blue-50 text-xs font-medium text-blue-700 whitespace-nowrap">Starts 2:00 PM</span>
+            </div>
+            <p class="mt-1 text-sm text-slate-500">Orthopaedics · Block B, Room 118</p>
+            <p class="mt-3 pt-3 border-t border-slate-200 text-sm text-slate-800">5 booked this afternoon</p>
+          </div>
+
+          <div class="p-4 rounded-lg border border-slate-200 bg-white">
+            <div class="flex items-start justify-between gap-2">
+              <p class="text-[15px] font-semibold text-slate-900">Dr Meera Iyer</p>
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-xs font-medium text-slate-600 whitespace-nowrap">No OPD today</span>
+            </div>
+            <p class="mt-1 text-sm text-slate-500">Cardiology · Block B, Room 214</p>
+            <p class="mt-3 pt-3 border-t border-slate-200 text-sm text-slate-800">Next OPD Fri, 30 Oct</p>
+          </div>
+        </div>
+
+        <!-- Check-in list -->
+        <section aria-labelledby="checkin-title" class="mt-6 rounded-lg border border-slate-200 bg-white">
+          <div class="flex flex-wrap items-center justify-between gap-2 px-5 py-4 border-b border-slate-200">
+            <h2 id="checkin-title" class="text-[15px] font-semibold text-slate-900">Check-in · Dr Farah Khan</h2>
+            <p class="text-sm text-slate-500">General medicine · Block A, Room 012</p>
+          </div>
+
+          <div class="relative overflow-x-auto">
+            <table class="w-full min-w-[720px] text-left">
+              <thead class="sr-only">
+                <tr><th scope="col">Time</th><th scope="col">Token</th><th scope="col">Patient</th><th scope="col">Status</th><th scope="col">Action</th></tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200">
+                <tr>
+                  <td class="px-5 py-3.5 text-[15px] text-slate-600 whitespace-nowrap">9:00 AM</td>
+                  <td class="px-3 py-3.5 text-[15px] font-semibold text-slate-900">T-01</td>
+                  <td class="px-3 py-3.5"><p class="text-[15px] text-slate-900">Anita Desai</p><p class="text-sm text-slate-400">34 F · New consultation</p></td>
+                  <td class="px-3 py-3.5"><span class="pill bg-emerald-50 text-emerald-700">Completed</span></td>
+                  <td class="px-5 py-3.5 text-right"><a href="op-sheet.html" class="inline-flex items-center h-9 px-3 rounded-md bg-teal-50 text-[15px] font-medium text-teal-700 hover:bg-teal-100 whitespace-nowrap">OP back · open</a></td>
+                </tr>
+                <tr>
+                  <td class="px-5 py-3.5 text-[15px] text-slate-600 whitespace-nowrap">9:30 AM</td>
+                  <td class="px-3 py-3.5 text-[15px] font-semibold text-slate-900">T-02</td>
+                  <td class="px-3 py-3.5"><p class="text-[15px] text-slate-900">Mohammed Irfan</p><p class="text-sm text-slate-400">61 M · Follow-up</p></td>
+                  <td class="px-3 py-3.5"><span class="pill bg-emerald-50 text-emerald-700">Completed</span></td>
+                  <td class="px-5 py-3.5 text-right"><a href="op-sheet.html" class="inline-flex items-center h-9 px-3 rounded-md bg-teal-50 text-[15px] font-medium text-teal-700 hover:bg-teal-100 whitespace-nowrap">OP back · open</a></td>
+                </tr>
+                <tr>
+                  <td class="px-5 py-3.5 text-[15px] text-slate-600 whitespace-nowrap">10:00 AM</td>
+                  <td class="px-3 py-3.5 text-[15px] font-semibold text-slate-900">T-03</td>
+                  <td class="px-3 py-3.5"><p class="text-[15px] text-slate-900">Priya Nair</p><p class="text-sm text-slate-400">28 F · New consultation</p></td>
+                  <td class="px-3 py-3.5"><span class="pill bg-emerald-50 text-emerald-700">Completed</span></td>
+                  <td class="px-5 py-3.5 text-right"><a href="op-sheet.html" class="inline-flex items-center h-9 px-3 rounded-md bg-teal-50 text-[15px] font-medium text-teal-700 hover:bg-teal-100 whitespace-nowrap">OP back · open</a></td>
+                </tr>
+                <tr>
+                  <td class="px-5 py-3.5 text-[15px] text-slate-600 whitespace-nowrap">10:30 AM</td>
+                  <td class="px-3 py-3.5 text-[15px] font-semibold text-slate-900">T-04</td>
+                  <td class="px-3 py-3.5"><p class="text-[15px] text-slate-900">Suresh Patil</p><p class="text-sm text-slate-400">45 M · Follow-up · CGHS</p></td>
+                  <td class="px-3 py-3.5"><span class="pill bg-sky-50 text-sky-700">With doctor</span></td>
+                  <td class="px-5 py-3.5 text-right"><span class="inline-flex items-center h-9 px-4 rounded-md border border-slate-200 text-[15px] text-slate-600 whitespace-nowrap">OP with doctor</span></td>
+                </tr>
+                <tr class="bg-amber-50/60">
+                  <td class="px-5 py-3.5 text-[15px] text-slate-600 whitespace-nowrap">11:00 AM</td>
+                  <td class="px-3 py-3.5 text-[15px] font-semibold text-slate-900">T-05</td>
+                  <td class="px-3 py-3.5"><p class="text-[15px] text-slate-900">Kavita Rao</p><p class="text-sm text-slate-400">52 F · New consultation · Insurance</p></td>
+                  <td class="px-3 py-3.5"><span class="pill bg-amber-100 text-amber-800">Waiting</span></td>
+                  <td class="px-5 py-3.5 text-right"><a href="op-sheet.html" class="inline-flex items-center h-9 px-4 rounded-md border border-blue-600 bg-white text-[15px] font-medium text-blue-600 hover:bg-blue-50 whitespace-nowrap">Fill OP</a></td>
+                </tr>
+                <tr>
+                  <td class="px-5 py-3.5 text-[15px] text-slate-400 whitespace-nowrap">11:30 AM</td>
+                  <td class="px-3 py-3.5 text-[15px] text-slate-400">—</td>
+                  <td class="px-3 py-3.5"><p class="text-[15px] text-slate-700">Free slot</p><p class="text-sm text-slate-400">Walk-in can be added</p></td>
+                  <td class="px-3 py-3.5"><span class="pill border border-dashed border-slate-300 text-slate-500">Free</span></td>
+                  <td class="px-5 py-3.5"></td>
+                </tr>
+                <tr data-checkin-row>
+                  <td class="px-5 py-3.5 text-[15px] text-slate-600 whitespace-nowrap">12:00 PM</td>
+                  <td class="px-3 py-3.5 text-[15px] font-semibold text-slate-900">T-07</td>
+                  <td class="px-3 py-3.5"><p class="text-[15px] text-slate-900">Arjun Bose</p><p class="text-sm text-slate-400">39 M · New consultation</p></td>
+                  <td class="px-3 py-3.5" data-checkin-status><span class="pill bg-slate-100 text-slate-600">Not arrived</span></td>
+                  <td class="px-5 py-3.5 text-right" data-checkin-action>
+                    <button type="button" data-mark-arrived
+                            class="inline-flex items-center gap-1.5 h-9 px-4 rounded-md bg-green-700 text-[15px] font-medium text-white hover:bg-green-800 whitespace-nowrap">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>
+                      Mark arrived
+                    </button>
+                  </td>
+                </tr>
+                <tr data-checkin-row>
+                  <td class="px-5 py-3.5 text-[15px] text-slate-600 whitespace-nowrap">12:30 PM</td>
+                  <td class="px-3 py-3.5 text-[15px] font-semibold text-slate-900">T-08</td>
+                  <td class="px-3 py-3.5"><p class="text-[15px] text-slate-900">Lakshmi Iyer</p><p class="text-sm text-slate-400">67 F · Follow-up</p></td>
+                  <td class="px-3 py-3.5" data-checkin-status><span class="pill bg-slate-100 text-slate-600">Not arrived</span></td>
+                  <td class="px-5 py-3.5 text-right" data-checkin-action>
+                    <button type="button" data-mark-arrived
+                            class="inline-flex items-center gap-1.5 h-9 px-4 rounded-md bg-green-700 text-[15px] font-medium text-white hover:bg-green-800 whitespace-nowrap">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>
+                      Mark arrived
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="px-5 py-4 border-t border-slate-200 text-sm text-slate-500">
+            Mark arrived notifies the doctor. Fill OP sends sections 1–4 to the doctor; the full OP comes back here when the consultation is done.
+          </p>
+        </section>
+      </div>
+
+      <!-- ==================== Right column ==================== -->
+      <div class="min-w-0 space-y-6">
+
+        <!-- OPs back from doctors -->
+        <section aria-labelledby="ops-back-title" class="rounded-lg border border-slate-200 bg-white p-5">
+          <div class="flex items-center justify-between gap-2 pb-4 border-b border-slate-200">
+            <h2 id="ops-back-title" class="text-[15px] font-semibold text-slate-900">OPs back from doctors</h2>
+            <span class="pill border border-emerald-200 bg-emerald-50 text-emerald-700">2 to act on</span>
+          </div>
+
+          <ul class="divide-y divide-slate-200">
+            <li class="py-4">
+              <div class="flex items-start justify-between gap-2">
+                <p class="text-[15px] font-semibold text-slate-900">Mohammed Irfan</p>
+                <span class="text-sm text-slate-400">9:58 AM</span>
+              </div>
+              <p class="mt-0.5 text-sm text-slate-500">Dr Farah Khan · OP VIS-26-0929</p>
+              <div class="mt-2.5 flex flex-wrap gap-2">
+                <span class="px-2 py-0.5 rounded border border-amber-200 bg-amber-50 text-[13px] font-medium text-amber-800">2 tests to book</span>
+                <span class="px-2 py-0.5 rounded border border-amber-200 bg-amber-50 text-[13px] font-medium text-amber-800">2 medicines to send</span>
+              </div>
+              <div class="mt-2.5 flex gap-4 text-[15px]">
+                <a href="op-sheet.html" class="text-slate-900 underline underline-offset-4 hover:text-blue-700">Open OP</a>
+                <a href="diagnostics-orders.html" class="text-slate-900 underline underline-offset-4 hover:text-blue-700">Book tests</a>
+              </div>
+            </li>
+            <li class="py-4">
+              <div class="flex items-start justify-between gap-2">
+                <p class="text-[15px] font-semibold text-slate-900">Anita Desai</p>
+                <span class="text-sm text-slate-400">9:25 AM</span>
+              </div>
+              <p class="mt-0.5 text-sm text-slate-500">Dr Farah Khan · OP VIS-26-0927</p>
+              <div class="mt-2.5 flex flex-wrap gap-2">
+                <span class="px-2 py-0.5 rounded border border-amber-200 bg-amber-50 text-[13px] font-medium text-amber-800">TSH to book for Dec</span>
+                <span class="px-2 py-0.5 rounded border border-emerald-200 bg-emerald-50 text-[13px] font-medium text-emerald-700">Prescription sent</span>
+              </div>
+              <div class="mt-2.5 flex gap-4 text-[15px]">
+                <a href="op-sheet.html" class="text-slate-900 underline underline-offset-4 hover:text-blue-700">Open OP</a>
+                <a href="diagnostics-orders.html" class="text-slate-900 underline underline-offset-4 hover:text-blue-700">Book tests</a>
+              </div>
+            </li>
+            <li class="pt-4">
+              <div class="flex items-start justify-between gap-2">
+                <p class="text-[15px] font-semibold text-slate-900">Priya Nair</p>
+                <span class="text-sm text-slate-400">10:28 AM</span>
+              </div>
+              <p class="mt-0.5 text-sm text-slate-500">Dr Farah Khan · OP VIS-26-0930</p>
+              <div class="mt-2.5 flex flex-wrap gap-2">
+                <span class="px-2 py-0.5 rounded border border-emerald-200 bg-emerald-50 text-[13px] font-medium text-emerald-700">Tests booked</span>
+                <span class="px-2 py-0.5 rounded border border-emerald-200 bg-emerald-50 text-[13px] font-medium text-emerald-700">Prescription sent</span>
+              </div>
+              <div class="mt-2.5 flex gap-4 text-[15px]">
+                <a href="op-sheet.html" class="text-slate-900 underline underline-offset-4 hover:text-blue-700">Open OP</a>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Alerts from doctors -->
+        <section aria-labelledby="alerts-title" class="rounded-lg border border-slate-200 bg-white p-5">
+          <div class="flex items-center justify-between gap-2 pb-4 border-b border-slate-200">
+            <h2 id="alerts-title" class="text-[15px] font-semibold text-slate-900">Alerts from doctors</h2>
+            <span class="pill bg-rose-600 text-white">4 new</span>
+          </div>
+
+          <ul class="mt-4 space-y-4">
+            <li class="flex gap-3 p-4 rounded-lg border border-amber-200 bg-yellow-50">
+              <span class="flex-none grid place-items-center w-8 h-8 rounded-full border border-amber-300 bg-white text-amber-700" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M9 6v12M15 6v12"/></svg>
+              </span>
+              <div>
+                <p class="text-[15px] font-semibold text-slate-900">OPD paused · Dr Farah Khan</p>
+                <p class="mt-1 text-sm leading-5 text-slate-600">Not taking patients right now. Waiting patients stay in her queue.</p>
+                <p class="mt-2 text-[13px] text-slate-400">Today, 11:05 AM</p>
+              </div>
+            </li>
+            <li class="flex gap-3 p-4 rounded-lg border border-slate-200 bg-slate-50">
+              <span class="flex-none grid place-items-center w-8 h-8 rounded-full border border-slate-300 bg-white text-slate-500" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M6.5 17.5l11-11"/></svg>
+              </span>
+              <div>
+                <p class="text-[15px] font-semibold text-slate-900">Slot blocked · Dr Farah Khan</p>
+                <p class="mt-1 text-sm leading-5 text-slate-600">Mon, 2 Nov · 11:30 AM. Not available for booking.</p>
+                <p class="mt-2 text-[13px] text-slate-400">Today, 10:52 AM</p>
+              </div>
+            </li>
+            <li class="flex gap-3 p-4 rounded-lg border border-sky-100 bg-sky-50/60">
+              <span class="flex-none grid place-items-center w-8 h-8 rounded-full border border-sky-200 bg-white text-sky-600" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4M21 7H9M7 21l-4-4 4-4M3 17h12"/></svg>
+              </span>
+              <div>
+                <p class="text-[15px] font-semibold text-slate-900">Reschedule request · Dr Farah Khan</p>
+                <p class="mt-1 text-sm leading-5 text-slate-600">Ramesh Sharma · Mon 9 Nov, 10:30 AM. Reports need 2 more days.</p>
+                <a href="book-appointment.html" class="inline-block mt-1.5 text-sm text-blue-700 underline underline-offset-4">Find a new slot</a>
+                <p class="mt-2 text-[13px] text-slate-400">Today, 10:40 AM</p>
+              </div>
+            </li>
+            <li class="flex gap-3 p-4 rounded-lg border border-rose-100 bg-rose-50/60">
+              <span class="flex-none grid place-items-center w-8 h-8 rounded-full border border-rose-200 bg-white text-rose-500" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>
+              </span>
+              <div>
+                <p class="text-[15px] font-semibold text-slate-900">Leave · Dr Farah Khan</p>
+                <p class="mt-1 text-sm leading-5 text-slate-600">Fri, 6 Nov · full day · Medical conference. 2 patients booked that day need to be moved.</p>
+                <a href="book-appointment.html" class="inline-block mt-1.5 text-sm text-blue-700 underline underline-offset-4">Move bookings</a>
+                <p class="mt-2 text-[13px] text-slate-400">Yesterday, 4:20 PM</p>
+              </div>
+            </li>
+          </ul>
+
+          <p class="mt-5 text-sm text-slate-500">Leave days and blocked slots are closed for booking automatically.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="../../js/modules/frontdesk.js"></script>
+</body>
+</html>

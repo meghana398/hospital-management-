@@ -1,0 +1,17 @@
+/* ==========================================================
+   Frontdesk portal
+   ========================================================== */
+
+@layer components {
+
+  /* Patient verification: left photo panel with dark teal overlay.
+     The path is relative to css/app.css (the built file). */
+  .verify-hero-bg {
+    background-color: #1f4d63;
+    background-image:
+      linear-gradient(180deg, rgba(23, 64, 84, 0.55) 0%, rgba(18, 58, 82, 0.80) 55%, rgba(16, 52, 78, 0.92) 100%),
+      url("../assets/images/patient-verification-bg.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+}

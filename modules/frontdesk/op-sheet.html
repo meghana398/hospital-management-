@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OP sheet · Frontdesk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-slate-50">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-14 px-4 sm:px-5 py-2">
+
+      <div class="flex items-center gap-6 lg:gap-16">
+        <a href="patient-verification.html" class="flex items-center gap-3">
+          <span class="w-10 h-10 grid place-items-center rounded-lg bg-brand text-white" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+          </span>
+          <span class="leading-tight">
+            <span class="block text-[13px] font-semibold text-ink">[Hospital name]</span>
+            <span class="block text-xs text-subtle">[Branch, City]</span>
+          </span>
+        </a>
+        <p class="hidden md:block text-xl font-semibold text-[#2b4b6f]">OP sheet</p>
+      </div>
+
+      <nav aria-label="Frontdesk" class="flex flex-wrap items-center gap-2">
+        <a href="surgery-desk.html"
+           class="inline-flex items-center gap-2 h-7 pl-3 pr-1 rounded-full border border-[#9fc0dc] bg-white text-xs font-medium text-brand hover:bg-brand-soft">
+          Surgery desk
+          <span class="min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-brand-soft text-[11px] font-semibold">1</span>
+        </a>
+
+        <span class="inline-flex items-center h-7 px-3 rounded-full border border-[#f3c9a4] bg-[#fdf1e6] text-xs font-medium text-[#c45a17]">
+          Session expires in 18:20
+        </span>
+
+        <a href="#" aria-label="Notifications, 3 unread"
+           class="relative w-8 h-8 grid place-items-center rounded-md border border-line bg-white text-ink hover:bg-page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1.5 -right-1.5 min-w-4 h-4 px-1 grid place-items-center rounded-full bg-[#e5484d] text-[10px] font-semibold text-white">3</span>
+        </a>
+
+        <a href="opd-desk.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="7" r="3"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/>
+            <circle cx="17" cy="9" r="2.5"/><path d="M17 14a4 4 0 0 1 4 4v1"/>
+          </svg>
+          OPD desk
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          End session
+        </a>
+
+        <a href="my-profile.html" aria-label="My profile"
+           class="w-8 h-8 grid place-items-center rounded-full bg-[#d6efe3] text-xs font-semibold text-[#2c6e52] hover:ring-2 hover:ring-[#b2d5c8]">RS</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== Main ==================== -->
+  <main class="flex-1 w-full max-w-[1200px] mx-auto px-4 sm:px-6 pt-5 pb-14">
+
+    <a href="opd-desk.html" class="inline-flex items-center gap-1.5 text-sm text-slate-700 hover:underline">
+      <span aria-hidden="true">&larr;</span> Back to OPD desk
+    </a>
+
+    <!-- Patient and appointment -->
+    <section aria-label="Patient" class="mt-4 flex flex-wrap items-center justify-between gap-5 p-5 rounded-lg border border-slate-200 bg-white">
+      <div class="flex items-center gap-4">
+        <span class="flex-none w-12 h-12 grid place-items-center rounded-full bg-[#e7f0f8] text-sm font-semibold text-[#245d85]" aria-hidden="true">SP</span>
+        <div>
+          <h1 class="text-[17px] text-slate-900">
+            <span class="font-semibold">Suresh Patil</span>
+            <span class="text-slate-600">· 45 y · Male · UHID HSP1.0000124078</span>
+          </h1>
+          <p class="mt-0.5 text-sm text-slate-500">CGHS beneficiary · Follow-up of VIS-26-0655 (15 Oct 2026)</p>
+        </div>
+      </div>
+      <dl class="flex flex-wrap gap-x-8 gap-y-3 text-sm">
+        <div>
+          <dt class="text-[13px] text-slate-400">Appointment</dt>
+          <dd class="mt-0.5 font-semibold text-slate-900">Today, 10:30 AM · Token T-04</dd>
+        </div>
+        <div>
+          <dt class="text-[13px] text-slate-400">Doctor</dt>
+          <dd class="mt-0.5 font-semibold text-slate-900">Dr Farah Khan, General medicine</dd>
+        </div>
+        <div>
+          <dt class="text-[13px] text-slate-400">OP number</dt>
+          <dd class="mt-0.5 font-semibold text-slate-900">VIS-26-0931</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- ==================== 1. Symptoms ==================== -->
+    <section aria-labelledby="symptoms-title" class="mt-5 p-5 rounded-lg border border-slate-200 bg-white">
+      <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+        <span class="step-number">1</span>
+        <h2 id="symptoms-title" class="text-base font-semibold text-slate-900">Symptoms</h2>
+        <span class="text-sm text-slate-500">What the patient tells you, in their words</span>
+      </div>
+
+      <label for="main-symptoms" class="form-label text-sm font-normal mt-4 mb-2">Main symptoms<span class="required-mark">*</span></label>
+      <textarea id="main-symptoms" name="mainSymptoms" rows="2" required class="form-input h-auto py-2.5 resize-y">Burning in the chest after meals, less than at the last visit</textarea>
+
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label for="symptom-since" class="form-label text-sm font-normal mb-2">Since</label>
+          <select id="symptom-since" name="symptomSince" class="form-select-field">
+            <option value="1_DAY">1 day</option>
+            <option value="3_DAYS">3 days</option>
+            <option value="1_WEEK">1 week</option>
+            <option value="2_WEEKS" selected>2 weeks</option>
+            <option value="1_MONTH">1 month</option>
+            <option value="MORE">More than a month</option>
+          </select>
+        </div>
+        <div>
+          <label for="symptom-severity" class="form-label text-sm font-normal mb-2">How bad</label>
+          <select id="symptom-severity" name="symptomSeverity" class="form-select-field">
+            <option value="MILD">Mild</option>
+            <option value="MODERATE" selected>Moderate</option>
+            <option value="SEVERE">Severe</option>
+          </select>
+        </div>
+        <div>
+          <label for="visit-reason" class="form-label text-sm font-normal mb-2">Reason for visit</label>
+          <select id="visit-reason" name="visitReason" class="form-select-field">
+            <option value="NEW">New consultation</option>
+            <option value="FOLLOW_UP" selected>Follow-up</option>
+            <option value="REVIEW_REPORTS">Review reports</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 2. Allergies ==================== -->
+    <section aria-labelledby="allergies-title" class="mt-4 p-5 rounded-lg border border-slate-200 bg-white">
+      <div class="flex items-center gap-2">
+        <span class="step-number">2</span>
+        <h2 id="allergies-title" class="text-base font-semibold text-slate-900">Allergies</h2>
+      </div>
+
+      <div role="radiogroup" aria-label="Allergy status" class="mt-3 flex flex-wrap gap-2">
+        <label class="inline-flex items-center h-8 px-3 rounded-md border border-slate-300 bg-white text-sm text-slate-700 cursor-pointer
+                      has-[:checked]:border-[#2b6180] has-[:checked]:bg-[#f6faff] has-[:checked]:text-[#2b6180]
+                      has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-primary/30">
+          <input type="radio" name="allergyStatus" value="NONE" class="sr-only">
+          No known allergies
+        </label>
+        <label class="inline-flex items-center h-8 px-3 rounded-md border border-slate-300 bg-white text-sm text-slate-700 cursor-pointer
+                      has-[:checked]:border-[#2b6180] has-[:checked]:bg-[#f6faff] has-[:checked]:text-[#2b6180]
+                      has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-primary/30">
+          <input type="radio" name="allergyStatus" value="HAS_ALLERGIES" checked class="sr-only">
+          Has allergies
+        </label>
+      </div>
+
+      <!-- Shown only when "Has allergies" is selected -->
+      <div data-allergy-fields>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label for="allergic-to" class="form-label text-sm font-normal mb-2">Allergic to</label>
+            <input id="allergic-to" name="allergicTo" type="text" value="Sulfa drugs" class="form-input">
+          </div>
+          <div>
+            <label for="allergy-type" class="form-label text-sm font-normal mb-2">Type</label>
+            <select id="allergy-type" name="allergyType" class="form-select-field">
+              <option value="MEDICINE" selected>Medicine</option>
+              <option value="FOOD">Food</option>
+              <option value="ENVIRONMENT">Environment</option>
+              <option value="OTHER">Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="allergy-reaction" class="form-label text-sm font-normal mb-2">Reaction</label>
+            <input id="allergy-reaction" name="allergyReaction" type="text" value="Skin rash" class="form-input">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. Vitals ==================== -->
+    <section aria-labelledby="vitals-title" class="mt-4 p-5 rounded-lg border border-slate-200 bg-white">
+      <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+        <span class="step-number">3</span>
+        <h2 id="vitals-title" class="text-base font-semibold text-slate-900">Vitals</h2>
+        <span class="text-sm text-slate-500">Taken at the front desk</span>
+      </div>
+
+      <div class="mt-4 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+        <div>
+          <label for="vital-bp" class="form-label text-sm font-normal mb-2">BP (mmHg)<span class="required-mark">*</span></label>
+          <input id="vital-bp" name="bloodPressure" type="text" value="132/84" required class="form-input">
+        </div>
+        <div>
+          <label for="vital-pulse" class="form-label text-sm font-normal mb-2">Pulse (bpm)</label>
+          <input id="vital-pulse" name="pulse" type="text" inputmode="numeric" value="78" class="form-input">
+        </div>
+        <div>
+          <label for="vital-temp" class="form-label text-sm font-normal mb-2">Temp (°F)</label>
+          <input id="vital-temp" name="temperature" type="text" inputmode="decimal" value="98.2" class="form-input">
+        </div>
+        <div>
+          <label for="vital-spo2" class="form-label text-sm font-normal mb-2">SpO₂ (%)</label>
+          <input id="vital-spo2" name="spo2" type="text" inputmode="numeric" value="98" class="form-input">
+        </div>
+        <div>
+          <label for="vital-weight" class="form-label text-sm font-normal mb-2">Weight (kg)</label>
+          <input id="vital-weight" name="weight" type="text" inputmode="decimal" value="81" class="form-input">
+        </div>
+        <div>
+          <label for="vital-height" class="form-label text-sm font-normal mb-2">Height (cm)</label>
+          <input id="vital-height" name="height" type="text" inputmode="decimal" value="172" class="form-input">
+        </div>
+        <div>
+          <label for="vital-bmi" class="form-label text-sm font-normal mb-2">BMI</label>
+          <input id="vital-bmi" name="bmi" type="text" value="27.4" readonly class="form-input bg-slate-50 cursor-default focus:ring-0 focus:border-line">
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. Medical history and pre-medication ==================== -->
+    <section aria-labelledby="history-title" class="mt-4 p-5 rounded-lg border border-slate-200 bg-white">
+      <div class="flex items-center gap-2">
+        <span class="step-number">4</span>
+        <h2 id="history-title" class="text-base font-semibold text-slate-900">Medical history and pre-medication</h2>
+      </div>
+
+      <fieldset class="mt-3">
+        <legend class="sr-only">Known conditions</legend>
+        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-700">
+          <label class="inline-flex items-center gap-2 cursor-pointer"><input type="checkbox" name="conditions" value="DIABETES" class="form-checkbox"> Diabetes</label>
+          <label class="inline-flex items-center gap-2 cursor-pointer"><input type="checkbox" name="conditions" value="HYPERTENSION" class="form-checkbox"> High blood pressure</label>
+          <label class="inline-flex items-center gap-2 cursor-pointer"><input type="checkbox" name="conditions" value="HEART_DISEASE" class="form-checkbox"> Heart disease</label>
+          <label class="inline-flex items-center gap-2 cursor-pointer"><input type="checkbox" name="conditions" value="ASTHMA_COPD" class="form-checkbox"> Asthma or COPD</label>
+          <label class="inline-flex items-center gap-2 cursor-pointer"><input type="checkbox" name="conditions" value="THYROID" class="form-checkbox"> Thyroid</label>
+          <label class="inline-flex items-center gap-2 cursor-pointer"><input type="checkbox" name="conditions" value="KIDNEY_DISEASE" class="form-checkbox"> Kidney disease</label>
+        </div>
+      </fieldset>
+
+      <label for="past-illnesses" class="form-label text-sm font-normal mt-4 mb-2">Past illnesses or surgery</label>
+      <input id="past-illnesses" name="pastIllnesses" type="text" value="Gastro-oesophageal reflux disease, diagnosed 15 Oct 2026" class="form-input">
+
+      <label for="current-medicines" class="form-label text-sm font-normal mt-4 mb-2">Medicines the patient takes now</label>
+      <textarea id="current-medicines" name="currentMedicines" rows="2" class="form-input h-auto py-2.5 resize-y">Pantoprazole 40 mg · 1-0-0 before food · course ended 29 Oct</textarea>
+    </section>
+
+    <p class="mt-5 text-sm text-slate-500">Sections 5–9 are filled by the doctor during the consultation. They are locked here.</p>
+
+    <!-- ==================== 5. Findings and feedback (doctor) ==================== -->
+    <section aria-labelledby="findings-title" class="mt-4 p-5 rounded-lg border border-slate-200 bg-white">
+      <div class="flex items-center gap-2">
+        <span class="step-number">5</span>
+        <h2 id="findings-title" class="text-base font-semibold text-slate-900">Findings and feedback</h2>
+      </div>
+      <label for="findings" class="sr-only">Findings and feedback</label>
+      <textarea id="findings" name="findings" rows="2" disabled placeholder="Filled by the doctor" class="form-input h-auto mt-4 py-2.5 resize-none"></textarea>
+    </section>
+
+    <!-- ==================== 6. Diagnosis (doctor) ==================== -->
+    <section aria-labelledby="diagnosis-title" class="mt-4 p-5 rounded-lg border border-slate-200 bg-white">
+      <div class="flex items-center gap-2">
+        <span class="step-number">6</span>
+        <h2 id="diagnosis-title" class="text-base font-semibold text-slate-900">Diagnosis<span class="required-mark">*</span></h2>
+      </div>
+      <div class="mt-4 flex flex-col sm:flex-row gap-2">
+        <label for="diagnosis-search" class="sr-only">Search diagnosis or ICD-10 code</label>
+        <input id="diagnosis-search" name="diagnosis" type="text" disabled placeholder="Search diagnosis or ICD-10 code" class="form-input flex-1">
+        <label for="diagnosis-type" class="sr-only">Diagnosis type</label>
+        <select id="diagnosis-type" name="diagnosisType" disabled class="form-select-field sm:w-36">
+          <option value="PROVISIONAL" selected>Provisional</option>
+          <option value="FINAL">Final</option>
+        </select>
+        <button type="button" disabled class="btn-outline px-5 disabled:bg-slate-50 disabled:text-subtle disabled:cursor-not-allowed">Add</button>
+      </div>
+    </section>
+
+    <!-- ==================== 7. Prescription (doctor) ==================== -->
+    <section aria-labelledby="prescription-title" class="mt-4 p-5 rounded-lg border border-slate-200 bg-white">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <div class="flex items-center gap-2">
+          <span class="step-number">7</span>
+          <h2 id="prescription-title" class="text-base font-semibold text-slate-900">Prescription</h2>
+        </div>
+        <p class="text-sm text-slate-400">Goes back to the front desk with the OP. They send it to the pharmacy.</p>
+      </div>
+
+      <div class="mt-4 grid grid-cols-2 md:grid-cols-[3fr_1.5fr_1.5fr_1.5fr_1fr_auto] gap-3 items-end">
+        <div class="col-span-2 md:col-span-1">
+          <label for="rx-medicine" class="form-label text-sm font-normal mb-2">Medicine and strength</label>
+          <input id="rx-medicine" name="rxMedicine" type="text" disabled placeholder="Medicine name and strength" class="form-input">
+        </div>
+        <div>
+          <label for="rx-dose" class="form-label text-sm font-normal mb-2">Dose</label>
+          <input id="rx-dose" name="rxDose" type="text" disabled value="1 tablet" class="form-input">
+        </div>
+        <div>
+          <label for="rx-frequency" class="form-label text-sm font-normal mb-2">Frequency</label>
+          <input id="rx-frequency" name="rxFrequency" type="text" disabled value="1-0-1" class="form-input">
+        </div>
+        <div>
+          <label for="rx-timing" class="form-label text-sm font-normal mb-2">Timing</label>
+          <input id="rx-timing" name="rxTiming" type="text" disabled value="After food" class="form-input">
+        </div>
+        <div>
+          <label for="rx-days" class="form-label text-sm font-normal mb-2">Days</label>
+          <input id="rx-days" name="rxDays" type="text" disabled value="7" class="form-input">
+        </div>
+        <button type="button" disabled aria-label="Remove medicine" class="h-10 w-10 grid place-items-center text-rose-400 disabled:cursor-not-allowed">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/>
+          </svg>
+        </button>
+      </div>
+
+      <button type="button" disabled
+              class="mt-3 inline-flex items-center h-8 px-3 rounded-md border border-dashed border-[#9fc0dc] text-sm font-medium text-[#2c5977] disabled:opacity-70 disabled:cursor-not-allowed">
+        + Add medicine
+      </button>
+    </section>
+
+    <!-- ==================== 8. Tests advised (doctor) ==================== -->
+    <section aria-labelledby="tests-title" class="mt-4 p-5 rounded-lg border border-slate-200 bg-white">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <div class="flex items-center gap-2">
+          <span class="step-number">8</span>
+          <h2 id="tests-title" class="text-base font-semibold text-slate-900">Tests advised</h2>
+        </div>
+        <p class="text-sm text-slate-400">Goes back to the front desk with the OP. They book them with diagnostics.</p>
+      </div>
+
+      <fieldset class="mt-4" disabled>
+        <legend class="sr-only">Tests advised</legend>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm text-slate-700">
+          <label class="flex items-center gap-3 h-10 px-3 rounded-md border border-slate-200 cursor-not-allowed"><input type="checkbox" name="testsAdvised" value="CBC" class="form-checkbox"> Complete blood count</label>
+          <label class="flex items-center gap-3 h-10 px-3 rounded-md border border-slate-200 cursor-not-allowed"><input type="checkbox" name="testsAdvised" value="LFT" class="form-checkbox"> Liver function test</label>
+          <label class="flex items-center gap-3 h-10 px-3 rounded-md border border-slate-200 cursor-not-allowed"><input type="checkbox" name="testsAdvised" value="H_PYLORI" class="form-checkbox"> H. pylori stool antigen</label>
+          <label class="flex items-center gap-3 h-10 px-3 rounded-md border border-slate-200 cursor-not-allowed"><input type="checkbox" name="testsAdvised" value="UGI_ENDOSCOPY" class="form-checkbox"> Upper GI endoscopy (referral)</label>
+          <label class="flex items-center gap-3 h-10 px-3 rounded-md border border-slate-200 cursor-not-allowed"><input type="checkbox" name="testsAdvised" value="USG_ABDOMEN" class="form-checkbox"> Ultrasound abdomen</label>
+          <label class="flex items-center gap-3 h-10 px-3 rounded-md border border-slate-200 cursor-not-allowed"><input type="checkbox" name="testsAdvised" value="ELECTROLYTES" class="form-checkbox"> Serum electrolytes</label>
+        </div>
+      </fieldset>
+    </section>
+
+    <!-- ==================== 9. Advice and follow-up (doctor) ==================== -->
+    <section aria-labelledby="advice-title" class="mt-4 p-5 rounded-lg border border-slate-200 bg-white">
+      <div class="flex items-center gap-2">
+        <span class="step-number">9</span>
+        <h2 id="advice-title" class="text-base font-semibold text-slate-900">Advice and follow-up</h2>
+      </div>
+      <label for="advice" class="sr-only">Advice</label>
+      <textarea id="advice" name="advice" rows="2" disabled placeholder="Filled by the doctor" class="form-input h-auto mt-4 py-2.5 resize-none"></textarea>
+
+      <div class="mt-4 flex flex-wrap items-end gap-x-5 gap-y-3">
+        <div>
+          <label for="follow-up-date" class="form-label text-sm font-normal mb-2">Follow-up date</label>
+          <input id="follow-up-date" name="followUpDate" type="date" disabled class="form-input w-48">
+        </div>
+        <label class="inline-flex items-center gap-2 h-10 text-sm text-slate-700 cursor-not-allowed">
+          <input type="checkbox" name="bookFollowUp" disabled class="form-checkbox">
+          Ask the front desk to book this follow-up
+        </label>
+      </div>
+    </section>
+
+    <!-- Actions -->
+    <div class="mt-6 flex flex-col-reverse sm:flex-row sm:justify-end gap-3">
+      <a href="opd-desk.html" class="btn-outline">Save draft</a>
+      <a href="opd-desk.html" class="btn-accent">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/>
+        </svg>
+        Send OP to Dr Farah Khan
+      </a>
+    </div>
+  </main>
+
+  <script src="../../js/modules/frontdesk.js"></script>
+</body>
+</html>

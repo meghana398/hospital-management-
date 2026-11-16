@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Result entry · Diagnostics</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col lg:flex-row bg-[#f7f9fb]">
+
+  <!-- ==================== Sidebar ==================== -->
+  <aside class="lg:flex-none lg:w-[250px] lg:sticky lg:top-0 lg:h-screen flex flex-col bg-white border-b lg:border-b-0 lg:border-r border-line">
+    <a href="diagnostics-dashboard.html" class="flex items-center gap-3 px-4 lg:px-5 py-4 lg:py-5">
+      <span class="w-10 h-10 grid place-items-center rounded-lg bg-[#2b7489] text-white" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+      </span>
+      <span class="leading-tight">
+        <span class="block text-[15px] font-semibold text-ink">[Hospital name]</span>
+        <span class="block text-[13px] text-subtle">Diagnostics centre</span>
+      </span>
+    </a>
+
+    <nav aria-label="Diagnostics" class="flex lg:flex-col gap-1 overflow-x-auto px-3 lg:px-4 pb-3 lg:py-3 text-[15px]">
+      <a href="diagnostics-dashboard.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+        </svg>
+        Dashboard
+      </a>
+      <a href="test-requests.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13l6 6M9 17h3"/>
+        </svg>
+        Test requests
+        <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-white text-[11px] font-semibold">2</span>
+      </a>
+      <a href="sample-collection.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/>
+        </svg>
+        Sample collection
+        <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fdecc8] text-[#9a5b00] text-[11px] font-semibold">2</span>
+      </a>
+      <a href="worklist.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+        </svg>
+        Worklist
+        <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#e1eff7] text-[#2a6f93] text-[11px] font-semibold">10</span>
+      </a>
+      <a href="result-entry.html" aria-current="page"
+         class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg bg-[#e3f1f6] text-[#1f5f73] whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h3"/>
+        </svg>
+        Result entry
+      </a>
+      <a href="reports-history.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/><path d="M12 3v9l6.5 6"/>
+        </svg>
+        Reports and history
+      </a>
+      <a href="test-catalogue.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="4" y="10" width="16" height="10" rx="2"/><path d="M7 10V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4M4 14h16"/>
+        </svg>
+        Test catalogue
+      </a>
+      <a href="billing.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/>
+        </svg>
+        Billing
+      </a>
+      <a href="accounts.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/>
+        </svg>
+        Accounts
+      </a>
+      <a href="inventory.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>
+        </svg>
+        Inventory
+        <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fde3e1] text-[#b42318] text-[11px] font-semibold">5</span>
+      </a>
+      <a href="pharmacy-requests.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3L2 21h20z"/><path d="M12 10v5M12 18h.01"/>
+        </svg>
+        Pharmacy requests
+      </a>
+    </nav>
+
+    <div class="hidden lg:block mt-auto mx-3 mb-4 p-4 rounded-xl border border-[#d5e6ec] bg-[#eef5f8]">
+      <p class="text-sm font-semibold text-[#1f5f73]">Central lab</p>
+      <p class="mt-0.5 text-[13px] text-subtle">1st floor · open 24 hours</p>
+      <p class="mt-3 text-sm font-semibold text-[#1f5f73]">Radiology and cardiology</p>
+      <p class="mt-0.5 text-[13px] text-subtle">Ground floor · 8 AM – 8 PM</p>
+    </div>
+  </aside>
+
+  <div class="flex-1 min-w-0 flex flex-col">
+
+    <!-- ==================== Top bar ==================== -->
+    <header class="bg-white border-b border-line">
+      <div class="flex flex-wrap items-center justify-end gap-x-5 gap-y-2 min-h-[72px] px-4 sm:px-7 py-3">
+        <a href="notifications.html" aria-label="Notifications, 2 unread" class="relative w-8 h-8 grid place-items-center text-ink hover:text-[#2b7489]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">2</span>
+        </a>
+
+        <a href="my-profile.html" class="flex items-center gap-2.5">
+          <span class="sr-only">My profile:</span>
+          <span class="w-8 h-8 grid place-items-center rounded-full bg-[#d6efe3] text-xs font-semibold text-accent" aria-hidden="true">RD</span>
+          <span class="hidden sm:block leading-tight">
+            <span class="block text-sm font-semibold text-ink">Rina Das</span>
+            <span class="block text-xs text-subtle">Central lab and imaging</span>
+          </span>
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          Sign out
+        </a>
+      </div>
+    </header>
+
+    <!-- ==================== Main ==================== -->
+    <main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-12 pt-6 pb-14">
+
+      <a href="worklist.html" class="inline-flex items-center gap-1.5 text-[15px] font-medium text-[#24606f] hover:underline">
+        <span aria-hidden="true">&larr;</span> Back to worklist
+      </a>
+
+      <div class="mt-5 flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-[#111827]">Complete blood count</h1>
+          <p class="mt-1 text-[15px] text-subtle">Sample SMP-26-30418 · EDTA whole blood · collected 11:22 AM · run on Sysmex XN-550 at 11:48 AM</p>
+        </div>
+        <span class="px-3 py-1 rounded border border-[#f3e3b5] bg-[#fdf6e3] text-[15px] font-medium text-[#9a6a00]">Result entry</span>
+      </div>
+
+      <!-- Steps -->
+      <ol aria-label="Steps" class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <li class="flex items-center gap-3 p-4 rounded-xl border border-[#e3eaef] bg-white">
+          <span class="flex-none w-9 h-9 grid place-items-center rounded-full bg-[#1fa463] text-white" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>
+          </span>
+          <span class="leading-tight">
+            <span class="block text-[15px] font-semibold text-ink">Sample collected</span>
+            <span class="block text-sm text-subtle">11:22 AM · Rina Das</span>
+          </span>
+        </li>
+        <li aria-current="step" class="flex items-center gap-3 p-4 rounded-xl border-2 border-[#1d5672] bg-white">
+          <span class="flex-none w-9 h-9 grid place-items-center rounded-md bg-[#1d5672] text-[15px] font-semibold text-white" aria-hidden="true">2</span>
+          <span class="leading-tight">
+            <span class="block text-[15px] font-semibold text-ink">Results entered</span>
+            <span class="block text-sm text-subtle">Check the values below</span>
+          </span>
+        </li>
+        <li class="flex items-center gap-3 p-4 rounded-xl border border-[#e3eaef] bg-white">
+          <span class="flex-none w-9 h-9 grid place-items-center rounded-md border border-[#e3eaef] bg-[#f8fafc] text-[15px] text-subtle" aria-hidden="true">3</span>
+          <span class="leading-tight">
+            <span class="block text-[15px] font-semibold text-ink">Report sent</span>
+            <span class="block text-sm text-subtle">To doctor and patient · front desk notified</span>
+          </span>
+        </li>
+      </ol>
+
+      <!-- Patient -->
+      <section aria-label="Patient" class="mt-5 flex flex-wrap items-center gap-x-8 gap-y-3 p-5 sm:px-6 rounded-xl border border-[#e3eaef] bg-white">
+        <div class="flex items-center gap-4">
+          <span class="flex-none w-12 h-12 grid place-items-center rounded-full border border-[#e3eaef] bg-[#f4f6f8] text-[15px] font-semibold text-[#2f4f6c]" aria-hidden="true">PN</span>
+          <div>
+            <p class="text-lg font-semibold text-ink">Priya Nair</p>
+            <p class="text-sm text-subtle">UHID HSP1.0000124402</p>
+          </div>
+        </div>
+        <dl class="flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
+          <div class="flex gap-1.5"><dt class="text-placeholder">Age / gender</dt><dd class="font-medium text-ink">28 y · Female</dd></div>
+          <div class="flex gap-1.5"><dt class="text-placeholder">Referred by</dt><dd class="font-medium text-ink">Dr Farah Khan, General Medicine</dd></div>
+          <div class="flex gap-1.5"><dt class="text-placeholder">Order</dt><dd class="font-medium text-ink">DX-26-0912</dd></div>
+          <div class="flex gap-1.5"><dt class="text-placeholder">Clinical note</dt><dd class="font-medium text-ink">Tiredness for 3 weeks, pale</dd></div>
+        </dl>
+      </section>
+
+      <!-- Results -->
+      <section aria-labelledby="results-title" class="mt-5 p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+        <div class="flex flex-wrap items-baseline justify-between gap-3 pb-4 border-b border-[#edf1f4]">
+          <h2 id="results-title" class="text-lg font-semibold text-ink">Results</h2>
+          <p class="text-[15px] text-subtle">Values came from the analyser. Change a value only if you re-ran the sample. <strong class="font-semibold text-ink">4 values outside the normal range</strong></p>
+        </div>
+
+        <div class="relative mt-5 overflow-x-auto">
+          <table class="w-full min-w-[760px] text-left text-[15px] whitespace-nowrap">
+            <thead class="bg-[#f0f6f9] text-[#1f5f73]">
+              <tr>
+                <th scope="col" class="px-5 py-3 font-medium">Test</th>
+                <th scope="col" class="px-4 py-3 font-medium">Result</th>
+                <th scope="col" class="px-4 py-3 font-medium">Unit</th>
+                <th scope="col" class="px-4 py-3 font-medium">Normal range</th>
+                <th scope="col" class="px-4 py-3 font-medium">Flag</th>
+                <th scope="col" class="px-4 py-3 font-medium">Last result</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#edf1f4]">
+                <tr>
+                  <th scope="row" class="px-5 py-3 font-medium text-ink">Haemoglobin</th>
+                  <td class="px-4 py-3">
+                    <label for="result-haemoglobin" class="sr-only">Haemoglobin result</label>
+                    <input id="result-haemoglobin" name="haemoglobin" type="text" value="10.2" class="w-28 h-9 px-2 rounded-md border border-[#e57373] bg-white text-center text-[15px] text-ink">
+                  </td>
+                  <td class="px-4 py-3 text-body">g/dL</td>
+                  <td class="px-4 py-3 text-body">12 – 15.5</td>
+                  <td class="px-4 py-3"><span class="text-[#c8102e]"><span aria-hidden="true">↓</span> Low</span></td>
+                  <td class="px-4 py-3 text-subtle">11.4 (Mar 2026)</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="px-5 py-3 font-medium text-ink">RBC count</th>
+                  <td class="px-4 py-3">
+                    <label for="result-rbc-count" class="sr-only">RBC count result</label>
+                    <input id="result-rbc-count" name="rbc-count" type="text" value="4.1" class="w-28 h-9 px-2 rounded-md border border-line bg-white text-center text-[15px] text-ink">
+                  </td>
+                  <td class="px-4 py-3 text-body">million/µL</td>
+                  <td class="px-4 py-3 text-body">3.8 – 5.2</td>
+                  <td class="px-4 py-3"><span class="text-[#1f8a5b]">Normal</span></td>
+                  <td class="px-4 py-3 text-subtle">4.3</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="px-5 py-3 font-medium text-ink">Haematocrit (PCV)</th>
+                  <td class="px-4 py-3">
+                    <label for="result-haematocrit-pcv" class="sr-only">Haematocrit (PCV) result</label>
+                    <input id="result-haematocrit-pcv" name="haematocrit-pcv" type="text" value="32" class="w-28 h-9 px-2 rounded-md border border-[#e57373] bg-white text-center text-[15px] text-ink">
+                  </td>
+                  <td class="px-4 py-3 text-body">%</td>
+                  <td class="px-4 py-3 text-body">36 – 46</td>
+                  <td class="px-4 py-3"><span class="text-[#c8102e]"><span aria-hidden="true">↓</span> Low</span></td>
+                  <td class="px-4 py-3 text-subtle">35</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="px-5 py-3 font-medium text-ink">MCV</th>
+                  <td class="px-4 py-3">
+                    <label for="result-mcv" class="sr-only">MCV result</label>
+                    <input id="result-mcv" name="mcv" type="text" value="72" class="w-28 h-9 px-2 rounded-md border border-[#e57373] bg-white text-center text-[15px] text-ink">
+                  </td>
+                  <td class="px-4 py-3 text-body">fL</td>
+                  <td class="px-4 py-3 text-body">80 – 100</td>
+                  <td class="px-4 py-3"><span class="text-[#c8102e]"><span aria-hidden="true">↓</span> Low</span></td>
+                  <td class="px-4 py-3 text-subtle">78</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="px-5 py-3 font-medium text-ink">MCH</th>
+                  <td class="px-4 py-3">
+                    <label for="result-mch" class="sr-only">MCH result</label>
+                    <input id="result-mch" name="mch" type="text" value="24" class="w-28 h-9 px-2 rounded-md border border-[#e57373] bg-white text-center text-[15px] text-ink">
+                  </td>
+                  <td class="px-4 py-3 text-body">pg</td>
+                  <td class="px-4 py-3 text-body">27 – 33</td>
+                  <td class="px-4 py-3"><span class="text-[#c8102e]"><span aria-hidden="true">↓</span> Low</span></td>
+                  <td class="px-4 py-3 text-subtle">26</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="px-5 py-3 font-medium text-ink">MCHC</th>
+                  <td class="px-4 py-3">
+                    <label for="result-mchc" class="sr-only">MCHC result</label>
+                    <input id="result-mchc" name="mchc" type="text" value="31.9" class="w-28 h-9 px-2 rounded-md border border-line bg-white text-center text-[15px] text-ink">
+                  </td>
+                  <td class="px-4 py-3 text-body">g/dL</td>
+                  <td class="px-4 py-3 text-body">31.5 – 35</td>
+                  <td class="px-4 py-3"><span class="text-[#1f8a5b]">Normal</span></td>
+                  <td class="px-4 py-3 text-subtle">32.5</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="px-5 py-3 font-medium text-ink">Total WBC count</th>
+                  <td class="px-4 py-3">
+                    <label for="result-total-wbc-count" class="sr-only">Total WBC count result</label>
+                    <input id="result-total-wbc-count" name="total-wbc-count" type="text" value="7.8" class="w-28 h-9 px-2 rounded-md border border-line bg-white text-center text-[15px] text-ink">
+                  </td>
+                  <td class="px-4 py-3 text-body">thousand/µL</td>
+                  <td class="px-4 py-3 text-body">4 – 11</td>
+                  <td class="px-4 py-3"><span class="text-[#1f8a5b]">Normal</span></td>
+                  <td class="px-4 py-3 text-subtle">6.9</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="px-5 py-3 font-medium text-ink">Platelet count</th>
+                  <td class="px-4 py-3">
+                    <label for="result-platelet-count" class="sr-only">Platelet count result</label>
+                    <input id="result-platelet-count" name="platelet-count" type="text" value="2.6" class="w-28 h-9 px-2 rounded-md border border-line bg-white text-center text-[15px] text-ink">
+                  </td>
+                  <td class="px-4 py-3 text-body">lakh/µL</td>
+                  <td class="px-4 py-3 text-body">1.5 – 4.1</td>
+                  <td class="px-4 py-3"><span class="text-[#1f8a5b]">Normal</span></td>
+                  <td class="px-4 py-3 text-subtle">2.4</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div>
+            <label for="peripheral-smear" class="form-label text-[15px] font-normal mb-2">Peripheral smear</label>
+            <select id="peripheral-smear" name="peripheralSmear" class="form-select-field">
+              <option selected>Microcytic hypochromic red cells, mild anisocytosis</option>
+              <option>Normocytic normochromic red cells</option>
+              <option>Macrocytic red cells</option>
+              <option>Not done</option>
+            </select>
+          </div>
+          <div>
+            <label for="doctor-remarks" class="form-label text-[15px] font-normal mb-2">Remarks for the doctor</label>
+            <textarea id="doctor-remarks" name="doctorRemarks" rows="3" class="form-input h-auto py-2.5 resize-y">Picture suggests iron deficiency. Correlate with serum ferritin, which is running on the same order.</textarea>
+          </div>
+        </div>
+
+        <p class="mt-6 flex items-center gap-2 text-[15px] text-body">
+          <svg class="text-placeholder" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21.4 11.1l-9.2 9.2a6 6 0 0 1-8.5-8.5l9.2-9.2a4 4 0 0 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.8-2.8l8.5-8.5"/>
+          </svg>
+          Analyser printout attached · XN550_30418.pdf
+        </p>
+      </section>
+
+      <!-- Who gets the report -->
+      <section aria-labelledby="send-to-title" class="mt-5 p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+        <h2 id="send-to-title" class="text-[17px] font-semibold text-ink">When you send, the report goes to</h2>
+        <div class="mt-4 space-y-3">
+          <label class="flex items-center gap-3 text-[15px] text-ink cursor-pointer">
+            <input type="checkbox" name="sendTo" value="DOCTOR" checked class="form-checkbox"> Dr Farah Khan · reports inbox, to verify
+          </label>
+          <label class="flex items-center gap-3 text-[15px] text-ink cursor-pointer">
+            <input type="checkbox" name="sendTo" value="PATIENT_RECORD" checked class="form-checkbox"> Patient record (UHID HSP1.0000124402)
+          </label>
+          <label class="flex items-center gap-3 text-[15px] text-ink cursor-pointer">
+            <input type="checkbox" name="sendTo" value="PATIENT_SMS" checked class="form-checkbox"> Patient · copy of the report by SMS link · ******5521
+          </label>
+        </div>
+        <p class="mt-4 flex items-center gap-3 px-4 py-3 rounded-lg border border-[#e3eaef] bg-[#f8fafc] text-[15px] text-body">
+          <svg class="flex-none text-placeholder" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          The front desk is notified that the report is ready. They don't get a copy.
+        </p>
+      </section>
+
+      <div class="mt-5 flex flex-wrap items-center justify-between gap-4 p-5 sm:px-7 rounded-xl border border-[#e3eaef] bg-white">
+        <p class="text-[15px] text-subtle">Check every flagged value against the analyser printout, then send the report.</p>
+        <a href="reports-history.html" class="btn-accent font-semibold">Send report</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/modules/diagnostics.js"></script>
+</body>
+</html>

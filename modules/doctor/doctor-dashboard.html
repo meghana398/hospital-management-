@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard · Doctor</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#f7f9fb]">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-[72px] px-4 sm:px-7 py-3">
+
+      <a href="doctor-dashboard.html" class="flex items-center gap-3">
+        <span class="w-10 h-10 grid place-items-center rounded-lg bg-[#2b7489] text-white" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+        </span>
+        <span class="leading-tight">
+          <span class="block text-[15px] font-semibold text-ink">[Hospital name]</span>
+          <span class="block text-[13px] text-subtle">[Branch, City]</span>
+        </span>
+      </a>
+
+      <div class="flex items-center gap-4 sm:gap-5">
+        <a href="notifications.html" aria-label="Notifications, 3 unread" class="relative w-8 h-8 grid place-items-center text-ink hover:text-[#2b7489]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">3</span>
+        </a>
+
+        <a href="my-profile.html" class="flex items-center gap-2.5">
+          <span class="sr-only">My profile:</span>
+          <span class="w-8 h-8 grid place-items-center rounded-full bg-[#dcf3e5] text-xs font-semibold text-[#1f7a46]" aria-hidden="true">FK</span>
+          <span class="hidden sm:block leading-tight">
+            <span class="block text-sm font-semibold text-ink">Dr Farah Khan</span>
+            <span class="block text-xs text-subtle">General medicine</span>
+          </span>
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          Sign out
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex-1 flex flex-col lg:flex-row">
+
+    <!-- ==================== Sidebar ==================== -->
+    <aside class="lg:flex-none lg:w-[250px] bg-white border-b lg:border-b-0 lg:border-r border-line px-3 lg:px-4 py-3 lg:py-5">
+      <nav aria-label="Doctor" class="flex lg:flex-col gap-1 overflow-x-auto text-[15px]">
+        <a href="doctor-dashboard.html" aria-current="page"
+           class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg bg-[#e3f1f6] text-[#1f5f73] whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="notifications.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          Notifications
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">3</span>
+        </a>
+        <a href="todays-opd.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="7" r="3"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14a4 4 0 0 1 4 4v1"/>
+          </svg>
+          Today's OPD
+        </a>
+        <a href="appointments.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M8 10v11"/>
+          </svg>
+          Appointments
+        </a>
+        <a href="my-patients.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="15" rx="2"/><circle cx="9" cy="12" r="2.5"/><path d="M5.5 17a3.5 3.5 0 0 1 7 0M15 10h3M15 14h3"/>
+          </svg>
+          My patients
+        </a>
+        <a href="reports-to-review.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13l6 6M9 17h3"/>
+          </svg>
+          Reports to review
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fdecc8] text-[11px] font-semibold text-[#9a5b00]">3</span>
+        </a>
+        <a href="my-schedule.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+          </svg>
+          My schedule
+        </a>
+      </nav>
+
+      <div class="hidden lg:block mt-40 p-4 rounded-xl border border-[#cfe9df] bg-[#effaf5]">
+        <p class="text-sm font-semibold text-[#1f6b52]">OPD today</p>
+        <p class="mt-1.5 text-[13px] text-ink">9:00 AM – 1:00 PM</p>
+        <p class="mt-0.5 text-[13px] text-subtle">Block A, ground floor, Room 012</p>
+      </div>
+    </aside>
+
+    <!-- ==================== Main ==================== -->
+    <main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-9 pt-8 pb-14">
+
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-ink">Good morning, Dr Farah Khan</h1>
+          <p class="mt-1 text-[15px] text-subtle">OPD session running since 9:02 AM · 3 patients seen</p>
+        </div>
+        <a href="todays-opd.html" class="inline-flex items-center h-10 px-5 rounded-lg bg-[#2b7489] text-[15px] font-semibold text-white hover:bg-[#235f70]">Open today's OPD</a>
+      </div>
+
+      <!-- Stats -->
+      <dl class="mt-6 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3">
+        <div class="p-5 rounded-xl border border-[#e3eaef] bg-white">
+          <dt class="text-sm text-subtle">Appointments today</dt>
+          <dd class="mt-2 text-2xl font-bold text-ink">7</dd>
+          <dd class="mt-2 text-[13px] text-placeholder">of 8 slots booked</dd>
+        </div>
+        <div class="p-5 rounded-xl border border-[#e3eaef] bg-white">
+          <dt class="text-sm text-[#1f7a46]">Seen</dt>
+          <dd class="mt-2 text-2xl font-bold text-ink">3</dd>
+          <dd class="mt-2 text-[13px] text-placeholder">Completed today</dd>
+        </div>
+        <div class="p-5 rounded-xl border border-[#e3eaef] bg-white">
+          <dt class="text-sm text-[#b45309]">Waiting</dt>
+          <dd class="mt-2 text-2xl font-bold text-ink">2</dd>
+          <dd class="mt-2 text-[13px] text-placeholder">Checked in at the desk</dd>
+        </div>
+        <div class="p-5 rounded-xl border border-[#e3eaef] bg-white">
+          <dt class="text-sm text-subtle">Not arrived</dt>
+          <dd class="mt-2 text-2xl font-bold text-ink">2</dd>
+          <dd class="mt-2 text-[13px] text-placeholder">Later slots</dd>
+        </div>
+        <div class="p-5 rounded-xl border border-[#e3eaef] bg-white">
+          <dt class="text-sm text-subtle">Reports to review</dt>
+          <dd class="mt-2 text-2xl font-bold text-ink">3</dd>
+          <dd class="mt-2 text-[13px] text-placeholder">Ready from the lab</dd>
+        </div>
+      </dl>
+
+      <!-- Up next -->
+      <section aria-labelledby="up-next-title" class="mt-5 p-5 sm:p-6 rounded-xl border-2 border-[#8cc6d6] bg-white">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <h2 id="up-next-title" class="text-[15px] font-semibold text-[#1f5f73]">Up next</h2>
+          <span class="px-3 py-1 rounded-full bg-[#fdf3d1] text-[13px] text-[#8a5a00]">Waiting since 10:18 AM</span>
+        </div>
+
+        <div class="mt-4 flex items-center gap-3">
+          <span class="flex-none w-11 h-11 grid place-items-center rounded-full bg-[#e0eef3] text-[15px] font-semibold text-[#2b7489]" aria-hidden="true">SP</span>
+          <div>
+            <p class="text-[15px] text-subtle">
+              <span class="text-lg font-semibold text-ink">Suresh Patil</span>
+              · Token T-04 · 10:30 AM
+            </p>
+            <p class="text-[15px] text-subtle">45 y · Male · Follow-up · CGHS beneficiary · UHID HSP1.0000124078</p>
+          </div>
+        </div>
+
+        <ul aria-label="Vitals and allergies" class="mt-5 flex flex-wrap gap-2 text-[15px]">
+          <li class="px-2.5 py-1 rounded border border-[#e3eaef] bg-[#f8fafc] text-body">BP <strong class="font-semibold text-ink">132/84</strong></li>
+          <li class="px-2.5 py-1 rounded border border-[#e3eaef] bg-[#f8fafc] text-body">Pulse <strong class="font-semibold text-ink">78</strong></li>
+          <li class="px-2.5 py-1 rounded border border-[#e3eaef] bg-[#f8fafc] text-body">SpO<sub>2</sub> <strong class="font-semibold text-ink">98%</strong></li>
+          <li class="px-2.5 py-1 rounded border border-[#e3eaef] bg-[#f8fafc] text-body">Weight <strong class="font-semibold text-ink">81 kg</strong></li>
+          <li class="px-2.5 py-1 rounded border border-[#f3c0c0] bg-[#fdecec] text-[#b42318]">Allergy: Sulfa drugs</li>
+        </ul>
+
+        <div class="mt-4 flex flex-wrap gap-2.5">
+          <a href="consultation.html" class="inline-flex items-center h-10 px-5 rounded-lg bg-[#2b7489] text-[15px] font-semibold text-white hover:bg-[#235f70]">Start consultation</a>
+          <button type="button" class="inline-flex items-center h-10 px-5 rounded-lg border border-line bg-white text-[15px] text-ink hover:bg-slate-50">Call patient</button>
+        </div>
+      </section>
+
+      <div class="mt-5 grid grid-cols-1 xl:grid-cols-[2fr_1fr] gap-5 items-start">
+
+        <!-- Today's queue -->
+        <section aria-labelledby="queue-title" class="p-5 sm:p-6 rounded-xl border border-[#e3eaef] bg-white">
+          <div class="flex items-center justify-between gap-4 pb-3 border-b border-[#edf1f4]">
+            <h2 id="queue-title" class="text-base font-semibold text-ink">Today's queue</h2>
+            <a href="todays-opd.html" class="text-[15px] font-semibold text-[#2b7489] hover:underline">Open today's OPD</a>
+          </div>
+
+          <div class="relative overflow-x-auto">
+            <table class="w-full min-w-[520px] text-left text-[15px]">
+              <caption class="sr-only">Today's appointments</caption>
+              <thead class="sr-only">
+                <tr><th scope="col">Time</th><th scope="col">Token</th><th scope="col">Patient</th><th scope="col">Status</th></tr>
+              </thead>
+              <tbody class="divide-y divide-[#edf1f4]">
+                <tr>
+                  <td class="py-3 pr-4 text-placeholder whitespace-nowrap">9:00 AM</td>
+                  <td class="py-3 pr-4 font-semibold text-ink">T-01</td>
+                  <td class="py-3 pr-4 text-ink">Anita Desai <span class="text-placeholder">· 34 F · New</span></td>
+                  <td class="py-3 text-right"><span class="pill border border-[#bfe6cb] bg-[#ebf8ef] text-[#1f7a46]">Completed</span></td>
+                </tr>
+                <tr>
+                  <td class="py-3 pr-4 text-placeholder whitespace-nowrap">9:30 AM</td>
+                  <td class="py-3 pr-4 font-semibold text-ink">T-02</td>
+                  <td class="py-3 pr-4 text-ink">Mohammed Irfan <span class="text-placeholder">· 61 M · Follow-up</span></td>
+                  <td class="py-3 text-right"><span class="pill border border-[#bfe6cb] bg-[#ebf8ef] text-[#1f7a46]">Completed</span></td>
+                </tr>
+                <tr>
+                  <td class="py-3 pr-4 text-placeholder whitespace-nowrap">10:00 AM</td>
+                  <td class="py-3 pr-4 font-semibold text-ink">T-03</td>
+                  <td class="py-3 pr-4 text-ink">Priya Nair <span class="text-placeholder">· 28 F · New</span></td>
+                  <td class="py-3 text-right"><span class="pill border border-[#bfe6cb] bg-[#ebf8ef] text-[#1f7a46]">Completed</span></td>
+                </tr>
+                <tr>
+                  <td class="py-3 pr-4 text-placeholder whitespace-nowrap">10:30 AM</td>
+                  <td class="py-3 pr-4 font-semibold text-ink">T-04</td>
+                  <td class="py-3 pr-4 text-ink">Suresh Patil <span class="text-placeholder">· 45 M · Follow-up</span></td>
+                  <td class="py-3 text-right"><span class="pill border border-[#f2dd7a] bg-[#fdf6cf] text-[#8a6a00]">Waiting</span></td>
+                </tr>
+                <tr>
+                  <td class="py-3 pr-4 text-placeholder whitespace-nowrap">11:00 AM</td>
+                  <td class="py-3 pr-4 font-semibold text-ink">T-05</td>
+                  <td class="py-3 pr-4 text-ink">Kavita Rao <span class="text-placeholder">· 52 F · New</span></td>
+                  <td class="py-3 text-right"><span class="pill border border-[#f2dd7a] bg-[#fdf6cf] text-[#8a6a00]">Waiting</span></td>
+                </tr>
+                <tr>
+                  <td class="py-3 pr-4 text-placeholder whitespace-nowrap">11:30 AM</td>
+                  <td class="py-3 pr-4 text-placeholder">—</td>
+                  <td class="py-3 pr-4 italic text-placeholder">Free slot</td>
+                  <td class="py-3 text-right"><span class="pill border border-dashed border-slate-300 bg-white text-slate-500">Available</span></td>
+                </tr>
+                <tr>
+                  <td class="py-3 pr-4 text-placeholder whitespace-nowrap">12:00 PM</td>
+                  <td class="py-3 pr-4 font-semibold text-ink">T-07</td>
+                  <td class="py-3 pr-4 text-ink">Arjun Bose <span class="text-placeholder">· 39 M · New</span></td>
+                  <td class="py-3 text-right"><span class="pill border border-slate-200 bg-slate-100 text-slate-600">Not arrived</span></td>
+                </tr>
+                <tr>
+                  <td class="py-3 pr-4 text-placeholder whitespace-nowrap">12:30 PM</td>
+                  <td class="py-3 pr-4 font-semibold text-ink">T-08</td>
+                  <td class="py-3 pr-4 text-ink">Lakshmi Iyer <span class="text-placeholder">· 67 F · Follow-up</span>
+                    <span class="ml-1 px-1.5 py-0.5 rounded bg-[#1e3fae] text-[11px] font-bold tracking-wide text-white">NEW</span>
+                  </td>
+                  <td class="py-3 text-right"><span class="pill border border-slate-200 bg-slate-100 text-slate-600">Not arrived</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <div class="space-y-5">
+
+          <!-- Notifications -->
+          <section aria-labelledby="dash-notifications-title" class="p-5 rounded-xl border border-[#e3eaef] bg-white">
+            <div class="flex items-center justify-between gap-4 pb-2.5 border-b border-[#edf1f4]">
+              <h2 id="dash-notifications-title" class="text-[15px] font-semibold text-ink">Notifications</h2>
+              <a href="notifications.html" class="text-[15px] font-semibold text-[#2b7489] hover:underline">View all</a>
+            </div>
+            <ul class="mt-3 space-y-2">
+              <li class="flex gap-3 p-3 rounded-lg border border-[#edf1f4] bg-[#f8fafc]">
+                <span class="flex-none w-8 h-8 grid place-items-center rounded-md border border-line bg-white text-subtle" aria-hidden="true">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+                </span>
+                <div class="min-w-0">
+                  <p class="text-[15px] text-ink"><strong class="font-semibold">New booking</strong> · Lakshmi Iyer</p>
+                  <p class="text-sm text-subtle">Today, 12:30 PM · T-08 · Follow-up</p>
+                  <p class="mt-0.5 text-xs text-placeholder">Front desk · 10:05 AM</p>
+                </div>
+              </li>
+              <li class="flex gap-3 p-3 rounded-lg border border-[#edf1f4] bg-[#f8fafc]">
+                <span class="flex-none w-8 h-8 grid place-items-center rounded-md border border-line bg-white text-subtle" aria-hidden="true">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+                </span>
+                <div class="min-w-0">
+                  <p class="text-[15px] text-ink"><strong class="font-semibold">New booking</strong> · Ramesh Sharma</p>
+                  <p class="text-sm text-subtle">Mon 9 Nov, 10:30 AM · T-04 · Follow-up</p>
+                  <p class="mt-0.5 text-xs text-placeholder">Front desk · 9:48 AM</p>
+                </div>
+              </li>
+              <li class="flex gap-3 p-3 rounded-lg border border-[#edf1f4] bg-[#f8fafc]">
+                <span class="flex-none w-8 h-8 grid place-items-center rounded-md border border-line bg-white text-subtle" aria-hidden="true">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13l6 6M9 17h3"/></svg>
+                </span>
+                <div class="min-w-0">
+                  <p class="text-[15px] text-ink"><strong class="font-semibold">Report ready</strong> · Ramesh Sharma</p>
+                  <p class="text-sm text-subtle">Serum creatinine · Central lab</p>
+                  <p class="mt-0.5 text-xs text-placeholder">9:15 AM</p>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <!-- Coming up -->
+          <section aria-labelledby="coming-up-title" class="p-5 rounded-xl border border-[#e3eaef] bg-white">
+            <div class="flex items-center justify-between gap-4 pb-2.5 border-b border-[#edf1f4]">
+              <h2 id="coming-up-title" class="text-[15px] font-semibold text-ink">Coming up</h2>
+              <a href="my-schedule.html" class="text-[15px] font-semibold text-[#2b7489] hover:underline">My schedule</a>
+            </div>
+            <ul class="mt-3 space-y-2.5 text-[15px]">
+              <li class="grid grid-cols-[84px_1fr_auto] items-center gap-3">
+                <span class="text-ink whitespace-nowrap">Fri 30 Oct</span>
+                <span class="h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block w-3/4 h-full rounded-full bg-[#2b7489]"></span></span>
+                <span class="text-subtle whitespace-nowrap">6 of 8</span>
+              </li>
+              <li class="grid grid-cols-[84px_1fr_auto] items-center gap-3">
+                <span class="text-ink whitespace-nowrap">Sat 31 Oct</span>
+                <span class="h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block w-1/2 h-full rounded-full bg-[#2b7489]"></span></span>
+                <span class="text-subtle whitespace-nowrap">4 of 8</span>
+              </li>
+              <li class="grid grid-cols-[84px_1fr_auto] items-center gap-3">
+                <span class="text-ink whitespace-nowrap">Mon 2 Nov</span>
+                <span class="h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block w-[62.5%] h-full rounded-full bg-[#2b7489]"></span></span>
+                <span class="text-subtle whitespace-nowrap">5 of 8</span>
+              </li>
+              <li class="grid grid-cols-[84px_1fr_auto] items-center gap-3">
+                <span class="text-ink whitespace-nowrap">Tue 3 Nov</span>
+                <span class="h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block w-1/4 h-full rounded-full bg-[#2b7489]"></span></span>
+                <span class="text-subtle whitespace-nowrap">2 of 8</span>
+              </li>
+            </ul>
+            <p class="mt-4 text-xs text-placeholder">Slots booked out of 8 per OPD session.</p>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/modules/doctor.js"></script>
+</body>
+</html>

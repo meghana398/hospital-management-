@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accounts · Diagnostics</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col lg:flex-row bg-[#f7f9fb]">
+
+  <!-- ==================== Sidebar ==================== -->
+  <aside class="lg:flex-none lg:w-[250px] lg:sticky lg:top-0 lg:h-screen flex flex-col bg-white border-b lg:border-b-0 lg:border-r border-line">
+    <a href="diagnostics-dashboard.html" class="flex items-center gap-3 px-4 lg:px-5 py-4 lg:py-5">
+      <span class="w-10 h-10 grid place-items-center rounded-lg bg-[#2b7489] text-white" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+      </span>
+      <span class="leading-tight">
+        <span class="block text-[15px] font-semibold text-ink">[Hospital name]</span>
+        <span class="block text-[13px] text-subtle">Diagnostics centre</span>
+      </span>
+    </a>
+
+    <nav aria-label="Diagnostics" class="flex lg:flex-col gap-1 overflow-x-auto px-3 lg:px-4 pb-3 lg:py-3 text-[15px]">
+      <a href="diagnostics-dashboard.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+        </svg>
+        Dashboard
+      </a>
+      <a href="test-requests.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13l6 6M9 17h3"/>
+        </svg>
+        Test requests
+        <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-white text-[11px] font-semibold">2</span>
+      </a>
+      <a href="sample-collection.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/>
+        </svg>
+        Sample collection
+        <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fdecc8] text-[#9a5b00] text-[11px] font-semibold">2</span>
+      </a>
+      <a href="worklist.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+        </svg>
+        Worklist
+        <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#e1eff7] text-[#2a6f93] text-[11px] font-semibold">10</span>
+      </a>
+      <a href="result-entry.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h3"/>
+        </svg>
+        Result entry
+      </a>
+      <a href="reports-history.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/><path d="M12 3v9l6.5 6"/>
+        </svg>
+        Reports and history
+      </a>
+      <a href="test-catalogue.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="4" y="10" width="16" height="10" rx="2"/><path d="M7 10V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4M4 14h16"/>
+        </svg>
+        Test catalogue
+      </a>
+      <a href="billing.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/>
+        </svg>
+        Billing
+      </a>
+      <a href="accounts.html" aria-current="page"
+         class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg bg-[#e3f1f6] text-[#1f5f73] whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/>
+        </svg>
+        Accounts
+      </a>
+      <a href="inventory.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>
+        </svg>
+        Inventory
+        <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fde3e1] text-[#b42318] text-[11px] font-semibold">5</span>
+      </a>
+      <a href="pharmacy-requests.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3L2 21h20z"/><path d="M12 10v5M12 18h.01"/>
+        </svg>
+        Pharmacy requests
+      </a>
+    </nav>
+
+    <div class="hidden lg:block mt-auto mx-3 mb-4 p-4 rounded-xl border border-[#d5e6ec] bg-[#eef5f8]">
+      <p class="text-sm font-semibold text-[#1f5f73]">Central lab</p>
+      <p class="mt-0.5 text-[13px] text-subtle">1st floor · open 24 hours</p>
+      <p class="mt-3 text-sm font-semibold text-[#1f5f73]">Radiology and cardiology</p>
+      <p class="mt-0.5 text-[13px] text-subtle">Ground floor · 8 AM – 8 PM</p>
+    </div>
+  </aside>
+
+  <div class="flex-1 min-w-0 flex flex-col">
+
+    <!-- ==================== Top bar ==================== -->
+    <header class="bg-white border-b border-line">
+      <div class="flex flex-wrap items-center justify-end gap-x-5 gap-y-2 min-h-[72px] px-4 sm:px-7 py-3">
+        <a href="notifications.html" aria-label="Notifications, 2 unread" class="relative w-8 h-8 grid place-items-center text-ink hover:text-[#2b7489]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">2</span>
+        </a>
+
+        <a href="my-profile.html" class="flex items-center gap-2.5">
+          <span class="sr-only">My profile:</span>
+          <span class="w-8 h-8 grid place-items-center rounded-full bg-[#d6efe3] text-xs font-semibold text-accent" aria-hidden="true">RD</span>
+          <span class="hidden sm:block leading-tight">
+            <span class="block text-sm font-semibold text-ink">Rina Das</span>
+            <span class="block text-xs text-subtle">Central lab and imaging</span>
+          </span>
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          Sign out
+        </a>
+      </div>
+    </header>
+
+    <!-- ==================== Main ==================== -->
+    <main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-12 pt-8 pb-14">
+
+      <h1 class="text-2xl font-bold text-[#111827]">Accounts</h1>
+      <p class="mt-1 text-[15px] text-subtle">Money into and out of the diagnostics account each month. Every month starts with the previous month's closing balance.</p>
+
+      <div role="group" aria-label="Month" class="mt-4 flex flex-wrap gap-2">
+          <span class="inline-flex items-center h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink">Jul 2026</span>
+          <span class="inline-flex items-center h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink">Aug 2026</span>
+          <span class="inline-flex items-center h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink">Sep 2026</span>
+          <span aria-current="true" class="inline-flex items-center h-9 px-4 rounded-full bg-[#24607a] text-[15px] font-semibold text-white">Oct 2026 · so far</span>
+      </div>
+
+      <!-- Balance -->
+      <dl class="mt-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 xl:gap-6">
+        <div class="relative p-5 rounded-xl border border-[#e3eaef] bg-white">
+          <dt class="text-xs font-medium tracking-wider uppercase text-subtle">Opening balance</dt>
+          <dd class="mt-2 text-[28px] leading-9 font-bold text-ink">₹1,84,300</dd>
+          <dd class="mt-2 text-sm text-placeholder">Closing balance of Sep 2026</dd>
+          <span class="hidden xl:grid absolute -right-[18px] top-1/2 -translate-y-1/2 z-10 w-6 h-6 place-items-center rounded-full border border-line bg-white text-sm text-subtle" aria-hidden="true">+</span>
+        </div>
+        <div class="relative p-5 rounded-xl border border-[#bfe6cb] bg-[#effaf5]">
+          <dt class="text-xs font-medium tracking-wider uppercase text-[#1f6b52]">Money in</dt>
+          <dd class="mt-2 text-[28px] leading-9 font-bold text-[#1f6b52]">₹7,88,100</dd>
+          <dd class="mt-2 text-sm text-[#1f7a46]">Payments and settlements received</dd>
+          <span class="hidden xl:grid absolute -right-[18px] top-1/2 -translate-y-1/2 z-10 w-6 h-6 place-items-center rounded-full border border-line bg-white text-sm text-subtle" aria-hidden="true">−</span>
+        </div>
+        <div class="relative p-5 rounded-xl border border-[#f3cfcb] bg-[#fdf2f1]">
+          <dt class="text-xs font-medium tracking-wider uppercase text-[#b42318]">Money out</dt>
+          <dd class="mt-2 text-[28px] leading-9 font-bold text-[#b42318]">₹7,55,500</dd>
+          <dd class="mt-2 text-sm text-[#c0392b]">Purchases, expenses and transfers</dd>
+          <span class="hidden xl:grid absolute -right-[18px] top-1/2 -translate-y-1/2 z-10 w-6 h-6 place-items-center rounded-full border border-line bg-white text-sm text-subtle" aria-hidden="true">=</span>
+        </div>
+        <div class="relative p-5 rounded-xl border border-[#1d3c4f] bg-[#1d3c4f]">
+          <dt class="text-xs font-medium tracking-wider uppercase text-white/80 normal-case tracking-normal text-sm">Wallet balance today</dt>
+          <dd class="mt-2 text-[28px] leading-9 font-bold text-white">₹2,16,900</dd>
+          <dd class="mt-2 text-sm text-white/80">Carries into Nov 2026 on 1 Nov</dd>
+          
+        </div>
+      </dl>
+
+      <!-- Breakdown -->
+      <div class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+        <section aria-labelledby="in-title" class="p-5 sm:p-6 rounded-xl border border-[#e3eaef] bg-white">
+          <div class="flex items-baseline justify-between gap-4 pb-4 border-b border-[#edf1f4]">
+            <h2 id="in-title" class="text-[17px] font-semibold text-ink">Money in</h2>
+            <p class="text-[17px] font-semibold text-ink">₹7,88,100</p>
+          </div>
+          <ul class="mt-4 space-y-5">
+            <li>
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-[15px] text-ink">Patient payments at the counter</p>
+                  <p class="text-sm text-placeholder">UPI, card and cash for test bills</p>
+                </div>
+                <p class="text-[15px] font-semibold text-ink whitespace-nowrap">₹4,62,800</p>
+              </div>
+              <span class="block mt-2 h-1 rounded-full bg-[#edf2f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#2f8f6b]" style="width: 59%"></span></span>
+            </li>
+            <li>
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-[15px] text-ink">Insurance and TPA settlements</p>
+                  <p class="text-sm text-placeholder">Cashless claims paid by insurers</p>
+                </div>
+                <p class="text-[15px] font-semibold text-ink whitespace-nowrap">₹1,38,500</p>
+              </div>
+              <span class="block mt-2 h-1 rounded-full bg-[#edf2f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#2f8f6b]" style="width: 18%"></span></span>
+            </li>
+            <li>
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-[15px] text-ink">CGHS and ECHS settlements</p>
+                  <p class="text-sm text-placeholder">Government scheme claims paid</p>
+                </div>
+                <p class="text-[15px] font-semibold text-ink whitespace-nowrap">₹64,200</p>
+              </div>
+              <span class="block mt-2 h-1 rounded-full bg-[#edf2f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#2f8f6b]" style="width: 8%"></span></span>
+            </li>
+            <li>
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-[15px] text-ink">From final bills</p>
+                  <p class="text-sm text-placeholder">Test charges added to the final bill, paid at hospital billing</p>
+                </div>
+                <p class="text-[15px] font-semibold text-ink whitespace-nowrap">₹1,22,600</p>
+              </div>
+              <span class="block mt-2 h-1 rounded-full bg-[#edf2f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#2f8f6b]" style="width: 16%"></span></span>
+            </li>
+          </ul>
+        </section>
+        <section aria-labelledby="out-title" class="p-5 sm:p-6 rounded-xl border border-[#e3eaef] bg-white">
+          <div class="flex items-baseline justify-between gap-4 pb-4 border-b border-[#edf1f4]">
+            <h2 id="out-title" class="text-[17px] font-semibold text-ink">Money out</h2>
+            <p class="text-[17px] font-semibold text-ink">₹7,55,500</p>
+          </div>
+          <ul class="mt-4 space-y-5">
+            <li>
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-[15px] text-ink">Pharmacy purchases</p>
+                  <p class="text-sm text-placeholder">12 pharmacy requests received</p>
+                </div>
+                <p class="text-[15px] font-semibold text-ink whitespace-nowrap">₹2,14,600</p>
+              </div>
+              <span class="block mt-2 h-1 rounded-full bg-[#edf2f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#d0533f]" style="width: 28%"></span></span>
+            </li>
+            <li>
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-[15px] text-ink">Machine maintenance (AMC)</p>
+                  <p class="text-sm text-placeholder">Analyser and imaging service contracts</p>
+                </div>
+                <p class="text-[15px] font-semibold text-ink whitespace-nowrap">₹38,000</p>
+              </div>
+              <span class="block mt-2 h-1 rounded-full bg-[#edf2f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#d0533f]" style="width: 5%"></span></span>
+            </li>
+            <li>
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-[15px] text-ink">QC and calibration material</p>
+                  <p class="text-sm text-placeholder">Daily quality-check samples</p>
+                </div>
+                <p class="text-[15px] font-semibold text-ink whitespace-nowrap">₹22,400</p>
+              </div>
+              <span class="block mt-2 h-1 rounded-full bg-[#edf2f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#d0533f]" style="width: 3%"></span></span>
+            </li>
+            <li>
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-[15px] text-ink">Biomedical waste disposal</p>
+                  <p class="text-sm text-placeholder">Weekly pickup by licensed agency</p>
+                </div>
+                <p class="text-[15px] font-semibold text-ink whitespace-nowrap">₹9,800</p>
+              </div>
+              <span class="block mt-2 h-1 rounded-full bg-[#edf2f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#d0533f]" style="width: 1%"></span></span>
+            </li>
+            <li>
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-[15px] text-ink">X-ray film and report printing</p>
+                  <p class="text-sm text-placeholder">Film, paper and toner</p>
+                </div>
+                <p class="text-[15px] font-semibold text-ink whitespace-nowrap">₹14,200</p>
+              </div>
+              <span class="block mt-2 h-1 rounded-full bg-[#edf2f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#d0533f]" style="width: 2%"></span></span>
+            </li>
+            <li>
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-[15px] text-ink">Other expenses</p>
+                  <p class="text-sm text-placeholder">Small repairs and sundries</p>
+                </div>
+                <p class="text-[15px] font-semibold text-ink whitespace-nowrap">₹6,500</p>
+              </div>
+              <span class="block mt-2 h-1 rounded-full bg-[#edf2f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#d0533f]" style="width: 1%"></span></span>
+            </li>
+            <li>
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-[15px] text-ink">Sent to hospital main account</p>
+                  <p class="text-sm text-placeholder">Monthly transfer of surplus</p>
+                </div>
+                <p class="text-[15px] font-semibold text-ink whitespace-nowrap">₹4,50,000</p>
+              </div>
+              <span class="block mt-2 h-1 rounded-full bg-[#edf2f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#d0533f]" style="width: 60%"></span></span>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Entries -->
+      <section aria-labelledby="entries-title" class="mt-6 p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <h2 id="entries-title" class="text-lg font-semibold text-ink">October entries</h2>
+          <div class="flex flex-wrap items-center gap-2">
+            <div role="group" aria-label="Show" class="flex flex-wrap gap-2">
+          <button type="button" data-entry-filter="ALL" aria-pressed="true"
+                  class="h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#24607a] aria-pressed:bg-[#24607a] aria-pressed:text-white aria-pressed:font-semibold">All</button>
+          <button type="button" data-entry-filter="IN" aria-pressed="false"
+                  class="h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#24607a] aria-pressed:bg-[#24607a] aria-pressed:text-white aria-pressed:font-semibold">Money in</button>
+          <button type="button" data-entry-filter="OUT" aria-pressed="false"
+                  class="h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#24607a] aria-pressed:bg-[#24607a] aria-pressed:text-white aria-pressed:font-semibold">Money out</button>
+            </div>
+            <button type="button" class="inline-flex items-center h-9 px-4 rounded-md bg-[#24607a] text-[15px] font-medium text-white hover:bg-[#1d4f64]">Add expense</button>
+            <button type="button" class="btn-outline h-9 px-4">Download statement</button>
+          </div>
+        </div>
+        <div class="relative mt-5 overflow-x-auto">
+          <table class="w-full min-w-[820px] text-left text-[15px] whitespace-nowrap">
+            <thead class="bg-[#f4f7f9] text-subtle">
+              <tr>
+                <th scope="col" class="px-4 py-3 font-semibold">Date</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Details</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Type</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Reference</th>
+                <th scope="col" class="px-4 py-3 font-semibold text-right">Amount (₹)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#edf1f4]">
+              <tr data-entry data-direction="IN">
+                <td class="px-4 py-3 text-subtle">29 Oct</td>
+                <td class="px-4 py-3 text-ink">Patient payments today · 42 bills</td>
+                <td class="px-4 py-3 text-body">Patient payments</td>
+                <td class="px-4 py-3 font-mono text-[13px] text-subtle">Daily close</td>
+                <td class="px-4 py-3 text-right font-medium text-[#1f7a46]">+ 18,450</td>
+              </tr>
+              <tr data-entry data-direction="OUT">
+                <td class="px-4 py-3 text-subtle">28 Oct</td>
+                <td class="px-4 py-3 text-ink">Blood collection needles 21G × 500</td>
+                <td class="px-4 py-3 text-body">Pharmacy purchase</td>
+                <td class="px-4 py-3 font-mono text-[13px] text-subtle">PR-26-0436</td>
+                <td class="px-4 py-3 text-right font-medium text-[#c0392b]">– 3,500</td>
+              </tr>
+              <tr data-entry data-direction="IN">
+                <td class="px-4 py-3 text-subtle">27 Oct</td>
+                <td class="px-4 py-3 text-ink">Star Health · 14 cashless claims</td>
+                <td class="px-4 py-3 text-body">Insurance settlement</td>
+                <td class="px-4 py-3 font-mono text-[13px] text-subtle">STL-77120</td>
+                <td class="px-4 py-3 text-right font-medium text-[#1f7a46]">+ 38,200</td>
+              </tr>
+              <tr data-entry data-direction="OUT">
+                <td class="px-4 py-3 text-subtle">26 Oct</td>
+                <td class="px-4 py-3 text-ink">Biomedical waste pickup, week 4</td>
+                <td class="px-4 py-3 text-body">Waste disposal</td>
+                <td class="px-4 py-3 font-mono text-[13px] text-subtle">INV-MEA-2290</td>
+                <td class="px-4 py-3 text-right font-medium text-[#c0392b]">– 2,450</td>
+              </tr>
+              <tr data-entry data-direction="IN">
+                <td class="px-4 py-3 text-subtle">24 Oct</td>
+                <td class="px-4 py-3 text-ink">CGHS · September claims</td>
+                <td class="px-4 py-3 text-body">Scheme settlement</td>
+                <td class="px-4 py-3 font-mono text-[13px] text-subtle">CGHS-0924</td>
+                <td class="px-4 py-3 text-right font-medium text-[#1f7a46]">+ 31,600</td>
+              </tr>
+              <tr data-entry data-direction="OUT">
+                <td class="px-4 py-3 text-subtle">22 Oct</td>
+                <td class="px-4 py-3 text-ink">Gold-top tubes × 200, lignocaine jelly × 2</td>
+                <td class="px-4 py-3 text-body">Pharmacy purchase</td>
+                <td class="px-4 py-3 font-mono text-[13px] text-subtle">PR-26-0430</td>
+                <td class="px-4 py-3 text-right font-medium text-[#c0392b]">– 1,930</td>
+              </tr>
+              <tr data-entry data-direction="OUT">
+                <td class="px-4 py-3 text-subtle">20 Oct</td>
+                <td class="px-4 py-3 text-ink">Sysmex and Roche service contract · October</td>
+                <td class="px-4 py-3 text-body">Machine maintenance</td>
+                <td class="px-4 py-3 font-mono text-[13px] text-subtle">AMC-SYS-10</td>
+                <td class="px-4 py-3 text-right font-medium text-[#c0392b]">– 38,000</td>
+              </tr>
+              <tr data-entry data-direction="OUT">
+                <td class="px-4 py-3 text-subtle">15 Oct</td>
+                <td class="px-4 py-3 text-ink">Monthly transfer to hospital main account</td>
+                <td class="px-4 py-3 text-body">Transfer</td>
+                <td class="px-4 py-3 font-mono text-[13px] text-subtle">TRF-26-10</td>
+                <td class="px-4 py-3 text-right font-medium text-[#c0392b]">– 4,50,000</td>
+              </tr>
+              <tr data-entry data-direction="OUT">
+                <td class="px-4 py-3 text-subtle">14 Oct</td>
+                <td class="px-4 py-3 text-ink">CBC reagent × 6, chemistry kit × 12</td>
+                <td class="px-4 py-3 text-body">Pharmacy purchase</td>
+                <td class="px-4 py-3 font-mono text-[13px] text-subtle">PR-26-0420</td>
+                <td class="px-4 py-3 text-right font-medium text-[#c0392b]">– 1,06,800</td>
+              </tr>
+              <tr data-entry data-direction="IN">
+                <td class="px-4 py-3 text-subtle">10 Oct</td>
+                <td class="px-4 py-3 text-ink">From final bills · week 2</td>
+                <td class="px-4 py-3 text-body">Final bills</td>
+                <td class="px-4 py-3 font-mono text-[13px] text-subtle">FB-W41</td>
+                <td class="px-4 py-3 text-right font-medium text-[#1f7a46]">+ 31,800</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Month by month -->
+      <section aria-labelledby="months-title" class="mt-6 p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+        <h2 id="months-title" class="text-lg font-semibold text-ink">Month by month</h2>
+        <div class="relative mt-5 overflow-x-auto">
+          <table class="w-full min-w-[720px] text-left text-[15px] whitespace-nowrap">
+            <thead class="bg-[#f4f7f9] text-subtle">
+              <tr>
+                <th scope="col" class="px-4 py-3 font-semibold">Month</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Opening (₹)</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Money in (₹)</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Money out (₹)</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Closing (₹)</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#edf1f4]">
+              <tr>
+                <td class="px-4 py-3 font-medium text-ink">Oct 2026</td>
+                <td class="px-4 py-3 text-body">1,84,300</td>
+                <td class="px-4 py-3 text-[#1f7a46]">+ 7,88,100</td>
+                <td class="px-4 py-3 text-[#c0392b]">– 7,55,500</td>
+                <td class="px-4 py-3 font-semibold text-ink">2,16,900</td>
+                <td class="px-4 py-3"><span class="font-medium text-[#1f6fd1]">Open</span></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium text-ink">Sep 2026</td>
+                <td class="px-4 py-3 text-body">1,75,600</td>
+                <td class="px-4 py-3 text-[#1f7a46]">+ 7,65,300</td>
+                <td class="px-4 py-3 text-[#c0392b]">– 7,56,600</td>
+                <td class="px-4 py-3 font-semibold text-ink">1,84,300</td>
+                <td class="px-4 py-3"><span class="pill bg-slate-100 text-subtle">Closed</span></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium text-ink">Aug 2026</td>
+                <td class="px-4 py-3 text-body">1,64,200</td>
+                <td class="px-4 py-3 text-[#1f7a46]">+ 7,42,900</td>
+                <td class="px-4 py-3 text-[#c0392b]">– 7,31,500</td>
+                <td class="px-4 py-3 font-semibold text-ink">1,75,600</td>
+                <td class="px-4 py-3"><span class="pill bg-slate-100 text-subtle">Closed</span></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium text-ink">Jul 2026</td>
+                <td class="px-4 py-3 text-body">1,52,000</td>
+                <td class="px-4 py-3 text-[#1f7a46]">+ 7,10,400</td>
+                <td class="px-4 py-3 text-[#c0392b]">– 6,98,200</td>
+                <td class="px-4 py-3 font-semibold text-ink">1,64,200</td>
+                <td class="px-4 py-3"><span class="pill bg-slate-100 text-subtle">Closed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-5 text-sm text-placeholder">Each month's closing balance carries forward as the next month's opening balance. A month is closed on its last day and can't be changed after that.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../js/modules/diagnostics.js"></script>
+</body>
+</html>

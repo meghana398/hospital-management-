@@ -1,0 +1,192 @@
+/* ==========================================================
+   Shared components, reused across all portals.
+   ========================================================== */
+
+@layer components {
+
+  /* ---------- Forms ---------- */
+  .form-label {
+    @apply block text-[13px] font-medium text-ink;
+  }
+
+  .form-input {
+    @apply w-full h-10 px-3 text-[15px] text-ink bg-white
+           border border-line rounded-lg transition
+           placeholder:text-placeholder
+           focus:outline-none focus:border-primary focus:ring-[3px] focus:ring-primary/25
+           disabled:bg-slate-50 disabled:text-subtle disabled:cursor-not-allowed;
+  }
+
+  .form-select {
+    @apply appearance-none h-[30px] pl-2.5 pr-[30px] text-[13px] text-ink
+           bg-[#eef3f8] bg-no-repeat bg-[right_10px_center]
+           border border-[#dbe4ec] rounded-md cursor-pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23445566' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  }
+
+  .form-checkbox {
+    @apply w-4 h-4 m-0 accent-primary cursor-pointer;
+  }
+
+  /* Full-size dropdown, same look as .form-input */
+  .form-select-field {
+    @apply form-input appearance-none pr-10 bg-no-repeat bg-[right_12px_center] cursor-pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231b2a3b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  }
+
+  .form-radio {
+    @apply w-[18px] h-[18px] m-0 accent-primary cursor-pointer;
+  }
+
+  /* Read-only, auto-filled field (e.g. age) */
+  .form-input-auto {
+    @apply form-input bg-[#eef5fa] text-[#2c5977] font-medium cursor-default focus:ring-0 focus:border-line;
+  }
+
+  .form-help {
+    @apply mt-2 text-[13px] text-subtle;
+  }
+
+  /* Red * after a label for mandatory fields */
+  .required-mark {
+    @apply ml-0.5 text-[#c4262e];
+  }
+
+  /* ---------- Form cards and sections ---------- */
+  .form-card {
+    @apply bg-white border border-[#e3eaef] rounded-xl px-5 py-7 sm:px-10 sm:py-8;
+  }
+
+  .section-title {
+    @apply text-[17px] font-semibold text-ink;
+  }
+
+  /* Numbered circle before a section title, e.g. OP sheet "1 Symptoms" */
+  .step-number {
+    @apply flex-none grid place-items-center w-6 h-6 rounded-full bg-[#326c8b] text-xs font-semibold text-white;
+  }
+
+  /* ---------- Choice cards (big radio options) ----------
+     With a real radio inside:  <label class="choice-card"><input type="radio" class="form-radio"> ...
+     As a link to another page: <a class="choice-card"><span class="choice-dot"></span> ...
+     The current page's option:  <div class="choice-card choice-card-active"><span class="choice-dot choice-dot-active"></span> ... */
+  .choice-card {
+    @apply flex items-start gap-3 p-4 rounded-lg border border-line bg-white cursor-pointer transition-colors
+           hover:border-[#9fc0dc]
+           has-[:checked]:border-primary has-[:checked]:ring-1 has-[:checked]:ring-primary has-[:checked]:bg-[#eef5fa];
+  }
+
+  .choice-card-active {
+    @apply border-primary ring-1 ring-primary bg-[#eef5fa] cursor-default hover:border-primary;
+  }
+
+  .choice-dot {
+    @apply flex-none mt-0.5 w-[18px] h-[18px] rounded-full border-2 border-[#9aa6b2] bg-white;
+  }
+
+  .choice-dot-active {
+    @apply border-[5px] border-primary;
+  }
+
+  .choice-title {
+    @apply block text-[15px] font-semibold text-ink;
+  }
+
+  .choice-desc {
+    @apply block mt-1 text-sm leading-5 text-subtle;
+  }
+
+  /* ---------- Content panels (view pages) ---------- */
+  .panel {
+    @apply bg-white border border-[#e3eaef] rounded-xl p-5 sm:p-7;
+  }
+
+  /* Small square tile holding an icon */
+  .icon-tile {
+    @apply flex-none grid place-items-center w-10 h-10 rounded-lg bg-[#ebf3fa] text-primary;
+  }
+
+  /* ---------- Status pills ---------- */
+  .pill {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-[13px] font-medium whitespace-nowrap;
+  }
+
+  .pill-blue  { @apply bg-[#e7f0f8] text-[#245d85]; }
+  .pill-green { @apply bg-[#ebf6ee] text-[#236650]; }
+  .pill-amber { @apply bg-[#fdf5e6] text-[#9a742c]; }
+  .pill-red   { @apply bg-[#fcf1f0] text-[#8e3a31] border border-[#f3d3cf]; }
+
+  /* ---------- Read-only details (label above value) ---------- */
+  .detail-label {
+    @apply text-[13px] text-placeholder;
+  }
+
+  .detail-value {
+    @apply mt-1 text-[15px] text-ink;
+  }
+
+  /* ---------- File upload ---------- */
+  .upload-card {
+    @apply h-full p-4 rounded-lg border border-dashed border-[#c9d5df] bg-white;
+  }
+
+  .btn-upload {
+    @apply inline-flex items-center justify-center h-8 px-3 rounded-md border border-[#9fc0dc] bg-white
+           text-[13px] font-medium text-[#2c5977] hover:bg-[#eef5fa] cursor-pointer transition-colors
+           focus-within:ring-2 focus-within:ring-primary/30;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn-primary {
+    @apply inline-flex items-center justify-center h-11 px-5 rounded-lg
+           text-[15px] font-medium tracking-[0.01em] text-white
+           bg-primary hover:bg-primary-hover transition-colors
+           shadow-[0_6px_14px_rgba(59,124,169,0.22)]
+           focus-visible:outline focus-visible:outline-[3px]
+           focus-visible:outline-offset-2 focus-visible:outline-primary/25;
+  }
+
+  /* Portal primary action (dark teal), e.g. "Send OTP" */
+  .btn-brand {
+    @apply inline-flex items-center justify-center gap-2 h-[42px] px-5 rounded-md
+           text-[15px] font-medium text-white bg-brand hover:bg-brand-hover transition-colors
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand;
+  }
+
+  /* Portal secondary action (light blue), e.g. "New Patient" */
+  .btn-brand-soft {
+    @apply inline-flex items-center justify-center gap-2 h-[42px] px-4 rounded-md
+           text-[15px] font-medium text-brand bg-brand-soft hover:bg-brand-muted transition-colors
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand;
+  }
+
+  /* Green action on staff pages, e.g. "Apply for leave", "Send to administrator" */
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 h-10 px-5 rounded-md
+           text-[15px] font-medium text-white bg-accent hover:bg-accent-hover transition-colors
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+  }
+
+  /* Outlined secondary button, e.g. "Cancel" */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 h-10 px-6 rounded-md
+           text-[15px] font-medium text-ink bg-white border border-line
+           hover:bg-page transition-colors;
+  }
+
+  /* Small outlined button in the top bar, e.g. "OPD desk", "End session" */
+  .btn-topbar {
+    @apply inline-flex items-center gap-1.5 h-8 px-3 rounded-md
+           text-[13px] font-medium text-ink bg-white border border-line
+           hover:bg-page transition-colors;
+  }
+
+  /* ---------- Links ---------- */
+  .link {
+    @apply font-medium text-link hover:underline;
+  }
+
+  .link-brand {
+    @apply font-medium text-brand hover:underline;
+  }
+}

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apply for leave · Frontdesk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#f8fafc]">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-14 px-4 sm:px-5 py-2">
+
+      <div class="flex items-center gap-6 lg:gap-16">
+        <a href="patient-verification.html" class="flex items-center gap-3">
+          <span class="w-10 h-10 grid place-items-center rounded-lg bg-brand text-white" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+          </span>
+          <span class="leading-tight">
+            <span class="block text-[13px] font-semibold text-ink">[Hospital name]</span>
+            <span class="block text-xs text-subtle">[Branch, City]</span>
+          </span>
+        </a>
+        <p class="hidden md:block text-xl font-semibold text-[#2b4b6f]">Apply for leave</p>
+      </div>
+
+      <nav aria-label="Frontdesk" class="flex flex-wrap items-center gap-2">
+        <a href="surgery-desk.html"
+           class="inline-flex items-center gap-2 h-7 pl-3 pr-1 rounded-full border border-[#9fc0dc] bg-white text-xs font-medium text-brand hover:bg-brand-soft">
+          Surgery desk
+          <span class="min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-brand-soft text-[11px] font-semibold">1</span>
+        </a>
+
+        <span class="inline-flex items-center h-7 px-3 rounded-full border border-[#f3c9a4] bg-[#fdf1e6] text-xs font-medium text-[#c45a17]">
+          Session expires in 18:20
+        </span>
+
+        <a href="#" aria-label="Notifications, 3 unread"
+           class="relative w-8 h-8 grid place-items-center rounded-md border border-line bg-white text-ink hover:bg-page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1.5 -right-1.5 min-w-4 h-4 px-1 grid place-items-center rounded-full bg-[#e5484d] text-[10px] font-semibold text-white">3</span>
+        </a>
+
+        <a href="opd-desk.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="7" r="3"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/>
+            <circle cx="17" cy="9" r="2.5"/><path d="M17 14a4 4 0 0 1 4 4v1"/>
+          </svg>
+          OPD desk
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          End session
+        </a>
+
+        <a href="my-profile.html" aria-label="My profile"
+           class="w-8 h-8 grid place-items-center rounded-full bg-[#d6efe3] text-xs font-semibold text-[#2c6e52] hover:ring-2 hover:ring-[#b2d5c8]">RS</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== Main ==================== -->
+  <main class="flex-1 w-full max-w-[1320px] mx-auto px-4 sm:px-6 pt-6 pb-14">
+
+    <a href="my-profile.html" class="inline-flex items-center gap-1.5 text-sm text-body hover:underline">
+      <span aria-hidden="true">&larr;</span> Back
+    </a>
+
+    <h1 class="mt-6 text-2xl font-bold text-[#111827]">Apply for leave</h1>
+    <p class="mt-2 max-w-3xl text-[15px] leading-6 text-muted">
+      Ask for leave or a few hours of permission. It goes to the hospital administrator, and you see the answer here and in your notifications.
+    </p>
+
+    <!-- Balances -->
+    <div class="mt-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="p-5 bg-white border-2 border-accent rounded-xl">
+        <p class="text-sm text-muted">Casual leave</p>
+        <p class="mt-1 text-2xl font-bold text-[#111827]">4 left</p>
+        <p class="mt-2 text-[13px] text-slate-400">of 8 · 4 used this year</p>
+      </div>
+      <div class="p-5 bg-white border-2 border-accent rounded-xl">
+        <p class="text-sm text-muted">Sick leave</p>
+        <p class="mt-1 text-2xl font-bold text-[#111827]">6 left</p>
+        <p class="mt-2 text-[13px] text-slate-400">of 7 · 1 used this year</p>
+      </div>
+      <div class="p-5 bg-white border-2 border-accent rounded-xl">
+        <p class="text-sm text-muted">Earned leave</p>
+        <p class="mt-1 text-2xl font-bold text-[#111827]">12 left</p>
+        <p class="mt-2 text-[13px] text-slate-400">of 15 · 3 used this year</p>
+      </div>
+      <div class="p-5 bg-white border-2 border-accent rounded-xl">
+        <p class="text-sm text-muted">Permissions</p>
+        <p class="mt-1 text-2xl font-bold text-[#111827]">1 left</p>
+        <p class="mt-2 text-[13px] text-slate-400">of 2 this month · 2 hours each</p>
+      </div>
+    </div>
+
+    <div class="mt-6 grid grid-cols-1 lg:grid-cols-[7fr_5fr] gap-6 items-start">
+
+      <!-- ========== New request ========== -->
+      <section aria-labelledby="new-request-title" class="p-6 sm:p-7 bg-white border border-[#bcd4cf] rounded-xl">
+        <h2 id="new-request-title" class="section-title">New request</h2>
+
+        <!-- Leave / Permission switch -->
+        <div role="radiogroup" aria-label="Request type" class="mt-5 flex flex-wrap gap-2">
+          <label class="inline-flex items-center h-9 px-4 rounded-md border border-[#e2e8f0] bg-white text-sm text-ink cursor-pointer
+                        has-[:checked]:border-accent has-[:checked]:bg-accent-soft has-[:checked]:text-accent has-[:checked]:font-semibold
+                        has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent/30">
+            <input type="radio" name="requestType" value="LEAVE" checked class="sr-only">
+            Leave
+          </label>
+          <label class="inline-flex items-center h-9 px-4 rounded-md border border-[#e2e8f0] bg-white text-sm text-ink cursor-pointer
+                        has-[:checked]:border-accent has-[:checked]:bg-accent-soft has-[:checked]:text-accent has-[:checked]:font-semibold
+                        has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent/30">
+            <input type="radio" name="requestType" value="PERMISSION" class="sr-only">
+            Permission, a few hours
+          </label>
+        </div>
+
+        <!-- Leave fields -->
+        <div data-request-types="LEAVE">
+          <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label for="leave-type" class="form-label text-sm font-normal mb-2">Leave type</label>
+              <select id="leave-type" name="leaveType" class="form-select-field">
+                <option value="CASUAL" selected>Casual leave</option>
+                <option value="SICK">Sick leave</option>
+                <option value="EARNED">Earned leave</option>
+              </select>
+            </div>
+            <div>
+              <label for="leave-from" class="form-label text-sm font-normal mb-2">From</label>
+              <input id="leave-from" name="fromDate" type="date" value="2026-11-13" class="form-input">
+            </div>
+            <div>
+              <label for="leave-to" class="form-label text-sm font-normal mb-2">To</label>
+              <input id="leave-to" name="toDate" type="date" value="2026-11-14" class="form-input">
+            </div>
+          </div>
+
+          <div class="mt-4 sm:w-1/3">
+            <label for="leave-day" class="form-label text-sm font-normal mb-2">Day</label>
+            <select id="leave-day" name="dayType" class="form-select-field">
+              <option value="FULL" selected>Full days</option>
+              <option value="FIRST_HALF">First half</option>
+              <option value="SECOND_HALF">Second half</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Permission fields -->
+        <div data-request-types="PERMISSION">
+          <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label for="permission-date" class="form-label text-sm font-normal mb-2">Date</label>
+              <input id="permission-date" name="permissionDate" type="date" value="2026-11-13" class="form-input">
+            </div>
+            <div>
+              <label for="permission-from" class="form-label text-sm font-normal mb-2">From</label>
+              <input id="permission-from" name="permissionFrom" type="time" value="10:00" class="form-input">
+            </div>
+            <div>
+              <label for="permission-to" class="form-label text-sm font-normal mb-2">To</label>
+              <input id="permission-to" name="permissionTo" type="time" value="12:00" class="form-input">
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <label for="reason" class="form-label text-sm font-normal mb-2">Reason</label>
+          <textarea id="reason" name="reason" rows="3" class="form-input h-auto py-2.5 resize-y">Sister's wedding</textarea>
+        </div>
+
+        <div class="mt-4">
+          <label for="cover" class="form-label text-sm font-normal mb-2">Who covers your work</label>
+          <select id="cover" name="coveredBy" class="form-select-field">
+            <option value="POOJA_NAIR" selected>Pooja Nair</option>
+            <option value="ANIL_DAS">Anil Das</option>
+            <option value="MEERA_IYER">Meera Iyer</option>
+          </select>
+        </div>
+
+        <div class="mt-4">
+          <label for="supporting-doc" class="form-label text-sm font-normal mb-2">
+            Supporting document <span class="text-slate-400">(needed for sick leave over 2 days)</span>
+          </label>
+          <input id="supporting-doc" name="supportingDocument" type="file" accept=".pdf,.jpg,.jpeg,.png"
+                 class="block w-full text-sm text-subtle cursor-pointer
+                        file:mr-3 file:h-9 file:px-4 file:rounded-md file:border file:border-line file:bg-white
+                        file:text-sm file:text-ink file:cursor-pointer hover:file:bg-page">
+        </div>
+
+        <div class="mt-6 pt-5 border-t border-[#e5e7eb] flex flex-wrap items-center justify-between gap-3">
+          <p class="text-sm text-ink" data-request-types="LEAVE">2 days of casual leave <span class="text-subtle">· 2 left after this</span></p>
+          <p class="text-sm text-ink" data-request-types="PERMISSION">2 hours of permission <span class="text-subtle">· 0 left this month after this</span></p>
+          <a href="my-profile.html" class="btn-accent font-semibold">Send to administrator</a>
+        </div>
+      </section>
+
+      <!-- ========== My requests ========== -->
+      <section aria-labelledby="my-requests-title" class="p-6 sm:p-7 bg-white border border-[#e2e8f0] rounded-xl">
+        <h2 id="my-requests-title" class="section-title">My requests</h2>
+
+        <ul class="mt-4 divide-y divide-[#e5e7eb]">
+          <li class="py-4">
+            <div class="flex items-start justify-between gap-3">
+              <p class="text-[15px] font-semibold text-ink">Casual leave</p>
+              <span class="px-2 py-0.5 rounded-full border border-green-200 bg-green-50 text-xs font-medium text-green-700">Approved</span>
+            </div>
+            <p class="mt-1 text-sm text-body">9 Oct · 1 day</p>
+            <p class="mt-0.5 text-sm text-slate-400">Family function</p>
+          </li>
+          <li class="py-4">
+            <div class="flex items-start justify-between gap-3">
+              <p class="text-[15px] font-semibold text-ink">Permission</p>
+              <span class="px-2 py-0.5 rounded-full border border-green-200 bg-green-50 text-xs font-medium text-green-700">Approved</span>
+            </div>
+            <p class="mt-1 text-sm text-body">18 Sep · 10:00 – 11:00 AM</p>
+            <p class="mt-0.5 text-sm text-slate-400">Bank work</p>
+          </li>
+          <li class="py-4">
+            <div class="flex items-start justify-between gap-3">
+              <p class="text-[15px] font-semibold text-ink">Earned leave</p>
+              <span class="px-2 py-0.5 rounded-full border border-green-200 bg-green-50 text-xs font-medium text-green-700">Approved</span>
+            </div>
+            <p class="mt-1 text-sm text-body">4 – 6 Aug · 3 days</p>
+            <p class="mt-0.5 text-sm text-slate-400">Travel</p>
+          </li>
+          <li class="pt-4">
+            <div class="flex items-start justify-between gap-3">
+              <p class="text-[15px] font-semibold text-ink">Sick leave</p>
+              <span class="px-2 py-0.5 rounded-full border border-green-200 bg-green-50 text-xs font-medium text-green-700">Approved</span>
+            </div>
+            <p class="mt-1 text-sm text-body">12 Jun · 1 day</p>
+            <p class="mt-0.5 text-sm text-slate-400">Fever</p>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <script src="../../js/modules/frontdesk.js"></script>
+</body>
+</html>

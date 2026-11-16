@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test catalogue · Diagnostics</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col lg:flex-row bg-[#f7f9fb]">
+
+  <!-- ==================== Sidebar ==================== -->
+  <aside class="lg:flex-none lg:w-[250px] lg:sticky lg:top-0 lg:h-screen flex flex-col bg-white border-b lg:border-b-0 lg:border-r border-line">
+    <a href="diagnostics-dashboard.html" class="flex items-center gap-3 px-4 lg:px-5 py-4 lg:py-5">
+      <span class="w-10 h-10 grid place-items-center rounded-lg bg-[#2b7489] text-white" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+      </span>
+      <span class="leading-tight">
+        <span class="block text-[15px] font-semibold text-ink">[Hospital name]</span>
+        <span class="block text-[13px] text-subtle">Diagnostics centre</span>
+      </span>
+    </a>
+
+    <nav aria-label="Diagnostics" class="flex lg:flex-col gap-1 overflow-x-auto px-3 lg:px-4 pb-3 lg:py-3 text-[15px]">
+      <a href="diagnostics-dashboard.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+        </svg>
+        Dashboard
+      </a>
+      <a href="test-requests.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13l6 6M9 17h3"/>
+        </svg>
+        Test requests
+        <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-white text-[11px] font-semibold">2</span>
+      </a>
+      <a href="sample-collection.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/>
+        </svg>
+        Sample collection
+        <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fdecc8] text-[#9a5b00] text-[11px] font-semibold">2</span>
+      </a>
+      <a href="worklist.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+        </svg>
+        Worklist
+        <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#e1eff7] text-[#2a6f93] text-[11px] font-semibold">10</span>
+      </a>
+      <a href="result-entry.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h3"/>
+        </svg>
+        Result entry
+      </a>
+      <a href="reports-history.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/><path d="M12 3v9l6.5 6"/>
+        </svg>
+        Reports and history
+      </a>
+      <a href="test-catalogue.html" aria-current="page"
+         class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg bg-[#e3f1f6] text-[#1f5f73] whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="4" y="10" width="16" height="10" rx="2"/><path d="M7 10V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4M4 14h16"/>
+        </svg>
+        Test catalogue
+      </a>
+      <a href="billing.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/>
+        </svg>
+        Billing
+      </a>
+      <a href="accounts.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/>
+        </svg>
+        Accounts
+      </a>
+      <a href="inventory.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>
+        </svg>
+        Inventory
+        <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fde3e1] text-[#b42318] text-[11px] font-semibold">5</span>
+      </a>
+      <a href="pharmacy-requests.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3L2 21h20z"/><path d="M12 10v5M12 18h.01"/>
+        </svg>
+        Pharmacy requests
+      </a>
+    </nav>
+
+    <div class="hidden lg:block mt-auto mx-3 mb-4 p-4 rounded-xl border border-[#d5e6ec] bg-[#eef5f8]">
+      <p class="text-sm font-semibold text-[#1f5f73]">Central lab</p>
+      <p class="mt-0.5 text-[13px] text-subtle">1st floor · open 24 hours</p>
+      <p class="mt-3 text-sm font-semibold text-[#1f5f73]">Radiology and cardiology</p>
+      <p class="mt-0.5 text-[13px] text-subtle">Ground floor · 8 AM – 8 PM</p>
+    </div>
+  </aside>
+
+  <div class="flex-1 min-w-0 flex flex-col">
+
+    <!-- ==================== Top bar ==================== -->
+    <header class="bg-white border-b border-line">
+      <div class="flex flex-wrap items-center justify-end gap-x-5 gap-y-2 min-h-[72px] px-4 sm:px-7 py-3">
+        <a href="notifications.html" aria-label="Notifications, 2 unread" class="relative w-8 h-8 grid place-items-center text-ink hover:text-[#2b7489]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">2</span>
+        </a>
+
+        <a href="my-profile.html" class="flex items-center gap-2.5">
+          <span class="sr-only">My profile:</span>
+          <span class="w-8 h-8 grid place-items-center rounded-full bg-[#d6efe3] text-xs font-semibold text-accent" aria-hidden="true">RD</span>
+          <span class="hidden sm:block leading-tight">
+            <span class="block text-sm font-semibold text-ink">Rina Das</span>
+            <span class="block text-xs text-subtle">Central lab and imaging</span>
+          </span>
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          Sign out
+        </a>
+      </div>
+    </header>
+
+    <!-- ==================== Main ==================== -->
+    <main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-12 pt-8 pb-14">
+
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-[#111827]">Test catalogue</h1>
+          <p class="mt-1 text-[15px] text-subtle">Every test this centre offers, with the sample, preparation, turnaround time and price. Doctors order from this list.</p>
+        </div>
+        <button type="button" class="inline-flex items-center gap-2 h-10 px-5 rounded-md bg-[#24607a] text-[15px] font-medium text-white hover:bg-[#1d4f64]">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          Add test
+        </button>
+      </div>
+
+      <!-- Filters -->
+      <div data-catalogue-filters class="mt-6">
+        <label for="catalogue-search" class="sr-only">Search</label>
+        <input id="catalogue-search" type="search" data-catalogue-search placeholder="Test name or code" class="form-input md:max-w-sm">
+        <div role="group" aria-label="Category" class="mt-4 flex flex-wrap gap-2">
+          <button type="button" data-catalogue-filter="ALL" aria-pressed="true"
+                  class="h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#24607a] aria-pressed:bg-[#24607a] aria-pressed:text-white aria-pressed:font-semibold">All <span class="ml-1 text-sm opacity-70">18</span></button>
+          <button type="button" data-catalogue-filter="HAEMATOLOGY" aria-pressed="false"
+                  class="h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#24607a] aria-pressed:bg-[#24607a] aria-pressed:text-white aria-pressed:font-semibold">Haematology <span class="ml-1 text-sm opacity-70">1</span></button>
+          <button type="button" data-catalogue-filter="BIOCHEMISTRY" aria-pressed="false"
+                  class="h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#24607a] aria-pressed:bg-[#24607a] aria-pressed:text-white aria-pressed:font-semibold">Biochemistry <span class="ml-1 text-sm opacity-70">6</span></button>
+          <button type="button" data-catalogue-filter="HORMONES" aria-pressed="false"
+                  class="h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#24607a] aria-pressed:bg-[#24607a] aria-pressed:text-white aria-pressed:font-semibold">Hormones <span class="ml-1 text-sm opacity-70">3</span></button>
+          <button type="button" data-catalogue-filter="CLINICAL_PATHOLOGY" aria-pressed="false"
+                  class="h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#24607a] aria-pressed:bg-[#24607a] aria-pressed:text-white aria-pressed:font-semibold">Clinical pathology <span class="ml-1 text-sm opacity-70">2</span></button>
+          <button type="button" data-catalogue-filter="RADIOLOGY" aria-pressed="false"
+                  class="h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#24607a] aria-pressed:bg-[#24607a] aria-pressed:text-white aria-pressed:font-semibold">Radiology <span class="ml-1 text-sm opacity-70">4</span></button>
+          <button type="button" data-catalogue-filter="CARDIOLOGY" aria-pressed="false"
+                  class="h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#24607a] aria-pressed:bg-[#24607a] aria-pressed:text-white aria-pressed:font-semibold">Cardiology <span class="ml-1 text-sm opacity-70">2</span></button>
+        </div>
+      </div>
+
+      <section aria-label="Tests" class="mt-5 rounded-xl border border-[#e3eaef] bg-white">
+        <div class="relative overflow-x-auto">
+          <table class="w-full min-w-[1100px] text-left text-[15px]">
+            <thead class="border-b border-[#e3eaef] text-[#1f5f73]">
+              <tr>
+                <th scope="col" class="px-5 py-4 font-semibold">Code</th>
+                <th scope="col" class="px-4 py-4 font-semibold">Test</th>
+                <th scope="col" class="px-4 py-4 font-semibold">Category</th>
+                <th scope="col" class="px-4 py-4 font-semibold">Sample / type</th>
+                <th scope="col" class="px-4 py-4 font-semibold">Preparation</th>
+                <th scope="col" class="px-4 py-4 font-semibold">Report in</th>
+                <th scope="col" class="px-4 py-4 font-semibold text-right">Price (₹)</th>
+                <th scope="col" class="px-5 py-4 font-semibold text-center">Available</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#edf1f4]">
+              <tr data-catalogue-row data-category="HAEMATOLOGY" data-search="LAB-CBC Complete blood count" class="has-[input:not(:checked)]:opacity-50">
+                <td class="px-5 py-3.5 font-mono text-[13px] text-placeholder">LAB-CBC</td>
+                <td class="px-4 py-3.5 text-ink">Complete blood count</td>
+                <td class="px-4 py-3.5"><span class="pill bg-[#e7f0f8] text-[#245d85]">Haematology</span></td>
+                <td class="px-4 py-3.5 text-body">Whole blood · EDTA</td>
+                <td class="px-4 py-3.5 text-subtle">None</td>
+                <td class="px-4 py-3.5 text-body">4 hours</td>
+                <td class="px-4 py-3.5 text-right text-ink">350.00</td>
+                <td class="px-5 py-3.5 text-center">
+                  <label class="relative inline-flex cursor-pointer">
+                    <input type="checkbox" name="available" value="LAB-CBC" checked class="peer sr-only">
+                    <span class="sr-only">Complete blood count available</span>
+                    <span class="w-11 h-6 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#24607a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#24607a]/40
+                                 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" aria-hidden="true"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr data-catalogue-row data-category="BIOCHEMISTRY" data-search="LAB-HBA1C HbA1c" class="has-[input:not(:checked)]:opacity-50">
+                <td class="px-5 py-3.5 font-mono text-[13px] text-placeholder">LAB-HBA1C</td>
+                <td class="px-4 py-3.5 text-ink">HbA1c</td>
+                <td class="px-4 py-3.5"><span class="pill bg-[#e7f6ee] text-[#1f7a46]">Biochemistry</span></td>
+                <td class="px-4 py-3.5 text-body">Whole blood · EDTA</td>
+                <td class="px-4 py-3.5 text-subtle">None</td>
+                <td class="px-4 py-3.5 text-body">6 hours</td>
+                <td class="px-4 py-3.5 text-right text-ink">550.00</td>
+                <td class="px-5 py-3.5 text-center">
+                  <label class="relative inline-flex cursor-pointer">
+                    <input type="checkbox" name="available" value="LAB-HBA1C" checked class="peer sr-only">
+                    <span class="sr-only">HbA1c available</span>
+                    <span class="w-11 h-6 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#24607a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#24607a]/40
+                                 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" aria-hidden="true"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr data-catalogue-row data-category="BIOCHEMISTRY" data-search="LAB-LIPID Lipid profile" class="has-[input:not(:checked)]:opacity-50">
+                <td class="px-5 py-3.5 font-mono text-[13px] text-placeholder">LAB-LIPID</td>
+                <td class="px-4 py-3.5 text-ink">Lipid profile</td>
+                <td class="px-4 py-3.5"><span class="pill bg-[#e7f6ee] text-[#1f7a46]">Biochemistry</span></td>
+                <td class="px-4 py-3.5 text-body">Serum · gold top</td>
+                <td class="px-4 py-3.5 text-subtle">Fast 10–12 hours</td>
+                <td class="px-4 py-3.5 text-body">6 hours</td>
+                <td class="px-4 py-3.5 text-right text-ink">650.00</td>
+                <td class="px-5 py-3.5 text-center">
+                  <label class="relative inline-flex cursor-pointer">
+                    <input type="checkbox" name="available" value="LAB-LIPID" checked class="peer sr-only">
+                    <span class="sr-only">Lipid profile available</span>
+                    <span class="w-11 h-6 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#24607a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#24607a]/40
+                                 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" aria-hidden="true"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr data-catalogue-row data-category="BIOCHEMISTRY" data-search="LAB-CREAT Serum creatinine" class="has-[input:not(:checked)]:opacity-50">
+                <td class="px-5 py-3.5 font-mono text-[13px] text-placeholder">LAB-CREAT</td>
+                <td class="px-4 py-3.5 text-ink">Serum creatinine</td>
+                <td class="px-4 py-3.5"><span class="pill bg-[#e7f6ee] text-[#1f7a46]">Biochemistry</span></td>
+                <td class="px-4 py-3.5 text-body">Serum · gold top</td>
+                <td class="px-4 py-3.5 text-subtle">None</td>
+                <td class="px-4 py-3.5 text-body">4 hours</td>
+                <td class="px-4 py-3.5 text-right text-ink">250.00</td>
+                <td class="px-5 py-3.5 text-center">
+                  <label class="relative inline-flex cursor-pointer">
+                    <input type="checkbox" name="available" value="LAB-CREAT" checked class="peer sr-only">
+                    <span class="sr-only">Serum creatinine available</span>
+                    <span class="w-11 h-6 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#24607a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#24607a]/40
+                                 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" aria-hidden="true"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr data-catalogue-row data-category="BIOCHEMISTRY" data-search="LAB-LFT Liver function test" class="has-[input:not(:checked)]:opacity-50">
+                <td class="px-5 py-3.5 font-mono text-[13px] text-placeholder">LAB-LFT</td>
+                <td class="px-4 py-3.5 text-ink">Liver function test</td>
+                <td class="px-4 py-3.5"><span class="pill bg-[#e7f6ee] text-[#1f7a46]">Biochemistry</span></td>
+                <td class="px-4 py-3.5 text-body">Serum · gold top</td>
+                <td class="px-4 py-3.5 text-subtle">None</td>
+                <td class="px-4 py-3.5 text-body">6 hours</td>
+                <td class="px-4 py-3.5 text-right text-ink">700.00</td>
+                <td class="px-5 py-3.5 text-center">
+                  <label class="relative inline-flex cursor-pointer">
+                    <input type="checkbox" name="available" value="LAB-LFT" checked class="peer sr-only">
+                    <span class="sr-only">Liver function test available</span>
+                    <span class="w-11 h-6 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#24607a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#24607a]/40
+                                 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" aria-hidden="true"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr data-catalogue-row data-category="BIOCHEMISTRY" data-search="LAB-ELEC Electrolytes (Na, K, Cl)" class="has-[input:not(:checked)]:opacity-50">
+                <td class="px-5 py-3.5 font-mono text-[13px] text-placeholder">LAB-ELEC</td>
+                <td class="px-4 py-3.5 text-ink">Electrolytes (Na, K, Cl)</td>
+                <td class="px-4 py-3.5"><span class="pill bg-[#e7f6ee] text-[#1f7a46]">Biochemistry</span></td>
+                <td class="px-4 py-3.5 text-body">Serum · gold top</td>
+                <td class="px-4 py-3.5 text-subtle">None</td>
+                <td class="px-4 py-3.5 text-body">4 hours</td>
+                <td class="px-4 py-3.5 text-right text-ink">450.00</td>
+                <td class="px-5 py-3.5 text-center">
+                  <label class="relative inline-flex cursor-pointer">
+                    <input type="checkbox" name="available" value="LAB-ELEC" checked class="peer sr-only">
+                    <span class="sr-only">Electrolytes (Na, K, Cl) available</span>
+                    <span class="w-11 h-6 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#24607a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#24607a]/40
+                                 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" aria-hidden="true"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr data-catalogue-row data-category="BIOCHEMISTRY" data-search="LAB-FBS Fasting blood sugar" class="has-[input:not(:checked)]:opacity-50">
+                <td class="px-5 py-3.5 font-mono text-[13px] text-placeholder">LAB-FBS</td>
+                <td class="px-4 py-3.5 text-ink">Fasting blood sugar</td>
+                <td class="px-4 py-3.5"><span class="pill bg-[#e7f6ee] text-[#1f7a46]">Biochemistry</span></td>
+                <td class="px-4 py-3.5 text-body">Plasma · fluoride grey top</td>
+                <td class="px-4 py-3.5 text-subtle">Fast 8 hours</td>
+                <td class="px-4 py-3.5 text-body">2 hours</td>
+                <td class="px-4 py-3.5 text-right text-ink">120.00</td>
+                <td class="px-5 py-3.5 text-center">
+                  <label class="relative inline-flex cursor-pointer">
+                    <input type="checkbox" name="available" value="LAB-FBS" checked class="peer sr-only">
+                    <span class="sr-only">Fasting blood sugar available</span>
+                    <span class="w-11 h-6 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#24607a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#24607a]/40
+                                 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" aria-hidden="true"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr data-catalogue-row data-category="HORMONES" data-search="LAB-THY Thyroid profile (T3, T4, TSH)" class="has-[input:not(:checked)]:opacity-50">
+                <td class="px-5 py-3.5 font-mono text-[13px] text-placeholder">LAB-THY</td>
+                <td class="px-4 py-3.5 text-ink">Thyroid profile (T3, T4, TSH)</td>
+                <td class="px-4 py-3.5"><span class="pill bg-[#eaf4fb] text-[#1f6fa8]">Hormones</span></td>
+                <td class="px-4 py-3.5 text-body">Serum · gold top</td>
+                <td class="px-4 py-3.5 text-subtle">None</td>
+                <td class="px-4 py-3.5 text-body">6 hours</td>
+                <td class="px-4 py-3.5 text-right text-ink">600.00</td>
+                <td class="px-5 py-3.5 text-center">
+                  <label class="relative inline-flex cursor-pointer">
+                    <input type="checkbox" name="available" value="LAB-THY" checked class="peer sr-only">
+                    <span class="sr-only">Thyroid profile (T3, T4, TSH) available</span>
+                    <span class="w-11 h-6 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#24607a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#24607a]/40
+                                 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" aria-hidden="true"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr data-catalogue-row data-category="HORMONES" data-search="LAB-TSH TSH" class="has-[input:not(:checked)]:opacity-50">
+                <td class="px-5 py-3.5 font-mono text-[13px] text-placeholder">LAB-TSH</td>
+                <td class="px-4 py-3.5 text-ink">TSH</td>
+                <td class="px-4 py-3.5"><span class="pill bg-[#eaf4fb] text-[#1f6fa8]">Hormones</span></td>
+                <td class="px-4 py-3.5 text-body">Serum · gold top</td>
+                <td class="px-4 py-3.5 text-subtle">None</td>
+                <td class="px-4 py-3.5 text-body">6 hours</td>
+                <td class="px-4 py-3.5 text-right text-ink">350.00</td>
+                <td class="px-5 py-3.5 text-center">
+                  <label class="relative inline-flex cursor-pointer">
+                    <input type="checkbox" name="available" value="LAB-TSH" checked class="peer sr-only">
+                    <span class="sr-only">TSH available</span>
+                    <span class="w-11 h-6 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#24607a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#24607a]/40
+                                 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" aria-hidden="true"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr data-catalogue-row data-category="HORMONES" data-search="LAB-FERR Serum ferritin" class="has-[input:not(:checked)]:opacity-50">
+                <td class="px-5 py-3.5 font-mono text-[13px] text-placeholder">LAB-FERR</td>
+                <td class="px-4 py-3.5 text-ink">Serum ferritin</td>
+                <td class="px-4 py-3.5"><span class="pill bg-[#eaf4fb] text-[#1f6fa8]">Hormones</span></td>
+                <td class="px-4 py-3.5 text-body">Serum · gold top</td>
+                <td class="px-4 py-3.5 text-subtle">None</td>
+                <td class="px-4 py-3.5 text-body">6 hours</td>
+                <td class="px-4 py-3.5 text-right text-ink">750.00</td>
+                <td class="px-5 py-3.5 text-center">
+                  <label class="relative inline-flex cursor-pointer">
+                    <input type="checkbox" name="available" value="LAB-FERR" checked class="peer sr-only">
+                    <span class="sr-only">Serum ferritin available</span>
+                    <span class="w-11 h-6 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#24607a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#24607a]/40
+                                 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" aria-hidden="true"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr data-catalogue-row data-category="CLINICAL_PATHOLOGY" data-search="LAB-HPYL H. pylori stool antigen" class="has-[input:not(:checked)]:opacity-50">
+                <td class="px-5 py-3.5 font-mono text-[13px] text-placeholder">LAB-HPYL</td>
+                <td class="px-4 py-3.5 text-ink">H. pylori stool antigen</td>
+                <td class="px-4 py-3.5"><span class="pill bg-[#eaf7ee] text-[#1f7a46]">Clinical pathology</span></td>
+                <td class="px-4 py-3.5 text-body">Stool · container</td>
+                <td class="px-4 py-3.5 text-subtle">Stop antacids 2 weeks before</td>
+                <td class="px-4 py-3.5 text-body">24 hours</td>
+                <td class="px-4 py-3.5 text-right text-ink">900.00</td>
+                <td class="px-5 py-3.5 text-center">
+                  <label class="relative inline-flex cursor-pointer">
+                    <input type="checkbox" name="available" value="LAB-HPYL" checked class="peer sr-only">
+                    <span class="sr-only">H. pylori stool antigen available</span>
+                    <span class="w-11 h-6 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#24607a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#24607a]/40
+                                 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" aria-hidden="true"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr data-catalogue-row data-category="CLINICAL_PATHOLOGY" data-search="LAB-URINE Urine routine" class="has-[input:not(:checked)]:opacity-50">
+                <td class="px-5 py-3.5 font-mono text-[13px] text-placeholder">LAB-URINE</td>
+                <td class="px-4 py-3.5 text-ink">Urine routine</td>
+                <td class="px-4 py-3.5"><span class="pill bg-[#eaf7ee] text-[#1f7a46]">Clinical pathology</span></td>
+                <td class="px-4 py-3.5 text-body">Urine · sterile container</td>
+                <td class="px-4 py-3.5 text-subtle">Midstream sample</td>
+                <td class="px-4 py-3.5 text-body">2 hours</td>
+                <td class="px-4 py-3.5 text-right text-ink">200.00</td>
+                <td class="px-5 py-3.5 text-center">
+                  <label class="relative inline-flex cursor-pointer">
+                    <input type="checkbox" name="available" value="LAB-URINE" checked class="peer sr-only">
+                    <span class="sr-only">Urine routine available</span>
+                    <span class="w-11 h-6 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#24607a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#24607a]/40
+                                 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" aria-hidden="true"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr data-catalogue-row data-category="CARDIOLOGY" data-search="CAR-ECG ECG" class="has-[input:not(:checked)]:opacity-50">
+                <td class="px-5 py-3.5 font-mono text-[13px] text-placeholder">CAR-ECG</td>
+                <td class="px-4 py-3.5 text-ink">ECG</td>
+                <td class="px-4 py-3.5"><span class="pill bg-[#f7f0fc] text-[#7a3fb0]">Cardiology</span></td>
+                <td class="px-4 py-3.5 text-body">12-lead recording</td>
+                <td class="px-4 py-3.5 text-subtle">None</td>
+                <td class="px-4 py-3.5 text-body">1 hour</td>
+                <td class="px-4 py-3.5 text-right text-ink">300.00</td>
+                <td class="px-5 py-3.5 text-center">
+                  <label class="relative inline-flex cursor-pointer">
+                    <input type="checkbox" name="available" value="CAR-ECG" checked class="peer sr-only">
+                    <span class="sr-only">ECG available</span>
+                    <span class="w-11 h-6 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#24607a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#24607a]/40
+                                 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" aria-hidden="true"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr data-catalogue-row data-category="CARDIOLOGY" data-search="CAR-ECHO 2D Echo" class="has-[input:not(:checked)]:opacity-50">
+                <td class="px-5 py-3.5 font-mono text-[13px] text-placeholder">CAR-ECHO</td>
+                <td class="px-4 py-3.5 text-ink">2D Echo</td>
+                <td class="px-4 py-3.5"><span class="pill bg-[#f7f0fc] text-[#7a3fb0]">Cardiology</span></td>
+                <td class="px-4 py-3.5 text-body">Echocardiography</td>
+                <td class="px-4 py-3.5 text-subtle">None</td>
+                <td class="px-4 py-3.5 text-body">4 hours</td>
+                <td class="px-4 py-3.5 text-right text-ink">2,200.00</td>
+                <td class="px-5 py-3.5 text-center">
+                  <label class="relative inline-flex cursor-pointer">
+                    <input type="checkbox" name="available" value="CAR-ECHO" checked class="peer sr-only">
+                    <span class="sr-only">2D Echo available</span>
+                    <span class="w-11 h-6 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#24607a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#24607a]/40
+                                 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" aria-hidden="true"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr data-catalogue-row data-category="RADIOLOGY" data-search="RAD-CXR Chest X-ray PA" class="has-[input:not(:checked)]:opacity-50">
+                <td class="px-5 py-3.5 font-mono text-[13px] text-placeholder">RAD-CXR</td>
+                <td class="px-4 py-3.5 text-ink">Chest X-ray PA</td>
+                <td class="px-4 py-3.5"><span class="pill bg-[#eef5fb] text-[#245d85]">Radiology</span></td>
+                <td class="px-4 py-3.5 text-body">X-ray</td>
+                <td class="px-4 py-3.5 text-subtle">Remove metal objects</td>
+                <td class="px-4 py-3.5 text-body">2 hours</td>
+                <td class="px-4 py-3.5 text-right text-ink">450.00</td>
+                <td class="px-5 py-3.5 text-center">
+                  <label class="relative inline-flex cursor-pointer">
+                    <input type="checkbox" name="available" value="RAD-CXR" checked class="peer sr-only">
+                    <span class="sr-only">Chest X-ray PA available</span>
+                    <span class="w-11 h-6 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#24607a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#24607a]/40
+                                 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" aria-hidden="true"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr data-catalogue-row data-category="RADIOLOGY" data-search="RAD-USGA Ultrasound abdomen" class="has-[input:not(:checked)]:opacity-50">
+                <td class="px-5 py-3.5 font-mono text-[13px] text-placeholder">RAD-USGA</td>
+                <td class="px-4 py-3.5 text-ink">Ultrasound abdomen</td>
+                <td class="px-4 py-3.5"><span class="pill bg-[#eef5fb] text-[#245d85]">Radiology</span></td>
+                <td class="px-4 py-3.5 text-body">Ultrasound</td>
+                <td class="px-4 py-3.5 text-subtle">Fast 6 hours</td>
+                <td class="px-4 py-3.5 text-body">4 hours</td>
+                <td class="px-4 py-3.5 text-right text-ink">1,200.00</td>
+                <td class="px-5 py-3.5 text-center">
+                  <label class="relative inline-flex cursor-pointer">
+                    <input type="checkbox" name="available" value="RAD-USGA" checked class="peer sr-only">
+                    <span class="sr-only">Ultrasound abdomen available</span>
+                    <span class="w-11 h-6 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#24607a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#24607a]/40
+                                 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" aria-hidden="true"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr data-catalogue-row data-category="RADIOLOGY" data-search="RAD-CTB CT brain plain" class="has-[input:not(:checked)]:opacity-50">
+                <td class="px-5 py-3.5 font-mono text-[13px] text-placeholder">RAD-CTB</td>
+                <td class="px-4 py-3.5 text-ink">CT brain plain</td>
+                <td class="px-4 py-3.5"><span class="pill bg-[#eef5fb] text-[#245d85]">Radiology</span></td>
+                <td class="px-4 py-3.5 text-body">CT scan</td>
+                <td class="px-4 py-3.5 text-subtle">None</td>
+                <td class="px-4 py-3.5 text-body">6 hours</td>
+                <td class="px-4 py-3.5 text-right text-ink">3,500.00</td>
+                <td class="px-5 py-3.5 text-center">
+                  <label class="relative inline-flex cursor-pointer">
+                    <input type="checkbox" name="available" value="RAD-CTB" class="peer sr-only">
+                    <span class="sr-only">CT brain plain available</span>
+                    <span class="w-11 h-6 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#24607a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#24607a]/40
+                                 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" aria-hidden="true"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr data-catalogue-row data-category="RADIOLOGY" data-search="RAD-MRIK MRI knee" class="has-[input:not(:checked)]:opacity-50">
+                <td class="px-5 py-3.5 font-mono text-[13px] text-placeholder">RAD-MRIK</td>
+                <td class="px-4 py-3.5 text-ink">MRI knee</td>
+                <td class="px-4 py-3.5"><span class="pill bg-[#eef5fb] text-[#245d85]">Radiology</span></td>
+                <td class="px-4 py-3.5 text-body">MRI scan</td>
+                <td class="px-4 py-3.5 text-subtle">Metal and implant check</td>
+                <td class="px-4 py-3.5 text-body">24 hours</td>
+                <td class="px-4 py-3.5 text-right text-ink">7,500.00</td>
+                <td class="px-5 py-3.5 text-center">
+                  <label class="relative inline-flex cursor-pointer">
+                    <input type="checkbox" name="available" value="RAD-MRIK" checked class="peer sr-only">
+                    <span class="sr-only">MRI knee available</span>
+                    <span class="w-11 h-6 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#24607a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#24607a]/40
+                                 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" aria-hidden="true"></span>
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <p class="mt-3 text-sm text-subtle">Paused tests stay in history but doctors can't order them.</p>
+
+      <h2 class="mt-8 text-lg font-semibold text-ink">Test packages</h2>
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="p-5 rounded-xl border border-[#bfe3e1] bg-[#f1faf9]">
+          <div class="flex items-baseline justify-between gap-3">
+            <h3 class="text-[15px] font-semibold text-ink">Diabetes check</h3>
+            <p class="text-[15px] font-semibold text-ink">₹1,100</p>
+          </div>
+          <p class="mt-2 text-sm text-body">Fasting blood sugar, HbA1c, lipid profile, urine routine</p>
+          <p class="mt-4 text-sm font-medium text-[#1f7a46]">Saves ₹420</p>
+        </div>
+        <div class="p-5 rounded-xl border border-[#e8d6f2] bg-[#faf5fd]">
+          <div class="flex items-baseline justify-between gap-3">
+            <h3 class="text-[15px] font-semibold text-ink">Heart check</h3>
+            <p class="text-[15px] font-semibold text-ink">₹2,600</p>
+          </div>
+          <p class="mt-2 text-sm text-body">ECG, 2D Echo, lipid profile</p>
+          <p class="mt-4 text-sm font-medium text-[#1f7a46]">Saves ₹550</p>
+        </div>
+        <div class="p-5 rounded-xl border border-[#cfe0ef] bg-[#f3f8fc]">
+          <div class="flex items-baseline justify-between gap-3">
+            <h3 class="text-[15px] font-semibold text-ink">Full body basic</h3>
+            <p class="text-[15px] font-semibold text-ink">₹2,400</p>
+          </div>
+          <p class="mt-2 text-sm text-body">CBC, LFT, creatinine, thyroid profile, lipid profile, FBS, urine routine</p>
+          <p class="mt-4 text-sm font-medium text-[#1f7a46]">Saves ₹870</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/modules/diagnostics.js"></script>
+</body>
+</html>

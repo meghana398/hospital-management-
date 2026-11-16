@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Billing summary · Frontdesk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-page">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-14 px-4 sm:px-5 py-2">
+
+      <div class="flex items-center gap-6 lg:gap-16">
+        <a href="patient-verification.html" class="flex items-center gap-3">
+          <span class="w-10 h-10 grid place-items-center rounded-lg bg-brand text-white" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+          </span>
+          <span class="leading-tight">
+            <span class="block text-[13px] font-semibold text-ink">[Hospital name]</span>
+            <span class="block text-xs text-subtle">[Branch, City]</span>
+          </span>
+        </a>
+        <p class="hidden md:block text-xl font-semibold text-[#2b4b6f]">Billing summary</p>
+      </div>
+
+      <nav aria-label="Frontdesk" class="flex flex-wrap items-center gap-2">
+        <a href="surgery-desk.html"
+           class="inline-flex items-center gap-2 h-7 pl-3 pr-1 rounded-full border border-[#9fc0dc] bg-white text-xs font-medium text-brand hover:bg-brand-soft">
+          Surgery desk
+          <span class="min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-brand-soft text-[11px] font-semibold">1</span>
+        </a>
+
+        <span class="inline-flex items-center h-7 px-3 rounded-full border border-[#f3c9a4] bg-[#fdf1e6] text-xs font-medium text-[#c45a17]">
+          Session expires in 18:20
+        </span>
+
+        <a href="notifications.html" aria-label="Notifications, 3 unread"
+           class="relative w-8 h-8 grid place-items-center rounded-md border border-line bg-white text-ink hover:bg-page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1.5 -right-1.5 min-w-4 h-4 px-1 grid place-items-center rounded-full bg-[#e5484d] text-[10px] font-semibold text-white">3</span>
+        </a>
+
+        <a href="opd-desk.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="7" r="3"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/>
+            <circle cx="17" cy="9" r="2.5"/><path d="M17 14a4 4 0 0 1 4 4v1"/>
+          </svg>
+          OPD desk
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          End session
+        </a>
+
+        <a href="my-profile.html" aria-label="My profile"
+           class="w-8 h-8 grid place-items-center rounded-full bg-[#d6efe3] text-xs font-semibold text-[#2c6e52] hover:ring-2 hover:ring-[#b2d5c8]">RS</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== Patient bar ==================== -->
+  <section aria-label="Patient" class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 sm:px-5 py-3">
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+        <div class="flex items-center gap-3">
+          <span class="flex-none w-12 h-12 grid place-items-center rounded-full bg-[#e1eef8] text-[15px] font-semibold text-[#2a77a4]" aria-hidden="true">RS</span>
+          <div class="leading-tight">
+            <p class="text-[17px] font-semibold text-ink">Ramesh Sharma</p>
+            <p class="mt-1 text-[13px] text-subtle">UHID HSP1.0000123456</p>
+          </div>
+        </div>
+        <dl class="flex flex-wrap items-center gap-x-6 gap-y-1 text-[15px]">
+          <div class="flex gap-1.5"><dt class="text-subtle">Age / gender</dt><dd class="font-semibold text-ink">52 y · Male</dd></div>
+          <div class="flex gap-1.5"><dt class="text-subtle">Mobile</dt><dd class="text-ink">******3210</dd></div>
+        </dl>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <label for="patient-visit" class="text-[15px] text-subtle">Visit</label>
+        <select id="patient-visit" name="patientVisit" class="form-select-field w-auto">
+          <option value="VIS-26-0871" selected>VIS-26-0871 · 26 Oct 2026</option>
+          <option value="VIS-26-0544">VIS-26-0544 · 14 Mar 2026</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Main ==================== -->
+  <main class="flex-1 w-full px-4 sm:px-5 pt-6 pb-14">
+
+    <a href="patient-dashboard.html" class="inline-flex items-center gap-1.5 text-[15px] font-semibold text-blue-600 hover:underline">
+      <span aria-hidden="true">&larr;</span> Back to dashboard
+    </a>
+
+    <h1 class="mt-6 text-2xl font-bold text-ink">Charges for this visit · VIS-26-0871 · 26 Oct 2026</h1>
+    <p class="mt-2 text-[15px] text-subtle">Every section's charges for this patient. They all add up on the final bill, where tax is applied.</p>
+
+    <div class="mt-6 grid grid-cols-1 xl:grid-cols-[2fr_1fr] gap-6 xl:gap-8 items-start">
+
+      <!-- ===== Section cards ===== -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 xl:gap-8">
+
+        <!-- Registration -->
+        <section aria-labelledby="bill-registration" class="flex flex-col p-6 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h2 id="bill-registration" class="text-xl font-semibold text-ink">Registration</h2>
+              <p class="mt-1 text-[15px] text-placeholder">Front desk · 26 Oct 2026</p>
+            </div>
+            <div class="text-right">
+              <p class="text-2xl font-bold text-ink">₹100.00</p>
+              <span class="inline-block mt-1 px-3 py-0.5 rounded-full whitespace-nowrap bg-slate-100 text-sm font-semibold text-slate-600">On the final bill</span>
+            </div>
+          </div>
+          <ul class="mt-6 pt-4 border-t border-[#e3eaef] text-base text-body">
+            <li class="flex justify-between gap-4 py-2.5">Visit registration fee <span>₹100.00</span></li>
+          </ul>
+          <a href="patient-details.html" class="mt-auto pt-10 text-base font-semibold text-blue-600 hover:underline">Patient details</a>
+        </section>
+
+        <!-- Doctor consultation -->
+        <section aria-labelledby="bill-consultation" class="flex flex-col p-6 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+          <h2 id="bill-consultation" class="text-xl font-semibold text-ink">Doctor consultation</h2>
+          <p class="mt-1 text-[15px] text-placeholder">Dr Farah Khan, General medicine · OP VIS-26-0871</p>
+          <p class="mt-5 text-3xl font-bold text-ink">₹800.00</p>
+          <span class="self-start mt-2 px-3 py-0.5 rounded-full bg-[#e3f5ea] text-sm font-semibold text-[#1f7a46]">Paid at booking</span>
+          <ul class="mt-6 pt-4 border-t border-[#e3eaef] text-base text-body">
+            <li class="flex justify-between gap-4 py-2.5">Consultation fee <span>₹800.00</span></li>
+          </ul>
+          <a href="op-sheet.html" class="mt-auto pt-10 text-base font-semibold text-blue-600 hover:underline">Open completed OP</a>
+        </section>
+
+        <!-- Diagnostics and tests -->
+        <section aria-labelledby="bill-diagnostics" class="flex flex-col p-6 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h2 id="bill-diagnostics" class="text-xl font-semibold text-ink">Diagnostics and tests</h2>
+              <p class="mt-1 text-[15px] text-placeholder">Central lab and cardiology · 4 tests</p>
+            </div>
+            <div class="text-right">
+              <p class="text-2xl font-bold text-ink">₹1,750.00</p>
+              <span class="inline-block mt-1 px-3 py-0.5 rounded-full whitespace-nowrap bg-slate-100 text-sm font-semibold text-slate-600">On the final bill</span>
+            </div>
+          </div>
+          <ul class="mt-6 pt-1 border-t border-[#e3eaef] divide-y divide-[#f0f3f6] text-base text-body">
+            <li class="flex justify-between gap-4 py-3">HbA1c <span>₹550.00</span></li>
+            <li class="flex justify-between gap-4 py-3">Lipid profile <span>₹650.00</span></li>
+            <li class="flex justify-between gap-4 py-3">Serum creatinine <span>₹250.00</span></li>
+            <li class="flex justify-between gap-4 py-3">ECG <span>₹300.00</span></li>
+          </ul>
+          <a href="diagnostics-orders.html" class="mt-auto pt-10 text-base font-semibold text-blue-600 hover:underline">Diagnostics and tests</a>
+        </section>
+
+        <!-- Pharmacy -->
+        <section aria-labelledby="bill-pharmacy" class="flex flex-col p-6 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h2 id="bill-pharmacy" class="text-xl font-semibold text-ink">Pharmacy</h2>
+              <p class="mt-1 text-[15px] text-placeholder">Main pharmacy · 3 medicines</p>
+            </div>
+            <div class="text-right">
+              <p class="text-2xl font-bold text-ink">₹413.25</p>
+              <span class="inline-block mt-1 px-3 py-0.5 rounded-full whitespace-nowrap bg-slate-100 text-sm font-semibold text-slate-600">On the final bill</span>
+            </div>
+          </div>
+          <ul class="mt-6 pt-1 border-t border-[#e3eaef] divide-y divide-[#f0f3f6] text-base text-body">
+            <li class="flex justify-between gap-4 py-3">Telmisartan 40 mg × 30 <span>₹195.00</span></li>
+            <li class="flex justify-between gap-4 py-3">Metformin 500 mg × 30 <span>₹66.00</span></li>
+            <li class="flex justify-between gap-4 py-3">Atorvastatin 10 mg × 30 <span>₹174.00</span></li>
+            <li class="flex justify-between gap-4 py-3">Pharmacy discount (5%) <span class="font-semibold text-[#1f9a4b]">-₹21.75</span></li>
+          </ul>
+          <a href="pharmacy-status.html" class="mt-auto pt-10 text-base font-semibold text-blue-600 hover:underline">Pharmacy</a>
+        </section>
+
+        <!-- Surgery and OT -->
+        <section aria-labelledby="bill-surgery" class="flex flex-col p-6 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+          <h2 id="bill-surgery" class="text-xl font-semibold text-ink">Surgery and OT</h2>
+          <p class="mt-1 text-[15px] text-placeholder">Added when the doctor completes the surgery</p>
+          <p class="mt-6 text-3xl font-bold text-ink">₹0.00</p>
+          <span class="self-start mt-2 px-3 py-0.5 rounded-full bg-slate-100 text-sm text-slate-600">No surgery this visit</span>
+          <ul class="mt-6 pt-1 border-t border-[#e3eaef] divide-y divide-[#f0f3f6] text-base text-subtle">
+            <li class="flex justify-between gap-4 py-3">Surgeon fee <span class="text-placeholder">—</span></li>
+            <li class="flex justify-between gap-4 py-3">Assisting surgeon <span class="text-placeholder">—</span></li>
+            <li class="flex justify-between gap-4 py-3">Anaesthesia <span class="text-placeholder">—</span></li>
+            <li class="flex justify-between gap-4 py-3">OT charges <span class="text-placeholder">—</span></li>
+            <li class="flex justify-between gap-4 py-3">Consumables and implants <span class="text-placeholder">—</span></li>
+            <li class="flex justify-between gap-4 py-3">Room and nursing <span class="text-placeholder">—</span></li>
+          </ul>
+          <a href="surgery-desk.html" class="mt-auto pt-10 text-base font-semibold text-blue-600 hover:underline">Surgery desk</a>
+        </section>
+      </div>
+
+      <!-- ===== Summary ===== -->
+      <aside aria-labelledby="summary-title" class="p-6 sm:p-8 rounded-xl border border-[#e3eaef] bg-white">
+        <h2 id="summary-title" class="text-xl font-semibold text-ink">Summary</h2>
+
+        <dl class="mt-6 space-y-4 text-base">
+          <div class="flex justify-between gap-4"><dt class="text-body">Registration</dt><dd class="text-ink">₹100.00</dd></div>
+          <div class="flex justify-between gap-4"><dt class="text-body">Doctor consultation</dt><dd class="text-ink">₹800.00</dd></div>
+          <div class="flex justify-between gap-4"><dt class="text-body">Diagnostics and tests</dt><dd class="text-ink">₹1,750.00</dd></div>
+          <div class="flex justify-between gap-4"><dt class="text-body">Pharmacy</dt><dd class="text-ink">₹413.25</dd></div>
+          <div class="flex justify-between gap-4"><dt class="text-body">Surgery and OT</dt><dd class="text-ink">₹0.00</dd></div>
+        </dl>
+
+        <dl class="mt-8 pt-6 border-t border-line space-y-4 text-base">
+          <div class="flex justify-between gap-4 font-semibold text-ink"><dt>All sections</dt><dd>₹3,063.25</dd></div>
+          <div class="flex justify-between gap-4 text-[#1f8a4c]"><dt>Already paid (consultation)</dt><dd class="font-semibold">-₹800.00</dd></div>
+          <div class="flex justify-between gap-4 pt-2 text-xl font-bold text-ink"><dt>Balance before tax</dt><dd>₹2,263.25</dd></div>
+        </dl>
+
+        <p class="mt-6 px-5 py-4 rounded-lg border border-[#edf1f4] bg-slate-50 text-sm text-subtle">Tax is worked out on the final bill.</p>
+
+        <a href="final-billing.html" class="mt-6 flex items-center justify-center gap-2 h-12 rounded-lg bg-[#2f789f] text-base font-semibold text-white hover:bg-[#286688]">
+          Go to final billing <span aria-hidden="true">&rarr;</span>
+        </a>
+      </aside>
+    </div>
+  </main>
+
+  <script src="../../js/modules/frontdesk.js"></script>
+</body>
+</html>

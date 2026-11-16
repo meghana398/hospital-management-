@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Record stock in · Pharmacy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#f7f9fb]">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-[72px] px-4 sm:px-7 py-3">
+
+      <a href="pharmacy-dashboard.html" class="flex items-center gap-3">
+        <span class="w-10 h-10 grid place-items-center rounded-lg bg-[#2a7a66] text-white" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+        </span>
+        <span class="leading-tight">
+          <span class="block text-[15px] font-semibold text-ink">[Hospital name]</span>
+          <span class="block text-[13px] text-subtle">Main pharmacy</span>
+        </span>
+      </a>
+
+      <div class="flex items-center gap-4 sm:gap-5">
+        <a href="notifications.html" aria-label="Notifications, 4 unread" class="relative w-8 h-8 grid place-items-center text-ink hover:text-accent">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">4</span>
+        </a>
+
+        <span class="hidden sm:block w-px h-8 bg-line" aria-hidden="true"></span>
+
+        <a href="my-profile.html" class="flex items-center gap-2.5">
+          <span class="sr-only">My profile:</span>
+          <span class="w-8 h-8 grid place-items-center rounded-full bg-[#d6efe3] text-xs font-semibold text-accent" aria-hidden="true">AV</span>
+          <span class="hidden sm:block leading-tight">
+            <span class="block text-sm font-semibold text-ink">Anil Verma</span>
+            <span class="block text-xs text-subtle">Pharmacist in charge</span>
+          </span>
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          Sign out
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex-1 flex flex-col lg:flex-row">
+
+    <!-- ==================== Sidebar ==================== -->
+    <aside class="lg:flex-none lg:w-[270px] flex flex-col bg-white border-b lg:border-b-0 lg:border-r border-line px-3 lg:px-4 py-3 lg:py-5">
+      <nav aria-label="Pharmacy" class="flex lg:flex-col gap-1 overflow-x-auto text-[15px]">
+        <a href="pharmacy-dashboard.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="prescriptions.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>
+          </svg>
+          Prescriptions
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-white text-[11px] font-semibold">3</span>
+        </a>
+        <a href="dispense-bill.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10.5 20.5a5 5 0 0 1-7-7l7-7a5 5 0 0 1 7 7z"/><path d="M8.5 8.5l7 7"/>
+          </svg>
+          Dispense and bill
+        </a>
+        <a href="diagnostics-requests.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/>
+          </svg>
+          Diagnostics requests
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-white text-[11px] font-semibold">1</span>
+        </a>
+        <a href="inventory.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>
+          </svg>
+          Inventory
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fde3e1] text-[#b42318] text-[11px] font-semibold">7</span>
+        </a>
+        <a href="stock-in-out.html" aria-current="page"
+           class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg bg-accent-soft font-semibold text-accent whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 20V4M3 8l4-4 4 4M17 4v16M13 16l4 4 4-4"/>
+          </svg>
+          Stock in and out
+        </a>
+        <a href="purchase-requests.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 12h11.5l2-8H6"/>
+          </svg>
+          Purchase requests
+        </a>
+        <a href="bills-collections.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/>
+          </svg>
+          Bills and collections
+        </a>
+        <a href="accounts.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/>
+          </svg>
+          Accounts
+        </a>
+      </nav>
+
+      <div class="hidden lg:block mt-auto pt-10">
+        <div class="p-4 rounded-xl border border-[#cfe8dc] bg-[#eef7f2]">
+          <p class="text-sm font-semibold text-accent">Main pharmacy</p>
+          <p class="mt-0.5 text-[13px] text-subtle">Ground floor, Block A · open 24 hours</p>
+          <p class="mt-3 text-sm font-semibold text-accent">Counters</p>
+          <p class="mt-0.5 text-[13px] text-subtle">1 · OPD prescriptions</p>
+          <p class="text-[13px] text-subtle">2 · Bills and returns</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== Main ==================== -->
+    <main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-9 pt-8 pb-14">
+
+      <a href="stock-in-out.html" class="inline-flex items-center gap-2 text-[15px] font-medium text-accent hover:underline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        Back to stock in and out
+      </a>
+
+      <h1 class="mt-4 text-2xl font-bold text-ink">Record stock in</h1>
+      <p class="mt-1 text-[15px] text-subtle">Enter a supplier delivery. Each batch is added to the inventory when you save.</p>
+
+      <!-- Delivery -->
+      <section aria-labelledby="delivery-title" class="mt-6 p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+        <div class="flex flex-wrap items-baseline justify-between gap-3">
+          <h2 id="delivery-title" class="text-lg font-semibold text-ink">Delivery</h2>
+          <p class="text-[15px] text-subtle">GRN-26-1186 · today, 30 Oct</p>
+        </div>
+        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+          <div>
+            <label for="supplier" class="form-label text-[15px] font-normal text-body mb-2">Supplier</label>
+            <select id="supplier" name="supplier" class="form-select-field">
+              <option value="APEX" selected>Apex Pharma Distributors</option>
+              <option value="MEDPLUS">MedPlus Distributors</option>
+            </select>
+          </div>
+          <div>
+            <label for="invoice-number" class="form-label text-[15px] font-normal text-body mb-2">Supplier invoice number</label>
+            <input id="invoice-number" name="invoiceNumber" type="text" value="APX/26/88412" class="form-input">
+          </div>
+          <div>
+            <label for="invoice-date" class="form-label text-[15px] font-normal text-body mb-2">Invoice date</label>
+            <input id="invoice-date" name="invoiceDate" type="date" value="2026-10-30" class="form-input">
+          </div>
+          <div>
+            <label for="purchase-request" class="form-label text-[15px] font-normal text-body mb-2">Against purchase request</label>
+            <select id="purchase-request" name="purchaseRequest" class="form-select-field">
+              <option value="PUR-26-0212" selected>PUR-26-0212 · Metformin, ursodeoxycholic acid</option>
+              <option value="PUR-26-0213">PUR-26-0213 · CBC reagent, HbA1c kit</option>
+              <option value="">None</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Medicines received -->
+      <section aria-labelledby="received-title" class="mt-6 p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <h2 id="received-title" class="text-lg font-semibold text-ink">Medicines received</h2>
+          <button type="button" class="inline-flex items-center gap-2 h-10 px-4 rounded-md border border-accent bg-white text-[15px] font-semibold text-accent hover:bg-accent-soft">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            Add medicine
+          </button>
+        </div>
+        <div class="relative mt-5 overflow-x-auto rounded-lg border border-[#e3eaef]">
+          <table class="w-full min-w-[920px] text-left text-[15px]">
+            <thead class="bg-[#eef7f2] text-ink">
+              <tr>
+                <th scope="col" class="px-4 py-3 font-semibold">Medicine</th>
+                <th scope="col" class="px-3 py-3 font-semibold">Batch</th>
+                <th scope="col" class="px-3 py-3 font-semibold">Expiry</th>
+                <th scope="col" class="px-3 py-3 font-semibold">Quantity</th>
+                <th scope="col" class="px-3 py-3 font-semibold">Purchase rate (₹)</th>
+                <th scope="col" class="px-3 py-3 font-semibold">MRP (₹)</th>
+                <th scope="col" class="px-3 py-3 font-semibold">Rack</th>
+                <th scope="col" class="px-4 py-3 font-semibold text-right">Value (₹)</th>
+                <th scope="col" class="px-4 py-3"><span class="sr-only">Remove</span></th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#edf1f4]">
+              <tr>
+                <td class="px-4 py-3"><input type="text" name="items[0].medicine" value="Metformin 500 mg tablet" aria-label="Medicine, row 1" class="form-input min-w-[180px]"></td>
+                <td class="px-3 py-3"><input type="text" name="items[0].batch" value="MF6012" aria-label="Batch, row 1" class="form-input w-24"></td>
+                <td class="px-3 py-3"><input type="text" name="items[0].expiry" value="09/2028" aria-label="Expiry, row 1" class="form-input w-24"></td>
+                <td class="px-3 py-3"><input type="number" name="items[0].quantity" value="2000" aria-label="Quantity, row 1" class="form-input w-24"></td>
+                <td class="px-3 py-3"><input type="number" name="items[0].purchaseRate" value="1.40" step="0.01" aria-label="Purchase rate, row 1" class="form-input w-24"></td>
+                <td class="px-3 py-3"><input type="number" name="items[0].mrp" value="2.20" step="0.01" aria-label="MRP, row 1" class="form-input w-20"></td>
+                <td class="px-3 py-3"><input type="text" name="items[0].rack" value="A3" aria-label="Rack, row 1" class="form-input w-16"></td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">2,800</td>
+                <td class="px-4 py-3 text-center">
+                  <button type="button" aria-label="Remove row 1" class="w-8 h-8 grid place-items-center rounded border border-[#f3cfcb] bg-white text-[#c8102e] hover:bg-[#fdf0ef]">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3"><input type="text" name="items[1].medicine" value="Ursodeoxycholic acid 300 mg tablet" aria-label="Medicine, row 2" class="form-input min-w-[180px]"></td>
+                <td class="px-3 py-3"><input type="text" name="items[1].batch" value="UD8104" aria-label="Batch, row 2" class="form-input w-24"></td>
+                <td class="px-3 py-3"><input type="text" name="items[1].expiry" value="07/2028" aria-label="Expiry, row 2" class="form-input w-24"></td>
+                <td class="px-3 py-3"><input type="number" name="items[1].quantity" value="600" aria-label="Quantity, row 2" class="form-input w-24"></td>
+                <td class="px-3 py-3"><input type="number" name="items[1].purchaseRate" value="13.20" step="0.01" aria-label="Purchase rate, row 2" class="form-input w-24"></td>
+                <td class="px-3 py-3"><input type="number" name="items[1].mrp" value="19.50" step="0.01" aria-label="MRP, row 2" class="form-input w-20"></td>
+                <td class="px-3 py-3"><input type="text" name="items[1].rack" value="B4" aria-label="Rack, row 2" class="form-input w-16"></td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">7,920</td>
+                <td class="px-4 py-3 text-center">
+                  <button type="button" aria-label="Remove row 2" class="w-8 h-8 grid place-items-center rounded border border-[#f3cfcb] bg-white text-[#c8102e] hover:bg-[#fdf0ef]">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot class="border-t border-[#e3eaef]">
+              <tr>
+                <th scope="row" colspan="7" class="px-4 py-4 font-semibold text-ink">Total · 2 medicines</th>
+                <td class="px-4 py-4 text-right font-bold text-ink">10,720</td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+
+      <div class="mt-6 flex flex-wrap justify-end gap-3">
+        <a href="stock-in-out.html" class="btn-outline px-6">Cancel</a>
+        <a href="stock-in-out.html" class="btn-accent font-semibold">Save to inventory</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/modules/pharmacy.js"></script>
+</body>
+</html>

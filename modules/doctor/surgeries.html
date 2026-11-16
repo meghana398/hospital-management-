@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Surgeries · Doctor</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col lg:flex-row bg-[#f7f9fb]">
+
+  <!-- ==================== Sidebar ==================== -->
+  <aside class="lg:flex-none lg:w-[250px] lg:sticky lg:top-0 lg:h-screen flex flex-col bg-white border-b lg:border-b-0 lg:border-r border-line">
+    <a href="doctor-dashboard.html" class="flex items-center gap-3 px-4 lg:px-5 py-4 lg:py-5 lg:border-b border-[#edf1f4]">
+      <span class="w-10 h-10 grid place-items-center rounded-lg bg-[#2b7489] text-white" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+      </span>
+      <span class="leading-tight">
+        <span class="block text-[15px] font-semibold text-ink">[Hospital name]</span>
+        <span class="block text-[13px] text-subtle">[Branch, City]</span>
+      </span>
+    </a>
+
+    <nav aria-label="Doctor" class="flex lg:flex-col gap-1 overflow-x-auto px-3 lg:px-4 pb-3 lg:py-5 text-[15px]">
+      <a href="doctor-dashboard.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+        </svg>
+        Dashboard
+      </a>
+      <a href="notifications.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+        </svg>
+        Notifications
+        <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">3</span>
+      </a>
+      <a href="todays-opd.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="9" cy="7" r="3"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14a4 4 0 0 1 4 4v1"/>
+        </svg>
+        Today's OPD
+      </a>
+      <a href="surgeries.html" aria-current="page"
+         class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg bg-[#e3f1f6] text-[#1f5f73] whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 21l6.5-6.5"/><path d="M9.5 14.5L19 5a2.12 2.12 0 0 1 3 3l-8.5 8.5z"/><path d="M11.5 12.5l2 2"/>
+        </svg>
+        Surgeries
+      </a>
+      <a href="appointments.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M8 10v11"/>
+        </svg>
+        Appointments
+      </a>
+      <a href="my-patients.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="15" rx="2"/><circle cx="9" cy="12" r="2.5"/><path d="M5.5 17a3.5 3.5 0 0 1 7 0M15 10h3M15 14h3"/>
+        </svg>
+        My patients
+      </a>
+      <a href="reports-to-review.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13l6 6M9 17h3"/>
+        </svg>
+        Reports to review
+        <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fdecc8] text-[11px] font-semibold text-[#9a5b00]">3</span>
+      </a>
+      <a href="my-schedule.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+        </svg>
+        My schedule
+      </a>
+      <a href="apply-leave.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M9 15h6"/>
+        </svg>
+        Apply for leave
+      </a>
+    </nav>
+
+    <div class="hidden lg:block mt-auto mx-3 mb-4 p-4 rounded-xl border border-[#cfe9df] bg-[#effaf5]">
+      <p class="text-sm font-semibold text-[#1f6b52]">OPD today</p>
+      <p class="mt-1.5 text-[13px] text-ink">9:00 AM – 1:00 PM</p>
+      <p class="mt-0.5 text-[13px] text-subtle">Block A, ground floor, Room 012</p>
+    </div>
+  </aside>
+
+  <div class="flex-1 min-w-0 flex flex-col">
+
+    <!-- ==================== Top bar ==================== -->
+    <header class="bg-white border-b border-line">
+      <div class="flex flex-wrap items-center justify-between gap-x-5 gap-y-2 min-h-[72px] px-4 sm:px-7 py-3">
+        <p class="hidden sm:block text-[15px] text-subtle">Tue, 3 Nov 2026</p>
+
+        <div class="flex items-center gap-5 ml-auto">
+          <a href="notifications.html" aria-label="Notifications, 3 unread" class="relative w-8 h-8 grid place-items-center text-ink hover:text-[#2b7489]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+              <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+            </svg>
+            <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">3</span>
+          </a>
+
+          <a href="my-profile.html" class="flex items-center gap-2.5 sm:pl-5 sm:border-l border-line">
+            <span class="sr-only">My profile:</span>
+            <span class="w-8 h-8 grid place-items-center rounded-full bg-[#dcf3e5] text-xs font-semibold text-[#1f7a46]" aria-hidden="true">FK</span>
+            <span class="hidden sm:block leading-tight">
+              <span class="block text-sm font-semibold text-ink">Dr Farah Khan</span>
+              <span class="block text-xs text-subtle">General medicine</span>
+            </span>
+          </a>
+
+          <a href="../../index.html" class="btn-topbar">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+            </svg>
+            Sign out
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==================== Main ==================== -->
+    <main class="flex-1 px-4 sm:px-6 lg:px-12 pt-8 pb-14">
+
+      <h1 class="text-2xl font-bold text-[#111827]">Surgeries</h1>
+      <p class="mt-1 text-[15px] text-subtle">Surgeries the front desk booked from your OPs, with the theatre and team. Start a surgery from here on the day.</p>
+
+      <!-- Days of the week -->
+      <ul aria-label="Surgery days" class="mt-6 flex flex-wrap gap-3">
+        <li class="inline-flex items-center gap-2 h-10 pl-4 pr-2 rounded-full border border-line bg-white text-[15px] text-ink whitespace-nowrap">
+          Mon 2 Nov <span class="grid place-items-center min-w-6 h-6 px-1.5 rounded-full bg-slate-100 text-xs text-subtle">0</span>
+        </li>
+        <li aria-current="date" class="inline-flex items-center gap-2 h-10 pl-4 pr-2 rounded-full bg-[#3b2a6b] text-[15px] font-medium text-white whitespace-nowrap">
+          Tue 3 Nov · today <span class="grid place-items-center min-w-6 h-6 px-1.5 rounded-full bg-white/20 text-xs font-semibold">2</span>
+        </li>
+        <li class="inline-flex items-center gap-2 h-10 pl-4 pr-2 rounded-full border border-line bg-white text-[15px] text-ink whitespace-nowrap">
+          Wed 4 Nov <span class="grid place-items-center min-w-6 h-6 px-1.5 rounded-full bg-slate-100 text-xs text-subtle">0</span>
+        </li>
+        <li class="inline-flex items-center gap-2 h-10 pl-4 pr-2 rounded-full border border-line bg-white text-[15px] text-ink whitespace-nowrap">
+          Thu 5 Nov <span class="grid place-items-center min-w-6 h-6 px-1.5 rounded-full bg-slate-100 text-xs text-subtle">1</span>
+        </li>
+        <li class="inline-flex items-center gap-2 h-10 pl-4 pr-2 rounded-full border border-line bg-white text-[15px] text-ink whitespace-nowrap">
+          Fri 6 Nov · on leave <span class="grid place-items-center min-w-6 h-6 px-1.5 rounded-full bg-slate-100 text-xs text-subtle">0</span>
+        </li>
+        <li class="inline-flex items-center gap-2 h-10 pl-4 pr-2 rounded-full border border-line bg-white text-[15px] text-ink whitespace-nowrap">
+          Sat 7 Nov <span class="grid place-items-center min-w-6 h-6 px-1.5 rounded-full bg-slate-100 text-xs text-subtle">0</span>
+        </li>
+      </ul>
+
+      <p class="mt-6 text-[15px] text-subtle">2 surgeries on this day. Your OPD runs 9 AM – 1 PM, so surgeries are booked from 2 PM.</p>
+
+      <div class="mt-5 space-y-5">
+
+      <article aria-labelledby="surgery-1-title" class="flex flex-col lg:flex-row gap-5 p-5 sm:p-6 rounded-xl border border-[#e3eaef] border-l-4 border-l-[#3b2a6b] bg-white">
+        <div class="flex-none lg:w-[150px] h-fit p-4 rounded-lg bg-[#f4effa]">
+          <p class="text-[17px] font-semibold text-ink">2:30 PM</p>
+          <p class="text-sm text-subtle">to 4:00 PM</p>
+          <p class="mt-3 text-[15px] text-ink">OT 2</p>
+        </div>
+
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-[15px] text-subtle">SUR-26-0418</span>
+            <span class="pill pill-blue">Operating surgeon</span>
+            <span class="pill pill-green">Ready for OT</span>
+          </div>
+          <h2 id="surgery-1-title" class="mt-2 text-xl font-bold text-ink">Laparoscopic cholecystectomy</h2>
+          <p class="mt-0.5 text-[15px] text-subtle"><strong class="font-semibold text-ink">Mohammed Irfan</strong> · 61 M · UHID HSP1.0000120318 · Insurance · cashless</p>
+
+          <dl class="mt-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-6 gap-y-4">
+              <div><dt class="text-sm text-placeholder">Assisting surgeon</dt><dd class="mt-1 text-[15px] text-ink">Dr Arjun Rao</dd></div>
+              <div><dt class="text-sm text-placeholder">Anaesthesia</dt><dd class="mt-1 text-[15px] text-ink">General · Dr Neel Basu</dd></div>
+              <div><dt class="text-sm text-placeholder">Room</dt><dd class="mt-1 text-[15px] text-ink">Semi-private SP-09 · admitted 9:05 AM</dd></div>
+              <div><dt class="text-sm text-placeholder">Requested from</dt><dd class="mt-1 text-[15px] text-ink">Ultrasound report DX-26-0921 · 30 Oct</dd></div>
+          </dl>
+
+          <ul aria-label="Checks before surgery" class="mt-5 flex flex-wrap gap-2">
+              <li class="px-3 py-1 rounded-md border border-[#bfe6cb] bg-[#ebf8ef] text-sm font-medium text-[#1f7a46]"><span aria-hidden="true">✓</span> Pre-op tests done</li>
+              <li class="px-3 py-1 rounded-md border border-[#bfe6cb] bg-[#ebf8ef] text-sm font-medium text-[#1f7a46]"><span aria-hidden="true">✓</span> Fit for anaesthesia</li>
+              <li class="px-3 py-1 rounded-md border border-[#bfe6cb] bg-[#ebf8ef] text-sm font-medium text-[#1f7a46]"><span aria-hidden="true">✓</span> Consent signed</li>
+              <li class="px-3 py-1 rounded-md border border-[#bfe6cb] bg-[#ebf8ef] text-sm font-medium text-[#1f7a46]"><span aria-hidden="true">✓</span> Nil by mouth since 6 AM</li>
+              <li class="px-3 py-1 rounded-md border border-[#bfe6cb] bg-[#ebf8ef] text-sm font-medium text-[#1f7a46]"><span aria-hidden="true">✓</span> Pre-authorisation approved</li>
+          </ul>
+        </div>
+
+        <div class="flex-none flex flex-row lg:flex-col flex-wrap gap-2 lg:w-[170px]">
+          <a href="start-surgery.html" class="inline-flex items-center justify-center h-10 px-5 rounded-md bg-[#3b2a6b] text-[15px] font-medium text-white hover:bg-[#2f2156]">Start surgery</a>
+          <a href="reports-to-review.html" class="btn-outline px-5">View report</a>
+        </div>
+      </article>
+
+      <article aria-labelledby="surgery-2-title" class="flex flex-col lg:flex-row gap-5 p-5 sm:p-6 rounded-xl border border-[#e3eaef] border-l-4 border-l-[#d99a2b] bg-white">
+        <div class="flex-none lg:w-[150px] h-fit p-4 rounded-lg bg-[#f4effa]">
+          <p class="text-[17px] font-semibold text-ink">5:00 PM</p>
+          <p class="text-sm text-subtle">to 5:30 PM</p>
+          <p class="mt-3 text-[15px] text-ink">Minor OT</p>
+        </div>
+
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-[15px] text-subtle">SUR-26-0414</span>
+            <span class="pill pill-blue">Operating surgeon</span>
+            <span class="pill pill-amber">Waiting for consent</span>
+          </div>
+          <h2 id="surgery-2-title" class="mt-2 text-xl font-bold text-ink">Excision of lipoma, upper back</h2>
+          <p class="mt-0.5 text-[15px] text-subtle"><strong class="font-semibold text-ink">Deepak Verma</strong> · 55 M · UHID HSP1.0000118804 · Self-pay</p>
+
+          <dl class="mt-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-6 gap-y-4">
+              <div><dt class="text-sm text-placeholder">Assisting surgeon</dt><dd class="mt-1 text-[15px] text-ink">None</dd></div>
+              <div><dt class="text-sm text-placeholder">Anaesthesia</dt><dd class="mt-1 text-[15px] text-ink">Local anaesthesia</dd></div>
+              <div><dt class="text-sm text-placeholder">Room</dt><dd class="mt-1 text-[15px] text-ink">Day care · goes home the same evening</dd></div>
+              <div><dt class="text-sm text-placeholder">Requested from</dt><dd class="mt-1 text-[15px] text-ink">OP VIS-26-0912 · 28 Oct</dd></div>
+          </dl>
+
+          <ul aria-label="Checks before surgery" class="mt-5 flex flex-wrap gap-2">
+              <li class="px-3 py-1 rounded-md border border-[#bfe6cb] bg-[#ebf8ef] text-sm font-medium text-[#1f7a46]"><span aria-hidden="true">✓</span> Pre-op tests done</li>
+              <li class="px-3 py-1 rounded-md border border-[#bfe6cb] bg-[#ebf8ef] text-sm font-medium text-[#1f7a46]"><span aria-hidden="true">✓</span> Fit for the procedure</li>
+              <li class="px-3 py-1 rounded-md border border-[#f3d9a8] bg-[#fdf5e6] text-sm font-medium text-[#9a5b00]"><span aria-hidden="true">!</span> Consent not signed yet</li>
+              <li class="px-3 py-1 rounded-md border border-[#bfe6cb] bg-[#ebf8ef] text-sm font-medium text-[#1f7a46]"><span aria-hidden="true">✓</span> Paid at the counter</li>
+          </ul>
+        </div>
+
+        <div class="flex-none flex flex-row lg:flex-col flex-wrap gap-2 lg:w-[170px]">
+          <a href="consultation.html" class="btn-outline px-5">View OP</a>
+        </div>
+      </article>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/modules/doctor.js"></script>
+</body>
+</html>

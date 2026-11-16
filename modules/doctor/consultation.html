@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consultation · Doctor</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#f7f9fb]">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-[72px] px-4 sm:px-7 py-3">
+
+      <a href="doctor-dashboard.html" class="flex items-center gap-3">
+        <span class="w-10 h-10 grid place-items-center rounded-lg bg-[#2b7489] text-white" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+        </span>
+        <span class="leading-tight">
+          <span class="block text-[15px] font-semibold text-ink">[Hospital name]</span>
+          <span class="block text-[13px] text-subtle">[Branch, City]</span>
+        </span>
+      </a>
+
+      <div class="flex items-center gap-4 sm:gap-5">
+        <a href="notifications.html" aria-label="Notifications, 3 unread" class="relative w-8 h-8 grid place-items-center text-ink hover:text-[#2b7489]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">3</span>
+        </a>
+
+        <a href="my-profile.html" class="flex items-center gap-2.5">
+          <span class="sr-only">My profile:</span>
+          <span class="w-8 h-8 grid place-items-center rounded-full bg-[#dcf3e5] text-xs font-semibold text-[#1f7a46]" aria-hidden="true">FK</span>
+          <span class="hidden sm:block leading-tight">
+            <span class="block text-sm font-semibold text-ink">Dr Farah Khan</span>
+            <span class="block text-xs text-subtle">General medicine</span>
+          </span>
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          Sign out
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex-1 flex flex-col lg:flex-row">
+
+    <!-- ==================== Sidebar ==================== -->
+    <aside class="lg:flex-none lg:w-[250px] bg-white border-b lg:border-b-0 lg:border-r border-line px-3 lg:px-4 py-3 lg:py-5">
+      <nav aria-label="Doctor" class="flex lg:flex-col gap-1 overflow-x-auto text-[15px]">
+        <a href="doctor-dashboard.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="notifications.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          Notifications
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">3</span>
+        </a>
+        <a href="todays-opd.html" aria-current="page"
+           class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg bg-[#e3f1f6] text-[#1f5f73] whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="7" r="3"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14a4 4 0 0 1 4 4v1"/>
+          </svg>
+          Today's OPD
+        </a>
+        <a href="appointments.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M8 10v11"/>
+          </svg>
+          Appointments
+        </a>
+        <a href="my-patients.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="15" rx="2"/><circle cx="9" cy="12" r="2.5"/><path d="M5.5 17a3.5 3.5 0 0 1 7 0M15 10h3M15 14h3"/>
+          </svg>
+          My patients
+        </a>
+        <a href="reports-to-review.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13l6 6M9 17h3"/>
+          </svg>
+          Reports to review
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fdecc8] text-[11px] font-semibold text-[#9a5b00]">3</span>
+        </a>
+        <a href="my-schedule.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+          </svg>
+          My schedule
+        </a>
+      </nav>
+
+      <div class="hidden lg:block mt-40 p-4 rounded-xl border border-[#cfe9df] bg-[#effaf5]">
+        <p class="text-sm font-semibold text-[#1f6b52]">OPD today</p>
+        <p class="mt-1.5 text-[13px] text-ink">9:00 AM – 1:00 PM</p>
+        <p class="mt-0.5 text-[13px] text-subtle">Block A, ground floor, Room 012</p>
+      </div>
+    </aside>
+
+    <!-- ==================== Main ==================== -->
+    <main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-8 pt-6 pb-14">
+
+      <a href="todays-opd.html" class="inline-flex items-center gap-1.5 text-[15px] font-medium text-[#24606f] hover:underline">
+        <span aria-hidden="true">&larr;</span> Back to today's OPD
+      </a>
+
+      <!-- Patient and appointment -->
+      <section aria-label="Patient" class="mt-4 flex flex-wrap items-center justify-between gap-5 p-5 rounded-lg border border-slate-200 bg-white">
+        <div class="flex items-center gap-4">
+          <span class="flex-none w-12 h-12 grid place-items-center rounded-full bg-[#e7f0f8] text-sm font-semibold text-[#245d85]" aria-hidden="true">SP</span>
+          <div>
+            <h1 class="text-[17px] text-slate-900">
+              <span class="font-semibold">Suresh Patil</span>
+              <span class="text-slate-600">· 45 y · Male · UHID HSP1.0000124078</span>
+            </h1>
+            <p class="mt-0.5 text-sm text-slate-500">CGHS beneficiary · Follow-up of VIS-26-0655 (15 Oct 2026)</p>
+            <span class="inline-block mt-2 px-2.5 py-0.5 rounded-full bg-[#e3f1fb] text-[13px] font-medium text-[#1f5f8b]">In consultation · started 10:31 AM</span>
+          </div>
+        </div>
+        <dl class="flex flex-wrap gap-x-8 gap-y-3 text-sm sm:text-right">
+          <div>
+            <dt class="text-[13px] text-slate-400">Appointment</dt>
+            <dd class="mt-0.5 font-semibold text-slate-900">Today, 10:30 AM · Token T-04</dd>
+          </div>
+          <div>
+            <dt class="text-[13px] text-slate-400">Doctor</dt>
+            <dd class="mt-0.5 font-semibold text-slate-900">Dr Farah Khan, General medicine</dd>
+          </div>
+          <div>
+            <dt class="text-[13px] text-slate-400">OP number</dt>
+            <dd class="mt-0.5 font-semibold text-slate-900">VIS-26-0931</dd>
+          </div>
+        </dl>
+      </section>
+
+      <p class="mt-3 text-sm text-slate-500">Sections 1–4 were filled by the front desk (Reception 1) and sent at 10:24 AM.</p>
+
+      <div class="mt-4 grid grid-cols-1 xl:grid-cols-[1fr_360px] gap-5 items-start">
+
+        <div class="min-w-0">
+
+          <!-- ==================== 1. Symptoms ==================== -->
+          <section aria-labelledby="symptoms-title" class="p-5 rounded-lg border border-slate-200 bg-white">
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+              <span class="step-number">1</span>
+              <h2 id="symptoms-title" class="text-base font-semibold text-slate-900">Symptoms</h2>
+              <span class="text-sm text-slate-500">What the patient tells you, in their words</span>
+            </div>
+
+            <label for="main-symptoms" class="form-label text-sm font-normal mt-4 mb-2">Main symptoms<span class="required-mark">*</span></label>
+            <textarea id="main-symptoms" name="mainSymptoms" rows="2" required class="form-input h-auto py-2.5 resize-y">Burning in the chest after meals, less than at the last visit</textarea>
+
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label for="symptom-since" class="form-label text-sm font-normal mb-2">Since</label>
+                <input id="symptom-since" name="symptomSince" type="text" value="2 weeks" class="form-input">
+              </div>
+              <div>
+                <label for="symptom-severity" class="form-label text-sm font-normal mb-2">How bad</label>
+                <select id="symptom-severity" name="symptomSeverity" class="form-select-field">
+                  <option value="MILD">Mild</option>
+                  <option value="MODERATE" selected>Moderate</option>
+                  <option value="SEVERE">Severe</option>
+                </select>
+              </div>
+              <div>
+                <label for="visit-reason" class="form-label text-sm font-normal mb-2">Reason for visit</label>
+                <select id="visit-reason" name="visitReason" class="form-select-field">
+                  <option value="NEW">New consultation</option>
+                  <option value="FOLLOW_UP" selected>Follow-up</option>
+                  <option value="REVIEW_REPORTS">Review reports</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <!-- ==================== 2. Allergies ==================== -->
+          <section aria-labelledby="allergies-title" class="mt-4 p-5 rounded-lg border border-slate-200 bg-white">
+            <div class="flex items-center gap-2">
+              <span class="step-number">2</span>
+              <h2 id="allergies-title" class="text-base font-semibold text-slate-900">Allergies</h2>
+            </div>
+
+            <div role="radiogroup" aria-label="Allergy status" class="mt-3 inline-flex flex-wrap gap-1 p-1 rounded-lg border border-slate-200 bg-slate-50">
+              <label class="inline-flex items-center h-8 px-3 rounded-md text-sm text-slate-700 cursor-pointer
+                            has-[:checked]:bg-white has-[:checked]:text-[#2456b3] has-[:checked]:shadow-sm
+                            has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-primary/30">
+                <input type="radio" name="allergyStatus" value="NONE" class="sr-only">
+                No known allergies
+              </label>
+              <label class="inline-flex items-center h-8 px-3 rounded-md text-sm text-slate-700 cursor-pointer
+                            has-[:checked]:bg-white has-[:checked]:text-[#2456b3] has-[:checked]:shadow-sm
+                            has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-primary/30">
+                <input type="radio" name="allergyStatus" value="HAS_ALLERGIES" checked class="sr-only">
+                Has allergies
+              </label>
+            </div>
+
+            <!-- Shown only when "Has allergies" is selected -->
+            <div data-allergy-fields>
+              <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <label for="allergic-to" class="form-label text-sm font-normal mb-2">Allergic to</label>
+                  <input id="allergic-to" name="allergicTo" type="text" value="Sulfa drugs" class="form-input">
+                </div>
+                <div>
+                  <label for="allergy-type" class="form-label text-sm font-normal mb-2">Type</label>
+                  <select id="allergy-type" name="allergyType" class="form-select-field">
+                    <option value="MEDICINE" selected>Medicine</option>
+                    <option value="FOOD">Food</option>
+                    <option value="ENVIRONMENT">Environment</option>
+                    <option value="OTHER">Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="allergy-reaction" class="form-label text-sm font-normal mb-2">Reaction</label>
+                  <input id="allergy-reaction" name="allergyReaction" type="text" value="Skin rash" class="form-input">
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ==================== 3. Vitals ==================== -->
+          <section aria-labelledby="vitals-title" class="mt-4 p-5 rounded-lg border border-slate-200 bg-white">
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+              <span class="step-number">3</span>
+              <h2 id="vitals-title" class="text-base font-semibold text-slate-900">Vitals</h2>
+              <span class="text-sm text-slate-500">Taken at the front desk</span>
+            </div>
+
+            <div class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div>
+                <label for="vital-bp" class="form-label text-sm font-normal mb-2">BP (mmHg)<span class="required-mark">*</span></label>
+                <input id="vital-bp" name="bloodPressure" type="text" value="132/84" required class="form-input">
+              </div>
+              <div>
+                <label for="vital-pulse" class="form-label text-sm font-normal mb-2">Pulse (bpm)</label>
+                <input id="vital-pulse" name="pulse" type="text" inputmode="numeric" value="78" class="form-input">
+              </div>
+              <div>
+                <label for="vital-temp" class="form-label text-sm font-normal mb-2">Temp (°F)</label>
+                <input id="vital-temp" name="temperature" type="text" inputmode="decimal" value="98.2" class="form-input">
+              </div>
+              <div>
+                <label for="vital-spo2" class="form-label text-sm font-normal mb-2">SpO₂ (%)</label>
+                <input id="vital-spo2" name="spo2" type="text" inputmode="numeric" value="98" class="form-input">
+              </div>
+              <div>
+                <label for="vital-weight" class="form-label text-sm font-normal mb-2">Weight (kg)</label>
+                <input id="vital-weight" name="weight" type="text" inputmode="decimal" value="81" class="form-input">
+              </div>
+              <div>
+                <label for="vital-height" class="form-label text-sm font-normal mb-2">Height (cm)</label>
+                <input id="vital-height" name="height" type="text" inputmode="decimal" value="172" class="form-input">
+              </div>
+              <div>
+                <label for="vital-bmi" class="form-label text-sm font-normal mb-2">BMI</label>
+                <input id="vital-bmi" name="bmi" type="text" value="27.4" readonly class="form-input bg-slate-50 cursor-default focus:ring-0 focus:border-line">
+              </div>
+            </div>
+          </section>
+
+          <!-- ==================== 4. Medical history and pre-medication ==================== -->
+          <section aria-labelledby="history-title" class="mt-4 p-5 rounded-lg border border-slate-200 bg-white">
+            <div class="flex items-center gap-2">
+              <span class="step-number">4</span>
+              <h2 id="history-title" class="text-base font-semibold text-slate-900">Medical history and pre-medication</h2>
+            </div>
+
+            <fieldset class="mt-3">
+              <legend class="sr-only">Known conditions</legend>
+              <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-700">
+                <label class="inline-flex items-center gap-2 cursor-pointer"><input type="checkbox" name="conditions" value="DIABETES" class="form-checkbox"> Diabetes</label>
+                <label class="inline-flex items-center gap-2 cursor-pointer"><input type="checkbox" name="conditions" value="HYPERTENSION" class="form-checkbox"> High blood pressure</label>
+                <label class="inline-flex items-center gap-2 cursor-pointer"><input type="checkbox" name="conditions" value="HEART_DISEASE" class="form-checkbox"> Heart disease</label>
+                <label class="inline-flex items-center gap-2 cursor-pointer"><input type="checkbox" name="conditions" value="ASTHMA_COPD" class="form-checkbox"> Asthma or COPD</label>
+                <label class="inline-flex items-center gap-2 cursor-pointer"><input type="checkbox" name="conditions" value="THYROID" class="form-checkbox"> Thyroid</label>
+                <label class="inline-flex items-center gap-2 cursor-pointer"><input type="checkbox" name="conditions" value="KIDNEY_DISEASE" class="form-checkbox"> Kidney disease</label>
+              </div>
+            </fieldset>
+
+            <label for="past-illnesses" class="form-label text-sm font-normal mt-4 mb-2">Past illnesses or surgery</label>
+            <input id="past-illnesses" name="pastIllnesses" type="text" value="Gastro-oesophageal reflux disease, diagnosed 15 Oct 2026" class="form-input">
+
+            <label for="current-medicines" class="form-label text-sm font-normal mt-4 mb-2">Medicines the patient takes now</label>
+            <textarea id="current-medicines" name="currentMedicines" rows="2" class="form-input h-auto py-2.5 resize-y">Pantoprazole 40 mg · 1-0-0 before food · course ended 29 Oct</textarea>
+          </section>
+
+          <!-- ==================== 5. Findings and feedback ==================== -->
+          <section aria-labelledby="findings-title" class="mt-4 p-5 rounded-lg border border-slate-200 bg-white">
+            <div class="flex items-center gap-2">
+              <span class="step-number">5</span>
+              <h2 id="findings-title" class="text-base font-semibold text-slate-900">Findings and feedback</h2>
+            </div>
+            <label for="findings" class="sr-only">Findings and feedback</label>
+            <textarea id="findings" name="findings" rows="2" class="form-input h-auto mt-4 py-2.5 resize-y">Abdomen soft, mild tenderness in the upper abdomen. Symptoms better on pantoprazole.</textarea>
+          </section>
+
+          <!-- ==================== 6. Diagnosis ==================== -->
+          <section aria-labelledby="diagnosis-title" class="mt-4 p-5 rounded-lg border border-slate-200 bg-white">
+            <div class="flex items-center gap-2">
+              <span class="step-number">6</span>
+              <h2 id="diagnosis-title" class="text-base font-semibold text-slate-900">Diagnosis<span class="required-mark">*</span></h2>
+            </div>
+
+            <ul id="diagnosis-list" data-chip-list class="mt-4 flex flex-wrap gap-2">
+              <li data-chip class="inline-flex items-center gap-2 pl-3 pr-1.5 py-1.5 rounded-md border border-[#cfe0ee] bg-[#e7f0f8] text-[15px] font-medium text-[#245d85]">
+                <span data-chip-text>Gastro-oesophageal reflux disease · K21.9</span>
+                <span class="px-1.5 py-0.5 rounded border border-[#cfe0ee] bg-white text-xs font-medium text-ink">Final</span>
+                <button type="button" data-remove-chip aria-label="Remove Gastro-oesophageal reflux disease · K21.9" class="w-6 h-6 grid place-items-center rounded text-subtle hover:text-ink">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                </button>
+              </li>
+            </ul>
+
+            <form data-chip-form="diagnosis-list" class="mt-3 flex flex-col sm:flex-row gap-2">
+              <label for="diagnosis-search" class="sr-only">Search diagnosis or ICD-10 code</label>
+              <input id="diagnosis-search" name="diagnosis" type="text" data-chip-input placeholder="Search diagnosis or ICD-10 code" class="form-input flex-1">
+              <label for="diagnosis-type" class="sr-only">Diagnosis type</label>
+              <select id="diagnosis-type" name="diagnosisType" data-chip-badge-select class="form-select-field sm:w-36">
+                <option value="PROVISIONAL" selected>Provisional</option>
+                <option value="FINAL">Final</option>
+              </select>
+              <button type="submit" class="btn-outline px-5">Add</button>
+            </form>
+          </section>
+
+          <!-- ==================== 7. Prescription ==================== -->
+          <section aria-labelledby="prescription-title" class="mt-4 p-5 rounded-lg border border-slate-200 bg-white">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <span class="step-number">7</span>
+                <h2 id="prescription-title" class="text-base font-semibold text-slate-900">Prescription</h2>
+              </div>
+              <p class="text-sm text-slate-400">Goes back to the front desk with the OP. They send it to the pharmacy.</p>
+            </div>
+
+            <div class="hidden md:grid mt-4 grid-cols-[3fr_1.5fr_1.5fr_1.5fr_1fr_auto] gap-3 text-sm text-slate-600" aria-hidden="true">
+              <span>Medicine and strength</span><span>Dose</span><span>Frequency</span><span>Timing</span><span>Days</span><span class="w-10"></span>
+            </div>
+
+            <div data-rx-rows class="mt-4 md:mt-2 space-y-3">
+              <div data-rx-row class="grid grid-cols-2 md:grid-cols-[3fr_1.5fr_1.5fr_1.5fr_1fr_auto] gap-3 items-center">
+                <input name="rxMedicine" type="text" value="Pantoprazole 40 mg tablet" placeholder="Medicine and strength" aria-label="Medicine and strength" class="form-input col-span-2 md:col-span-1">
+                <input name="rxDose" type="text" value="1 tablet" placeholder="Dose" aria-label="Dose" class="form-input">
+                <input name="rxFrequency" type="text" value="1-0-0" placeholder="1-0-1" aria-label="Frequency" class="form-input">
+                <input name="rxTiming" type="text" value="Before food" placeholder="After food" aria-label="Timing" class="form-input">
+                <input name="rxDays" type="text" inputmode="numeric" value="28" placeholder="Days" aria-label="Days" class="form-input">
+                <button type="button" data-remove-rx aria-label="Remove medicine" class="h-10 w-10 grid place-items-center rounded-md text-rose-500 hover:bg-rose-50">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <template id="rx-row-template">
+              <div data-rx-row class="grid grid-cols-2 md:grid-cols-[3fr_1.5fr_1.5fr_1.5fr_1fr_auto] gap-3 items-center">
+                <input name="rxMedicine" type="text" value="" placeholder="Medicine and strength" aria-label="Medicine and strength" class="form-input col-span-2 md:col-span-1">
+                <input name="rxDose" type="text" value="1 tablet" placeholder="Dose" aria-label="Dose" class="form-input">
+                <input name="rxFrequency" type="text" value="" placeholder="1-0-1" aria-label="Frequency" class="form-input">
+                <input name="rxTiming" type="text" value="" placeholder="After food" aria-label="Timing" class="form-input">
+                <input name="rxDays" type="text" inputmode="numeric" value="" placeholder="Days" aria-label="Days" class="form-input">
+                <button type="button" data-remove-rx aria-label="Remove medicine" class="h-10 w-10 grid place-items-center rounded-md text-rose-500 hover:bg-rose-50">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/>
+                  </svg>
+                </button>
+              </div>
+            </template>
+
+            <button type="button" data-add-rx
+                    class="mt-3 inline-flex items-center h-8 px-3 rounded-md border border-dashed border-[#9fc0dc] text-sm font-medium text-[#2c5977] hover:bg-[#f6faff]">
+              + Add medicine
+            </button>
+          </section>
+
+          <!-- ==================== 8. Tests advised ==================== -->
+          <section aria-labelledby="tests-title" class="mt-4 p-5 rounded-lg border border-slate-200 bg-white">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <span class="step-number">8</span>
+                <h2 id="tests-title" class="text-base font-semibold text-slate-900">Tests advised</h2>
+              </div>
+              <p class="text-sm text-slate-400">Goes back to the front desk with the OP. They book them with diagnostics.</p>
+            </div>
+
+            <ul id="tests-list" data-chip-list class="mt-4 flex flex-wrap gap-2">
+              <li data-chip class="inline-flex items-center gap-2 pl-3 pr-1.5 py-1.5 rounded-md border border-[#cfe0ee] bg-[#e7f0f8] text-[15px] font-medium text-[#245d85]">
+                <span data-chip-text>H. pylori stool antigen</span>
+                <span class="px-1.5 py-0.5 rounded border border-[#cfe0ee] bg-white text-xs font-medium text-ink">Routine</span>
+                <button type="button" data-remove-chip aria-label="Remove H. pylori stool antigen" class="w-6 h-6 grid place-items-center rounded text-subtle hover:text-ink">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                </button>
+              </li>
+            </ul>
+
+            <form data-chip-form="tests-list" class="mt-3 flex flex-col sm:flex-row gap-2">
+              <label for="test-search" class="sr-only">Search laboratory or diagnostic test</label>
+              <input id="test-search" name="testAdvised" type="text" data-chip-input placeholder="Search laboratory or diagnostic test (e.g. CBC, LFT, Ultrasound)" class="form-input flex-1">
+              <label for="test-urgency" class="sr-only">Urgency</label>
+              <select id="test-urgency" name="testUrgency" data-chip-badge-select class="form-select-field sm:w-36">
+                <option value="ROUTINE" selected>Routine</option>
+                <option value="URGENT">Urgent</option>
+              </select>
+              <button type="submit" class="btn-outline px-5 border-[#2456b3] text-[#2456b3]">+ Add test</button>
+            </form>
+
+            <div class="mt-3 flex flex-wrap items-center gap-2 text-sm">
+              <span class="text-slate-400">Common:</span>
+              <button type="button" data-quick-chip="CBC" data-chip-target="tests-list" data-chip-badge="Routine" class="h-7 px-2.5 rounded bg-slate-100 text-slate-700 hover:bg-slate-200">+ CBC</button>
+              <button type="button" data-quick-chip="LFT" data-chip-target="tests-list" data-chip-badge="Routine" class="h-7 px-2.5 rounded bg-slate-100 text-slate-700 hover:bg-slate-200">+ LFT</button>
+              <button type="button" data-quick-chip="USG Abdomen" data-chip-target="tests-list" data-chip-badge="Routine" class="h-7 px-2.5 rounded bg-slate-100 text-slate-700 hover:bg-slate-200">+ USG Abdomen</button>
+              <button type="button" data-quick-chip="Endoscopy" data-chip-target="tests-list" data-chip-badge="Routine" class="h-7 px-2.5 rounded bg-slate-100 text-slate-700 hover:bg-slate-200">+ Endoscopy</button>
+            </div>
+          </section>
+
+          <!-- ==================== 9. Advice and follow-up ==================== -->
+          <section aria-labelledby="advice-title" class="mt-4 p-5 rounded-lg border border-slate-200 bg-white">
+            <div class="flex items-center gap-2">
+              <span class="step-number">9</span>
+              <h2 id="advice-title" class="text-base font-semibold text-slate-900">Advice and follow-up</h2>
+            </div>
+            <label for="advice" class="sr-only">Advice</label>
+            <textarea id="advice" name="advice" rows="2" class="form-input h-auto mt-4 py-2.5 resize-y">Small meals, no late dinners, avoid spicy and fried food. Raise the head of the bed.</textarea>
+
+            <div class="mt-4 flex flex-wrap items-end gap-x-5 gap-y-3">
+              <div>
+                <label for="follow-up-date" class="form-label text-sm font-normal mb-2">Follow-up date</label>
+                <input id="follow-up-date" name="followUpDate" type="date" value="2026-11-26" class="form-input w-52">
+              </div>
+              <label class="inline-flex items-center gap-2 h-10 text-sm text-slate-700 cursor-pointer">
+                <input type="checkbox" name="bookFollowUp" checked class="form-checkbox">
+                Ask the front desk to book this follow-up
+              </label>
+            </div>
+          </section>
+
+          <!-- Actions -->
+          <div class="mt-6 flex flex-col-reverse sm:flex-row sm:justify-center gap-3">
+            <a href="todays-opd.html" class="btn-outline">Save draft</a>
+            <a href="todays-opd.html" class="btn-accent">Complete and send OP to front desk</a>
+          </div>
+        </div>
+
+        <!-- ==================== Side ==================== -->
+        <div class="space-y-4 xl:sticky xl:top-4">
+          <section aria-labelledby="previous-visits-title" class="p-5 rounded-lg border border-slate-200 bg-white">
+            <h2 id="previous-visits-title" class="text-[13px] font-semibold tracking-wider uppercase text-slate-500">Previous visits</h2>
+            <ul class="mt-3 divide-y divide-slate-200">
+              <li class="pb-4">
+                <p class="text-[15px] font-semibold text-ink">15 Oct 2026 · with you</p>
+                <p class="mt-1 text-sm text-body">Gastro-oesophageal reflux disease (K21.9).</p>
+                <p class="mt-0.5 text-sm text-subtle">Pantoprazole 40 mg for 14 days.</p>
+              </li>
+              <li class="pt-4">
+                <p class="text-[15px] font-semibold text-ink">12 Jun 2026 · with you</p>
+                <p class="mt-1 text-sm text-body">Acute gastroenteritis. ORS and probiotics for 5 days.</p>
+              </li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="scheme-title" class="p-5 rounded-lg border border-slate-200 bg-white">
+            <h2 id="scheme-title" class="text-[13px] font-semibold tracking-wider uppercase text-slate-500">Scheme</h2>
+            <p class="mt-3 text-[15px] font-semibold text-ink">CGHS · beneficiary ID on file</p>
+            <p class="mt-1 text-sm text-subtle">Prescribe from the CGHS formulary where possible.</p>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/modules/doctor.js"></script>
+</body>
+</html>

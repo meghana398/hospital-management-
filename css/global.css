@@ -1,0 +1,30 @@
+/* ==========================================================
+   Tailwind entry file.
+   Do NOT link this file in HTML. Pages link css/app.css,
+   which Tailwind builds from this file (npm run dev).
+   ========================================================== */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+/* Shared UI used by every portal */
+@import "./components.css";
+
+/* Page-specific styles */
+@import "./pages/login.css";
+
+/* Portal-specific styles */
+@import "./modules/frontdesk.css";
+@import "./modules/doctor.css";
+@import "./modules/diagnostics.css";
+@import "./modules/pharmacy.css";
+@import "./modules/admin.css";
+
+@import "tailwindcss/utilities";
+
+/* ---------- Base styles ---------- */
+@layer base {
+  body {
+    @apply font-sans text-body antialiased bg-page;
+  }
+}

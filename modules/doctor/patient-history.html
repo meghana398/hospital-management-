@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patient history · Doctor</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#f7f9fb] print:bg-white">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line print:hidden">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-[72px] px-4 sm:px-7 py-3">
+
+      <a href="doctor-dashboard.html" class="flex items-center gap-3">
+        <span class="w-10 h-10 grid place-items-center rounded-lg bg-[#2b7489] text-white" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+        </span>
+        <span class="leading-tight">
+          <span class="block text-[15px] font-semibold text-ink">[Hospital name]</span>
+          <span class="block text-[13px] text-subtle">[Branch, City]</span>
+        </span>
+      </a>
+
+      <div class="flex items-center gap-4 sm:gap-5">
+        <a href="notifications.html" aria-label="Notifications, 3 unread" class="relative w-8 h-8 grid place-items-center text-ink hover:text-[#2b7489]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">3</span>
+        </a>
+
+        <a href="my-profile.html" class="flex items-center gap-2.5">
+          <span class="sr-only">My profile:</span>
+          <span class="w-8 h-8 grid place-items-center rounded-full bg-[#dcf3e5] text-xs font-semibold text-[#1f7a46]" aria-hidden="true">FK</span>
+          <span class="hidden sm:block leading-tight">
+            <span class="block text-sm font-semibold text-ink">Dr Farah Khan</span>
+            <span class="block text-xs text-subtle">General medicine</span>
+          </span>
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          Sign out
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex-1 flex flex-col lg:flex-row">
+
+    <!-- ==================== Sidebar ==================== -->
+    <aside class="print:hidden lg:flex-none lg:w-[250px] bg-white border-b lg:border-b-0 lg:border-r border-line px-3 lg:px-4 py-3 lg:py-5">
+      <nav aria-label="Doctor" class="flex lg:flex-col gap-1 overflow-x-auto text-[15px]">
+        <a href="doctor-dashboard.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="notifications.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          Notifications
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">3</span>
+        </a>
+        <a href="todays-opd.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="7" r="3"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14a4 4 0 0 1 4 4v1"/>
+          </svg>
+          Today's OPD
+        </a>
+        <a href="appointments.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M8 10v11"/>
+          </svg>
+          Appointments
+        </a>
+        <a href="my-patients.html" aria-current="page"
+           class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg bg-[#e3f1f6] text-[#1f5f73] whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="15" rx="2"/><circle cx="9" cy="12" r="2.5"/><path d="M5.5 17a3.5 3.5 0 0 1 7 0M15 10h3M15 14h3"/>
+          </svg>
+          My patients
+        </a>
+        <a href="reports-to-review.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13l6 6M9 17h3"/>
+          </svg>
+          Reports to review
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fdecc8] text-[11px] font-semibold text-[#9a5b00]">3</span>
+        </a>
+        <a href="my-schedule.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+          </svg>
+          My schedule
+        </a>
+      </nav>
+
+      <div class="hidden lg:block mt-40 p-4 rounded-xl border border-[#cfe9df] bg-[#effaf5]">
+        <p class="text-sm font-semibold text-[#1f6b52]">OPD today</p>
+        <p class="mt-1.5 text-[13px] text-ink">9:00 AM – 1:00 PM</p>
+        <p class="mt-0.5 text-[13px] text-subtle">Block A, ground floor, Room 012</p>
+      </div>
+    </aside>
+
+    <!-- ==================== Main ==================== -->
+    <main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-9 pt-8 pb-14 print:p-0">
+
+      <a href="my-patients.html" class="inline-flex items-center gap-1.5 text-[15px] font-semibold text-[#24606f] hover:underline print:hidden">
+        <span aria-hidden="true">&larr;</span> Back to my patients
+      </a>
+
+      <!-- Patient -->
+      <section aria-label="Patient" class="mt-5 flex flex-wrap xl:flex-nowrap items-center justify-between gap-5 p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+        <div class="min-w-0 flex items-center gap-5">
+          <span class="flex-none w-16 h-16 grid place-items-center rounded-full border border-[#e3eaef] bg-[#eef2f6] text-lg font-bold text-[#2f4f6c]" aria-hidden="true">RS</span>
+          <div>
+            <div class="flex flex-wrap items-center gap-2">
+              <h1 class="text-2xl font-semibold text-ink">Ramesh Sharma</h1>
+              <span class="px-2.5 py-0.5 rounded-full border border-[#a8dccb] bg-[#e9f7f1] text-sm text-[#1f6b52]">Insurance · cashless</span>
+              <span class="px-2.5 py-0.5 rounded-full border border-[#f6caca] bg-[#fdf0f0] text-sm text-[#c0392b]">Allergy: Penicillin</span>
+            </div>
+            <p class="mt-1.5 text-[15px] text-subtle">UHID HSP1.0000123456 · 52 y 4 m · Male · Patient since 02 Aug 2025 · 3 visits, 2 with you</p>
+          </div>
+        </div>
+        <div class="xl:flex-none flex flex-wrap gap-3 print:hidden">
+          <a href="appointment-details.html" class="inline-flex items-center h-10 px-5 rounded-md bg-[#24688a] text-[15px] font-medium text-white hover:bg-[#1d5672]">Next visit · 9 Nov</a>
+          <button type="button" data-print class="btn-outline px-5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+            Download summary
+          </button>
+        </div>
+      </section>
+
+      <!-- Summary cards -->
+      <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <section aria-labelledby="conditions-title" class="flex flex-col p-5 rounded-xl border border-[#e3eaef] bg-white">
+          <h2 id="conditions-title" class="text-[15px] font-semibold text-ink">Conditions</h2>
+          <p class="mt-3 flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full border border-[#cfe3f2] bg-[#eef6fc] text-[15px] text-[#1f5f8b]">Hypertension</span>
+            <span class="px-3 py-1 rounded-full border border-[#cfe3f2] bg-[#eef6fc] text-[15px] text-[#1f5f8b]">Type 2 diabetes</span>
+          </p>
+          <p class="mt-auto pt-6 text-sm text-subtle">Past surgery: Appendectomy, 2009</p>
+        </section>
+
+        <section aria-labelledby="medicines-title" class="flex flex-col p-5 rounded-xl border border-[#e3eaef] bg-white">
+          <h2 id="medicines-title" class="text-[15px] font-semibold text-ink">Current medicines</h2>
+          <ul class="mt-3 space-y-1 text-[15px] text-ink">
+            <li>Telmisartan 40 mg · 1-0-0</li>
+            <li>Metformin 500 mg · 1-0-1</li>
+            <li>Atorvastatin 10 mg · 0-0-1</li>
+          </ul>
+          <p class="mt-auto pt-4 text-sm text-subtle">Started 26 Oct 2026 · 30 days</p>
+        </section>
+
+        <section aria-labelledby="upcoming-title" class="flex flex-col p-5 rounded-xl border border-[#e3eaef] bg-white">
+          <h2 id="upcoming-title" class="text-[15px] font-semibold text-ink">Upcoming</h2>
+          <p class="mt-3 text-[15px] text-ink">Follow-up · Mon 9 Nov 2026, 10:30 AM</p>
+          <p class="mt-1 text-sm text-subtle">Token T-04 · booked by the front desk</p>
+          <p class="mt-auto pt-6 text-sm text-subtle">ECG still pending</p>
+        </section>
+      </div>
+
+      <!-- Vitals across visits -->
+      <section aria-labelledby="vitals-title" class="mt-5 p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-[#edf1f4]">
+          <h2 id="vitals-title" class="text-lg font-semibold text-ink">Vitals across visits</h2>
+          <p class="text-[15px] text-[#c2570c]">Blood pressure has gone up at each visit since Aug 2025</p>
+        </div>
+        <div class="relative mt-4 overflow-x-auto">
+          <table class="w-full min-w-[720px] text-left text-[15px]">
+            <thead class="bg-[#f4f9fc] text-[#1f5f73]">
+              <tr>
+                <th scope="col" class="px-5 py-3.5 font-semibold">Visit</th>
+                <th scope="col" class="px-4 py-3.5 font-semibold">Blood pressure (mmHg)</th>
+                <th scope="col" class="px-4 py-3.5 font-semibold">Pulse (bpm)</th>
+                <th scope="col" class="px-4 py-3.5 font-semibold">Weight (kg)</th>
+                <th scope="col" class="px-4 py-3.5 font-semibold">BMI</th>
+                <th scope="col" class="px-4 py-3.5 font-semibold">HbA1c (%)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#edf1f4] text-ink">
+              <tr>
+                <td class="px-5 py-3.5">26 Oct 2026</td>
+                <td class="px-4 py-3.5"><strong class="font-semibold text-[#c0392b]">148/92</strong> <span class="text-sm text-[#c0392b]">High</span></td>
+                <td class="px-4 py-3.5">84</td>
+                <td class="px-4 py-3.5">78</td>
+                <td class="px-4 py-3.5">26.4</td>
+                <td class="px-4 py-3.5"><strong class="font-semibold text-[#c0392b]">7.4</strong> <span class="text-sm text-[#c0392b]">High</span></td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3.5">14 Mar 2026</td>
+                <td class="px-4 py-3.5"><strong class="font-semibold text-[#c2570c]">138/88</strong> <span class="text-sm text-[#c2570c]">Raised</span></td>
+                <td class="px-4 py-3.5">80</td>
+                <td class="px-4 py-3.5">77</td>
+                <td class="px-4 py-3.5">26.0</td>
+                <td class="px-4 py-3.5 text-subtle">Not done</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3.5">02 Aug 2025</td>
+                <td class="px-4 py-3.5">130/84</td>
+                <td class="px-4 py-3.5">88</td>
+                <td class="px-4 py-3.5">76</td>
+                <td class="px-4 py-3.5">25.7</td>
+                <td class="px-4 py-3.5 text-subtle">Not done</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Visits -->
+      <section aria-labelledby="visits-title" class="mt-5 p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+        <h2 id="visits-title" class="text-lg font-semibold text-ink">Visits</h2>
+        <div class="mt-4 space-y-4">
+          <details class="group rounded-lg border border-[#e3eaef] bg-white" open>
+            <summary class="flex flex-wrap items-center justify-between gap-3 px-5 py-4 rounded-lg cursor-pointer list-none group-open:rounded-b-none group-open:border-b group-open:border-[#e3eaef] group-open:bg-[#f4f9fc] [&::-webkit-details-marker]:hidden">
+              <span class="text-[15px] text-subtle"><strong class="font-semibold text-ink">26 Oct 2026</strong> · <strong class="font-semibold text-ink">General medicine</strong> · with you · VIS-26-0871</span>
+              <span class="text-[15px] text-subtle group-open:text-[#24606f]">Show or hide</span>
+            </summary>
+            <dl class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 px-5 py-5">
+              <div class="space-y-5">
+                <div>
+                  <dt class="text-sm text-placeholder">Chief complaints</dt>
+                  <dd class="mt-1.5 text-[15px] leading-7 text-ink">Tiredness and occasional dizziness for 2 weeks. Morning headaches.</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-placeholder">Tests ordered</dt>
+                  <dd class="mt-1.5 text-[15px] leading-7 text-ink">HbA1c · Lipid profile · Serum creatinine · ECG</dd>
+                </div>
+              </div>
+              <div class="space-y-5">
+                <div>
+                  <dt class="text-sm text-placeholder">Findings</dt>
+                  <dd class="mt-1.5 text-[15px] leading-7 text-ink">BP raised on two readings. Heart and lungs normal. No swelling of the feet.</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-placeholder">Advice</dt>
+                  <dd class="mt-1.5 text-[15px] leading-7 text-ink">Low-salt, low-sugar diet. Walk 30 minutes a day. Home BP twice a week. Follow-up 9 Nov 2026.</dd>
+                </div>
+              </div>
+              <div class="space-y-5">
+                <div>
+                  <dt class="text-sm text-placeholder">Diagnosis</dt>
+                  <dd class="mt-1.5 text-[15px] leading-7 text-ink">Essential hypertension, uncontrolled (I10) · Final<br><span class="block mt-2">Type 2 diabetes mellitus (E11.9) · Provisional</span></dd>
+                </div>
+              </div>
+              <div class="space-y-5">
+                <div>
+                  <dt class="text-sm text-placeholder">Prescription</dt>
+                  <dd class="mt-1.5 text-[15px] leading-7 text-ink">Telmisartan 40 mg 1-0-0 · Metformin 500 mg 1-0-1 · Atorvastatin 10 mg 0-0-1 · 30 days</dd>
+                </div>
+              </div>
+            </dl>
+          </details>
+
+          <details class="group rounded-lg border border-[#e3eaef] bg-white">
+            <summary class="flex flex-wrap items-center justify-between gap-3 px-5 py-4 rounded-lg cursor-pointer list-none group-open:rounded-b-none group-open:border-b group-open:border-[#e3eaef] group-open:bg-[#f4f9fc] [&::-webkit-details-marker]:hidden">
+              <span class="text-[15px] text-subtle"><strong class="font-semibold text-ink">14 Mar 2026</strong> · <strong class="font-semibold text-ink">Cardiology</strong> · Dr Meera Iyer · VIS-26-0412</span>
+              <span class="text-[15px] text-subtle group-open:text-[#24606f]">Show or hide</span>
+            </summary>
+            <dl class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 px-5 py-5">
+              <div class="space-y-5">
+                <div>
+                  <dt class="text-sm text-placeholder">Chief complaints</dt>
+                  <dd class="mt-1.5 text-[15px] leading-7 text-ink">Occasional palpitations after climbing stairs.</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-placeholder">Tests ordered</dt>
+                  <dd class="mt-1.5 text-[15px] leading-7 text-ink">ECG · Echocardiogram</dd>
+                </div>
+              </div>
+              <div class="space-y-5">
+                <div>
+                  <dt class="text-sm text-placeholder">Findings</dt>
+                  <dd class="mt-1.5 text-[15px] leading-7 text-ink">BP 138/88. Heart sounds normal. ECG normal sinus rhythm.</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-placeholder">Advice</dt>
+                  <dd class="mt-1.5 text-[15px] leading-7 text-ink">Cut down on salt and tea. Recheck BP in 3 months.</dd>
+                </div>
+              </div>
+              <div class="space-y-5">
+                <div>
+                  <dt class="text-sm text-placeholder">Diagnosis</dt>
+                  <dd class="mt-1.5 text-[15px] leading-7 text-ink">Palpitations, no heart disease found (R00.2) · Final</dd>
+                </div>
+              </div>
+              <div class="space-y-5">
+                <div>
+                  <dt class="text-sm text-placeholder">Prescription</dt>
+                  <dd class="mt-1.5 text-[15px] leading-7 text-ink">No medicines started</dd>
+                </div>
+              </div>
+            </dl>
+          </details>
+
+          <details class="group rounded-lg border border-[#e3eaef] bg-white">
+            <summary class="flex flex-wrap items-center justify-between gap-3 px-5 py-4 rounded-lg cursor-pointer list-none group-open:rounded-b-none group-open:border-b group-open:border-[#e3eaef] group-open:bg-[#f4f9fc] [&::-webkit-details-marker]:hidden">
+              <span class="text-[15px] text-subtle"><strong class="font-semibold text-ink">02 Aug 2025</strong> · <strong class="font-semibold text-ink">General medicine</strong> · with you · VIS-25-1190</span>
+              <span class="text-[15px] text-subtle group-open:text-[#24606f]">Show or hide</span>
+            </summary>
+            <dl class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 px-5 py-5">
+              <div class="space-y-5">
+                <div>
+                  <dt class="text-sm text-placeholder">Chief complaints</dt>
+                  <dd class="mt-1.5 text-[15px] leading-7 text-ink">Fever and body ache for 3 days.</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-placeholder">Tests ordered</dt>
+                  <dd class="mt-1.5 text-[15px] leading-7 text-ink">Complete blood count</dd>
+                </div>
+              </div>
+              <div class="space-y-5">
+                <div>
+                  <dt class="text-sm text-placeholder">Findings</dt>
+                  <dd class="mt-1.5 text-[15px] leading-7 text-ink">Temperature 100.4 °F. Throat congested. Chest clear.</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-placeholder">Advice</dt>
+                  <dd class="mt-1.5 text-[15px] leading-7 text-ink">Rest, plenty of fluids. Come back if fever lasts beyond 5 days.</dd>
+                </div>
+              </div>
+              <div class="space-y-5">
+                <div>
+                  <dt class="text-sm text-placeholder">Diagnosis</dt>
+                  <dd class="mt-1.5 text-[15px] leading-7 text-ink">Acute viral fever (B34.9) · Final</dd>
+                </div>
+              </div>
+              <div class="space-y-5">
+                <div>
+                  <dt class="text-sm text-placeholder">Prescription</dt>
+                  <dd class="mt-1.5 text-[15px] leading-7 text-ink">Paracetamol 650 mg 1-1-1 · 3 days</dd>
+                </div>
+              </div>
+            </dl>
+          </details>
+        </div>
+      </section>
+
+      <!-- Reports -->
+      <section aria-labelledby="reports-title" class="mt-5 p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+        <h2 id="reports-title" class="text-lg font-semibold text-ink">Reports</h2>
+        <div class="relative mt-4 overflow-x-auto">
+          <table class="w-full min-w-[720px] text-left text-[15px]">
+            <thead class="bg-[#f4f9fc] text-[#1f5f73]">
+              <tr>
+                <th scope="col" class="px-5 py-3.5 font-semibold">Report</th>
+                <th scope="col" class="px-4 py-3.5 font-semibold">Reported on</th>
+                <th scope="col" class="px-4 py-3.5 font-semibold">Key result</th>
+                <th scope="col" class="px-4 py-3.5 font-semibold">Flag</th>
+                <th scope="col" class="px-5 py-3.5 font-semibold">Your review</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#edf1f4]">
+              <tr>
+                <td class="px-5 py-3.5 text-ink">Serum creatinine</td>
+                <td class="px-4 py-3.5 text-ink">29 Oct 2026</td>
+                <td class="px-4 py-3.5 text-ink">1.1 mg/dL</td>
+                <td class="px-4 py-3.5"><span class="pill border border-[#bfe6cb] bg-[#ebf8ef] text-[#1f7a46]">Normal</span></td>
+                <td class="px-5 py-3.5"><a href="reports-to-review.html" class="font-semibold text-[#24606f] hover:underline">Review now</a></td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3.5 text-ink">Lipid profile</td>
+                <td class="px-4 py-3.5 text-ink">26 Oct 2026</td>
+                <td class="px-4 py-3.5 text-ink">LDL 134 mg/dL</td>
+                <td class="px-4 py-3.5"><span class="pill border border-[#f6caca] bg-[#fdf0f0] text-[#c0392b]">High</span></td>
+                <td class="px-5 py-3.5"><span class="text-subtle">Reviewed · statin started</span></td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3.5 text-ink">HbA1c</td>
+                <td class="px-4 py-3.5 text-ink">26 Oct 2026</td>
+                <td class="px-4 py-3.5 text-ink">7.4 %</td>
+                <td class="px-4 py-3.5"><span class="pill border border-[#f6caca] bg-[#fdf0f0] text-[#c0392b]">High</span></td>
+                <td class="px-5 py-3.5"><span class="text-subtle">Reviewed · review at follow-up</span></td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3.5 text-ink">ECG</td>
+                <td class="px-4 py-3.5 text-ink"><span class="text-placeholder">—</span></td>
+                <td class="px-4 py-3.5 text-ink"><span class="text-placeholder">—</span></td>
+                <td class="px-4 py-3.5"><span class="pill border border-slate-200 bg-slate-100 text-slate-600">Pending</span></td>
+                <td class="px-5 py-3.5"><span class="text-placeholder">Waiting for the test</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../js/modules/doctor.js"></script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My schedule · Doctor</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#f7f9fb]">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-[72px] px-4 sm:px-7 py-3">
+
+      <a href="doctor-dashboard.html" class="flex items-center gap-3">
+        <span class="w-10 h-10 grid place-items-center rounded-lg bg-[#2b7489] text-white" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+        </span>
+        <span class="leading-tight">
+          <span class="block text-[15px] font-semibold text-ink">[Hospital name]</span>
+          <span class="block text-[13px] text-subtle">[Branch, City]</span>
+        </span>
+      </a>
+
+      <div class="flex items-center gap-4 sm:gap-5">
+        <a href="notifications.html" aria-label="Notifications, 3 unread" class="relative w-8 h-8 grid place-items-center text-ink hover:text-[#2b7489]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">3</span>
+        </a>
+
+        <a href="my-profile.html" class="flex items-center gap-2.5">
+          <span class="sr-only">My profile:</span>
+          <span class="w-8 h-8 grid place-items-center rounded-full bg-[#dcf3e5] text-xs font-semibold text-[#1f7a46]" aria-hidden="true">FK</span>
+          <span class="hidden sm:block leading-tight">
+            <span class="block text-sm font-semibold text-ink">Dr Farah Khan</span>
+            <span class="block text-xs text-subtle">General medicine</span>
+          </span>
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          Sign out
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex-1 flex flex-col lg:flex-row">
+
+    <!-- ==================== Sidebar ==================== -->
+    <aside class="lg:flex-none lg:w-[250px] bg-white border-b lg:border-b-0 lg:border-r border-line px-3 lg:px-4 py-3 lg:py-5">
+      <nav aria-label="Doctor" class="flex lg:flex-col gap-1 overflow-x-auto text-[15px]">
+        <a href="doctor-dashboard.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="notifications.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          Notifications
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">3</span>
+        </a>
+        <a href="todays-opd.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="7" r="3"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14a4 4 0 0 1 4 4v1"/>
+          </svg>
+          Today's OPD
+        </a>
+        <a href="appointments.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M8 10v11"/>
+          </svg>
+          Appointments
+        </a>
+        <a href="my-patients.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="15" rx="2"/><circle cx="9" cy="12" r="2.5"/><path d="M5.5 17a3.5 3.5 0 0 1 7 0M15 10h3M15 14h3"/>
+          </svg>
+          My patients
+        </a>
+        <a href="reports-to-review.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13l6 6M9 17h3"/>
+          </svg>
+          Reports to review
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fdecc8] text-[11px] font-semibold text-[#9a5b00]">3</span>
+        </a>
+        <a href="my-schedule.html" aria-current="page"
+           class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg bg-[#e3f1f6] text-[#1f5f73] whitespace-nowrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+          </svg>
+          My schedule
+        </a>
+      </nav>
+
+      <div class="hidden lg:block mt-40 p-4 rounded-xl border border-[#cfe9df] bg-[#effaf5]">
+        <p class="text-sm font-semibold text-[#1f6b52]">OPD today</p>
+        <p class="mt-1.5 text-[13px] text-ink">9:00 AM – 1:00 PM</p>
+        <p class="mt-0.5 text-[13px] text-subtle">Block A, ground floor, Room 012</p>
+      </div>
+    </aside>
+
+    <!-- ==================== Main ==================== -->
+    <main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-9 pt-8 pb-14">
+
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-ink">My schedule</h1>
+          <p class="mt-1 text-[15px] text-subtle">Your OPD slots. The front desk books patients into free slots only.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button type="button" aria-label="Previous week" class="w-10 h-10 grid place-items-center rounded-md border border-line bg-white text-ink hover:bg-page">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <p class="text-[15px] font-semibold text-ink whitespace-nowrap">26 Oct – 1 Nov 2026</p>
+          <button type="button" aria-label="Next week" class="w-10 h-10 grid place-items-center rounded-md border border-line bg-white text-ink hover:bg-page">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Week -->
+      <ol aria-label="This week" class="mt-6 grid grid-cols-2 sm:grid-cols-4 xl:grid-cols-7 gap-3">
+        <li class="p-4 rounded-xl border border-[#e3eaef] bg-white text-center">
+          <p class="text-[15px] text-subtle">Mon</p>
+          <p class="mt-1 text-2xl font-bold text-ink">26</p>
+          <p class="mt-1 text-sm text-subtle">6 of 8 booked</p>
+          <span class="block mt-3 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#2f7aa0]" style="width: 75%"></span></span>
+        </li>
+        <li class="p-4 rounded-xl border border-[#e3eaef] bg-white text-center">
+          <p class="text-[15px] text-subtle">Tue</p>
+          <p class="mt-1 text-2xl font-bold text-ink">27</p>
+          <p class="mt-1 text-sm text-subtle">4 of 8 booked</p>
+          <span class="block mt-3 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#2f7aa0]" style="width: 50%"></span></span>
+        </li>
+        <li class="p-4 rounded-xl border border-[#e3eaef] bg-white text-center">
+          <p class="text-[15px] text-subtle">Wed</p>
+          <p class="mt-1 text-2xl font-bold text-ink">28</p>
+          <p class="mt-1 text-sm text-subtle">6 of 8 booked</p>
+          <span class="block mt-3 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#2f7aa0]" style="width: 75%"></span></span>
+        </li>
+        <li aria-current="date" class="p-4 rounded-xl border border-[#2f7aa0] bg-[#2f7aa0] text-center text-white">
+          <p class="text-[15px] text-white/85">Thu</p>
+          <p class="mt-1 text-2xl font-bold">29</p>
+          <p class="mt-1 text-sm text-white/85">7 of 8 booked</p>
+          <span class="block mt-3 h-1.5 rounded-full bg-[#1d5672]" aria-hidden="true"><span class="block h-full rounded-full bg-white" style="width: 87.5%"></span></span>
+        </li>
+        <li class="p-4 rounded-xl border border-[#e3eaef] bg-white text-center">
+          <p class="text-[15px] text-subtle">Fri</p>
+          <p class="mt-1 text-2xl font-bold text-ink">30</p>
+          <p class="mt-1 text-sm text-subtle">6 of 8 booked</p>
+          <span class="block mt-3 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#2f7aa0]" style="width: 75%"></span></span>
+        </li>
+        <li class="p-4 rounded-xl border border-[#e3eaef] bg-white text-center">
+          <p class="text-[15px] text-subtle">Sat</p>
+          <p class="mt-1 text-2xl font-bold text-ink">31</p>
+          <p class="mt-1 text-sm text-subtle">4 of 8 booked</p>
+          <span class="block mt-3 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#2f7aa0]" style="width: 50%"></span></span>
+        </li>
+        <li class="p-4 rounded-xl border border-[#e3eaef] bg-white text-center">
+          <p class="text-[15px] text-placeholder">Sun</p>
+          <p class="mt-1 text-2xl font-bold text-placeholder">1</p>
+          <p class="mt-1 text-sm text-placeholder">No OPD</p>
+          <span class="block mt-3 border-t border-dashed border-line" aria-hidden="true"></span>
+        </li>
+      </ol>
+
+      <div class="mt-5 grid grid-cols-1 xl:grid-cols-[2fr_1fr] gap-5 items-start">
+
+        <!-- Day slots -->
+        <section aria-labelledby="day-title" class="rounded-xl border border-[#e3eaef] bg-white">
+          <div class="flex flex-wrap items-center justify-between gap-3 px-6 py-5 border-b border-[#edf1f4]">
+            <h2 id="day-title" class="text-lg font-semibold text-ink">Thu, 29 Oct 2026 · today</h2>
+            <p class="text-[15px] text-subtle">7 booked · 1 free</p>
+          </div>
+          <ul class="divide-y divide-[#edf1f4]">
+          <li class="flex flex-wrap items-center gap-x-6 gap-y-2 px-6 py-4">
+            <span class="w-20 text-[15px] font-semibold text-ink">9:00 AM</span>
+            <span class="pill border border-[#bfe6cb] bg-[#ebf8ef] text-[#1f7a46]">Done</span>
+            <span class="text-[15px] text-ink">Anita Desai</span>
+          </li>
+          <li class="flex flex-wrap items-center gap-x-6 gap-y-2 px-6 py-4">
+            <span class="w-20 text-[15px] font-semibold text-ink">9:30 AM</span>
+            <span class="pill border border-[#bfe6cb] bg-[#ebf8ef] text-[#1f7a46]">Done</span>
+            <span class="text-[15px] text-ink">Mohammed Irfan</span>
+          </li>
+          <li class="flex flex-wrap items-center gap-x-6 gap-y-2 px-6 py-4">
+            <span class="w-20 text-[15px] font-semibold text-ink">10:00 AM</span>
+            <span class="pill border border-[#bfe6cb] bg-[#ebf8ef] text-[#1f7a46]">Done</span>
+            <span class="text-[15px] text-ink">Priya Nair</span>
+          </li>
+          <li class="flex flex-wrap items-center gap-x-6 gap-y-2 px-6 py-4">
+            <span class="w-20 text-[15px] font-semibold text-ink">10:30 AM</span>
+            <span class="pill border border-[#c5dceb] bg-[#e7f0f6] text-[#2f6f94]">Booked</span>
+            <span class="text-[15px] text-ink">Suresh Patil</span>
+          </li>
+          <li class="flex flex-wrap items-center gap-x-6 gap-y-2 px-6 py-4">
+            <span class="w-20 text-[15px] font-semibold text-ink">11:00 AM</span>
+            <span class="pill border border-[#c5dceb] bg-[#e7f0f6] text-[#2f6f94]">Booked</span>
+            <span class="text-[15px] text-ink">Kavita Rao</span>
+          </li>
+          <li data-slot class="flex flex-wrap items-center gap-x-6 gap-y-2 px-6 py-4 bg-[#fafbfc]">
+            <span class="w-20 text-[15px] font-semibold text-ink">11:30 AM</span>
+            <span data-slot-status class="pill border border-dashed border-slate-300 bg-white text-slate-500">Free</span>
+            <span data-slot-text class="text-[15px] text-subtle">Open for booking</span>
+            <button type="button" data-block-slot class="ml-auto btn-outline h-9 px-4">Block</button>
+          </li>
+          <li class="flex flex-wrap items-center gap-x-6 gap-y-2 px-6 py-4">
+            <span class="w-20 text-[15px] font-semibold text-ink">12:00 PM</span>
+            <span class="pill border border-[#c5dceb] bg-[#e7f0f6] text-[#2f6f94]">Booked</span>
+            <span class="text-[15px] text-ink">Arjun Bose</span>
+          </li>
+          <li class="flex flex-wrap items-center gap-x-6 gap-y-2 px-6 py-4">
+            <span class="w-20 text-[15px] font-semibold text-ink">12:30 PM</span>
+            <span class="pill border border-[#c5dceb] bg-[#e7f0f6] text-[#2f6f94]">Booked</span>
+            <span class="text-[15px] text-ink">Lakshmi Iyer</span>
+          </li>
+          </ul>
+          <ul aria-label="Legend" class="flex flex-wrap gap-x-6 gap-y-2 px-6 py-4 border-t border-[#edf1f4] text-[15px] text-subtle">
+            <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#2f7aa0]" aria-hidden="true"></span>Booked</li>
+            <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#1fa463]" aria-hidden="true"></span>Done</li>
+            <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full border border-slate-400 bg-white" aria-hidden="true"></span>Free</li>
+            <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-slate-400" aria-hidden="true"></span>Blocked</li>
+          </ul>
+        </section>
+
+        <div class="space-y-5">
+
+          <!-- Regular OPD hours -->
+          <section aria-labelledby="hours-title" class="p-6 rounded-xl border border-[#e3eaef] bg-white">
+            <h2 id="hours-title" class="text-[15px] font-semibold tracking-wider uppercase text-ink">Regular OPD hours</h2>
+            <dl class="mt-5 grid grid-cols-2 gap-x-6 gap-y-5">
+              <div><dt class="text-sm text-placeholder">Days</dt><dd class="mt-1 text-[15px] font-semibold text-ink">Mon – Sat</dd></div>
+              <div><dt class="text-sm text-placeholder">Hours</dt><dd class="mt-1 text-[15px] font-semibold text-ink">9:00 AM – 1:00 PM</dd></div>
+              <div><dt class="text-sm text-placeholder">Slot length</dt><dd class="mt-1 text-[15px] font-semibold text-ink">30 minutes · 8 slots</dd></div>
+              <div><dt class="text-sm text-placeholder">Room</dt><dd class="mt-1 text-[15px] font-semibold text-ink">Block A, Room 012</dd></div>
+            </dl>
+            <p class="mt-5 pt-4 border-t border-[#edf1f4] text-sm text-subtle">To change your regular hours, contact the OPD coordinator.</p>
+          </section>
+
+          <!-- Leave and blocked days -->
+          <section aria-labelledby="blocked-title" class="p-6 rounded-xl border border-[#e3eaef] bg-white">
+            <h2 id="blocked-title" class="text-[15px] font-semibold tracking-wider uppercase text-ink">Leave and blocked days</h2>
+            <ul id="blocked-days" class="mt-4 space-y-2">
+              <li class="p-4 rounded-lg border border-[#e3eaef] bg-[#f8fafc]">
+                <p class="text-[15px] font-semibold text-ink">Fri, 6 Nov 2026 · full day</p>
+                <p class="mt-0.5 text-sm text-subtle">Medical conference</p>
+              </li>
+            </ul>
+
+            <form id="block-day-form" class="mt-6">
+              <h3 class="text-[15px] font-semibold text-ink">Block a full day</h3>
+              <label for="block-date" class="form-label text-sm font-normal mt-3 mb-2">Date</label>
+              <input id="block-date" name="blockDate" type="date" required class="form-input">
+              <label for="block-reason" class="form-label text-sm font-normal mt-4 mb-2">Reason</label>
+              <select id="block-reason" name="blockReason" class="form-select-field">
+                <option value="PERSONAL_LEAVE" selected>Personal leave</option>
+                <option value="MEDICAL_CONFERENCE">Medical conference</option>
+                <option value="TRAINING">Training</option>
+                <option value="OTHER">Other</option>
+              </select>
+              <button type="submit" class="mt-5 w-full h-11 rounded-md bg-[#2f7aa0] text-[15px] font-semibold text-white hover:bg-[#286888]">Block day</button>
+              <p class="mt-4 text-sm leading-6 text-subtle">The front desk is notified and can't book blocked slots. Patients already booked on that day are moved by the front desk.</p>
+            </form>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/modules/doctor.js"></script>
+</body>
+</html>
