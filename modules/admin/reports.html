@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reports · Admin</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#f7f9fb]">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-[72px] px-4 sm:px-7 py-3">
+
+      <a href="admin-dashboard.html" class="flex items-center gap-3">
+        <span class="w-10 h-10 grid place-items-center rounded-lg bg-[#1f6a85] text-white" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+        </span>
+        <span class="leading-tight">
+          <span class="block text-[15px] font-semibold text-ink">[Hospital name]</span>
+          <span class="block text-[13px] text-subtle">Hospital administration</span>
+        </span>
+      </a>
+
+      <div class="flex items-center gap-4 sm:gap-5">
+        <a href="notifications.html" aria-label="Notifications, 5 unread" class="relative w-8 h-8 grid place-items-center text-ink hover:text-[#1f6a85]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">5</span>
+        </a>
+
+        <span class="hidden sm:block w-px h-8 bg-line" aria-hidden="true"></span>
+
+        <a href="my-profile.html" class="flex items-center gap-2.5">
+          <span class="sr-only">My profile:</span>
+          <span class="w-8 h-8 grid place-items-center rounded-full bg-[#e3eaf3] text-xs font-semibold text-[#1f5f7a]" aria-hidden="true">RS</span>
+          <span class="hidden sm:block leading-tight">
+            <span class="block text-sm font-semibold text-ink">R. Shankar</span>
+            <span class="block text-xs text-subtle">Hospital administrator</span>
+          </span>
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          Sign out
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex-1 flex flex-col lg:flex-row">
+
+    <!-- ==================== Sidebar ==================== -->
+    <aside class="lg:flex-none lg:w-[270px] flex flex-col bg-white border-b lg:border-b-0 lg:border-r border-line px-3 lg:px-4 py-3 lg:py-5">
+      <nav aria-label="Administration" class="flex lg:flex-col gap-1 overflow-x-auto text-[15px]">
+        <a href="admin-dashboard.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+          </svg>
+          Hospital overview
+        </a>
+        <a href="front-desk.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.5a5 5 0 0 1 5.5 5"/>
+          </svg>
+          Front desk
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fdecc8] text-[#9a5b00] text-[11px] font-semibold">2</span>
+        </a>
+        <a href="doctors.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>
+          </svg>
+          Doctors
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fdecc8] text-[#9a5b00] text-[11px] font-semibold">1</span>
+        </a>
+        <a href="diagnostics.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/>
+          </svg>
+          Diagnostics
+        </a>
+        <a href="pharmacy.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10.5 20.5a5 5 0 0 1-7-7l7-7a5 5 0 0 1 7 7z"/><path d="M8.5 8.5l7 7"/>
+          </svg>
+          Pharmacy
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-white text-[11px] font-semibold">2</span>
+        </a>
+        <a href="beds-wards.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 18V6M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="11" r="2"/>
+          </svg>
+          Beds and wards
+        </a>
+        <a href="revenue-expenses.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/>
+          </svg>
+          Revenue and expenses
+        </a>
+        <a href="reports.html" aria-current="page"
+           class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg bg-[#e6f0f6] font-semibold text-[#1f5f7a] whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>
+          </svg>
+          Reports
+        </a>
+      </nav>
+
+      <div class="hidden lg:block mt-auto pt-10">
+        <div class="p-4 rounded-xl border border-[#d6e3ee] bg-[#eef4f9]">
+          <p class="text-sm font-semibold text-ink">Friday, 30 Oct 2026</p>
+          <p class="mt-0.5 text-[13px] text-subtle">Figures updated at 11:30 AM</p>
+          <p class="mt-3 text-sm font-semibold text-ink">Month so far</p>
+          <p class="mt-0.5 text-[13px] text-subtle">1 – 30 Oct 2026</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== Main ==================== -->
+    <main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-9 pt-8 pb-14">
+
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-ink">Reports</h1>
+          <p class="mt-1 text-[15px] text-subtle">Make a report on any part of the hospital for a day, a month or a date range, then download it.</p>
+        </div>
+      </div>
+
+      <div class="mt-6 grid grid-cols-1 xl:grid-cols-[2fr_1fr] gap-6 items-start">
+
+        <!-- Make a report -->
+        <section aria-labelledby="make-title" class="p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+          <h2 id="make-title" class="text-lg font-semibold text-ink">Make a report</h2>
+          <fieldset class="mt-5">
+            <legend class="sr-only">Report</legend>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <label class="flex items-start gap-3 p-4 rounded-xl border border-line bg-white cursor-pointer
+                          has-[:checked]:border-2 has-[:checked]:border-[#24607a] has-[:checked]:bg-[#f3f8fb] has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#24607a]/30">
+              <input type="radio" name="reportType" value="DAILY" checked class="mt-0.5 w-[18px] h-[18px] accent-[#24607a] cursor-pointer">
+              <span>
+                <span class="block text-[15px] font-semibold text-ink">Daily hospital summary</span>
+                <span class="block mt-0.5 text-sm text-subtle">Beds, OP and IP, money in and out for one day</span>
+              </span>
+            </label>
+            <label class="flex items-start gap-3 p-4 rounded-xl border border-line bg-white cursor-pointer
+                          has-[:checked]:border-2 has-[:checked]:border-[#24607a] has-[:checked]:bg-[#f3f8fb] has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#24607a]/30">
+              <input type="radio" name="reportType" value="REVENUE" class="mt-0.5 w-[18px] h-[18px] accent-[#24607a] cursor-pointer">
+              <span>
+                <span class="block text-[15px] font-semibold text-ink">Revenue and expenses</span>
+                <span class="block mt-0.5 text-sm text-subtle">Money in by department, money out by category</span>
+              </span>
+            </label>
+            <label class="flex items-start gap-3 p-4 rounded-xl border border-line bg-white cursor-pointer
+                          has-[:checked]:border-2 has-[:checked]:border-[#24607a] has-[:checked]:bg-[#f3f8fb] has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#24607a]/30">
+              <input type="radio" name="reportType" value="DEPARTMENT" class="mt-0.5 w-[18px] h-[18px] accent-[#24607a] cursor-pointer">
+              <span>
+                <span class="block text-[15px] font-semibold text-ink">Department report</span>
+                <span class="block mt-0.5 text-sm text-subtle">Revenue, accounts and staff for the departments picked</span>
+              </span>
+            </label>
+            <label class="flex items-start gap-3 p-4 rounded-xl border border-line bg-white cursor-pointer
+                          has-[:checked]:border-2 has-[:checked]:border-[#24607a] has-[:checked]:bg-[#f3f8fb] has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#24607a]/30">
+              <input type="radio" name="reportType" value="BEDS" class="mt-0.5 w-[18px] h-[18px] accent-[#24607a] cursor-pointer">
+              <span>
+                <span class="block text-[15px] font-semibold text-ink">Bed occupancy and census</span>
+                <span class="block mt-0.5 text-sm text-subtle">Wards, admissions, discharges and average stay</span>
+              </span>
+            </label>
+            <label class="flex items-start gap-3 p-4 rounded-xl border border-line bg-white cursor-pointer
+                          has-[:checked]:border-2 has-[:checked]:border-[#24607a] has-[:checked]:bg-[#f3f8fb] has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#24607a]/30">
+              <input type="radio" name="reportType" value="DOCTORS" class="mt-0.5 w-[18px] h-[18px] accent-[#24607a] cursor-pointer">
+              <span>
+                <span class="block text-[15px] font-semibold text-ink">Doctor-wise patients</span>
+                <span class="block mt-0.5 text-sm text-subtle">Patients seen per doctor and department</span>
+              </span>
+            </label>
+            <label class="flex items-start gap-3 p-4 rounded-xl border border-line bg-white cursor-pointer
+                          has-[:checked]:border-2 has-[:checked]:border-[#24607a] has-[:checked]:bg-[#f3f8fb] has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#24607a]/30">
+              <input type="radio" name="reportType" value="STAFF" class="mt-0.5 w-[18px] h-[18px] accent-[#24607a] cursor-pointer">
+              <span>
+                <span class="block text-[15px] font-semibold text-ink">Staff attendance and leave</span>
+                <span class="block mt-0.5 text-sm text-subtle">Shifts, leaves and permissions by department</span>
+              </span>
+            </label>
+            <label class="flex items-start gap-3 p-4 rounded-xl border border-line bg-white cursor-pointer
+                          has-[:checked]:border-2 has-[:checked]:border-[#24607a] has-[:checked]:bg-[#f3f8fb] has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#24607a]/30">
+              <input type="radio" name="reportType" value="PHARMACY" class="mt-0.5 w-[18px] h-[18px] accent-[#24607a] cursor-pointer">
+              <span>
+                <span class="block text-[15px] font-semibold text-ink">Pharmacy stock and purchases</span>
+                <span class="block mt-0.5 text-sm text-subtle">Stock value, expiry and purchase requests</span>
+              </span>
+            </label>
+            </div>
+          </fieldset>
+
+          <div class="mt-6">
+            <label for="period" class="form-label text-[15px] font-normal text-body mb-2">Period</label>
+            <select id="period" name="period" class="form-select-field">
+              <option value="2026-10-30">Today, 30 Oct 2026</option>
+              <option value="2026-10" selected>October 2026</option>
+              <option value="2026-09">September 2026</option>
+              <option value="2026-08">August 2026</option>
+            </select>
+          </div>
+
+          <fieldset class="mt-6">
+            <legend class="text-[15px] text-body">Departments</legend>
+            <div class="mt-2 flex flex-wrap gap-2">
+            <label class="inline-flex items-center gap-1.5 h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink cursor-pointer
+                          has-[:checked]:border-[#24607a] has-[:checked]:bg-[#24607a] has-[:checked]:text-white has-[:checked]:font-semibold
+                          has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#24607a]/30">
+              <input type="checkbox" name="departments" value="ALL" checked class="peer sr-only">
+              <svg class="hidden peer-checked:block" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
+              All
+            </label>
+            <label class="inline-flex items-center gap-1.5 h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink cursor-pointer
+                          has-[:checked]:border-[#24607a] has-[:checked]:bg-[#24607a] has-[:checked]:text-white has-[:checked]:font-semibold
+                          has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#24607a]/30">
+              <input type="checkbox" name="departments" value="FRONT_DESK" checked class="peer sr-only">
+              <svg class="hidden peer-checked:block" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
+              Front desk
+            </label>
+            <label class="inline-flex items-center gap-1.5 h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink cursor-pointer
+                          has-[:checked]:border-[#24607a] has-[:checked]:bg-[#24607a] has-[:checked]:text-white has-[:checked]:font-semibold
+                          has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#24607a]/30">
+              <input type="checkbox" name="departments" value="DOCTORS" checked class="peer sr-only">
+              <svg class="hidden peer-checked:block" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
+              Doctors
+            </label>
+            <label class="inline-flex items-center gap-1.5 h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink cursor-pointer
+                          has-[:checked]:border-[#24607a] has-[:checked]:bg-[#24607a] has-[:checked]:text-white has-[:checked]:font-semibold
+                          has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#24607a]/30">
+              <input type="checkbox" name="departments" value="DIAGNOSTICS" checked class="peer sr-only">
+              <svg class="hidden peer-checked:block" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
+              Diagnostics
+            </label>
+            <label class="inline-flex items-center gap-1.5 h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink cursor-pointer
+                          has-[:checked]:border-[#24607a] has-[:checked]:bg-[#24607a] has-[:checked]:text-white has-[:checked]:font-semibold
+                          has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#24607a]/30">
+              <input type="checkbox" name="departments" value="PHARMACY" checked class="peer sr-only">
+              <svg class="hidden peer-checked:block" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
+              Pharmacy
+            </label>
+            <label class="inline-flex items-center gap-1.5 h-9 px-4 rounded-full border border-slate-300 bg-white text-[15px] text-ink cursor-pointer
+                          has-[:checked]:border-[#24607a] has-[:checked]:bg-[#24607a] has-[:checked]:text-white has-[:checked]:font-semibold
+                          has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#24607a]/30">
+              <input type="checkbox" name="departments" value="WARDS" checked class="peer sr-only">
+              <svg class="hidden peer-checked:block" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
+              Wards
+            </label>
+            </div>
+          </fieldset>
+
+          <div class="mt-6 grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6">
+            <fieldset>
+              <legend class="text-[15px] text-body">Format</legend>
+              <div class="mt-2 inline-flex gap-1 p-1 rounded-lg border border-line">
+              <label class="inline-flex items-center h-8 px-4 rounded-md text-[15px] text-body cursor-pointer
+                            has-[:checked]:bg-[#24607a] has-[:checked]:text-white has-[:checked]:font-semibold has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#24607a]/30"><input type="radio" name="format" value="PDF" checked class="sr-only">PDF</label>
+              <label class="inline-flex items-center h-8 px-4 rounded-md text-[15px] text-body cursor-pointer
+                            has-[:checked]:bg-[#24607a] has-[:checked]:text-white has-[:checked]:font-semibold has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#24607a]/30"><input type="radio" name="format" value="EXCEL" class="sr-only">Excel</label>
+              <label class="inline-flex items-center h-8 px-4 rounded-md text-[15px] text-body cursor-pointer
+                            has-[:checked]:bg-[#24607a] has-[:checked]:text-white has-[:checked]:font-semibold has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#24607a]/30"><input type="radio" name="format" value="CSV" class="sr-only">CSV</label>
+              </div>
+            </fieldset>
+            <div>
+              <label for="email-copy" class="form-label text-[15px] font-normal text-body mb-2">Email a copy to (optional)</label>
+              <input id="email-copy" name="emailCopy" type="email" placeholder="e.g. md@hospital.in" class="form-input">
+            </div>
+          </div>
+
+          <div class="mt-6 pt-5 border-t border-[#edf1f4] flex flex-wrap items-center justify-between gap-3">
+            <p class="text-sm text-subtle">Daily hospital summary · October 2026 · all departments · PDF</p>
+            <button type="button" class="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-md bg-[#24607a] text-[15px] font-semibold text-white hover:bg-[#1d4f64]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+              Generate report
+            </button>
+          </div>
+        </section>
+
+        <!-- What's in it -->
+        <section aria-labelledby="contents-title" class="p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+          <h2 id="contents-title" class="text-lg font-semibold text-ink">What's in it</h2>
+          <p class="mt-1 text-sm text-subtle">Daily hospital summary · October 2026</p>
+          <dl class="mt-4 divide-y divide-[#edf1f4] text-[15px]">
+            <div class="flex justify-between gap-4 py-3"><dt class="text-subtle">Beds occupied</dt><dd class="font-semibold text-ink">142 of 180 · 79%</dd></div>
+            <div class="flex justify-between gap-4 py-3"><dt class="text-subtle">Outpatients</dt><dd class="font-semibold text-ink">312</dd></div>
+            <div class="flex justify-between gap-4 py-3"><dt class="text-subtle">Admissions · discharges</dt><dd class="font-semibold text-ink">18 · 15</dd></div>
+            <div class="flex justify-between gap-4 py-3"><dt class="text-subtle">Money in</dt><dd class="font-semibold text-ink">₹13,09,825.50</dd></div>
+            <div class="flex justify-between gap-4 py-3"><dt class="text-subtle">Money out</dt><dd class="font-semibold text-ink">₹1,26,060</dd></div>
+          </dl>
+          <p class="mt-4 text-sm text-subtle">Plus tables and charts for each department picked.</p>
+        </section>
+      </div>
+
+      <!-- Generated reports -->
+      <section aria-labelledby="generated-title" class="mt-6 p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+        <h2 id="generated-title" class="text-lg font-semibold text-ink">Generated reports</h2>
+        <div class="relative mt-5 overflow-x-auto">
+          <table class="w-full min-w-[960px] text-left text-[15px]">
+            <thead class="bg-[#f0f5f9] text-ink">
+              <tr>
+                <th scope="col" class="px-4 py-3 font-semibold">Report</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Name</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Period</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Departments</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Format</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Made by</th>
+                <th scope="col" class="px-4 py-3"><span class="sr-only">Download</span></th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#edf1f4]">
+              <tr>
+                <td class="px-4 py-3.5 font-semibold text-ink whitespace-nowrap">RPT-26-0418</td>
+                <td class="px-4 py-3.5 text-ink">Daily hospital summary</td>
+                <td class="px-4 py-3.5 text-body whitespace-nowrap">29 Oct 2026</td>
+                <td class="px-4 py-3.5 text-body">All</td>
+                <td class="px-4 py-3.5"><span class="px-2 py-0.5 rounded text-[13px] font-semibold bg-[#fdf0ef] text-[#c0392b]">PDF</span></td>
+                <td class="px-4 py-3.5 text-body">Sent automatically, 11:59 PM</td>
+                <td class="px-4 py-3.5 text-right"><button type="button" class="btn-outline h-9 px-4">Download</button></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3.5 font-semibold text-ink whitespace-nowrap">RPT-26-0417</td>
+                <td class="px-4 py-3.5 text-ink">Revenue and expenses</td>
+                <td class="px-4 py-3.5 text-body whitespace-nowrap">September 2026</td>
+                <td class="px-4 py-3.5 text-body">All</td>
+                <td class="px-4 py-3.5"><span class="px-2 py-0.5 rounded text-[13px] font-semibold bg-[#ebf8ef] text-[#1f7a46]">Excel</span></td>
+                <td class="px-4 py-3.5 text-body">R. Shankar · 1 Oct</td>
+                <td class="px-4 py-3.5 text-right"><button type="button" class="btn-outline h-9 px-4">Download</button></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3.5 font-semibold text-ink whitespace-nowrap">RPT-26-0416</td>
+                <td class="px-4 py-3.5 text-ink">Staff attendance and leave</td>
+                <td class="px-4 py-3.5 text-body whitespace-nowrap">September 2026</td>
+                <td class="px-4 py-3.5 text-body">Front desk, Diagnostics, Pharmacy</td>
+                <td class="px-4 py-3.5"><span class="px-2 py-0.5 rounded text-[13px] font-semibold bg-[#fdf0ef] text-[#c0392b]">PDF</span></td>
+                <td class="px-4 py-3.5 text-body">R. Shankar · 1 Oct</td>
+                <td class="px-4 py-3.5 text-right"><button type="button" class="btn-outline h-9 px-4">Download</button></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3.5 font-semibold text-ink whitespace-nowrap">RPT-26-0415</td>
+                <td class="px-4 py-3.5 text-ink">Bed occupancy and census</td>
+                <td class="px-4 py-3.5 text-body whitespace-nowrap">19 – 25 Oct</td>
+                <td class="px-4 py-3.5 text-body">Wards</td>
+                <td class="px-4 py-3.5"><span class="px-2 py-0.5 rounded text-[13px] font-semibold bg-[#fdf0ef] text-[#c0392b]">PDF</span></td>
+                <td class="px-4 py-3.5 text-body">R. Shankar · 26 Oct</td>
+                <td class="px-4 py-3.5 text-right"><button type="button" class="btn-outline h-9 px-4">Download</button></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3.5 font-semibold text-ink whitespace-nowrap">RPT-26-0414</td>
+                <td class="px-4 py-3.5 text-ink">Pharmacy stock and purchases</td>
+                <td class="px-4 py-3.5 text-body whitespace-nowrap">September 2026</td>
+                <td class="px-4 py-3.5 text-body">Pharmacy</td>
+                <td class="px-4 py-3.5"><span class="px-2 py-0.5 rounded text-[13px] font-semibold bg-[#ebf8ef] text-[#1f7a46]">Excel</span></td>
+                <td class="px-4 py-3.5 text-body">R. Shankar · 2 Oct</td>
+                <td class="px-4 py-3.5 text-right"><button type="button" class="btn-outline h-9 px-4">Download</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mt-5 flex flex-col sm:flex-row gap-x-4 gap-y-1 p-4 rounded-lg bg-[#f3f7fa] text-[15px]">
+          <p class="font-semibold text-ink whitespace-nowrap">Sent automatically</p>
+          <div class="text-body">
+            <p>Daily hospital summary · every night at 11:59 PM · PDF to the administrator</p>
+            <p>Monthly revenue and expenses · on the 1st · Excel to the administrator and accounts</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../js/modules/admin.js"></script>
+</body>
+</html>

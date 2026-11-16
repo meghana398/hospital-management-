@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Doctors · Admin</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#f7f9fb]">
+
+  <!-- ==================== Top bar ==================== -->
+  <header class="bg-white border-b border-line">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 min-h-[72px] px-4 sm:px-7 py-3">
+
+      <a href="admin-dashboard.html" class="flex items-center gap-3">
+        <span class="w-10 h-10 grid place-items-center rounded-lg bg-[#1f6a85] text-white" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+        </span>
+        <span class="leading-tight">
+          <span class="block text-[15px] font-semibold text-ink">[Hospital name]</span>
+          <span class="block text-[13px] text-subtle">Hospital administration</span>
+        </span>
+      </a>
+
+      <div class="flex items-center gap-4 sm:gap-5">
+        <a href="notifications.html" aria-label="Notifications, 5 unread" class="relative w-8 h-8 grid place-items-center text-ink hover:text-[#1f6a85]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-[#c81e1e] text-[11px] font-semibold text-white">5</span>
+        </a>
+
+        <span class="hidden sm:block w-px h-8 bg-line" aria-hidden="true"></span>
+
+        <a href="my-profile.html" class="flex items-center gap-2.5">
+          <span class="sr-only">My profile:</span>
+          <span class="w-8 h-8 grid place-items-center rounded-full bg-[#e3eaf3] text-xs font-semibold text-[#1f5f7a]" aria-hidden="true">RS</span>
+          <span class="hidden sm:block leading-tight">
+            <span class="block text-sm font-semibold text-ink">R. Shankar</span>
+            <span class="block text-xs text-subtle">Hospital administrator</span>
+          </span>
+        </a>
+
+        <a href="../../index.html" class="btn-topbar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>
+          </svg>
+          Sign out
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex-1 flex flex-col lg:flex-row">
+
+    <!-- ==================== Sidebar ==================== -->
+    <aside class="lg:flex-none lg:w-[270px] flex flex-col bg-white border-b lg:border-b-0 lg:border-r border-line px-3 lg:px-4 py-3 lg:py-5">
+      <nav aria-label="Administration" class="flex lg:flex-col gap-1 overflow-x-auto text-[15px]">
+        <a href="admin-dashboard.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+          </svg>
+          Hospital overview
+        </a>
+        <a href="front-desk.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.5a5 5 0 0 1 5.5 5"/>
+          </svg>
+          Front desk
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fdecc8] text-[#9a5b00] text-[11px] font-semibold">2</span>
+        </a>
+        <a href="doctors.html" aria-current="page"
+           class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg bg-[#e6f0f6] font-semibold text-[#1f5f7a] whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>
+          </svg>
+          Doctors
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#fdecc8] text-[#9a5b00] text-[11px] font-semibold">1</span>
+        </a>
+        <a href="diagnostics.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/>
+          </svg>
+          Diagnostics
+        </a>
+        <a href="pharmacy.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10.5 20.5a5 5 0 0 1-7-7l7-7a5 5 0 0 1 7 7z"/><path d="M8.5 8.5l7 7"/>
+          </svg>
+          Pharmacy
+          <span class="ml-auto min-w-5 h-5 px-1.5 grid place-items-center rounded-full bg-[#c81e1e] text-white text-[11px] font-semibold">2</span>
+        </a>
+        <a href="beds-wards.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 18V6M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="11" r="2"/>
+          </svg>
+          Beds and wards
+        </a>
+        <a href="revenue-expenses.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/>
+          </svg>
+          Revenue and expenses
+        </a>
+        <a href="reports.html" class="flex flex-none items-center gap-3 px-3 py-2 lg:py-2.5 rounded-lg text-body hover:bg-slate-50 whitespace-nowrap">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>
+          </svg>
+          Reports
+        </a>
+      </nav>
+
+      <div class="hidden lg:block mt-auto pt-10">
+        <div class="p-4 rounded-xl border border-[#d6e3ee] bg-[#eef4f9]">
+          <p class="text-sm font-semibold text-ink">Friday, 30 Oct 2026</p>
+          <p class="mt-0.5 text-[13px] text-subtle">Figures updated at 11:30 AM</p>
+          <p class="mt-3 text-sm font-semibold text-ink">Month so far</p>
+          <p class="mt-0.5 text-[13px] text-subtle">1 – 30 Oct 2026</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== Main ==================== -->
+    <main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-9 pt-8 pb-14">
+
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-ink">Doctors</h1>
+          <p class="mt-1 text-[15px] text-subtle">Every doctor by department, their OPD slots, who is in today, and how many patients they have seen.</p>
+        </div>
+      </div>
+      <dl class="mt-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-4">
+        <div class="p-5 rounded-xl border-2 border-[#1d3c6e] bg-white">
+          <dt class="text-[15px] text-subtle">Doctors</dt>
+          <dd class="mt-2 text-[28px] leading-9 font-bold text-ink">16</dd>
+          <dd class="mt-2 text-sm text-placeholder">11 departments</dd>
+        </div>
+        <div class="p-5 rounded-xl border-2 border-[#1f8a5b] bg-white">
+          <dt class="text-[15px] text-subtle">In OPD or OT now</dt>
+          <dd class="mt-2 text-[28px] leading-9 font-bold text-[#1f7a46]">11</dd>
+          <dd class="mt-2 text-sm text-placeholder">2 reporting · 2 start at 2 PM</dd>
+        </div>
+        <div class="p-5 rounded-xl border-2 border-[#c0392b] bg-white">
+          <dt class="text-[15px] text-subtle">On leave today</dt>
+          <dd class="mt-2 text-[28px] leading-9 font-bold text-[#c0392b]">1</dd>
+          <dd class="mt-2 text-sm text-placeholder">Dr Meera Iyer · bookings moved</dd>
+        </div>
+        <div class="p-5 rounded-xl border-2 border-[#1f6fd1] bg-white">
+          <dt class="text-[15px] text-subtle">Patients seen today</dt>
+          <dd class="mt-2 text-[28px] leading-9 font-bold text-[#1f6fd1]">168</dd>
+          <dd class="mt-2 text-sm text-placeholder">217 slots booked, plus walk-ins</dd>
+        </div>
+        <div class="p-5 rounded-xl border-2 border-[#1d3c6e] bg-white">
+          <dt class="text-[15px] text-subtle">Patients this month</dt>
+          <dd class="mt-2 text-[28px] leading-9 font-bold text-ink">7,940</dd>
+          <dd class="mt-2 text-sm text-placeholder">OPD, 1 – 30 Oct</dd>
+        </div>
+      </dl>
+
+      <!-- Doctors and slots -->
+      <section aria-labelledby="doctors-title" data-doctor-filters class="mt-6 rounded-xl border border-[#e3eaef] bg-white">
+        <div class="flex flex-wrap items-center justify-between gap-3 p-5">
+          <h2 id="doctors-title" class="text-lg font-semibold text-ink">Doctors and slots</h2>
+          <div class="relative w-full md:w-80">
+            <label for="doctor-search" class="sr-only">Search doctor</label>
+            <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 text-placeholder pointer-events-none" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+            </svg>
+            <input id="doctor-search" type="search" data-doctor-search placeholder="Search doctor" class="form-input pl-10">
+          </div>
+        </div>
+        <div role="group" aria-label="Department" class="flex flex-wrap gap-2 px-5 pb-5 border-b border-[#edf1f4]">
+          <button type="button" data-doctor-filter="ALL" aria-pressed="true"
+                  class="h-9 px-3.5 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#1d3c4f] aria-pressed:bg-[#1d3c4f] aria-pressed:text-white aria-pressed:font-semibold">All <span class="ml-1 text-sm opacity-70">16</span></button>
+          <button type="button" data-doctor-filter="General medicine" aria-pressed="false"
+                  class="h-9 px-3.5 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#1d3c4f] aria-pressed:bg-[#1d3c4f] aria-pressed:text-white aria-pressed:font-semibold">General medicine <span class="ml-1 text-sm opacity-70">2</span></button>
+          <button type="button" data-doctor-filter="Cardiology" aria-pressed="false"
+                  class="h-9 px-3.5 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#1d3c4f] aria-pressed:bg-[#1d3c4f] aria-pressed:text-white aria-pressed:font-semibold">Cardiology <span class="ml-1 text-sm opacity-70">2</span></button>
+          <button type="button" data-doctor-filter="Nephrology" aria-pressed="false"
+                  class="h-9 px-3.5 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#1d3c4f] aria-pressed:bg-[#1d3c4f] aria-pressed:text-white aria-pressed:font-semibold">Nephrology <span class="ml-1 text-sm opacity-70">1</span></button>
+          <button type="button" data-doctor-filter="Orthopaedics" aria-pressed="false"
+                  class="h-9 px-3.5 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#1d3c4f] aria-pressed:bg-[#1d3c4f] aria-pressed:text-white aria-pressed:font-semibold">Orthopaedics <span class="ml-1 text-sm opacity-70">2</span></button>
+          <button type="button" data-doctor-filter="Paediatrics" aria-pressed="false"
+                  class="h-9 px-3.5 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#1d3c4f] aria-pressed:bg-[#1d3c4f] aria-pressed:text-white aria-pressed:font-semibold">Paediatrics <span class="ml-1 text-sm opacity-70">2</span></button>
+          <button type="button" data-doctor-filter="Obstetrics and gynaecology" aria-pressed="false"
+                  class="h-9 px-3.5 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#1d3c4f] aria-pressed:bg-[#1d3c4f] aria-pressed:text-white aria-pressed:font-semibold">Obstetrics and gynaecology <span class="ml-1 text-sm opacity-70">2</span></button>
+          <button type="button" data-doctor-filter="General surgery" aria-pressed="false"
+                  class="h-9 px-3.5 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#1d3c4f] aria-pressed:bg-[#1d3c4f] aria-pressed:text-white aria-pressed:font-semibold">General surgery <span class="ml-1 text-sm opacity-70">1</span></button>
+          <button type="button" data-doctor-filter="ENT" aria-pressed="false"
+                  class="h-9 px-3.5 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#1d3c4f] aria-pressed:bg-[#1d3c4f] aria-pressed:text-white aria-pressed:font-semibold">ENT <span class="ml-1 text-sm opacity-70">1</span></button>
+          <button type="button" data-doctor-filter="Dermatology" aria-pressed="false"
+                  class="h-9 px-3.5 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#1d3c4f] aria-pressed:bg-[#1d3c4f] aria-pressed:text-white aria-pressed:font-semibold">Dermatology <span class="ml-1 text-sm opacity-70">1</span></button>
+          <button type="button" data-doctor-filter="Radiology" aria-pressed="false"
+                  class="h-9 px-3.5 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#1d3c4f] aria-pressed:bg-[#1d3c4f] aria-pressed:text-white aria-pressed:font-semibold">Radiology <span class="ml-1 text-sm opacity-70">1</span></button>
+          <button type="button" data-doctor-filter="Pathology" aria-pressed="false"
+                  class="h-9 px-3.5 rounded-full border border-slate-300 bg-white text-[15px] text-ink
+                       aria-pressed:border-[#1d3c4f] aria-pressed:bg-[#1d3c4f] aria-pressed:text-white aria-pressed:font-semibold">Pathology <span class="ml-1 text-sm opacity-70">1</span></button>
+        </div>
+        <div class="relative overflow-x-auto">
+          <table class="w-full min-w-[1080px] text-left text-[15px]">
+            <thead class="border-b border-[#edf1f4] text-subtle">
+              <tr>
+                <th scope="col" class="px-4 py-3 font-semibold">Doctor</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Department</th>
+                <th scope="col" class="px-4 py-3 font-semibold">OPD days and time</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Slots today</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Now</th>
+                <th scope="col" class="px-4 py-3 font-semibold text-right">Today</th>
+                <th scope="col" class="px-4 py-3 font-semibold text-right">October</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#edf1f4]">
+              <tr data-doctor-row data-department="General medicine" data-search="Dr Farah Khan General medicine">
+                <td class="px-4 py-3">
+                  <a href="doctor-profile.html" class="flex items-center gap-3 hover:underline">
+                    <span class="w-8 h-8 flex-none grid place-items-center rounded-full bg-[#e3eef9] text-[#1f5f99] text-xs font-semibold" aria-hidden="true">FK</span>
+                    <span><span class="block font-semibold text-ink">Dr Farah Khan</span><span class="block text-[13px] text-placeholder">MBBS, MD (Medicine)</span></span>
+                  </a>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#e7f0f8] text-[#245d85]">General medicine</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">Mon – Sat</span><span class="block text-[13px] text-placeholder">9 AM – 1 PM · Block A, 012</span></td>
+                <td class="px-4 py-3">
+                  <span class="block text-body">14 of 16 booked · 15 min</span>
+                  <span class="block mt-1.5 w-36 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#1f8a5b]" style="width: 88%"></span></span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium whitespace-nowrap bg-[#ebf8ef] text-[#1f7a46]">In OPD</span></td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">4</td>
+                <td class="px-4 py-3 text-right text-body">524</td>
+              </tr>
+              <tr data-doctor-row data-department="General medicine" data-search="Dr Rohit Malhotra General medicine">
+                <td class="px-4 py-3">
+                  <span class="flex items-center gap-3">
+                    <span class="w-8 h-8 flex-none grid place-items-center rounded-full bg-[#e3f4ec] text-[#1f7a46] text-xs font-semibold" aria-hidden="true">RM</span>
+                    <span><span class="block font-semibold text-ink">Dr Rohit Malhotra</span><span class="block text-[13px] text-placeholder">MBBS, MD (Medicine)</span></span>
+                  </span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#e7f0f8] text-[#245d85]">General medicine</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">Mon – Sat</span><span class="block text-[13px] text-placeholder">2 – 6 PM · Block A, 014</span></td>
+                <td class="px-4 py-3">
+                  <span class="block text-body">12 of 16 booked · 15 min</span>
+                  <span class="block mt-1.5 w-36 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#1f8a5b]" style="width: 75%"></span></span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium whitespace-nowrap bg-slate-100 text-subtle">Starts 2:00 PM</span></td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">0</td>
+                <td class="px-4 py-3 text-right text-body">698</td>
+              </tr>
+              <tr data-doctor-row data-department="Cardiology" data-search="Dr Meera Iyer Cardiology">
+                <td class="px-4 py-3">
+                  <span class="flex items-center gap-3">
+                    <span class="w-8 h-8 flex-none grid place-items-center rounded-full bg-[#f1e8fa] text-[#6b2fa0] text-xs font-semibold" aria-hidden="true">MI</span>
+                    <span><span class="block font-semibold text-ink">Dr Meera Iyer</span><span class="block text-[13px] text-placeholder">MBBS, MD, DM (Cardiology)</span></span>
+                  </span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#fde8e6] text-[#b42318]">Cardiology</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">Mon, Wed, Fri</span><span class="block text-[13px] text-placeholder">10 AM – 2 PM · Block B, 214</span></td>
+                <td class="px-4 py-3">
+                  <span class="block text-body">0 of 12 booked · 20 min</span>
+                  <span class="block mt-1.5 w-36 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#1f8a5b]" style="width: 0%"></span></span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium whitespace-nowrap bg-[#fdf0ef] text-[#c0392b]">On leave</span></td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">0</td>
+                <td class="px-4 py-3 text-right text-body">412</td>
+              </tr>
+              <tr data-doctor-row data-department="Cardiology" data-search="Dr Sandeep Kulkarni Cardiology">
+                <td class="px-4 py-3">
+                  <span class="flex items-center gap-3">
+                    <span class="w-8 h-8 flex-none grid place-items-center rounded-full bg-[#fdf0d0] text-[#9a5b00] text-xs font-semibold" aria-hidden="true">SK</span>
+                    <span><span class="block font-semibold text-ink">Dr Sandeep Kulkarni</span><span class="block text-[13px] text-placeholder">MBBS, DM (Cardiology)</span></span>
+                  </span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#fde8e6] text-[#b42318]">Cardiology</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">Mon – Sat</span><span class="block text-[13px] text-placeholder">9 AM – 1 PM · Block B, 216</span></td>
+                <td class="px-4 py-3">
+                  <span class="block text-body">24 of 24 booked · 10 min</span>
+                  <span class="block mt-1.5 w-36 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#1f8a5b]" style="width: 100%"></span></span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium whitespace-nowrap bg-[#ebf8ef] text-[#1f7a46]">In OPD</span></td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">21</td>
+                <td class="px-4 py-3 text-right text-body">711</td>
+              </tr>
+              <tr data-doctor-row data-department="Nephrology" data-search="Dr Vikram Sen Nephrology">
+                <td class="px-4 py-3">
+                  <span class="flex items-center gap-3">
+                    <span class="w-8 h-8 flex-none grid place-items-center rounded-full bg-[#fde8e6] text-[#b42318] text-xs font-semibold" aria-hidden="true">VS</span>
+                    <span><span class="block font-semibold text-ink">Dr Vikram Sen</span><span class="block text-[13px] text-placeholder">MBBS, DM (Nephrology)</span></span>
+                  </span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#e3f4ec] text-[#1f7a46]">Nephrology</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">Mon – Sat</span><span class="block text-[13px] text-placeholder">10 AM – 2 PM · Block C, 305</span></td>
+                <td class="px-4 py-3">
+                  <span class="block text-body">16 of 16 booked · 15 min</span>
+                  <span class="block mt-1.5 w-36 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#1f8a5b]" style="width: 100%"></span></span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium whitespace-nowrap bg-[#ebf8ef] text-[#1f7a46]">In OPD</span></td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">14</td>
+                <td class="px-4 py-3 text-right text-body">487</td>
+              </tr>
+              <tr data-doctor-row data-department="Orthopaedics" data-search="Dr Arjun Mehta Orthopaedics">
+                <td class="px-4 py-3">
+                  <span class="flex items-center gap-3">
+                    <span class="w-8 h-8 flex-none grid place-items-center rounded-full bg-[#e0f4f4] text-[#1d7a77] text-xs font-semibold" aria-hidden="true">AM</span>
+                    <span><span class="block font-semibold text-ink">Dr Arjun Mehta</span><span class="block text-[13px] text-placeholder">MBBS, MS (Orthopaedics)</span></span>
+                  </span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#fdf0d0] text-[#9a5b00]">Orthopaedics</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">Mon – Sat</span><span class="block text-[13px] text-placeholder">2 – 6 PM · Block B, 118</span></td>
+                <td class="px-4 py-3">
+                  <span class="block text-body">5 of 16 booked · 15 min</span>
+                  <span class="block mt-1.5 w-36 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#1f8a5b]" style="width: 31%"></span></span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium whitespace-nowrap bg-slate-100 text-subtle">Starts 2:00 PM</span></td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">0</td>
+                <td class="px-4 py-3 text-right text-body">566</td>
+              </tr>
+              <tr data-doctor-row data-department="Orthopaedics" data-search="Dr Nikhil Joshi Orthopaedics">
+                <td class="px-4 py-3">
+                  <span class="flex items-center gap-3">
+                    <span class="w-8 h-8 flex-none grid place-items-center rounded-full bg-[#e3eef9] text-[#1f5f99] text-xs font-semibold" aria-hidden="true">NJ</span>
+                    <span><span class="block font-semibold text-ink">Dr Nikhil Joshi</span><span class="block text-[13px] text-placeholder">MBBS, MS (Orthopaedics)</span></span>
+                  </span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#fdf0d0] text-[#9a5b00]">Orthopaedics</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">Mon – Sat</span><span class="block text-[13px] text-placeholder">9 AM – 1 PM · Block B, 120</span></td>
+                <td class="px-4 py-3">
+                  <span class="block text-body">22 of 24 booked · 10 min</span>
+                  <span class="block mt-1.5 w-36 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#1f8a5b]" style="width: 92%"></span></span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium whitespace-nowrap bg-[#ebf8ef] text-[#1f7a46]">In OPD</span></td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">19</td>
+                <td class="px-4 py-3 text-right text-body">529</td>
+              </tr>
+              <tr data-doctor-row data-department="Paediatrics" data-search="Dr Ananya Ghosh Paediatrics">
+                <td class="px-4 py-3">
+                  <span class="flex items-center gap-3">
+                    <span class="w-8 h-8 flex-none grid place-items-center rounded-full bg-[#e3f4ec] text-[#1f7a46] text-xs font-semibold" aria-hidden="true">AG</span>
+                    <span><span class="block font-semibold text-ink">Dr Ananya Ghosh</span><span class="block text-[13px] text-placeholder">MBBS, MD (Paediatrics)</span></span>
+                  </span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#e3f4ec] text-[#1f7a46]">Paediatrics</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">Mon – Sat</span><span class="block text-[13px] text-placeholder">9 AM – 2 PM · Block A, 021</span></td>
+                <td class="px-4 py-3">
+                  <span class="block text-body">29 of 30 booked · 10 min</span>
+                  <span class="block mt-1.5 w-36 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#1f8a5b]" style="width: 97%"></span></span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium whitespace-nowrap bg-[#ebf8ef] text-[#1f7a46]">In OPD</span></td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">26</td>
+                <td class="px-4 py-3 text-right text-body">842</td>
+              </tr>
+              <tr data-doctor-row data-department="Paediatrics" data-search="Dr Prakash Reddy Paediatrics">
+                <td class="px-4 py-3">
+                  <span class="flex items-center gap-3">
+                    <span class="w-8 h-8 flex-none grid place-items-center rounded-full bg-[#f1e8fa] text-[#6b2fa0] text-xs font-semibold" aria-hidden="true">PR</span>
+                    <span><span class="block font-semibold text-ink">Dr Prakash Reddy</span><span class="block text-[13px] text-placeholder">MBBS, DCH</span></span>
+                  </span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#e3f4ec] text-[#1f7a46]">Paediatrics</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">Mon – Sat</span><span class="block text-[13px] text-placeholder">10 AM – 2 PM · Block A, 023</span></td>
+                <td class="px-4 py-3">
+                  <span class="block text-body">20 of 24 booked · 10 min</span>
+                  <span class="block mt-1.5 w-36 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#1f8a5b]" style="width: 83%"></span></span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium whitespace-nowrap bg-[#ebf8ef] text-[#1f7a46]">In OPD</span></td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">17</td>
+                <td class="px-4 py-3 text-right text-body">755</td>
+              </tr>
+              <tr data-doctor-row data-department="Obstetrics and gynaecology" data-search="Dr Sunita Rao Obstetrics and gynaecology">
+                <td class="px-4 py-3">
+                  <span class="flex items-center gap-3">
+                    <span class="w-8 h-8 flex-none grid place-items-center rounded-full bg-[#fdf0d0] text-[#9a5b00] text-xs font-semibold" aria-hidden="true">SR</span>
+                    <span><span class="block font-semibold text-ink">Dr Sunita Rao</span><span class="block text-[13px] text-placeholder">MBBS, MS (OBG)</span></span>
+                  </span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#f1e8fa] text-[#6b2fa0]">Obstetrics and gynaecology</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">Mon – Sat</span><span class="block text-[13px] text-placeholder">9 AM – 1 PM · Block D, 102</span></td>
+                <td class="px-4 py-3">
+                  <span class="block text-body">22 of 24 booked · 10 min</span>
+                  <span class="block mt-1.5 w-36 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#1f8a5b]" style="width: 92%"></span></span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium whitespace-nowrap bg-[#ebf8ef] text-[#1f7a46]">In OPD</span></td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">18</td>
+                <td class="px-4 py-3 text-right text-body">603</td>
+              </tr>
+              <tr data-doctor-row data-department="Obstetrics and gynaecology" data-search="Dr Hema Bhat Obstetrics and gynaecology">
+                <td class="px-4 py-3">
+                  <span class="flex items-center gap-3">
+                    <span class="w-8 h-8 flex-none grid place-items-center rounded-full bg-[#fde8e6] text-[#b42318] text-xs font-semibold" aria-hidden="true">HB</span>
+                    <span><span class="block font-semibold text-ink">Dr Hema Bhat</span><span class="block text-[13px] text-placeholder">MBBS, DNB (OBG)</span></span>
+                  </span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#f1e8fa] text-[#6b2fa0]">Obstetrics and gynaecology</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">Tue, Thu, Fri</span><span class="block text-[13px] text-placeholder">8 – 10:30 AM · Block D, 104</span></td>
+                <td class="px-4 py-3">
+                  <span class="block text-body">10 of 10 booked · 15 min</span>
+                  <span class="block mt-1.5 w-36 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#1f8a5b]" style="width: 100%"></span></span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium whitespace-nowrap bg-[#f1e8fa] text-[#6b2fa0]">In OT till 1 PM</span></td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">9</td>
+                <td class="px-4 py-3 text-right text-body">438</td>
+              </tr>
+              <tr data-doctor-row data-department="General surgery" data-search="Dr Arjun Rao General surgery">
+                <td class="px-4 py-3">
+                  <span class="flex items-center gap-3">
+                    <span class="w-8 h-8 flex-none grid place-items-center rounded-full bg-[#e0f4f4] text-[#1d7a77] text-xs font-semibold" aria-hidden="true">AR</span>
+                    <span><span class="block font-semibold text-ink">Dr Arjun Rao</span><span class="block text-[13px] text-placeholder">MBBS, MS (General surgery)</span></span>
+                  </span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#e7f0f8] text-[#245d85]">General surgery</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">Mon, Wed, Fri</span><span class="block text-[13px] text-placeholder">10 AM – 1 PM · Block C, 110</span></td>
+                <td class="px-4 py-3">
+                  <span class="block text-body">12 of 12 booked · 15 min</span>
+                  <span class="block mt-1.5 w-36 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#1f8a5b]" style="width: 100%"></span></span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium whitespace-nowrap bg-[#ebf8ef] text-[#1f7a46]">In OPD</span></td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">11</td>
+                <td class="px-4 py-3 text-right text-body">371</td>
+              </tr>
+              <tr data-doctor-row data-department="ENT" data-search="Dr Imran Qureshi ENT">
+                <td class="px-4 py-3">
+                  <span class="flex items-center gap-3">
+                    <span class="w-8 h-8 flex-none grid place-items-center rounded-full bg-[#e3eef9] text-[#1f5f99] text-xs font-semibold" aria-hidden="true">IQ</span>
+                    <span><span class="block font-semibold text-ink">Dr Imran Qureshi</span><span class="block text-[13px] text-placeholder">MBBS, MS (ENT)</span></span>
+                  </span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#eef1f5] text-[#3a4a5a]">ENT</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">Mon – Sat</span><span class="block text-[13px] text-placeholder">9 AM – 2 PM · Block A, 030</span></td>
+                <td class="px-4 py-3">
+                  <span class="block text-body">16 of 16 booked · 15 min</span>
+                  <span class="block mt-1.5 w-36 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#1f8a5b]" style="width: 100%"></span></span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium whitespace-nowrap bg-[#ebf8ef] text-[#1f7a46]">In OPD</span></td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">15</td>
+                <td class="px-4 py-3 text-right text-body">512</td>
+              </tr>
+              <tr data-doctor-row data-department="Dermatology" data-search="Dr Pallavi Shah Dermatology">
+                <td class="px-4 py-3">
+                  <span class="flex items-center gap-3">
+                    <span class="w-8 h-8 flex-none grid place-items-center rounded-full bg-[#e3f4ec] text-[#1f7a46] text-xs font-semibold" aria-hidden="true">PS</span>
+                    <span><span class="block font-semibold text-ink">Dr Pallavi Shah</span><span class="block text-[13px] text-placeholder">MBBS, MD (Dermatology)</span></span>
+                  </span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#fdf0d0] text-[#9a5b00]">Dermatology</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">Mon – Sat</span><span class="block text-[13px] text-placeholder">10 AM – 2 PM · Block A, 032</span></td>
+                <td class="px-4 py-3">
+                  <span class="block text-body">15 of 16 booked · 15 min</span>
+                  <span class="block mt-1.5 w-36 h-1.5 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#1f8a5b]" style="width: 94%"></span></span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium whitespace-nowrap bg-[#ebf8ef] text-[#1f7a46]">In OPD</span></td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">14</td>
+                <td class="px-4 py-3 text-right text-body">492</td>
+              </tr>
+              <tr data-doctor-row data-department="Radiology" data-search="Dr Kavita Bose Radiology">
+                <td class="px-4 py-3">
+                  <span class="flex items-center gap-3">
+                    <span class="w-8 h-8 flex-none grid place-items-center rounded-full bg-[#f1e8fa] text-[#6b2fa0] text-xs font-semibold" aria-hidden="true">KB</span>
+                    <span><span class="block font-semibold text-ink">Dr Kavita Bose</span><span class="block text-[13px] text-placeholder">MBBS, MD (Radiology)</span></span>
+                  </span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#e0f4f4] text-[#1d7a77]">Radiology</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">Mon – Sat</span><span class="block text-[13px] text-placeholder">8 AM – 4 PM · reporting · Imaging, ground floor</span></td>
+                <td class="px-4 py-3">
+                  <span class="text-subtle">No OPD slots</span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium whitespace-nowrap bg-[#e7f0f6] text-[#1f6fa8]">Reporting</span></td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">42</td>
+                <td class="px-4 py-3 text-right text-body">980</td>
+              </tr>
+              <tr data-doctor-row data-department="Pathology" data-search="Dr Sanjay Das Pathology">
+                <td class="px-4 py-3">
+                  <span class="flex items-center gap-3">
+                    <span class="w-8 h-8 flex-none grid place-items-center rounded-full bg-[#fdf0d0] text-[#9a5b00] text-xs font-semibold" aria-hidden="true">SD</span>
+                    <span><span class="block font-semibold text-ink">Dr Sanjay Das</span><span class="block text-[13px] text-placeholder">MBBS, MD (Pathology) · lab in-charge</span></span>
+                  </span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#e3f4ec] text-[#1f7a46]">Pathology</span></td>
+                <td class="px-4 py-3"><span class="block text-ink">Mon – Sat</span><span class="block text-[13px] text-placeholder">9 AM – 5 PM · reporting · Central lab, 1st floor</span></td>
+                <td class="px-4 py-3">
+                  <span class="text-subtle">No OPD slots</span>
+                </td>
+                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[13px] font-medium whitespace-nowrap bg-[#e7f0f6] text-[#1f6fa8]">Reporting</span></td>
+                <td class="px-4 py-3 text-right font-semibold text-ink">63</td>
+                <td class="px-4 py-3 text-right text-body">1,540</td>
+              </tr>
+            </tbody>
+          </table>
+          <p data-no-doctors hidden class="p-6 text-center text-[15px] text-subtle">No doctors match.</p>
+        </div>
+        <p class="p-5 border-t border-[#edf1f4] text-sm text-subtle">Today and October count patients seen in OPD. For radiology and pathology they count reports signed.</p>
+      </section>
+
+      <!-- OPD patients by department -->
+      <section aria-labelledby="opd-title" class="mt-6 p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+        <div class="flex flex-wrap items-baseline justify-between gap-3">
+          <h2 id="opd-title" class="text-lg font-semibold text-ink">OPD patients by department · October</h2>
+          <p class="text-sm text-subtle">7,940 patients across 9 OPD departments</p>
+        </div>
+        <ul class="mt-5 space-y-3.5">
+          <li class="grid grid-cols-1 sm:grid-cols-[280px_1fr_70px] items-center gap-x-6 gap-y-1.5">
+            <span class="text-[15px] font-semibold text-ink">Paediatrics <span class="font-normal text-placeholder">· 2 doctors</span></span>
+            <span class="h-2 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#2c6e5a]" style="width: 100%"></span></span>
+            <span class="text-right font-semibold text-ink">1,597</span>
+          </li>
+          <li class="grid grid-cols-1 sm:grid-cols-[280px_1fr_70px] items-center gap-x-6 gap-y-1.5">
+            <span class="text-[15px] font-semibold text-ink">General medicine <span class="font-normal text-placeholder">· 2 doctors</span></span>
+            <span class="h-2 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#1f6fa8]" style="width: 77%"></span></span>
+            <span class="text-right font-semibold text-ink">1,222</span>
+          </li>
+          <li class="grid grid-cols-1 sm:grid-cols-[280px_1fr_70px] items-center gap-x-6 gap-y-1.5">
+            <span class="text-[15px] font-semibold text-ink">Cardiology <span class="font-normal text-placeholder">· 2 doctors</span></span>
+            <span class="h-2 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#a8463a]" style="width: 70%"></span></span>
+            <span class="text-right font-semibold text-ink">1,123</span>
+          </li>
+          <li class="grid grid-cols-1 sm:grid-cols-[280px_1fr_70px] items-center gap-x-6 gap-y-1.5">
+            <span class="text-[15px] font-semibold text-ink">Orthopaedics <span class="font-normal text-placeholder">· 2 doctors</span></span>
+            <span class="h-2 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#b7742a]" style="width: 69%"></span></span>
+            <span class="text-right font-semibold text-ink">1,095</span>
+          </li>
+          <li class="grid grid-cols-1 sm:grid-cols-[280px_1fr_70px] items-center gap-x-6 gap-y-1.5">
+            <span class="text-[15px] font-semibold text-ink">Obstetrics and gynaecology <span class="font-normal text-placeholder">· 2 doctors</span></span>
+            <span class="h-2 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#5a3a7a]" style="width: 65%"></span></span>
+            <span class="text-right font-semibold text-ink">1,041</span>
+          </li>
+          <li class="grid grid-cols-1 sm:grid-cols-[280px_1fr_70px] items-center gap-x-6 gap-y-1.5">
+            <span class="text-[15px] font-semibold text-ink">ENT <span class="font-normal text-placeholder">· 1 doctor</span></span>
+            <span class="h-2 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#3a4a6a]" style="width: 32%"></span></span>
+            <span class="text-right font-semibold text-ink">512</span>
+          </li>
+          <li class="grid grid-cols-1 sm:grid-cols-[280px_1fr_70px] items-center gap-x-6 gap-y-1.5">
+            <span class="text-[15px] font-semibold text-ink">Dermatology <span class="font-normal text-placeholder">· 1 doctor</span></span>
+            <span class="h-2 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#8a5a2a]" style="width: 31%"></span></span>
+            <span class="text-right font-semibold text-ink">492</span>
+          </li>
+          <li class="grid grid-cols-1 sm:grid-cols-[280px_1fr_70px] items-center gap-x-6 gap-y-1.5">
+            <span class="text-[15px] font-semibold text-ink">Nephrology <span class="font-normal text-placeholder">· 1 doctor</span></span>
+            <span class="h-2 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#2a7a6a]" style="width: 30%"></span></span>
+            <span class="text-right font-semibold text-ink">487</span>
+          </li>
+          <li class="grid grid-cols-1 sm:grid-cols-[280px_1fr_70px] items-center gap-x-6 gap-y-1.5">
+            <span class="text-[15px] font-semibold text-ink">General surgery <span class="font-normal text-placeholder">· 1 doctor</span></span>
+            <span class="h-2 rounded-full bg-[#edf1f4]" aria-hidden="true"><span class="block h-full rounded-full bg-[#1d4f64]" style="width: 23%"></span></span>
+            <span class="text-right font-semibold text-ink">371</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Leaves and permissions -->
+      <section aria-labelledby="leaves-title" class="mt-6 p-5 sm:p-7 rounded-xl border border-[#e3eaef] bg-white">
+        <div class="flex flex-wrap items-baseline justify-between gap-3">
+          <h2 id="leaves-title" class="text-lg font-semibold text-ink">Leaves and permissions</h2>
+          <p class="text-sm text-subtle">1 waiting for you</p>
+        </div>
+        <ul class="mt-4 space-y-3">
+          <li class="flex flex-wrap items-center justify-between gap-3 p-4 rounded-lg border border-[#e3eaef] bg-[#fbfcfd]">
+            <div class="flex items-start gap-3">
+              <span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#f1e8fa] text-[#6b2fa0]">Leave</span>
+              <div>
+                <p class="text-[15px]"><span class="font-semibold text-ink">Dr Hema Bhat</span> <span class="text-subtle">· Obstetrics and gynaecology</span></p>
+                <p class="mt-0.5 text-sm text-subtle">6 – 8 Nov · 3 days · Conference in Mumbai</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded border border-[#f3d48a] bg-[#fdf6e3] text-[13px] font-semibold text-[#9a5b00]">Pending</span>
+              <button type="button" class="btn-outline h-9 px-4">Reject</button>
+              <button type="button" class="inline-flex items-center h-9 px-4 rounded-md bg-accent text-[15px] font-semibold text-white hover:bg-accent-hover">Approve</button>
+            </div>
+          </li>
+          <li class="flex flex-wrap items-center justify-between gap-3 p-4 rounded-lg border border-[#e3eaef] bg-[#fbfcfd]">
+            <div class="flex items-start gap-3">
+              <span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#f1e8fa] text-[#6b2fa0]">Leave</span>
+              <div>
+                <p class="text-[15px]"><span class="font-semibold text-ink">Dr Meera Iyer</span> <span class="text-subtle">· Cardiology</span></p>
+                <p class="mt-0.5 text-sm text-subtle">Today · 1 day · CME programme</p>
+              </div>
+            </div>
+            <span class="px-2.5 py-0.5 rounded-full border border-[#bfe6cb] bg-[#ebf8ef] text-[13px] font-medium text-[#1f7a46]">Approved</span>
+          </li>
+          <li class="flex flex-wrap items-center justify-between gap-3 p-4 rounded-lg border border-[#e3eaef] bg-[#fbfcfd]">
+            <div class="flex items-start gap-3">
+              <span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#e7f0f6] text-[#1f6fa8]">Permission</span>
+              <div>
+                <p class="text-[15px]"><span class="font-semibold text-ink">Dr Nikhil Joshi</span> <span class="text-subtle">· Orthopaedics</span></p>
+                <p class="mt-0.5 text-sm text-subtle">Today · 4:00 – 6:00 PM · Hospital committee meeting</p>
+              </div>
+            </div>
+            <span class="px-2.5 py-0.5 rounded-full border border-[#bfe6cb] bg-[#ebf8ef] text-[13px] font-medium text-[#1f7a46]">Approved</span>
+          </li>
+          <li class="flex flex-wrap items-center justify-between gap-3 p-4 rounded-lg border border-[#e3eaef] bg-[#fbfcfd]">
+            <div class="flex items-start gap-3">
+              <span class="px-2 py-0.5 rounded text-[13px] font-medium bg-[#f1e8fa] text-[#6b2fa0]">Leave</span>
+              <div>
+                <p class="text-[15px]"><span class="font-semibold text-ink">Dr Rohit Malhotra</span> <span class="text-subtle">· General medicine</span></p>
+                <p class="mt-0.5 text-sm text-subtle">23 – 24 Oct · 2 days · Personal</p>
+              </div>
+            </div>
+            <span class="px-2.5 py-0.5 rounded-full border border-[#bfe6cb] bg-[#ebf8ef] text-[13px] font-medium text-[#1f7a46]">Approved</span>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../js/modules/admin.js"></script>
+</body>
+</html>
